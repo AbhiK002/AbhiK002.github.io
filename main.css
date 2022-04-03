@@ -4,20 +4,38 @@ body {
     color: bisque;
 }
 
-.toplogoframe {height:70px; background-color: rgb(46, 28, 10); vertical-align: middle; text-align: center;}
+.toplogoframe {height:70px; background-color: rgb(46, 28, 10); text-align: center;}
 
 #biglogo {height:100%;}
 
 .maininfoframe {
-    height:170px; 
+    position:relative;
+    height:190px; 
     color: white;
-    background-image: url(https://user-images.githubusercontent.com/68178267/161428538-ec4902c0-f38c-4625-9b98-06199f730f06.png);
+    background-image: url(https://user-images.githubusercontent.com/68178267/161436496-5bdc4242-4d95-4265-b467-2e78de841e10.png);
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover; 
+    background-size: cover;
 }
 
-.maininfoframe h2, p {
-    width: 50%;
+.maininfotext{
+    padding-left: 1%;
+    height:100%;
+    overflow: hidden;
+    width: 45%;
     text-align: left;
+}
+
+#maininfodesc {
+    font-style: italic;
+    font-size: small;
+    text-align: justify;
+    margin-top: 10px;
+}
+
+#maininfotitle {
+    margin-bottom: 10px;
+    padding-top: 3%;
+    font-size: 24px;
+    font-weight: bold;
 }
