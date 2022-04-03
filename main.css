@@ -3,3 +3,21 @@ body {
     font-family: 'Cambria';
     color: bisque;
 }
+
+.toplogoframe {height:70px; background-color: rgb(46, 28, 10); vertical-align: middle; text-align: center;}
+
+#biglogo {height:100%;}
+
+.maininfoframe {
+    height:170px; 
+    color: white;
+    background-image: url(https://user-images.githubusercontent.com/68178267/161428538-ec4902c0-f38c-4625-9b98-06199f730f06.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+}
+
+.maininfoframe h2, p {
+    width: 50%;
+    text-align: left;
+}
