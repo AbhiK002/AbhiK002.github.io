@@ -20,8 +20,8 @@ body {
 
 .maininfotext{
     padding-left: 1%;
+    padding-right: 6px;
     height:100%;
-    overflow: hidden;
     width: 45%;
     text-align: left;
 }
@@ -38,4 +38,30 @@ body {
     font-size: medium;
     text-align: justify;
     margin-top: 10px;
+}
+
+.mainbuttonframe table {
+    background-color: rgba(243, 195, 136, 0.9);
+    margin-top: 8px;
+    width: 100%;
+    text-align: center;
+}
+
+.mainbuttonframe td{
+    border-right: 2px solid rgb(46, 28, 10);
+    width:30px;
+}
+
+.mainbuttonframe #buttonhome {
+    border-left-width: 0px;
+}
+.mainbuttonframe #buttoncontact {
+    border-right-width: 0px;
+}
+
+.mainbuttonframe a{
+    color: rgb(46, 28, 10);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: large;
 }
