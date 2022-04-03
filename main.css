@@ -26,16 +26,16 @@ body {
     text-align: left;
 }
 
-#maininfodesc {
-    font-style: italic;
-    font-size: small;
-    text-align: justify;
-    margin-top: 10px;
-}
-
 #maininfotitle {
     margin-bottom: 10px;
     padding-top: 3%;
     font-size: 24px;
     font-weight: bold;
+}
+
+#maininfodesc {
+    font-style: italic;
+    font-size: medium;
+    text-align: justify;
+    margin-top: 10px;
 }
