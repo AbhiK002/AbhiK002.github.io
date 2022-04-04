@@ -4,10 +4,12 @@ body {
     color: bisque;
 }
 
+/* Top Logo frame */
 .toplogoframe {height:70px; background-color: rgb(46, 28, 10); text-align: center;}
 
 #biglogo {height:100%;}
 
+/* Top Frame containing Short desc and food background */
 .maininfoframe {
     position:relative;
     height:190px; 
@@ -18,9 +20,12 @@ body {
     background-size: cover;
 }
 
+/* div containing text */
 .maininfotext{
     padding-left: 1%;
     padding-right: 6px;
+    max-height: max-content;
+    overflow-y: auto;
     height:100%;
     width: 45%;
     text-align: left;
@@ -28,29 +33,39 @@ body {
 
 #maininfotitle {
     margin-bottom: 10px;
-    padding-top: 3%;
+    padding-top: 5%;
     font-size: 24px;
     font-weight: bold;
 }
 
 #maininfodesc {
     font-style: italic;
-    font-size: medium;
+    font-size: 16px;
     text-align: justify;
     margin-top: 10px;
 }
 
-.mainbuttonframe table {
-    background-color: rgba(243, 195, 136, 0.9);
+/* Main menu */
+.mainbuttonframe #buttontable {
     margin-top: 8px;
     width: 100%;
     text-align: center;
 }
 
-.mainbuttonframe td{
-    border-right: 2px solid rgb(46, 28, 10);
+.mainbuttonframe #buttontable td{
+    background-color: rgb(243, 195, 136);
+    border-right: 1px solid rgb(46, 28, 10);
     width:30px;
 }
+
+.mainbuttonframe #buttontable td:hover>a, #buttontable td:hover {
+    background-color: rgb(100, 82, 61);
+    color: rgb(243, 195, 136);
+}
+.mainbuttonframe a:hover {
+    color: rgb(243, 195, 136);   
+}
+
 
 .mainbuttonframe #buttonhome {
     border-left-width: 0px;
@@ -64,4 +79,39 @@ body {
     text-decoration: none;
     font-weight: bold;
     font-size: large;
+}
+
+
+/* Main Content */
+.content {
+    background-color: rgb(46, 28, 10);
+    height: 100%;
+}
+
+.content #contenttable {
+    width:100%;
+}
+
+.content #contenttable td {
+    width:50%;
+    overflow-y: auto;
+}
+
+/* Home description */
+.content #homedescell {
+    border: 2px solid rgb(100, 82, 61);
+}
+
+.content #homedescription {
+    width:100%;
+    padding-top: 10%;
+    padding-bottom: 15%;
+}
+
+.content #homedescription h2, h4 {
+    text-align: center;
+}
+
+.content #homedescription #listspec {
+    padding-left: 15%;
 }
