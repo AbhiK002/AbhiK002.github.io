@@ -59,8 +59,8 @@
         <tr>
             <td id="homedescell">
                 <div id="homedescription">
-                    <h2>Welcome to our Restaurant!</h2>
-                    <h4>~ Our Specialities ~</h4>
+                    <h1>Welcome to our Restaurant!</h1>
+                    <h2>~ Yummy Delicacies ~</h2>
                     <div id="listspec">
                         <li>South Indian</li>
                         <li>North Indian</li>
@@ -69,7 +69,47 @@
                         <li>French</li>
                         <li>Desserts</li>
                         <li>American</li>
+                        <li>and more...</li>
                     </div>
+                </div>
+                <div id="feedbackdiv">
+                    <a href="#feedbackform">
+                        <button type="button" id="feedbackbutton">Give Feedback ▼</button>
+                    </a>
+                    <form id="feedbackform">
+                        <table id="feedbacktable">
+                            <tr>
+                                <td style="width: 20%">
+                                    <label>Name:</label>
+                                </td>
+                                <td style="text-align:left">
+                                    <input type="text" placeholder="Your Name Here" id="nameinput">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>E-mail:</label>
+                                </td>
+                                <td style="text-align:left">
+                                    <input type="text" placeholder="abc@xyz.com" id="emailinput">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label id="feedbacklabel">Feedback:</label>
+                                </td>
+                                <td style="text-align:left">
+                                    <textarea placeholder="Your Feedback" id="feedbackinput"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="text-align: center;">
+                                    <input type="submit" id="feedbacksubmit">
+                                    <input type="reset" id="feedbackreset">
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
                 </div>
             </td>
             <td id="homespecials">
