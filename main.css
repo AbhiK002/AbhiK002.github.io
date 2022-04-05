@@ -5,26 +5,39 @@ body {
 }
 
 /* Top Logo frame */
-.toplogoframe {height:70px; background-color: rgb(46, 28, 10); text-align: center;}
+.toplogoframe {height:70px; background-color: rgb(46, 28, 10); text-align: center;
+    background: url(https://user-images.githubusercontent.com/68178267/161711885-76550caf-75a7-4649-a2c0-3ee0403348b1.png) rgba(46, 28, 10, 0.82);
+    background-position: top;
+    background-blend-mode: multiply;
+    background-repeat: repeat;
+    background-size: 500px;}
 
-#biglogo {height:100%;}
+#biglogo {height:90%;}
 
 /* Top Frame containing Short desc and food background */
 .maininfoframe {
     position:relative;
+    width:100%;
     height:190px; 
     color: white;
-    background-image: url(https://user-images.githubusercontent.com/68178267/161436496-5bdc4242-4d95-4265-b467-2e78de841e10.png);
-    background-position: center;
+}
+
+.maininfoframe #mainbg-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url(https://user-images.githubusercontent.com/68178267/161721219-e240a1c4-135f-445f-a57e-2f811e425e6e.png);
     background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top;
     background-size: cover;
 }
 
 /* div containing text */
 .maininfotext{
+    position: absolute;
     padding-left: 1%;
     padding-right: 6px;
-    max-height: max-content;
     overflow-y: auto;
     height:100%;
     width: 45%;
@@ -79,103 +92,4 @@ body {
     font-size: medium;
     display: block;
     white-space: nowrap;
-}
-
-
-/* Main Content */
-.content {
-    background-color: rgb(46, 28, 10);
-    height: 100%;
-}
-
-.content #contenttable {
-    table-layout: fixed;
-    width:100%;
-}
-
-.content #contenttable td {
-    width:50%;
-    overflow-y: auto;
-}
-
-/* Home description */
-.content #homedescell {
-    border-right: 2px solid rgba(100, 82, 61, 0.3);
-}
-
-.content #homedescription {
-    width:100%;
-    padding-top: 10%;
-    padding-bottom: 10%;
-}
-
-.content #homedescription h1 {
-    text-align: center;
-    color:rgb(192, 146, 94)
-}
-
-.content #homedescription h2 {
-    text-align: center;
-    font-family: 'Times New Roman';
-    font-style: italic;
-}
-
-.content #homedescription #listspec {
-    padding-left: 15%;
-    font-size: 18px;
-    font-style: italic;
-}
-
-/* Feedback division */
-.content #feedbackdiv #feedbackbutton {
-    color:rgb(243, 195, 136);
-    background-color: rgb(100, 82, 61);
-    border-color: rgb(243, 195, 136);
-    margin-left: 15%;
-    margin-bottom: 10px;
-}
-
-#feedbackform {
-    display: none;
-}
-
-#feedbackform:target {
-    display: block;
-}
-
-.content #feedbackdiv #feedbacktable {
-    margin-left: 5%;
-    text-align: right;
-    white-space: nowrap;
-    overflow: hidden;
-    border: 2px solid rgba(192, 146, 94, 0.3);
-    padding: 4% 2% 1% 2%;
-}
-
-.content #feedbackdiv #feedbacktable td {
-    width: 1px;
-    overflow: hidden;
-}
-
-#nameinput, #emailinput, #feedbackinput {
-    background-color: rgb(243, 195, 136);
-    color:rgb(46, 28, 10);
-    font-family: "Calibri";
-    font-size: 15px;
-    border-width: 1px;
-    width: 80%;
-    margin-right: 20px;
-}
-
-#feedbacklabel {
-    text-align: top;
-}
-#feedbackinput {
-    resize: none;
-    height: 100px;
-}
-#feedbacksubmit, #feedbackreset {
-    background-color: rgb(100, 66, 28);
-    color: rgb(243, 195, 136);
-    font-weight: bold;
 }
