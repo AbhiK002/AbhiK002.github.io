@@ -7,6 +7,7 @@
 .content #contenttable {
     table-layout: fixed;
     width:100%;
+    height: 100%;
 }
 
 .content #contenttable td {
@@ -16,30 +17,40 @@
 
 /* Home description */
 .content #homedescell {
-    border-right: 2px solid rgba(100, 82, 61, 0.3);
-    background: url(https://user-images.githubusercontent.com/68178267/161711885-76550caf-75a7-4649-a2c0-3ee0403348b1.png) rgba(46, 28, 10, 0.82);
+    background-image: url("https://user-images.githubusercontent.com/68178267/161794289-3c233dc4-6637-4d92-84c7-5659300b0106.png");
     background-position: top;
     background-blend-mode: multiply;
     background-repeat: repeat;
     background-size: 500px;
+    border-bottom: 2px solid rgba(100, 82, 61, 0.3);
 }
 
 .content #homedescription {
     width:100%;
-    padding-top: 10%;
-    padding-bottom: 10%;
+    padding-top: 5%;
     border-bottom: 2px solid rgba(100, 82, 61, 0.3);
 }
 
 .content #homedescription h1 {
     text-align: center;
+    font-family: "Freestyle Script";
+    font-size: 58px;
+    font-weight: normal;
     color:rgb(192, 146, 94)
 }
 
 .content #homedescription h2 {
     text-align: center;
+    font-weight: normal;
     font-family: 'Times New Roman';
     font-style: italic;
+}
+
+.content #homedescription p {
+    font-size: 40px;
+    font-family: "Freestyle Script";
+    text-align: center;
+    color: rgb(233, 112, 60);
 }
 
 .content #homedescription #listspec {
@@ -49,21 +60,36 @@
 }
 
 /* Feedback division */
-.content #feedbackdiv #feedbackbutton {
+#feedbackdiv {
+    margin-top: 5%;
+}
+
+#feedbackmaintable {
+    table-layout: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+#feedbackmaintable #feedbackcell {
+    width: 80%;
+}
+
+#feedbackmaintable #caretagline {
+    color: rgb(239, 181, 128);
+    font-size: 42px;
+    font-family: "Freestyle Script";
+    text-align: left;
+    margin-left: 5%;
+    margin-top: 51px;
+}
+
+#feedbackbutton {
     color:rgb(243, 195, 136);
     background-color: rgb(100, 82, 61);
     border-color: rgb(243, 195, 136);
     margin-left: 15%;
     margin-bottom: 10px;
-    margin-top: 5%;
-}
-
-#feedbackform {
-    display: none;
-}
-
-#feedbackform:target {
-    display: block;
+    white-space: nowrap;
 }
 
 .content #feedbackdiv #feedbacktable {
@@ -79,6 +105,7 @@
 .content #feedbackdiv #feedbacktable td {
     width: 1px;
     overflow: hidden;
+    vertical-align: top;
 }
 
 #nameinput, #emailinput, #feedbackinput {
@@ -91,9 +118,6 @@
     margin-right: 20px;
 }
 
-#feedbacklabel {
-    text-align: top;
-}
 #feedbackinput {
     resize: none;
     height: 100px;
@@ -104,4 +128,29 @@
     font-weight: bold;
     border-color: rgb(192, 146, 94);
     border-width: 1px;
+}
+
+#homespecialscell {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-image: url(https://user-images.githubusercontent.com/68178267/161721219-e240a1c4-135f-445f-a57e-2f811e425e6e.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top;
+    background-size: cover;
+    vertical-align: middle;
+}
+
+#homespecialscell #homespecialsdiv {
+    text-align: center;
+    position: relative;
+    margin: 5% 5% 5% 5%;
+    width: 90%;
+    height: 90%;
+    background-image: url("https://user-images.githubusercontent.com/68178267/161794289-3c233dc4-6637-4d92-84c7-5659300b0106.png");
+    background-position: top;
+    background-blend-mode: multiply;
+    background-repeat: repeat;
+    background-size: 500px;
 }
