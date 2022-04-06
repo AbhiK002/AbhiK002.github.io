@@ -21,10 +21,12 @@ function setlink(self, id) {
     document.getElementById(id).setAttribute("href", self);
 }
 
-function assignlinks() {
+function assignsourcefiles() {
     setlink(filelinks.maincss, "maincsslinker");
     setlink(filelinks.css1, "css1linker");
+}
 
+function assignlinks() {
     setlink(contentlinks.home, "toplogoimagelink");
     
     setlink(contentlinks.home, "homelink");
