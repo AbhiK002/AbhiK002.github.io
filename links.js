@@ -1,5 +1,5 @@
 contentlinks = {
-    home: "index.html",
+    home: "https://abhik002.github.io/",
     aboutUs: "aboutus.html",
     menu: "menu.html",
     gallery: "gallery.html",
@@ -8,13 +8,13 @@ contentlinks = {
 }
 
 filelinks = {
-    maincss: "css/main.css",
-    css1: "css/content1home.css",
-    css2: "css/content2aboutus.css",
-    css3: "css/content3menu.css",
-    css4: "css/content4gallery.css",
-    css5: "css/content5healthtips.css",
-    css6: "css/content6contactus.css",
+    maincss: "/css/main.css",
+    css1: "/css/content1home.css",
+    css2: "/css/content2aboutus.css",
+    css3: "/css/content3menu.css",
+    css4: "/css/content4gallery.css",
+    css5: "/css/content5healthtips.css",
+    css6: "/css/content6contactus.css",
 }
 
 function setlink(self, id) {
