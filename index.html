@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script type="text/javascript" src="links.js"></script>
     <link rel = "icon" href =
 "https://user-images.githubusercontent.com/68178267/161440710-5af8ebed-17fb-48f9-806e-9eab594d29a8.png"
         type = "image/png">
-    <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="/css/content1home.css">
+    <link rel="stylesheet" id="maincsslinker">
+    <link rel="stylesheet" id="css1linker">
     <title>Vyanjan - where variety meets taste...</title>
 </head>
 <body>
     <div class="toplogoframe">
-        <a href="https://abhik002.github.io/">
+        <a id="toplogoimagelink">
             <img id="biglogo" src="https://user-images.githubusercontent.com/68178267/161441059-55d30593-ff92-4557-bf27-84826f9da348.png">
         </a>
     </div>
@@ -32,24 +33,24 @@
         <table id="buttontable">
             <tr>
         <td id="buttonhome">
-            <a href="https://abhik002.github.io/">Home</a>
+            <a id="homelink">Home</a>
         </td>
     
         <td id="buttonabout">
-            <a href="index.html">About</a>
+            <a id="aboutuslink">About</a>
         </td>
     
         <td id="buttonmenu">
-            <a href="index.html">Menu</a>
+            <a id="menulink">Menu</a>
         </td> 
         <td id="buttongallery">
-            <a href="index.html">Gallery</a>
+            <a id="gallerylink">Gallery</a>
         </td>
         <td id="buttonhtips">
-            <a href="index.html">Health Tips</a>
+            <a id="healthtipslink">Health Tips</a>
         </td>
         <td id="buttoncontact">
-            <a href="index.html">Contact Us</a>
+            <a id="contactuslink">Contact Us</a>
         </td>
             </tr>
         </table>
@@ -129,5 +130,8 @@
             </tr>
         </table>
     </div>
+<script>
+    assignlinks()
+</script>
 </body>
 </html>
