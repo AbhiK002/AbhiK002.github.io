@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script type="text/javascript" src="main.js"></script>
     <link rel = "icon" href =
 "https://user-images.githubusercontent.com/68178267/161440710-5af8ebed-17fb-48f9-806e-9eab594d29a8.png"
         type = "image/png">
@@ -78,7 +79,7 @@
                         <table id="feedbackmaintable">
                             <tr>
                                 <td id="feedbackcell">
-                            <button type="button" id="feedbackbutton">Give Feedback ▼</button>
+                            <button type="button" id="feedbackbutton" onclick=toggleFeedback()>Give Feedback ▼</button>
                         <form id="feedbackform">
                             <table id="feedbacktable">
                                 <tr>
@@ -107,15 +108,21 @@
                                 </tr>
                                 <tr>
                                     <td colspan="2" style="text-align: center;">
-                                        <input type="submit" id="feedbacksubmit">
+                                        <input type="button" value="Submit" id="feedbacksubmit" onclick="submitFeedback()">
                                         <input type="reset" id="feedbackreset">
                                     </td>
                                 </tr>
+                                
                             </table>
                         </form>
                                 </td>
                                 <td>
-                                    <pre id="caretagline">We<br>  Care<br>   About<br>    Your<br>     Opinion...</pre>
+                                    <pre id="caretagline">We<br>Care<br> About<br>  Your<br>  Opinion</pre>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center" colspan="2">
+                                    <p id="feedbackstatus"></p>
                                 </td>
                             </tr>
                         </table>
@@ -124,7 +131,9 @@
     
                 <td id="homespecialscell">
                     <div id="homespecialsdiv">
-                        
+                        <p id="abc">
+                            
+                        </p>
                     </div>
                 </td>
             </tr>
