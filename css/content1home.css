@@ -7,6 +7,7 @@
 .content {
     background-color: rgb(46, 28, 10);
     height: 100%;
+    margin-top: -2px
 }
 
 .content #contenttable {
@@ -32,7 +33,6 @@
 
 .content #homedescription {
     width:100%;
-    padding-top: 5%;
     border-bottom: 2px solid rgba(100, 82, 61, 0.3);
 }
 
@@ -98,13 +98,14 @@
 }
 
 .content #feedbackdiv #feedbacktable {
-    margin-left: 5%;
+    margin-left: 3%;
     text-align: right;
     white-space: nowrap;
     overflow: hidden;
     background-color: rgb(47, 37, 25);
     border: 2px solid rgba(192, 146, 94, 0.3);
     padding: 4% 2% 1% 2%;
+    visibility: hidden;
 }
 
 .content #feedbackdiv #feedbacktable td {
@@ -133,6 +134,11 @@
     font-weight: bold;
     border-color: rgb(192, 146, 94);
     border-width: 1px;
+}
+
+#feedbackstatus {
+    color:rgb(233, 112, 60);
+    font-size: 13px;
 }
 
 #homespecialscell {
