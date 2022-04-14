@@ -14,24 +14,27 @@ function setvalue(id, self) {
     document.getElementById(id).value = self;
 }
 
-function setattr(id, attr, value) {
-    document.getElementById(id).setAttribute(attr, value);
+function setvis(id, value) {
+    if(value == "0"){
+    document.getElementById(id).style.visibility = "hidden";}
+    else{
+        document.getElementById(id).style.visibility = "visible";}
 }
 
-function getattr(id, attr) {
-    return String(document.getElementById(id).getAttribute(attr));
+function getvis(id) {
+    return document.getElementById(id).style.visibility;
 }
 
 function toggleFeedback() {
-    let styleattr = getattr("feedbacktable", "style");
-    if(styleattr.includes("visibility: visible")){
-        setattr("feedbacktable", "style", "visibility: hidden");
-        setdata("feedbackbutton", "Give Feedback ▼")
-    }
-    else{
-        setattr("feedbacktable", "style", "visibility: visible")
+    let styleattr = getvis("feedbacktable");
+    if(styleattr == "hidden"){
+        setvis("feedbacktable", "1");
         setdata("feedbackbutton", "Give Feedback ▶")
         setdata("feedbackstatus", "")
+    }
+    else{
+        setvis("feedbacktable", "0")
+        setdata("feedbackbutton", "Give Feedback ▼")
     }
 }
 
