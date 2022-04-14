@@ -1,0 +1,225 @@
+#nonmain {
+    width: 100%;
+    height:100%;
+}
+
+/* Main Content */
+#content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+/* Home description */
+#homedescription {
+    border: rgba(192, 146, 94, 0) solid;
+    border-bottom: 2px solid rgba(100, 82, 61, 0.3);
+    width: 50%;
+    min-width: 250px;
+    text-align: center;
+}
+
+#homedescription h1 {
+    font-family: "FreestyleScript";
+    font-size: 60px;
+    font-weight: normal;
+    color:rgb(192, 146, 94)
+}
+
+#homedescription h2 {
+    text-align: center;
+    font-size: 32px;
+    font-weight: normal;
+    font-family: 'Times New Roman';
+    font-style: italic;
+}
+
+#homedescription p {
+    font-size: 42px;
+    font-family: "FreestyleScript";
+    text-align: center;
+    color: rgb(233, 112, 60);
+    margin-bottom: 6px;
+}
+
+#homedescription #listspec {
+    text-align: left;
+    padding-left: 15%;
+    font-size: 20px;
+    font-style: normal;
+}
+
+#homedescbutton {
+    text-align: center;
+    font-size: 18px;
+    background-color: rgba(100, 66, 28, 0.6);
+    color: rgb(233, 146, 66);
+    border-radius: 20px;
+    border-color: rgb(225, 150, 118);
+    margin-bottom: 30px;
+}
+
+/* Special division */
+#homespecials {
+    border-left: 2px solid rgba(192, 146, 94, 0.3);
+    width: 50%;
+    min-width: 350px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+#rotd {
+    width:100%;
+    margin-top: 4%;
+}
+
+#rotdtable {
+    padding-left: 10px; padding-right: 10px;
+    width: 90%;
+    background-color: rgba(231, 151, 60, 0.2);
+    border: 2px solid rgba(192, 146, 94, 0.3);
+    margin-left: 5%;
+    border-radius: 20px;
+}
+#rotdtable td {padding-bottom: 5px;}
+
+#rotdtitle {font-size: 26px; font-style: italic; font-weight: bold; text-align: center; color: rgb(233, 112, 60); height: 2px;}
+#rotdname {font-size: 20px; font-weight: bold; text-align: left; height: 1px;}
+#rotdinfo {font-size:17px; text-align: left; text-align: justify;}
+
+#rotdpic {padding-left:5px;
+    width: 120px;
+    border-radius: 50%;
+}
+
+#rotdbutton {
+    color:rgb(243, 195, 136);
+    background-color: rgba(100, 82, 61, 0.5);
+    border-color: rgb(243, 195, 136);
+    white-space: nowrap;
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+#sploffers {width:100%; height:200px}
+
+#splofferstitle {font-size: 48px; font-family: "FreestyleScript"; margin-bottom: 10px;}
+
+.offer {
+    color: black;
+    height: 60%;
+    width: 30%;
+    max-width: 300px;
+    margin-left: 2.5%;
+    float: left;
+    border-radius: 10px;
+    word-wrap: break-word;
+    border: 1px solid rgba(243, 195, 136, 0.7);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.offercode {font-size: 22px; text-decoration: underline; text-underline-offset: 2px; margin-top: 10px; margin-bottom: 2px;font-weight: bold;}
+.offerdesc {font-weight: bold; margin-top: 5%; font-size: 18px;}
+
+#offer1 {background-image:url(../data/offer01.png)}
+#offer2 {background-image:url(../data/offer02.png)}
+#offer3 {background-image:url(../data/offer03.png)}
+
+/* Feedback division */
+#feedbackdiv {
+    width: 100%;
+    text-align: center;
+    border-bottom: 2px solid rgba(100, 82, 61, 0.3);
+    background: url(../data/feedbackbg.png) rgba(46, 28, 10, 0.5);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 0px 0px 40px 40px;
+}
+
+
+#feedbackbutton {
+    font-size: 18px;
+    margin-top: 3%;
+    color:rgb(243, 195, 136);
+    background-color: rgba(100, 82, 61, 0.5);
+    border-color: rgb(243, 195, 136);
+    margin-bottom: 10px;
+    white-space: nowrap;
+    border-radius: 10px;
+}
+
+#feedbackcontainer {
+    width: 100%;
+}
+
+#feedbacktable {
+    display: inline-block;
+    padding: 5px;
+    white-space: nowrap;
+    text-align: right;
+    background-color: rgba(47, 37, 25, 0.4);
+    border: 2px solid rgba(192, 146, 94, 0.3);
+    width: 100%;
+    padding-left: 2%;
+    min-width: 340px;
+    max-width: 340px;
+    overflow: auto;
+    visibility: visible;
+    border-radius: 20px;
+}
+
+#feedbacktable td {
+    font-size: 18px;
+    vertical-align: top;
+}
+
+#nameinput, #emailinput, #feedbackinput {
+    font-size: 18px;
+    background-color: rgba(243, 195, 136, 0.7);
+    color:black;
+    font-family: "Calibri";
+    border-width: 0px;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.fbc1 {
+    width: 34%}
+
+#feedbackinput {
+    resize: none;
+    height: 100px;
+}
+
+#feedbacksubmit, #feedbackreset {
+    background-color: rgba(100, 66, 28, 0.6);
+    color: rgb(243, 195, 136);
+    font-weight: bold;
+    border-color: rgb(192, 146, 94);
+    border-width: 1px;
+    border-radius: 8px;
+    font-size: 17px;
+}
+
+#caretagline {
+    display: inline-block;
+    color: rgb(239, 181, 128);
+    font-size: 48px;
+    font-family: "FreestyleScript";
+    text-align: center;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+#fbstatusdiv {
+    height: 18px;
+}
+
+#feedbackstatus {
+    color:rgb(225, 150, 118);
+    font-weight: bold;
+    font-size: 17px;
+}

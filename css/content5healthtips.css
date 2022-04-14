@@ -1,0 +1,26 @@
+#ht-tips {
+    width: 100%;
+}
+
+#ht-title {
+    text-align: center;
+    color: rgb(247, 124, 48);
+    font-family: "FreestyleScript";
+    font-size: 60px;
+}
+
+#ht-content {
+    padding: 20px;
+    padding-bottom: 40px;
+    font-size: 22px;
+    background-color: rgba(240, 153, 40, 0.133);
+    border:2px solid rgb(255, 98, 0);
+    border-radius: 40px;
+}
+.ht-subtitle {
+    font-family: "Georgia";
+    font-weight: bold;
+    color: rgb(240, 200, 40);
+    font-size: 28px;
+    margin-bottom: 5px;
+}

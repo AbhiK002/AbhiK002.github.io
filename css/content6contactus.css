@@ -1,0 +1,26 @@
+#nonmain, #physical-header {
+    text-align: center;
+    font-size: 75px;
+    font-family: "FreestyleScript";
+    color: rgb(230, 102, 16);
+    border-bottom: 2px solid rgba(230, 102, 16, 0.527);
+    margin-bottom: 0px;
+}
+
+#bottom-panel .links{
+    font-size: 20px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+#bottom-panel #bottomcont {
+    font-size: 24px;
+}
+
+#bottomcont .subheader {
+    color: rgb(255, 79, 21);
+}
+
+#lowest {
+    font-size: 20px;
+}
