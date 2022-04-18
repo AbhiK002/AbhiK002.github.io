@@ -13,7 +13,7 @@
 /* Home description */
 #homedescription {
     border: rgba(192, 146, 94, 0) solid;
-    border-bottom: 2px solid rgba(100, 82, 61, 0.3);
+    border-bottom: 2px solid rgba(134, 89, 37, 0.3);
     width: 50%;
     min-width: 250px;
     text-align: center;
@@ -23,7 +23,7 @@
     font-family: "FreestyleScript";
     font-size: 60px;
     font-weight: normal;
-    color:rgb(192, 146, 94)
+    color:rgb(211, 125, 27)
 }
 
 #homedescription h2 {
@@ -38,7 +38,7 @@
     font-size: 42px;
     font-family: "FreestyleScript";
     text-align: center;
-    color: rgb(233, 112, 60);
+    color: rgb(206, 102, 57);
     margin-bottom: 6px;
 }
 
@@ -52,10 +52,10 @@
 #homedescbutton {
     text-align: center;
     font-size: 18px;
-    background-color: rgba(100, 66, 28, 0.6);
-    color: rgb(233, 146, 66);
+    background-color: rgba(238, 187, 128, 0.6);
+    color: rgb(107, 69, 33);
     border-radius: 20px;
-    border-color: rgb(225, 150, 118);
+    border-color: rgb(232, 81, 16);
     margin-bottom: 30px;
 }
 
@@ -76,14 +76,14 @@
 #rotdtable {
     padding-left: 10px; padding-right: 10px;
     width: 90%;
-    background-color: rgba(231, 151, 60, 0.2);
+    background-color: rgba(255, 138, 4, 0.2);
     border: 2px solid rgba(192, 146, 94, 0.3);
     margin-left: 5%;
     border-radius: 20px;
 }
 #rotdtable td {padding-bottom: 5px;}
 
-#rotdtitle {font-size: 26px; font-style: italic; font-weight: bold; text-align: center; color: rgb(233, 112, 60); height: 2px;}
+#rotdtitle {font-size: 26px; font-style: italic; font-weight: bold; text-align: center; color: rgb(197, 86, 38); height: 2px;}
 #rotdname {font-size: 20px; font-weight: bold; text-align: left; height: 1px;}
 #rotdinfo {font-size:17px; text-align: left; text-align: justify;}
 
@@ -93,9 +93,9 @@
 }
 
 #rotdbutton {
-    color:rgb(243, 195, 136);
-    background-color: rgba(100, 82, 61, 0.5);
-    border-color: rgb(243, 195, 136);
+    color:rgb(90, 62, 28);
+    background-color: rgb(235, 182, 121);
+    border-color: rgb(205, 143, 67);
     white-space: nowrap;
     border-radius: 10px;
     font-size: 18px;
@@ -131,9 +131,10 @@
 #feedbackdiv {
     width: 100%;
     text-align: center;
-    border-bottom: 2px solid rgba(100, 82, 61, 0.3);
-    background: url(../data/feedbackbg.png) rgba(46, 28, 10, 0.5);
+    border-bottom: 2px solid rgba(135, 112, 87, 0.3);
+    background: url(../data/feedbackbgp.png);
     background-repeat: no-repeat;
+    background-attachment: fixed;
     background-size: cover;
     background-position: center;
     border-radius: 0px 0px 40px 40px;
@@ -143,9 +144,9 @@
 #feedbackbutton {
     font-size: 18px;
     margin-top: 3%;
-    color:rgb(243, 195, 136);
-    background-color: rgba(100, 82, 61, 0.5);
-    border-color: rgb(243, 195, 136);
+    color:rgb(45, 36, 25);
+    background-color: rgba(248, 203, 152, 0.999);
+    border-color: rgb(216, 158, 86);
     margin-bottom: 10px;
     white-space: nowrap;
     border-radius: 10px;
@@ -160,8 +161,8 @@
     padding: 5px;
     white-space: nowrap;
     text-align: right;
-    background-color: rgba(47, 37, 25, 0.4);
-    border: 2px solid rgba(192, 146, 94, 0.3);
+    background-color: rgba(224, 185, 137, 0.744);
+    border: 2px solid rgba(66, 48, 28, 0);
     width: 100%;
     padding-left: 2%;
     min-width: 340px;
@@ -178,7 +179,7 @@
 
 #nameinput, #emailinput, #feedbackinput {
     font-size: 18px;
-    background-color: rgba(243, 195, 136, 0.7);
+    background-color: rgba(255, 255, 255, 0.7);
     color:black;
     font-family: "Georgia";
     border-width: 0px;
@@ -187,7 +188,7 @@
 }
 
 .fbc1 {
-    width: 34%}
+    width: 21px}
 
 #feedbackinput {
     resize: none;
@@ -195,18 +196,18 @@
 }
 
 #feedbacksubmit, #feedbackreset {
-    background-color: rgba(100, 66, 28, 0.6);
-    color: rgb(243, 195, 136);
+    background-color: rgba(230, 141, 39, 0.6);
+    color: rgb(46, 36, 21);
     font-weight: bold;
-    border-color: rgb(192, 146, 94);
-    border-width: 1px;
+    border-color: rgb(205, 161, 108);
     border-radius: 8px;
+    border-width: 2px;
     font-size: 17px;
 }
 
 #caretagline {
     display: inline-block;
-    color: rgb(239, 181, 128);
+    color: rgb(69, 39, 38);
     font-size: 48px;
     font-family: "FreestyleScript";
     text-align: center;
@@ -219,7 +220,7 @@
 }
 
 #feedbackstatus {
-    color:rgb(225, 150, 118);
+    color:rgb(68, 37, 37);
     font-weight: bold;
     font-size: 17px;
 }
