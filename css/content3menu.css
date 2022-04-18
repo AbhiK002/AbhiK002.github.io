@@ -1,7 +1,7 @@
 #nonmain {
     display: flex;
     padding-bottom: 60px;
-    border-bottom: 2px solid rgba(238, 126, 81, 0.386);
+    border-bottom: 2px solid rgba(103, 33, 5, 0.386);
 }
 
 #nonmain a {
@@ -14,7 +14,7 @@
     min-width: 140px;
     max-width: 190px;
     float: left;
-    background-color: rgba(100, 93, 83, 0.736);
+    background-color: rgba(230, 177, 102, 0.503);
     border-radius: 20px 20px;
     margin: 5px 0px;
     padding: 2px;
@@ -29,14 +29,14 @@
 }
 
 .indexheader {
-    color: rgb(231, 109, 61);
+    color: rgb(177, 60, 13);
     font-family: "Georgia";
     font-style: italic;
     font-size: 22px;
 }
 
 .indexmainheader {
-    color: rgb(249, 191, 15);
+    color: rgb(224, 49, 55);
     font-family: "FreestyleScript";
     font-size: 40px;
 }
@@ -55,16 +55,16 @@
 
 .menu-title {
     text-align: center;
-    color: rgb(238, 207, 55);
+    color: rgb(187, 165, 54);
     font-size: 40px;
     font-family: "FreestyleScript";
 }
 
 .menu-subcategory {
-    color: rgb(249, 191, 15);
+    color: rgb(209, 95, 34);
     font-family: "Georgia";
     font-size: 28px;
-    border-bottom: 2px solid rgba(249, 190, 15, 0.595);
+    border-bottom: 2px solid rgba(151, 87, 50, 0.595);
     padding-top: 20px;
     vertical-align: middle;
 }
