@@ -123,16 +123,16 @@
 .offercode {font-size: 22px; text-decoration: underline; text-underline-offset: 2px; margin-top: 10px; margin-bottom: 2px;font-weight: bold;}
 .offerdesc {font-weight: bold; margin-top: 5%; font-size: 18px;}
 
-#offer1 {background-image:url(../data/offer01.png)}
-#offer2 {background-image:url(../data/offer02.png)}
-#offer3 {background-image:url(../data/offer03.png)}
+#offer1 {background-image:url(../data/offer01.jpg)}
+#offer2 {background-image:url(../data/offer02.jpg)}
+#offer3 {background-image:url(../data/offer03.jpg)}
 
 /* Feedback division */
 #feedbackdiv {
     width: 100%;
     text-align: center;
     border-bottom: 2px solid rgba(135, 112, 87, 0.3);
-    background: url(../data/feedbackbgp.png);
+    background: url(../data/feedbackbgp.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
