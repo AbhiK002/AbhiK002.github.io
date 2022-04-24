@@ -4,11 +4,6 @@
 }
 
 @font-face {
-    font-family: Cambria;
-    src: url("../css/fonts/cambria.ttc")
-}
-
-@font-face {
     font-family: Georgia;
     src: url("../css/fonts/georgia.ttf");
 }
@@ -24,7 +19,7 @@ body {
     background-blend-mode: multiply;
     background-repeat: repeat;
     background-size: 500px;
-    font-family: 'Cambria';
+    font-family: 'Georgia';
     color: rgb(35, 32, 29);
 }
 
@@ -151,7 +146,7 @@ body {
 }
 
 #bottomcont pre {
-    font-family: 'Cambria';
+    font-family: 'Georgia';
     white-space: pre-wrap; 
     text-align: center;  
 }
