@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Abhineet's Website Designs</title>
+
+    <link rel="icon" href="./tab-icon.png">
+    <link rel="stylesheet" href="./index_style.css">
+</head>
+
+<body>
+    <div id="div-main">
+        <div class="div-top">
+            <img id=logo-image src="./mainlogo.svg" alt="(AK)">
+            <div class="nav-bar">
+                <a href="./index.html" id="link-home">HOME</a>
+                <a href="" id="link-about">ABOUT</a>
+                <a href="" id="link-contact">CONTACT</a>
+            </div>
+            <span></span>
+            <div class="menu-icon" onclick="toggleMenu()">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </div>
+            <script>
+                menuButton = document.getElementsByClassName("menu-icon")[0]
+                navMenu = document.getElementsByClassName("nav-bar")[0]
+                
+                function toggleMenu(){
+                    navMenu.classList.toggle('active');
+                }
+            </script>
+        </div>
+        <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit amet ante viverra ligula vehicula egestas in in nisi. Proin nulla dolor, pretium non luctus a, consectetur id ligula. Etiam ut vulputate felis. Ut euismod mauris enim, nec venenatis tortor tincidunt auctor. Maecenas et mattis nisl. Duis eget magna velit. Quisque condimentum aliquet est, ut faucibus leo efficitur vitae. Nullam elementum nunc nec nibh dignissim, a laoreet justo lobortis.
+
+            Vivamus a nisi ornare, sollicitudin nulla sed, accumsan tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mauris nulla, egestas aliquet turpis commodo, tincidunt lacinia ipsum. Aenean ultricies nulla sit amet ante tincidunt, sed accumsan est tempus. Mauris sit amet eleifend lacus. Aenean mattis sollicitudin volutpat. Nam euismod nisl nisi, eu ullamcorper arcu lacinia vitae.
+            
+            Mauris lacus massa, porttitor pharetra nisl at, porta ornare dui. Curabitur ultrices vestibulum ligula, eu ultricies mi. Vestibulum nunc neque, volutpat ac odio egestas, ullamcorper viverra mauris. Fusce vitae turpis tincidunt, congue mauris eget, egestas est. Duis ullamcorper metus id lectus tincidunt, non dictum neque rhoncus. Quisque risus lectus, rhoncus id nulla sed, dapibus fringilla justo. In gravida, purus dictum molestie porta, nulla augue suscipit sapien, quis bibendum est velit ac lectus. Nullam ornare mattis luctus. Nam ac nisi sed neque ullamcorper finibus.</h2>
+        
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,119 @@
+html{
+    height: 100%;
+}
+
+body {
+    background: linear-gradient(145deg,
+                rgb(219, 232, 255) 0%, 
+                rgb(203, 203, 248) 20%, 
+                rgb(225, 201, 253) 40%, 
+                rgb(254, 194, 223) 60%, 
+                rgb(248, 188, 188) 80%, 
+                rgb(255, 222, 187) 100%);
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+}
+
+#div-main {
+    color: black;
+    font-family: "Segoe UI";
+    font-weight: lighter;
+}
+
+.div-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 0.2rem;
+    background: linear-gradient(145deg,
+                rgba(219, 232, 255, 0.9) 0%, 
+                rgba(203, 203, 248, 0.9) 20%, 
+                rgba(225, 201, 253, 0.9) 40%, 
+                rgba(254, 194, 223, 0.9) 60%, 
+                rgba(248, 188, 188, 0.9) 80%, 
+                rgba(255, 222, 187, 0.9) 100%);
+    background-attachment: fixed;
+    backdrop-filter: blur(10px);
+    position: sticky; top: 0;
+    border-bottom: 0.1rem solid rgba(0, 0, 0, 0.206);
+}
+
+#logo-image {
+    height: 3.4rem;
+    padding-left: .3rem;
+    transition: height 400ms;
+}
+.nav-bar a{
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bolder;
+    margin: 0px 15px;
+    transition: color 0.3s, border-color 0.3s;
+    border-bottom: 2px solid;
+    padding-bottom: 5px;
+    border-color: rgba(125, 0, 92, 0);
+}
+
+.nav-bar a:hover {
+    color: rgb(125, 0, 92, 1);
+    border-color: rgb(125, 0, 92, 1);
+}
+
+#link-home {
+    color: rgba(125, 0, 92, 1);
+    border-color: rgba(125, 0, 92, 1);
+}
+
+.menu-icon {
+    position: absolute;
+    top: .6rem;
+    right: 0;
+    margin-right: 0.6rem;
+    display: none;
+    color: white;
+    border-radius: 20px;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 32px;
+    height: 26px;
+    cursor: pointer;
+}
+
+.menu-icon .icon-bar {
+    height: 0.4rem;
+    width: 100%;
+    background: linear-gradient(
+    rgba(64, 0, 104, 0.9) 0%, 
+    rgba(136, 4, 19, 0.9) 100%);
+    border-radius: 20px;
+}
+
+@media (max-width: 690px) {
+    .menu-icon {display: flex}
+
+    .div-top {
+        flex-direction: column; 
+        align-items: center;
+    }
+    .nav-bar {
+        display: none;
+        text-align: center;
+        justify-content: center;
+        width: 100%;
+        padding: 0.2rem 0;
+    }
+    .nav-bar.active {
+        display: flex;
+    }
+    .nav-bar a {
+        font-size: 16px;
+        padding: 0.1rem;
+    }
+    #logo-image {align-self: flex-start; height: 2.8rem}
+
+}
+
+
