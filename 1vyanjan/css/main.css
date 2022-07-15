@@ -1,0 +1,165 @@
+@font-face {
+    font-family: FreestyleScript;
+    src: url("../css/fonts/FREESTYLE.TTF");
+}
+
+@font-face {
+    font-family: Cambria;
+    src: url("../css/fonts/cambria.ttc")
+}
+
+@font-face {
+    font-family: Georgia;
+    src: url("../css/fonts/georgia.ttf");
+}
+
+body {
+    background-color: rgb(241, 221, 205);
+    min-width: fit-content;
+}
+
+#parent {
+    background-image: url("../data/homebg.jpg");
+    background-position: top;
+    background-blend-mode: multiply;
+    background-repeat: repeat;
+    background-size: 500px;
+    font-family: 'Cambria';
+    color: rgb(35, 32, 29);
+}
+
+/* Top Logo frame */
+.toplogoframe {height:70px; text-align: center;
+}
+
+#biglogo {height:90%;}
+
+/* Top Frame containing Short desc and food background */
+.maininfoframe {
+    position:relative;
+    width:100%;
+    height:190px; 
+    color: rgb(12, 8, 6);
+    font-weight: bold;
+}
+
+.maininfoframe #mainbg-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url("../data/pastabgtrans.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top;
+    background-size: cover;
+    border-radius: 20px 20px 0px 0px;
+}
+
+/* div containing text */
+.maininfotext{
+    position: absolute;
+    padding-left: 1%;
+    padding-right: 6px;
+    overflow-y: auto;
+    height:100%;
+    width: 45%;
+    text-align: left;
+    min-width: 400px;
+}
+
+#maininfotitle {
+    margin-bottom: 10px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#maininfodesc {
+    font-style: italic;
+    font-size: 18px;
+    text-align: justify;
+    margin-top: 10px;
+}
+
+/* Main menu */
+.mainbuttonframe #buttontable {
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    table-layout: fixed;
+    position: relative;
+    min-width: 670px;
+    width: 100%;
+    height: 100%;
+}
+
+.mainbuttonframe #buttontable td{
+    background-color: rgba(249, 161, 54, 0.7);
+    overflow: hidden;
+    width:30px;
+}
+
+.mainbuttonframe #buttontable td:hover>a, #buttontable td:hover {
+    background-color: rgb(58, 45, 28);
+    color: rgb(204, 150, 84);
+}
+
+.mainbuttonframe #buttonhome {
+    border-left-width: 0px;
+}
+.mainbuttonframe #buttoncontact {
+    border-right-width: 0px;
+}
+
+.mainbuttonframe a{
+    color: rgb(46, 28, 10);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    display: block;
+    white-space: nowrap;
+}
+
+#bottom-panel {
+    font-size: 18px;
+    width: 100%;
+    padding-bottom: 10px;
+}
+
+#bottom-panel a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+#bottom-panel-table {
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+}
+
+#bottom-panel-table td {
+    width: 50%;
+}
+
+#bottom-panel-table .bottomtitle {
+    font-family: "FreestyleScript";
+    font-size: 40px;
+    color: rgb(186, 82, 43);
+}
+
+#bottomcont {
+    text-align: left; height: 70px; color: rgb(90, 54, 25); vertical-align: bottom;
+}
+
+#bottomcont pre {
+    font-family: 'Cambria';
+    white-space: pre-wrap; 
+    text-align: center;  
+}
+
+#fbline {
+    color: rgb(30, 109, 56)
+}
+
+#fbline a {
+    text-decoration: underline;
+}
