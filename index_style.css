@@ -50,7 +50,7 @@ body {
     padding-bottom: 5px;
     border-color: rgba(125, 0, 92, 0);
 }
-.nav-bar {transition: height 400ms;}
+.nav-bar {transition: height 200ms;}
 .nav-bar a:hover {
     color: rgb(125, 0, 92, 1);
     border-color: rgb(125, 0, 92, 1);
