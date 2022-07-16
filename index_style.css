@@ -50,7 +50,8 @@ body {
     font-size: 18px;
     font-weight: bolder;
     margin: 0px 15px;
-    transition: color 0.3s, border-color 0.3s;
+    transition: color 0.3s, border-color 0.3s,
+    font-size 0.4s, padding-bottom 0.4s;
     border-bottom: 2px solid;
     padding-bottom: 5px;
     border-color: rgba(125, 0, 92, 0);
@@ -90,8 +91,18 @@ body {
     rgba(136, 4, 19, 0.9) 100%);
     border-radius: 20px;
 }
-
 @media (max-width: 690px) {
+    #logo-image {
+        align-self: flex-start; 
+        height: 3.0rem
+    }
+    .nav-bar a {
+            font-size: 16px;
+            padding: 0.1rem;
+    }
+}
+
+@media (max-width: 569px) {
     .menu-icon {display: flex}
 
     .div-top {
@@ -109,9 +120,8 @@ body {
         display: flex;
     }
     .nav-bar a {
-        font-size: 16px;
+        font-size: 15px;
         padding: 0.1rem;
     }
     #logo-image {align-self: flex-start; height: 2.6rem}
-
 }
