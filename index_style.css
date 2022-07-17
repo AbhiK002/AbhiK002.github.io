@@ -21,7 +21,7 @@ body, p {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-bottom: 0.2rem;
+    padding-bottom: 3.2px;
     background: linear-gradient(145deg,
                 rgba(226, 226, 255, 0.9) 0%, 
                 rgba(231, 231, 255, 0.9) 20%, 
@@ -31,12 +31,12 @@ body, p {
                 rgba(250, 226, 164, 0.9) 100%);
     backdrop-filter: blur(10px);
     position: sticky; top: 0;
-    border-bottom: 0.1rem solid rgba(0, 0, 0, 0.206);
+    border-bottom: 1.6px solid rgba(0, 0, 0, 0.206);
 }
 
 #logo-image {
     height: 54.4px;
-    padding-left: .3rem;
+    padding-left: 4.8px;
     transition: height 400ms;
     overflow: visible;
 }
@@ -65,9 +65,9 @@ body, p {
 
 .menu-icon {
     position: absolute;
-    top: .6rem;
+    top: 9.6px;
     right: 0;
-    margin-right: 0.6rem;
+    margin-right: 9.6px;
     display: flex;
     border-radius: 20px;
     flex-direction: column;
@@ -80,7 +80,7 @@ body, p {
 }
 
 .menu-icon .icon-bar {
-    height: 0.4rem;
+    height: 6.4px;
     width: 100%;
     background: linear-gradient(
     rgba(64, 0, 104, 0.9) 0%, 
@@ -90,24 +90,24 @@ body, p {
 
 #main-category {
     background: linear-gradient(45deg, rgb(71, 0, 119) 0%, rgb(177, 0, 47) 100%);
-    padding: 3rem 2rem;
-    margin-bottom: 1rem;
+    padding: 48px 32px;
+    margin-bottom: 16px;
 }
 
 .main-title {
-    font-size: 3rem;
+    font-size: 48px;
     color: rgba(255, 192, 55, 0.9);
-    margin-bottom: 0.8rem;
+    margin-bottom: 12.8px;
     transition: font-size 300ms;
 }
 .main-description {
-    font-size: 1.2rem;
+    font-size: 19.2px;
     color: rgba(255, 255, 255, 0.8);
 }
 
 .subcategory {
-    padding-left: 1rem;
-    font-size: 2rem;
+    padding-left: 16px;
+    font-size: 32px;
 }
 
 .div-designs {
@@ -117,16 +117,16 @@ body, p {
 
 .design {
     border: 2px solid rgba(125, 0, 92, 1);
-    margin: 0.6rem 0.6rem;
-    padding: 0.5rem;
+    margin: 9.6px 9.6px;
+    padding: 8px;
     border-radius: 20px;
-    width: 14.8rem;
+    width: 236.8px;
 }
 
 .design-image {width: 236.8px; border-radius: 15px;}
-.design-title {font-size: 1.3rem; font-weight: bolder;
+.design-title {font-size: 20.8px; font-weight: bolder;
 text-align: center; color: rgba(125, 0, 92, 1)}
-.design-description {font-size: 0.9rem; text-align: center; font-weight: bolder;}
+.design-description {font-size: 14.4px; text-align: center; font-weight: bolder;}
 
 @media (max-width: 900px) {
     #logo-image {
@@ -135,7 +135,7 @@ text-align: center; color: rgba(125, 0, 92, 1)}
     }
     .nav-bar a {
             font-size: 16px;
-            padding: 0.1rem;
+            padding: 1.6px;
     }
 }
 
@@ -150,22 +150,22 @@ text-align: center; color: rgba(125, 0, 92, 1)}
         display: flex;
         text-align: center;
         justify-content: center;
-        height: 0rem;
+        height: 0px;
         width: 100%;
         padding: 0;
         overflow: hidden;
     }
     .nav-bar.active {
-        height: 1.5rem;
-        padding: 0.2rem 0;
+        height: 24px;
+        padding: 3.2px 0px;
     }
     .nav-bar a {
-        font-size: 0.9rem;
+        font-size: 14.4px;
     }
     #logo-image {align-self: flex-start; height: 44.8px}
-    .main-title {font-size: 2.5rem;}
+    .main-title {font-size: 40px;}
     .design {display: flex; width: 100%;}
     .design-image {width: 176px; align-self: center;}
-    .design-title, .design-description {padding-left: 0.1rem;}
-    .design-title {font-size: 1.1rem;}
+    .design-title, .design-description {padding-left: 1.6px;}
+    .design-title {font-size: 17.6px;}
 }
