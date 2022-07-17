@@ -2,7 +2,7 @@ html{
     height: 100%;
 }
 
-body {
+body, p {
     margin: 0;
     padding: 0;
 }
@@ -13,8 +13,6 @@ body {
     font-weight: lighter;
 }
 
-#div-main h2, h3 {padding: 10px;}
-
 .div-top {
     display: flex;
     align-items: center;
@@ -24,7 +22,7 @@ body {
                 rgba(226, 226, 255, 0.9) 0%, 
                 rgba(231, 231, 255, 0.9) 20%, 
                 rgba(239, 226, 255, 0.9) 40%, 
-                rgba(253, 224, 238, 0.9) 60%, 
+                rgba(255, 215, 234, 0.9) 60%, 
                 rgba(254, 227, 206, 0.9) 80%, 
                 rgba(250, 226, 164, 0.9) 100%);
     backdrop-filter: blur(10px);
@@ -85,6 +83,47 @@ body {
     rgba(136, 4, 19, 0.9) 100%);
     border-radius: 20px;
 }
+
+#main-category {
+    background: linear-gradient(45deg, rgb(71, 0, 119) 0%, rgb(177, 0, 47) 100%);
+    padding: 3rem 2rem;
+    margin-bottom: 1rem;
+}
+
+.main-title {
+    font-size: 3rem;
+    color: rgba(255, 192, 55, 0.9);
+    margin-bottom: 0.8rem;
+    transition: font-size 300ms;
+}
+.main-description {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.subcategory {
+    padding-left: 1rem;
+    font-size: 2rem;
+}
+
+.div-designs {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.design {
+    border: 2px solid rgba(125, 0, 92, 1);
+    margin: 0.6rem 0.6rem;
+    padding: 0.5rem;
+    border-radius: 20px;
+    width: 14.8rem;
+}
+
+.design-image {width: 14.8rem; border-radius: 15px;}
+.design-title {font-size: 1.3rem; font-weight: bolder;
+text-align: center; color: rgba(125, 0, 92, 1)}
+.design-description {font-size: 0.9rem; text-align: center; font-weight: bolder;}
+
 @media (max-width: 900px) {
     #logo-image {
         align-self: flex-start; 
@@ -120,4 +159,9 @@ body {
         font-size: 0.9rem;
     }
     #logo-image {align-self: flex-start; height: 2.8rem}
+    .main-title {font-size: 2.5rem;}
+    .design {display: flex; width: 100%;}
+    .design-image {width: 11rem; align-self: center;}
+    .design-title, .design-description {padding-left: 0.1rem;}
+    .design-title {font-size: 1.1rem;}
 }
