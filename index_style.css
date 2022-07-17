@@ -1,3 +1,7 @@
+@font-face {
+    font-family: SegoeUI;
+    src: url("./index-designs/segoeuil.ttf");
+}
 html{
     height: 100%;
 }
@@ -9,8 +13,7 @@ body, p {
 
 #div-main {
     color: black;
-    font-family: "Segoe UI";
-    font-weight: lighter;
+    font-family: "SegoeUI";
 }
 
 .div-top {
