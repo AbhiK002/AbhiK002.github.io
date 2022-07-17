@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'Segoe UI';
     font-display: swap;
-    src: url("./index-designs/segoeuil.ttf"); 
+    src: url("./index-designs/segoeuil.woff"); 
 } 
 html{
     height: 100%;
@@ -35,7 +35,7 @@ body, p {
 }
 
 #logo-image {
-    height: 3.4rem;
+    height: 54.4px;
     padding-left: .3rem;
     transition: height 400ms;
     overflow: visible;
@@ -123,7 +123,7 @@ body, p {
     width: 14.8rem;
 }
 
-.design-image {width: 14.8rem; border-radius: 15px;}
+.design-image {width: 236.8px; border-radius: 15px;}
 .design-title {font-size: 1.3rem; font-weight: bolder;
 text-align: center; color: rgba(125, 0, 92, 1)}
 .design-description {font-size: 0.9rem; text-align: center; font-weight: bolder;}
@@ -131,7 +131,7 @@ text-align: center; color: rgba(125, 0, 92, 1)}
 @media (max-width: 900px) {
     #logo-image {
         align-self: flex-start; 
-        height: 3.0rem
+        height: 48px
     }
     .nav-bar a {
             font-size: 16px;
@@ -162,10 +162,10 @@ text-align: center; color: rgba(125, 0, 92, 1)}
     .nav-bar a {
         font-size: 0.9rem;
     }
-    #logo-image {align-self: flex-start; height: 2.8rem}
+    #logo-image {align-self: flex-start; height: 44.8px}
     .main-title {font-size: 2.5rem;}
     .design {display: flex; width: 100%;}
-    .design-image {width: 11rem; align-self: center;}
+    .design-image {width: 176px; align-self: center;}
     .design-title, .design-description {padding-left: 0.1rem;}
     .design-title {font-size: 1.1rem;}
 }
