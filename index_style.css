@@ -1,13 +1,15 @@
 @font-face {
     font-family: 'Segoe UI';
     font-display: swap;
-    src: url("./index-designs/segoeuil.woff"); 
-} 
-html{
+    src: url("./index-designs/segoeuil.woff");
+}
+
+html {
     height: 100%;
 }
 
-body, p {
+body,
+p {
     margin: 0;
     padding: 0;
 }
@@ -23,15 +25,17 @@ body, p {
     justify-content: space-between;
     padding-bottom: 3.2px;
     background: linear-gradient(145deg,
-                rgba(226, 226, 255, 0.9) 0%, 
-                rgba(231, 231, 255, 0.9) 20%, 
-                rgba(239, 226, 255, 0.9) 40%, 
-                rgba(255, 215, 234, 0.9) 60%, 
-                rgba(254, 227, 206, 0.9) 80%, 
-                rgba(250, 226, 164, 0.9) 100%);
+            rgba(226, 226, 255, 0.9) 0%,
+            rgba(231, 231, 255, 0.9) 20%,
+            rgba(239, 226, 255, 0.9) 40%,
+            rgba(255, 215, 234, 0.9) 60%,
+            rgba(254, 227, 206, 0.9) 80%,
+            rgba(250, 226, 164, 0.9) 100%);
     backdrop-filter: blur(10px);
-    position: sticky; top: 0;
+    position: sticky;
+    top: 0;
     border-bottom: 1.6px solid rgba(0, 0, 0, 0.206);
+    z-index: 1;
 }
 
 #logo-image {
@@ -40,19 +44,24 @@ body, p {
     transition: height 400ms;
     overflow: visible;
 }
-.nav-bar a{
+
+.nav-bar a {
     color: black;
     text-decoration: none;
     font-size: 18px;
     font-weight: bolder;
     margin: 0px 15px;
     transition: color 0.3s, border-color 0.3s,
-    font-size 0.4s, padding-bottom 0.4s;
+        font-size 0.4s, padding-bottom 0.4s;
     border-bottom: 2px solid;
     padding-bottom: 5px;
     border-color: rgba(125, 0, 92, 0);
 }
-.nav-bar {transition: height 200ms;}
+
+.nav-bar {
+    transition: height 200ms;
+}
+
 .nav-bar a:hover {
     color: rgb(125, 0, 92, 1);
     border-color: rgb(125, 0, 92, 1);
@@ -82,9 +91,8 @@ body, p {
 .menu-icon .icon-bar {
     height: 6.4px;
     width: 100%;
-    background: linear-gradient(
-    rgba(64, 0, 104, 0.9) 0%, 
-    rgba(136, 4, 19, 0.9) 100%);
+    background: linear-gradient(rgba(64, 0, 104, 0.9) 0%,
+            rgba(136, 4, 19, 0.9) 100%);
     border-radius: 20px;
 }
 
@@ -97,22 +105,26 @@ body, p {
 .main-title {
     font-size: 48px;
     color: rgba(255, 192, 55, 0.9);
-    margin-bottom: 12.8px;
     transition: font-size 300ms;
 }
+
 .main-description {
+    margin-top: 9.6px;
     font-size: 19.2px;
     color: rgba(255, 255, 255, 0.8);
 }
 
 .subcategory {
+    margin-top: 19.2px;
     padding-left: 16px;
     font-size: 32px;
+    font-weight: bold;
 }
 
 .div-designs {
     display: flex;
     flex-wrap: wrap;
+    margin-bottom: 9.6px;
 }
 
 .design {
@@ -123,29 +135,136 @@ body, p {
     width: 236.8px;
 }
 
-.design-image {width: 236.8px; border-radius: 15px;}
-.design-title {font-size: 20.8px; font-weight: bolder;
-text-align: center; color: rgba(125, 0, 92, 1)}
-.design-description {font-size: 14.4px; text-align: center; font-weight: bolder;}
+.design-image {
+    width: 236.8px;
+    border-radius: 15px;
+}
+
+.design-details {
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+}
+
+.design-title {
+    font-size: 20.8px;
+    font-weight: bolder;
+    text-align: center;
+    color: rgba(125, 0, 92, 1);
+    cursor: default;
+}
+
+.design-description {
+    font-size: 14.4px;
+    text-align: center;
+    font-weight: bolder;
+    cursor: default;
+}
+
+.design-actions {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 6.4px;
+    margin-left: 6.4px;
+}
+
+.design-actions a {
+    text-decoration: none;
+}
+
+.view-icon,
+.view-icon-disabled {
+    background-color: rgba(125, 0, 92, 1);
+    padding: 6.4px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-weight: bolder;
+    font-size: 14.4px;
+    transition: background-color 300ms;
+}
+
+.view-icon-disabled {
+    background-color: rgb(157, 157, 157);
+    color: rgb(231, 230, 230);
+    cursor: default
+}
+
+.view-icon:hover {
+    background-color: rgb(181, 22, 128);
+}
+
+.view-icon img,
+.view-icon-disabled img {
+    height: 16px;
+    margin-right: 3.2px;
+    align-self: center;
+}
+
+.view-icon a {
+    text-decoration: none;
+}
+
+.device-icons {
+    display: flex;
+    padding: 3.2px;
+    position: relative;
+}
+
+.device-icon {
+    height: 28.8px;
+    padding-left: 3.2px;
+}
+
+.tooltip {
+    position: absolute;
+    background-color: rgb(96, 96, 96);
+    font-weight: bolder;
+    display: flex;
+    width: max-content;
+    font-size: 14px;
+    padding: 1.6px 9.6px;
+    border-radius: 15px;
+    color: white;
+
+    z-index: 1;
+    bottom: 105%;
+    right: -10%;
+
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 300ms;
+}
+
+.device-icon:hover ~ .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
 
 @media (max-width: 900px) {
     #logo-image {
-        align-self: flex-start; 
+        align-self: flex-start;
         height: 48px
     }
+
     .nav-bar a {
-            font-size: 16px;
-            padding: 1.6px;
+        font-size: 16px;
+        padding: 1.6px;
     }
 }
 
 @media (max-width: 569px) {
-    .menu-icon {width: 32px;}
+    .menu-icon {
+        width: 32px;
+    }
 
     .div-top {
-        flex-direction: column; 
+        flex-direction: column;
         align-items: center;
     }
+
     .nav-bar {
         display: flex;
         text-align: center;
@@ -155,17 +274,94 @@ text-align: center; color: rgba(125, 0, 92, 1)}
         padding: 0;
         overflow: hidden;
     }
+
     .nav-bar.active {
         height: 24px;
         padding: 3.2px 0px;
     }
+
     .nav-bar a {
         font-size: 14.4px;
     }
-    #logo-image {align-self: flex-start; height: 44.8px}
-    .main-title {font-size: 40px;}
-    .design {display: flex; width: 100%;}
-    .design-image {width: 176px; align-self: center;}
-    .design-title, .design-description {padding-left: 1.6px;}
-    .design-title {font-size: 17.6px;}
+
+    #logo-image {
+        align-self: flex-start;
+        height: 44.8px
+    }
+
+    .main-title {
+        font-size: 40px;
+    }
+
+    .design {
+        display: flex;
+        width: 100%;
+    }
+
+    .design-image {
+        width: 176px;
+        align-self: center;
+    }
+
+    .design-title,
+    .design-description {
+        padding-left: 1.6px;
+    }
+
+    .design-title {
+        font-size: 17.6px;
+    }
+
+    .design-actions {
+        justify-content: center;
+    }
+
+    .view-icon:hover {
+        background-color: rgb(125, 0, 92, 1);
+    }
+
+    .view-icon,
+    .view-icon-disabled {
+        font-size: 14px;
+    }
+
+    .view-icon img,
+    .view-icon-disabled img {
+        height: 14px;
+    }
+    
+    .device-icon {
+        height: 25.6px;
+    }
+
+    .tooltip {
+        display: none;
+    }
+}
+
+@media (max-width: 373px) {
+    .div-designs {
+        justify-content: center;
+        align-content: stretch;
+    }
+    .design {
+        flex-direction: column;
+        width: 100%;
+        max-width: 256px;
+    }
+    .design-image {
+        width: 100%;
+    }
+    .design-actions {
+        justify-content: space-between;
+    }
+    .view-icon img, .view-icon-disabled img {
+        height: 16px;
+    }
+    .view-icon, .view-icon-disabled {
+        font-size: 16px;
+    }
+    .device-icon {
+        height: 28.8px;
+    }
 }
