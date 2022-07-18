@@ -130,6 +130,8 @@ p {
 
 .design {
     border: 2px solid rgba(125, 0, 92, 1);
+    display: flex;
+    flex-direction: column;
     margin: 9.6px 9.6px;
     padding: 8px;
     border-radius: 20px;
@@ -142,9 +144,9 @@ p {
 }
 
 .design-details {
-    justify-content: space-between;
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 
 .design-title {
@@ -158,6 +160,8 @@ p {
 .design-description {
     font-size: 14.4px;
     text-align: center;
+    padding-bottom: 6.4px;
+    padding-left: 3.2px;
     font-weight: bolder;
     cursor: default;
 }
@@ -165,9 +169,8 @@ p {
 .design-actions {
     display: flex;
     justify-content: space-between;
+    margin-top: auto;
     flex-wrap: wrap;
-    margin-top: 6.4px;
-    margin-left: 6.4px;
 }
 
 .design-actions a {
@@ -296,6 +299,7 @@ p {
 
     .design {
         display: flex;
+        flex-direction: row;
         width: 100%;
     }
 
