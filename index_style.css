@@ -318,7 +318,7 @@ p {
     }
 
     .design-actions {
-        justify-content: center;
+        padding-left: 9.6px;
     }
 
     .view-icon:hover {
@@ -338,10 +338,6 @@ p {
     .device-icon {
         height: 25.6px;
     }
-
-    .tooltip {
-        display: none;
-    }
 }
 
 @media (max-width: 373px) {
@@ -358,7 +354,7 @@ p {
         width: 100%;
     }
     .design-actions {
-        justify-content: space-between;
+        padding-left: 0px;
     }
     .view-icon img, .view-icon-disabled img {
         height: 16px;
