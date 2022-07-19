@@ -4,6 +4,8 @@
     src: url("./index-designs/segoeuil.woff");
 }
 
+/*-------- COMMON CSS ---------*/
+
 html {
     height: 100%;
 }
@@ -24,7 +26,6 @@ p {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-bottom: 3.2px;
     background: linear-gradient(145deg,
             rgb(226, 226, 255) 0%,
             rgb(231, 231, 255) 20%,
@@ -36,6 +37,10 @@ p {
     top: 0;
     border-bottom: 1.6px solid rgba(0, 0, 0, 0.206);
     z-index: 1;
+}
+
+#logo-link {
+    align-self: flex-start;
 }
 
 #logo-image {
@@ -67,11 +72,6 @@ p {
     border-color: rgb(125, 0, 92, 1);
 }
 
-#link-home {
-    color: rgba(125, 0, 92, 1);
-    border-color: rgba(125, 0, 92, 1);
-}
-
 .menu-icon {
     position: absolute;
     top: 9.6px;
@@ -94,6 +94,13 @@ p {
     background: linear-gradient(rgba(64, 0, 104, 0.9) 0%,
             rgba(136, 4, 19, 0.9) 100%);
     border-radius: 20px;
+}
+
+/*-------- HOME PAGE CSS ---------*/
+
+#link-home {
+    color: rgba(125, 0, 92, 1);
+    border-color: rgba(125, 0, 92, 1);
 }
 
 #main-category {
@@ -364,5 +371,11 @@ p {
     }
     .device-icon {
         height: 28.8px;
+    }
+}
+
+@media (max-width: 285px) {
+    #logo-image {
+        height: 40px;
     }
 }
