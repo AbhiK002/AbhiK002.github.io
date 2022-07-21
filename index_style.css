@@ -6,20 +6,21 @@
 
 /*-------- COMMON CSS ---------*/
 
-html {
-    height: 100%;
+.div-top,
+.view-icon,
+.view-icon-disabled,
+#designs-link,
+.device-icons,
+.design-image {
+    user-select: none;
 }
 
 body,
 p {
     margin: 0;
     padding: 0;
-}
-
-#div-main {
     color: black;
-    font-family: "Segoe UI";
-    font-weight: 400;
+    font-family: "Segoe UI", "Calibri";
 }
 
 .div-top {
@@ -96,14 +97,16 @@ p {
     border-radius: 20px;
 }
 
-/*-------- HOME PAGE CSS ---------*/
-
-#link-home {
+#link-home,
+#link-about,
+#link-contact {
     color: rgba(125, 0, 92, 1);
     border-color: rgba(125, 0, 92, 1);
 }
 
-#main-category {
+/*-------- HOME PAGE CSS ---------*/
+
+.main-category {
     background: linear-gradient(45deg, rgb(71, 0, 119) 0%, rgb(177, 0, 47) 100%);
     padding: 48px 32px;
     margin-bottom: 16px;
@@ -118,7 +121,7 @@ p {
 
 .main-description {
     margin-top: 9.6px;
-    font-size: 19.2px;
+    font-size: 20.8px;
     color: rgba(255, 255, 255, 0.8);
 }
 
@@ -239,20 +242,108 @@ p {
     padding: 1.6px 9.6px;
     border-radius: 15px;
     color: white;
-
     z-index: 1;
     bottom: 105%;
     right: -10%;
-
     visibility: hidden;
     opacity: 0;
-    transition: opacity 300ms;
+    transition: opacity 800ms;
 }
 
-.device-icon:hover ~ .tooltip {
+.device-icon:hover~.tooltip {
     visibility: visible;
     opacity: 1;
 }
+
+/*-------- ABOUT PAGE CSS ---------*/
+
+#body-about {
+    background: rgb(125, 0, 92, 1);
+}
+
+#div-about {
+    display: flex;
+    justify-items: center;
+    padding: 60px;
+    transition: padding 300ms;
+}
+
+#about-box {
+    background-color: rgb(239, 239, 239);
+    border-radius: 40px;
+    border: 3px solid rgba(0, 0, 0, 0.2);
+    padding: 80px;
+    transition: padding 300ms;
+}
+
+#about-title, #about-content {
+    transition: font-size 300ms;
+}
+
+#about-title {
+    font-size: 50px;
+    color: rgba(125, 0, 92, 1);
+}
+
+#about-content {
+    font-size: 20px;
+    padding-top: 32px;
+    color: black;
+    font-weight: bolder;
+}
+
+#about-content span {
+    color: rgb(125, 0, 92)
+}
+
+#vlink {
+    text-decoration: underline 2px;
+    text-decoration-style: solid;
+    text-underline-offset: 2px;
+    text-decoration-color: rgb(125, 0, 92);
+    color: rgb(125, 0, 92, 1);
+    transition: text-decoration-color 300ms;
+}
+
+#vlink span {
+    text-decoration: underline 2px;
+    text-decoration-color: rgba(125, 0, 92, 0);
+    text-decoration-style: dashed;
+    text-underline-offset: 2px;
+    transition: text-decoration-color 300ms;
+}
+
+#vlink:hover {
+    text-decoration-color: rgba(245, 0, 180, 0);
+}
+
+#vlink:hover span {
+    text-decoration-color: rgb(125, 0, 92, 1);
+}
+
+#designs-link {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 3px 6px;
+    border-radius: 8px;
+    background: linear-gradient(45deg,
+            rgb(71, 0, 119) 0%,
+            rgb(177, 0, 47) 100%);
+    font-size: 20px;
+    transition: border-radius 300ms;
+}
+
+#designs-link:hover {
+    border-radius: 25px;
+}
+
+#designs-linkspan {
+    display: block;
+    margin-top: 8px;
+}
+
+/*-------- COMPATIBILITY ---------*/
 
 @media (max-width: 900px) {
     #logo-image {
@@ -263,6 +354,14 @@ p {
     .nav-bar a {
         font-size: 16px;
         padding: 1.6px;
+    }
+
+    #div-about {
+        padding: 40px;
+    }
+    
+    #about-box {
+        padding: 50px;
     }
 }
 
@@ -304,6 +403,10 @@ p {
         font-size: 40px;
     }
 
+    .main-description {
+        font-size: 19.2px;
+    }
+
     .design {
         display: flex;
         flex-direction: row;
@@ -341,9 +444,25 @@ p {
     .view-icon-disabled img {
         height: 14px;
     }
-    
+
     .device-icon {
         height: 25.6px;
+    }
+
+    #div-about {
+        padding: 20px;
+    }
+
+    #about-box {
+        padding: 30px;
+    }
+
+    #about-title {
+        font-size: 40px;
+    }
+
+    #about-content, #designs-link {
+        font-size: 18px;
     }
 }
 
@@ -352,30 +471,58 @@ p {
         justify-content: center;
         align-content: stretch;
     }
+
     .design {
         flex-direction: column;
         width: 100%;
         max-width: 256px;
     }
+
     .design-image {
         width: 100%;
     }
+
     .design-actions {
         padding-left: 0px;
     }
-    .view-icon img, .view-icon-disabled img {
+
+    .view-icon img,
+    .view-icon-disabled img {
         height: 16px;
     }
-    .view-icon, .view-icon-disabled {
+
+    .view-icon,
+    .view-icon-disabled {
         font-size: 16px;
     }
+
     .device-icon {
         height: 28.8px;
+    }
+
+    #div-about {
+        padding: 10px;
+    }
+
+    #about-box {
+        padding: 20px;
+    }
+
+    #about-title {
+        font-size: 35px;
+    }
+
+    #about-content, #designs-link {
+        font-size: 17px;
     }
 }
 
 @media (max-width: 285px) {
     #logo-image {
         height: 40px;
+    }
+
+    #about-title {
+        font-size: 30px;
     }
 }
