@@ -247,7 +247,7 @@ p {
     right: -10%;
     visibility: hidden;
     opacity: 0;
-    transition: opacity 800ms;
+    transition: opacity 400ms;
 }
 
 .device-icon:hover~.tooltip {
