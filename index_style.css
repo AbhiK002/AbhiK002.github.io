@@ -6,21 +6,16 @@
 
 /*-------- COMMON CSS ---------*/
 
-.div-top,
-.view-icon,
-.view-icon-disabled,
-#designs-link,
-.device-icons,
-.design-image {
-    user-select: none;
-}
-
 body,
 p {
     margin: 0;
     padding: 0;
     color: black;
     font-family: "Segoe UI", "Calibri";
+}
+
+.unselectable {
+    user-select: none;
 }
 
 .div-top {
@@ -258,7 +253,12 @@ p {
 /*-------- ABOUT PAGE CSS ---------*/
 
 #body-about {
-    background: rgb(125, 0, 92, 1);
+    background: linear-gradient(45deg, 
+    rgb(71, 0, 119) 0%, 
+    rgb(177, 0, 47) 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 #div-about {
@@ -276,7 +276,8 @@ p {
     transition: padding 300ms;
 }
 
-#about-title, #about-content {
+#about-title,
+#about-content {
     transition: font-size 300ms;
 }
 
@@ -343,6 +344,101 @@ p {
     margin-top: 8px;
 }
 
+/*-------- ABOUT PAGE CSS ---------*/
+
+#contact-body {
+    background-image: url(./index-designs/bgcontact.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+#contact-content {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.contact-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bolder;
+    background-color: rgb(238, 238, 238);
+    width: fit-content;
+    padding: 0px 40px 40px 40px;
+    border-radius: 30px;
+    border: 2px solid rgba(125, 0, 92, 0.747)
+}
+
+.contact-box>p {
+    font-size: 22px;
+    margin-top: 30px;
+    color: rgb(125, 0, 92)
+}
+
+.contact-box a {
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact-link {
+    background-color: white;
+    width: 250px;
+    border: 3px solid;
+    border-radius: 10px;
+    margin-top: 20px;
+    transition: background-color 300ms,
+        border-color 300ms, border-radius 300ms,
+        color 300ms,
+        width 300ms;
+    font-size: 18px;
+}
+
+.contact-link:hover {
+    border-radius: 17px;
+}
+
+.contact-link img {
+    height: 30px;
+    margin: 5px;
+    user-select: none;
+}
+
+.contact-link p {
+    padding: 6px;
+}
+
+#ab-linkedin {
+    border-color: rgb(0, 78, 156);
+}
+
+#ab-linkedin:hover {
+    background-color: rgb(175, 215, 255);
+}
+
+#ab-instagram {
+    border-color: rgb(219, 42, 246);
+}
+#ab-instagram:hover {
+    background-color: rgb(250, 216, 255);
+}
+
+#ab-email {
+    border-color: rgb(0, 75, 6);
+}
+#ab-email:hover {
+    background-color: rgb(185, 239, 191);
+}
+
+#ab-github {
+    border-color: rgb(17, 17, 17);
+}
+#ab-github:hover {
+    background-color: rgb(204, 204, 204);
+}
+
 /*-------- COMPATIBILITY ---------*/
 
 @media (max-width: 900px) {
@@ -359,7 +455,7 @@ p {
     #div-about {
         padding: 40px;
     }
-    
+
     #about-box {
         padding: 50px;
     }
@@ -392,6 +488,11 @@ p {
 
     .nav-bar a {
         font-size: 14.4px;
+    }
+
+    .nav-bar a:hover {
+        color: unset;
+        border-color: transparent;
     }
 
     #logo-image {
@@ -461,8 +562,13 @@ p {
         font-size: 40px;
     }
 
-    #about-content, #designs-link {
+    #about-content,
+    #designs-link {
         font-size: 18px;
+    }
+
+    .contact-link {
+        width: 200px;
     }
 }
 
@@ -512,7 +618,8 @@ p {
         font-size: 35px;
     }
 
-    #about-content, #designs-link {
+    #about-content,
+    #designs-link {
         font-size: 17px;
     }
 }
@@ -524,5 +631,14 @@ p {
 
     #about-title {
         font-size: 30px;
+    }
+
+    .contact-link {
+        width: 150px;
+        font-size: 16px;
+    }
+
+    .contact-link img{
+        height: 24px;
     }
 }
