@@ -426,7 +426,7 @@ p {
 }
 
 #ab-email {
-    border-color: rgb(0, 75, 6);
+    border-color: rgb(50, 135, 57);
 }
 #ab-email:hover {
     background-color: rgb(185, 239, 191);
@@ -569,6 +569,27 @@ p {
 
     .contact-link {
         width: 200px;
+    }
+
+    #ab-linkedin:hover, 
+    #ab-github:hover, 
+    #ab-instagram:hover, 
+    #ab-email:hover {
+        background-color: unset;
+        border-radius: 10px;
+    }
+
+    #ab-linkedin:active {
+        background-color: rgb(175, 215, 255);
+    }
+    #ab-instagram:active {
+        background-color: rgb(250, 216, 255);
+    }
+    #ab-email:active {
+        background-color: rgb(185, 239, 191);
+    }
+    #ab-github:active {
+        background-color: rgb(204, 204, 204);
     }
 }
 
