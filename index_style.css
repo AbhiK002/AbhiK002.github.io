@@ -108,6 +108,10 @@ p {
     cursor: default;
 }
 
+#python-category {
+    background: linear-gradient(45deg, rgb(54, 72, 187) 0%, rgb(13, 4, 82) 100%);
+}
+
 .main-title {
     font-size: 48px;
     color: rgba(255, 192, 55, 0.9);
@@ -143,6 +147,10 @@ p {
     width: 236.8px;
 }
 
+.design-python {
+    border: 2px solid rgb(50, 41, 176);
+}
+
 .design-image {
     width: 236.8px;
     border-radius: 15px;
@@ -160,6 +168,10 @@ p {
     text-align: center;
     color: rgba(125, 0, 92, 1);
     cursor: default;
+}
+
+.design-title-python {
+    color: rgb(50, 41, 176)
 }
 
 .design-description {
@@ -183,7 +195,8 @@ p {
 }
 
 .view-icon,
-.view-icon-disabled {
+.view-icon-disabled,
+.view-icon-python {
     background-color: rgba(125, 0, 92, 1);
     padding: 6.4px;
     border-radius: 15px;
@@ -195,6 +208,10 @@ p {
     transition: background-color 300ms;
 }
 
+.view-icon-python {
+    background-color: rgb(50, 41, 176);
+}
+
 .view-icon-disabled {
     background-color: rgb(157, 157, 157);
     color: rgb(231, 230, 230);
@@ -202,11 +219,15 @@ p {
 }
 
 .view-icon:hover {
-    background-color: rgb(181, 22, 128);
+    background-color: rgb(161, 27, 116);
+}
+.view-icon-python:hover {
+    background-color: rgb(60, 49, 211);
 }
 
 .view-icon img,
-.view-icon-disabled img {
+.view-icon-disabled img,
+.view-icon-python img {
     height: 16px;
     margin-right: 3.2px;
     align-self: center;
@@ -519,6 +540,10 @@ p {
         align-self: center;
     }
 
+    .design-details {
+        width: 100%;
+    }
+
     .design-title,
     .design-description {
         padding-left: 1.6px;
@@ -532,17 +557,15 @@ p {
         padding-left: 9.6px;
     }
 
-    .view-icon:hover {
-        background-color: rgb(125, 0, 92, 1);
-    }
-
     .view-icon,
-    .view-icon-disabled {
+    .view-icon-disabled,
+    .view-icon-python {
         font-size: 14px;
     }
 
     .view-icon img,
-    .view-icon-disabled img {
+    .view-icon-disabled img,
+    .view-icon-python img{
         height: 14px;
     }
 
@@ -607,6 +630,7 @@ p {
 
     .design-image {
         width: 100%;
+        padding-bottom: 10px;
     }
 
     .design-actions {
@@ -614,13 +638,15 @@ p {
     }
 
     .view-icon img,
-    .view-icon-disabled img {
-        height: 16px;
+    .view-icon-disabled img,
+    .view-icon-python img{
+        height: 15px;
     }
 
     .view-icon,
-    .view-icon-disabled {
-        font-size: 16px;
+    .view-icon-disabled,
+    .view-icon-python {
+        font-size: 15px;
     }
 
     .device-icon {
