@@ -460,6 +460,13 @@ p {
     background-color: rgb(204, 204, 204);
 }
 
+#ab-codechef {
+    border-color: rgb(91, 69, 56);
+}
+#ab-codechef:hover {
+    background-color: rgb(242, 220, 207);
+}
+
 /*-------- COMPATIBILITY ---------*/
 
 @media (max-width: 900px) {
@@ -597,8 +604,9 @@ p {
     #ab-linkedin:hover, 
     #ab-github:hover, 
     #ab-instagram:hover, 
-    #ab-email:hover {
-        background-color: unset;
+    #ab-email:hover,
+    #ab-codechef:hover {
+        background-color: white;
         border-radius: 10px;
     }
 
@@ -613,6 +621,9 @@ p {
     }
     #ab-github:active {
         background-color: rgb(204, 204, 204);
+    }
+    #ab-codechef:active {
+        background-color: rgb(242, 220, 207);
     }
 }
 
