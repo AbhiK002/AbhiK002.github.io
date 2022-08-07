@@ -453,10 +453,10 @@ p {
     background-color: rgb(185, 239, 191);
 }
 
-#ab-github {
+#ab-github, #ab-hrrank {
     border-color: rgb(17, 17, 17);
 }
-#ab-github:hover {
+#ab-github:hover, #ab-hrrank:hover {
     background-color: rgb(204, 204, 204);
 }
 
@@ -605,7 +605,8 @@ p {
     #ab-github:hover, 
     #ab-instagram:hover, 
     #ab-email:hover,
-    #ab-codechef:hover {
+    #ab-codechef:hover,
+    #ab-hrrank:hover {
         background-color: white;
         border-radius: 10px;
     }
@@ -619,7 +620,7 @@ p {
     #ab-email:active {
         background-color: rgb(185, 239, 191);
     }
-    #ab-github:active {
+    #ab-github:active, #ab-hrrank:active {
         background-color: rgb(204, 204, 204);
     }
     #ab-codechef:active {
