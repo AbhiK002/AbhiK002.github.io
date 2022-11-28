@@ -4,7 +4,7 @@
     src: url("./index-designs/segoeuil.woff");
 }
 
-/*-------- COMMON CSS --------*/
+/*-------- COMMON CSS ---------*/
 
 body,
 p {
@@ -20,7 +20,6 @@ p {
 
 .div-top {
     display: flex;
-    align-items: center;
     justify-content: space-between;
     background: linear-gradient(145deg,
             rgb(226, 226, 255) 0%,
@@ -48,19 +47,23 @@ p {
 
 .nav-bar a {
     color: black;
+    display: flex;
+    align-items: center;
     text-decoration: none;
     font-size: 18px;
     font-weight: bolder;
+    height: 90%;
     margin: 0px 15px;
     transition: color 0.3s, border-color 0.3s,
         font-size 0.4s, padding-bottom 0.4s;
     border-bottom: 2px solid;
-    padding-bottom: 5px;
     border-color: rgba(125, 0, 92, 0);
 }
 
 .nav-bar {
     transition: height 200ms;
+    display: flex;
+    align-items: center;
 }
 
 .nav-bar a:hover {
