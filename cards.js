@@ -1,36 +1,4 @@
-/*
-<div class="design1" id="design1-1-2">
-    <img class="design-image1" alt="Image Error" src="./index-designs/restaurant/test2.jpg">
-    <div class="device-icons1 unselectable">
-        <img class="device-icon1" src="./index-designs/pc-icon.svg">
-        <img class="device-icon1" src="./index-designs/mob-icon.svg">
-        <div class="device-text1"><span>Supports PC and Phone</span></div>
-    </div>
-    <div class="design-details1">
-        <p class="design-title1">Restaurant Classic</p>
-        <p class="design-description1">Traditional, Old-Fashioned and Themed
-            Website Design with Colorful Elements</p>
-        <div class="design-actions1">
-            <a href="./1vyanjan/content1home.html" target="_blank">
-                <span class="view-icon1">
-                    <img src="./index-designs/view-icon.svg" class="unselectable">
-                    <span>VIEW</span>
-                </span>
-            </a>
-        </div>
-    </div>
-</div>
-*/
-
 const webdes = [
-    {
-        index: "1-1",
-        title: "Restaurant Classic",
-        descr: "Traditional, Old-Fashioned and Themed Website Design with Colorful Elements",
-        image: "./index-designs/restaurant/classic.jpg",
-        support: ["pc", "mob"],
-        link: "./1vyanjan/content1home.html"
-    },
     {
         index: "1-1",
         title: "Restaurant Classic",
