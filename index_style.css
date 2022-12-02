@@ -167,7 +167,10 @@ p {
     border-radius: 20px;
     height: 100%;
     padding: 240px 12px 12px 12px;
-    background: linear-gradient(rgba(254, 254, 254, 0.317) 30%, rgb(255, 255, 255) 50%, rgb(255, 255, 255) 100%);
+    background: linear-gradient(
+        rgba(254, 254, 254, 0.1) 35%,  
+        rgb(255, 255, 255) 55%, 
+        rgb(255, 255, 255) 100%);
 }
 
 .design-title, .design-title-python {
