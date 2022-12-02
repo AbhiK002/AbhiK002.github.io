@@ -67,12 +67,12 @@ const icons = {
     "linux": ["./index-designs/linux.png", "Linux"]
 }
 
-function renderDesign(card, num){
+function renderDesign(card, num, py){
     desid = card.index + "-" + String(num);
     const target_div = document.getElementById(card.index);
     
     const design = document.createElement("div");
-    design.className = "design";
+    design.className = "design" + py;
     design.id = desid;
 
         const des_img = document.createElement("img");
@@ -102,7 +102,7 @@ function renderDesign(card, num){
         des_details.className = "design-details";
             const des_title = document.createElement("p");
             const des_desc = document.createElement("p");
-            des_title.className = "design-title";
+            des_title.className = "design-title" + py;
             des_desc.className = "design-description";
             des_title.innerText = card.title;
             des_desc.innerText = card.descr;
@@ -113,7 +113,7 @@ function renderDesign(card, num){
                 da_anchor.href = card.link;
                 da_anchor.target = "_blank";
                     const daa_span = document.createElement("span");
-                    daa_span.className = "view-icon";
+                    daa_span.className = "view-icon" + py;
                         const daas_image = document.createElement("img");
                         daas_image.src = "./index-designs/view-icon.svg";
                         daas_image.className = "unselectable";
@@ -130,10 +130,10 @@ function renderDesign(card, num){
 
 function renderCards(){
     for(let i=0; i<webdes.length; i++) {
-        renderDesign(webdes[i], i+1);
+        renderDesign(webdes[i], i+1, "");
     }
     for(let i=0; i<python.length; i++) {
-        renderDesign(python[i], i+1);
+        renderDesign(python[i], i+1, "-python");
     }
     
 }
