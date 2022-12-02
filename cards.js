@@ -27,6 +27,22 @@ const python = [
         link: "https://github.com/AbhiK002/virtual-keyboard/releases/tag/v1.0"
     },
     {
+        index: "2-1",
+        title: "Tic Tac Toe",
+        descr: "A simple, fun and endless 2-player game made for entertainment",
+        image: "./index-designs/tools/tictactoe.jpg",
+        support: ["win", "linux"],
+        link: "https://github.com/AbhiK002/tic-tac-toe"
+    },
+    {
+        index: "2-1",
+        title: "SciCalc",
+        descr: "A custom and basic scientific calculator with minimal features",
+        image: "./index-designs/tools/scicalc.jpg",
+        support: ["win"],
+        link: "https://github.com/AbhiK002/sci-calc"
+    },
+    {
         index: "2-2",
         title: "Rock Paper Scissors",
         descr: "Python version of the popular game of Rock Paper Scissors",
