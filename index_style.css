@@ -155,7 +155,7 @@ p {
 }
 
 .design-image {
-    width: 278px;
+    width: 100%;
     position: absolute;
     z-index: -1;
     border-radius: 19px;
