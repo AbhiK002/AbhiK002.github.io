@@ -128,7 +128,7 @@ p {
 }
 
 .subcategory {
-    margin-top: 19.2px;
+    margin: 19.2px 0px;
     padding-left: 16px;
     font-size: 32px;
     font-weight: bold;
@@ -137,17 +137,17 @@ p {
 .div-designs {
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 9.6px;
+    margin-bottom: 38.4px;
 }
 
-.design {
+.design, .design-python {
     border: 2px solid rgba(125, 0, 92, 1);
     display: flex;
     flex-direction: column;
     margin: 9.6px 9.6px;
-    padding: 8px;
     border-radius: 20px;
-    width: 236.8px;
+    width: 278px;
+    position: relative;
 }
 
 .design-python {
@@ -155,18 +155,23 @@ p {
 }
 
 .design-image {
-    width: 236.8px;
-    border-radius: 15px;
+    width: 278px;
+    position: absolute;
+    z-index: -1;
+    border-radius: 19px;
 }
 
 .design-details {
     display: flex;
     flex-direction: column;
+    border-radius: 20px;
     height: 100%;
+    padding: 240px 12px 12px 12px;
+    background: linear-gradient(rgba(254, 254, 254, 0.317) 30%, rgb(255, 255, 255) 50%, rgb(255, 255, 255) 100%);
 }
 
-.design-title {
-    font-size: 20.8px;
+.design-title, .design-title-python {
+    font-size: 28px;
     font-weight: bolder;
     text-align: center;
     color: rgba(125, 0, 92, 1);
@@ -178,36 +183,37 @@ p {
 }
 
 .design-description {
-    font-size: 14.4px;
+    display: flex;
+    font-size: 14px;
     text-align: center;
-    padding-bottom: 6.4px;
-    padding-left: 3.2px;
     font-weight: bolder;
+    padding: 14px 0px 38px 0px;
     cursor: default;
+    margin-bottom: auto;
 }
 
 .design-actions {
     display: flex;
-    justify-content: space-between;
-    margin-top: auto;
+    justify-content: center;
     flex-wrap: wrap;
 }
 
 .design-actions a {
     text-decoration: none;
+    width: 100%;
 }
 
 .view-icon,
 .view-icon-disabled,
 .view-icon-python {
     background-color: rgba(125, 0, 92, 1);
-    padding: 6.4px;
-    border-radius: 15px;
+    padding: 12px 36px;
+    border-radius: 12px;
     display: flex;
     justify-content: center;
     color: white;
     font-weight: bolder;
-    font-size: 14.4px;
+    font-size: 16px;
     transition: background-color 300ms;
 }
 
@@ -216,13 +222,14 @@ p {
 }
 
 .view-icon-disabled {
-    background-color: rgb(157, 157, 157);
-    color: rgb(231, 230, 230);
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgba(125, 0, 92, 1);
+    color: rgb(125, 0, 92, 1);
     cursor: default
 }
 
 .view-icon:hover {
-    background-color: rgb(161, 27, 116);
+    background-color: rgb(171, 39, 127);
 }
 .view-icon-python:hover {
     background-color: rgb(60, 49, 211);
@@ -242,34 +249,43 @@ p {
 
 .device-icons {
     display: flex;
-    padding: 3.2px;
-    position: relative;
+    position: absolute;
+    right: 0;
+    border: solid black;
+    border-width: 0px 0px 2px 2px;
+    padding: 4px 8px;
+    border-radius: 0px 20px 0px 20px;
+    /*background: linear-gradient(
+        rgb(255, 255, 255) 0%,
+        rgb(255, 255, 255) 75%,
+        rgb(0, 0, 0, 0) 100%
+        );*/
+    background-color: white;
 }
 
 .device-icon {
-    height: 28.8px;
-    padding-left: 3.2px;
+    height: 28px;
+    margin: 3px;
 }
 
-.tooltip {
+.device-text {
     position: absolute;
-    background-color: rgb(96, 96, 96);
-    font-weight: bolder;
-    display: flex;
-    width: max-content;
-    font-size: 14px;
-    padding: 1.6px 9.6px;
-    border-radius: 15px;
+    top: -65%;
+    right: 0;
+    background-color: rgb(72, 72, 72);
     color: white;
-    z-index: 1;
-    bottom: 105%;
-    right: -10%;
+    font-weight: bolder;
+    font-size: 14px;
+    border-radius: 10px;
+    padding: 2px 5px;
+    width: max-content;
     visibility: hidden;
     opacity: 0;
-    transition: opacity 400ms;
+    transition: opacity 200ms;
+    transition-delay: 100ms;
 }
 
-.device-icon:hover~.tooltip {
+.device-icons:hover .device-text {
     visibility: visible;
     opacity: 1;
 }
@@ -539,49 +555,7 @@ p {
         font-size: 19.2px;
     }
 
-    .design {
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-    }
-
-    .design-image {
-        width: 176px;
-        align-self: center;
-    }
-
-    .design-details {
-        width: 100%;
-    }
-
-    .design-title,
-    .design-description {
-        padding-left: 1.6px;
-    }
-
-    .design-title {
-        font-size: 17.6px;
-    }
-
-    .design-actions {
-        padding-left: 9.6px;
-    }
-
-    .view-icon,
-    .view-icon-disabled,
-    .view-icon-python {
-        font-size: 14px;
-    }
-
-    .view-icon img,
-    .view-icon-disabled img,
-    .view-icon-python img{
-        height: 14px;
-    }
-
-    .device-icon {
-        height: 25.6px;
-    }
+    /*  CARDS  */
 
     #div-about {
         padding: 20px;
@@ -637,36 +611,7 @@ p {
         align-content: stretch;
     }
 
-    .design {
-        flex-direction: column;
-        width: 100%;
-        max-width: 256px;
-    }
-
-    .design-image {
-        width: 100%;
-        padding-bottom: 10px;
-    }
-
-    .design-actions {
-        padding-left: 0px;
-    }
-
-    .view-icon img,
-    .view-icon-disabled img,
-    .view-icon-python img{
-        height: 15px;
-    }
-
-    .view-icon,
-    .view-icon-disabled,
-    .view-icon-python {
-        font-size: 15px;
-    }
-
-    .device-icon {
-        height: 28.8px;
-    }
+    /*  DESIGN  */
 
     #div-about {
         padding: 10px;
