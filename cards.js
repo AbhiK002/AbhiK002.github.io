@@ -4,7 +4,7 @@ const webdes = [
         title: "Restaurant Classic",
         descr: "Traditional, Old-Fashioned and Themed Website Design with Colorful Elements",
         image: "./index-designs/restaurant/classic.jpg",
-        support: ["pc", "mob"],
+        support: ["pc"],
         link: "./1vyanjan/content1home.html"
     }
 ]
@@ -47,7 +47,7 @@ const python = [
         title: "Rock Paper Scissors",
         descr: "Python version of the popular game of Rock Paper Scissors",
         image: "./index-designs/cli/rps.jpg",
-        support: ["win", "linux"],
+        support: ["win"],
         link: "https://github.com/AbhiK002/Tasky/releases/tag/v1.0.1"
     },
     {
