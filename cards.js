@@ -92,7 +92,7 @@ function renderDesign(card, num, py){
     design.id = desid;
 
         const des_img = document.createElement("img");
-        des_img.className = "design-image";
+        des_img.className = "design-image unselectable";
         des_img.alt = "Image Error";
         des_img.src = card.image;
 
