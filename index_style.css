@@ -54,10 +54,10 @@ p {
     font-weight: bolder;
     height: 90%;
     margin: 0px 15px;
-    transition: color 0.3s, border-color 0.3s,
-        font-size 0.4s, padding-bottom 0.4s;
     border-bottom: 2px solid;
     border-color: rgba(125, 0, 92, 0);
+    transition: color 0.3s, border-color 0.3s,
+        font-size 0.4s, padding-bottom 0.4s;
 }
 
 .nav-bar {
