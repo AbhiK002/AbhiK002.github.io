@@ -48,7 +48,7 @@ const python = [
         descr: "Python version of the popular game of Rock Paper Scissors",
         image: "./index-designs/cli/rps.jpg",
         support: ["win"],
-        link: "https://github.com/AbhiK002/Tasky/releases/tag/v1.0.1"
+        link: "https://github.com/AbhiK002/Rock-Paper-Scissors-Python"
     },
     {
         index: "2-2",
