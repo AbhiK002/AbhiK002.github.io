@@ -16,7 +16,7 @@ const python = [
         descr: "An app that tracks and displays deadlines of upto 20 tasks",
         image: "./index-designs/tools/tlogo.jpg",
         support: ["win", "linux"],
-        link: "https://github.com/AbhiK002/Tasky"
+        link: "https://github.com/AbhiK002/Tasky#readme"
     },
     {
         index: "2-1",
@@ -24,7 +24,7 @@ const python = [
         descr: "A GUI based customised virtual keyboard",
         image: "./index-designs/tools/vkblogo.jpg",
         support: ["win"],
-        link: "https://github.com/AbhiK002/virtual-keyboard"
+        link: "https://github.com/AbhiK002/virtual-keyboard#readme"
     },
     {
         index: "2-1",
@@ -32,7 +32,7 @@ const python = [
         descr: "A simple, fun and endless 2-player game made for entertainment",
         image: "./index-designs/tools/tictactoe.jpg",
         support: ["win", "linux"],
-        link: "https://github.com/AbhiK002/tic-tac-toe"
+        link: "https://github.com/AbhiK002/tic-tac-toe#readme"
     },
     {
         index: "2-1",
@@ -40,7 +40,7 @@ const python = [
         descr: "A custom and basic scientific calculator with minimal features",
         image: "./index-designs/tools/scicalc.jpg",
         support: ["win"],
-        link: "https://github.com/AbhiK002/sci-calc"
+        link: "https://github.com/AbhiK002/sci-calc#readme"
     },
     {
         index: "2-2",
@@ -48,7 +48,7 @@ const python = [
         descr: "Python version of the popular game of Rock Paper Scissors",
         image: "./index-designs/cli/rps.jpg",
         support: ["win"],
-        link: "https://github.com/AbhiK002/Rock-Paper-Scissors-Python"
+        link: "https://github.com/AbhiK002/Rock-Paper-Scissors-Python#readme"
     },
     {
         index: "2-2",
@@ -56,7 +56,7 @@ const python = [
         descr: "A program to display all the prime numbers between 2 given numbers",
         image: "./index-designs/cli/prime.jpg",
         support: ["win", "linux"],
-        link: "https://github.com/AbhiK002/Prime_Numbers"
+        link: "https://github.com/AbhiK002/Prime_Numbers#readme"
     },
     {
         index: "2-3",
@@ -64,7 +64,7 @@ const python = [
         descr: "Python version of the popular DVD Screensaver",
         image: "./index-designs/fun/dvd.jpg",
         support: ["win", "linux"],
-        link: "https://github.com/AbhiK002/dvd-bounce"
+        link: "https://github.com/AbhiK002/dvd-bounce#readme"
     },
     {
         index: "2-3",
@@ -72,7 +72,7 @@ const python = [
         descr: "Simulation of gravity and bounce fall effect on a floating window using tkinter",
         image: "./index-designs/fun/gravity.jpg",
         support: ["win", "linux"],
-        link: "https://github.com/AbhiK002/bouncy-window"
+        link: "https://github.com/AbhiK002/bouncy-window#readme"
     }
 ]
 
