@@ -16,7 +16,7 @@ const python = [
         descr: "An app that tracks and displays deadlines of upto 20 tasks",
         image: "./index-designs/tools/tlogo.jpg",
         support: ["win", "linux"],
-        link: "https://github.com/AbhiK002/Tasky/releases/tag/v1.0.1"
+        link: "https://github.com/AbhiK002/Tasky"
     },
     {
         index: "2-1",
@@ -24,7 +24,7 @@ const python = [
         descr: "A GUI based customised virtual keyboard",
         image: "./index-designs/tools/vkblogo.jpg",
         support: ["win"],
-        link: "https://github.com/AbhiK002/virtual-keyboard/releases/tag/v1.0"
+        link: "https://github.com/AbhiK002/virtual-keyboard"
     },
     {
         index: "2-1",
