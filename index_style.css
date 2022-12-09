@@ -224,9 +224,9 @@ p {
 }
 
 .view-icon-disabled {
-    background-color: rgb(255, 255, 255);
-    border: 2px solid rgba(125, 0, 92, 1);
-    color: rgb(125, 0, 92, 1);
+    background-color: rgb(77, 76, 76);
+    border: 2px solid rgb(42, 42, 42);
+    color: rgb(255, 255, 255);
     cursor: default
 }
 
