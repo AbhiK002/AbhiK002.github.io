@@ -558,6 +558,9 @@ p {
     }
 
     /*  CARDS  */
+    .div-designs {
+        justify-content: center;
+    }
 
     #div-about {
         padding: 20px;
