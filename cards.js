@@ -22,6 +22,15 @@ const python = [
     },
     {
         index: "2-1",
+        title: "Shard Text Editor",
+        descr: "Windows terminal styled text editor",
+        image: "./index-designs/tools/shardlogo.jpg",
+        support: ["win"],
+        link: "https://github.com/AbhiK002/shard-editor#readme",
+        disabled: 0
+    },
+    {
+        index: "2-1",
         title: "Virtual Keyboard",
         descr: "A GUI based customised virtual keyboard",
         image: "./index-designs/tools/vkblogo.jpg",
