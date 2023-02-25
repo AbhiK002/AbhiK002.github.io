@@ -17,7 +17,6 @@ body {
 }
 
 .parent-div {
-    height: 100vh;
     width: 100%;
     position: relative;
     overflow: hidden;
@@ -112,41 +111,41 @@ body {
 }
 
 /* CONTENT */
+.content {
+    height: 100%;
+}
+
 #background-svg {
     height: 100%;
     position: absolute;
-    z-index: -4;
+    z-index: -3;
     top: 0;
     left: 0;
     transform: translateX(-50px);
-    animation: svg-motion 90s cubic-bezier(1, 0.9, 0.9, 1) infinite;
+    animation: svg-motion 60s cubic-bezier(1, 0.9, 0.9, 1) infinite;
 }
 
-.parent-div::before, .parent-div::after {
+.content::after {
     position: absolute;
-    top: 0;
-    left: 0;
-    height: 100vh;
+    top:0;
+    left:0;
+    height: 100%;
     width: 100%;
     content: "";
-}
-
-.parent-div::before {
-    background-color: rgba(var(--major-bg), 0.5);
+    background: linear-gradient(
+        rgba(var(--major-bg), 1) 2%,
+        rgba(var(--major-bg), 0.5) 50%,
+        rgba(var(--major-bg), 1) 98%
+    );
     z-index: -2;
 }
 
-.parent-div::after {
-    background: linear-gradient(
-        rgba(var(--major-bg), 1) 0%,
-        rgba(var(--major-bg), 0.95) 21%,
-        rgba(var(--major-bg), 0.85) 38%,
-        rgba(var(--major-bg), 0.75) 50%,
-        rgba(var(--major-bg), 1) 96%
-    );
-    z-index: -3;
+@keyframes svg-motion {
+   50% {transform: translateX(-600px);}
 }
 
-@keyframes svg-motion {
-   50% {transform: translateX(-50%);}
+/* BOTTOM BAR */
+.bottom-bar {
+    width: 100%;
+    /* background-color: rgb(var(--major-bg)); */
 }
