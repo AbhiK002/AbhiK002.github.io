@@ -1,7 +1,7 @@
 :root {
     --white: 255, 255, 255;
-    --major-bg: rgb(56, 56, 56);
-    --minor-bg: rgb(78, 78, 78);
+    --major-bg: 56, 56, 56;
+    --minor-bg: 78, 78, 78;
     --tile-bd-col: 146, 146, 146;
     --sig-orange: 255, 167, 53;
     --sig-red: 255, 56, 54;
@@ -9,11 +9,18 @@
 }
 
 body {
-    background-color: var(--major-bg);
+    background-color: rgb(var(--major-bg));
     margin: 0;
     padding: 0;
     color: white;
     font-family: 'Poppins', sans-serif;
+}
+
+.parent-div {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
 }
 
 .top-bar {
@@ -38,7 +45,14 @@ body {
 
 .tile:hover::before {
     opacity: 1;
-    border: var(--tile-bd) solid rgba(var(--tile-bd-col), 1);
+    border: var(--tile-bd) solid rgba(var(--tile-bd-col), 0.7);
+}
+.tile:active::before {
+    border: var(--tile-bd) solid rgba(var(--tile-bd-col), 0.3);
+}
+
+.tile:active::before, .tile:active {
+    transform: scale(0.98);
 }
 
 .tile::before {
@@ -52,8 +66,9 @@ body {
     background: radial-gradient(
         400px circle at var(--mouse-x) var(--mouse-y),
         rgba(255, 255, 255, 0.21),
-        transparent 40%
+        transparent 50%
     );
+    user-select: none;
     border: var(--tile-bd) solid rgba(var(--tile-bd-col), 0);
     z-index: 2;
     transition: all 200ms;
@@ -62,6 +77,7 @@ body {
 
 #logo-container {
     padding: 4px 8px;
+    user-select: none;
 }
 
 .top-bar-buttons {
@@ -90,4 +106,47 @@ body {
 }
 .social-button:hover > img {
     transform: translateY(-2px);
+}
+.social-button:active, .social-button:active > img {
+    transform: scale(0.96);
+}
+
+/* CONTENT */
+#background-svg {
+    height: 100%;
+    position: absolute;
+    z-index: -4;
+    top: 0;
+    left: 0;
+    transform: translateX(-50px);
+    animation: svg-motion 90s cubic-bezier(1, 0.9, 0.9, 1) infinite;
+}
+
+.parent-div::before, .parent-div::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    content: "";
+}
+
+.parent-div::before {
+    background-color: rgba(var(--major-bg), 0.5);
+    z-index: -2;
+}
+
+.parent-div::after {
+    background: linear-gradient(
+        rgba(var(--major-bg), 1) 0%,
+        rgba(var(--major-bg), 0.95) 21%,
+        rgba(var(--major-bg), 0.85) 38%,
+        rgba(var(--major-bg), 0.75) 50%,
+        rgba(var(--major-bg), 1) 96%
+    );
+    z-index: -3;
+}
+
+@keyframes svg-motion {
+   50% {transform: translateX(-50%);}
 }

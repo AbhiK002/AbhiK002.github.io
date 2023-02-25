@@ -11,3 +11,7 @@ const handleOnMouseMove = e => {
 for(const card of document.querySelectorAll(".tile")) {
     card.onmousemove = e => handleOnMouseMove(e);
 }
+
+const myDetails = {
+
+}
