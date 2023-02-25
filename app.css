@@ -1,0 +1,93 @@
+:root {
+    --white: 255, 255, 255;
+    --major-bg: rgb(56, 56, 56);
+    --minor-bg: rgb(78, 78, 78);
+    --tile-bd-col: 146, 146, 146;
+    --sig-orange: 255, 167, 53;
+    --sig-red: 255, 56, 54;
+    --tile-bd: 2px;
+}
+
+body {
+    background-color: var(--major-bg);
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+.top-bar {
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tile {
+    position: relative;
+    display: flex;
+    width: fit-content;
+    padding: 0px 4px;
+    border: var(--tile-bd) solid rgba(var(--tile-bd-col), 0);
+    border-radius: 12px;
+    justify-content: space-around;
+    align-items: center;
+    transition: all 200ms;
+    cursor: pointer;
+}
+
+.tile:hover::before {
+    opacity: 1;
+    border: var(--tile-bd) solid rgba(var(--tile-bd-col), 1);
+}
+
+.tile::before {
+    position: absolute;
+    border-radius: inherit;
+    top: calc(0px - var(--tile-bd));
+    left: calc(0px - var(--tile-bd));
+    width: 100%;
+    height: 100%;
+    content: "";
+    background: radial-gradient(
+        400px circle at var(--mouse-x) var(--mouse-y),
+        rgba(255, 255, 255, 0.21),
+        transparent 40%
+    );
+    border: var(--tile-bd) solid rgba(var(--tile-bd-col), 0);
+    z-index: 2;
+    transition: all 200ms;
+    opacity: 0;
+}
+
+#logo-container {
+    padding: 4px 8px;
+}
+
+.top-bar-buttons {
+    display: flex;
+}
+
+.social-button {
+    display: flex;
+    border: none;
+    background-color: transparent;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    cursor: pointer;
+    transition: all 200ms;
+    border-radius: 20%;
+}
+
+.social-button img {
+    transition: all 200ms;
+    width: 32px;
+}
+
+.social-button:hover {
+    background-color: rgba(var(--white), 0.21);
+}
+.social-button:hover > img {
+    transform: translateY(-2px);
+}

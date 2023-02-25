@@ -1,0 +1,657 @@
+@font-face {
+    font-family: 'Segoe UI';
+    font-display: swap;
+    src: url("./index-designs/segoeuil.woff");
+}
+
+/*-------- COMMON CSS ---------*/
+
+body,
+p {
+    margin: 0;
+    padding: 0;
+    color: black;
+    font-family: "Segoe UI", "Calibri";
+}
+
+.unselectable {
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.div-top {
+    display: flex;
+    justify-content: space-between;
+    background: linear-gradient(145deg,
+            rgb(226, 226, 255) 0%,
+            rgb(231, 231, 255) 20%,
+            rgb(239, 226, 255) 40%,
+            rgb(255, 215, 234) 60%,
+            rgb(254, 227, 206) 80%,
+            rgb(250, 226, 164) 100%);
+    position: sticky;
+    top: 0;
+    border-bottom: 1.6px solid rgba(0, 0, 0, 0.206);
+    z-index: 1;
+}
+
+#logo-link {
+    align-self: flex-start;
+}
+
+#logo-image {
+    height: 54.4px;
+    padding-left: 4.8px;
+    transition: height 400ms;
+    overflow: visible;
+}
+
+.nav-bar a {
+    color: black;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bolder;
+    height: 90%;
+    margin: 0px 15px;
+    border-bottom: 2px solid;
+    border-color: rgba(125, 0, 92, 0);
+    transition: color 0.3s, border-color 0.3s,
+        font-size 0.4s, padding-bottom 0.4s;
+}
+
+.nav-bar {
+    transition: height 200ms;
+    display: flex;
+    align-items: center;
+}
+
+.nav-bar a:hover {
+    color: rgb(125, 0, 92, 1);
+    border-color: rgb(125, 0, 92, 1);
+}
+
+.menu-icon {
+    position: absolute;
+    top: 9.6px;
+    right: 0;
+    margin-right: 9.6px;
+    display: flex;
+    border-radius: 20px;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 0px;
+    transition: width 400ms;
+    height: 26px;
+    cursor: pointer;
+}
+
+.menu-icon .icon-bar {
+    height: 6.4px;
+    width: 100%;
+    background: linear-gradient(rgba(64, 0, 104, 0.9) 0%,
+            rgba(136, 4, 19, 0.9) 100%);
+    border-radius: 20px;
+}
+
+#link-home,
+#link-about,
+#link-contact {
+    color: rgba(125, 0, 92, 1);
+    border-color: rgba(125, 0, 92, 1);
+}
+
+/*-------- HOME PAGE CSS ---------*/
+
+.main-category {
+    background: linear-gradient(45deg, rgb(71, 0, 119) 0%, rgb(177, 0, 47) 100%);
+    padding: 48px 32px;
+    margin-bottom: 16px;
+    cursor: default;
+}
+
+#python-category {
+    background: linear-gradient(45deg, rgb(54, 72, 187) 0%, rgb(13, 4, 82) 100%);
+}
+
+.main-title {
+    font-size: 48px;
+    color: rgba(255, 192, 55, 0.9);
+    transition: font-size 300ms;
+}
+
+.main-description {
+    margin-top: 9.6px;
+    font-size: 20.8px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.subcategory {
+    margin: 19.2px 0px;
+    padding-left: 16px;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.div-designs {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 38.4px;
+}
+
+.design, .design-python {
+    border: 2px solid rgba(125, 0, 92, 1);
+    display: flex;
+    flex-direction: column;
+    margin: 9.6px 12.6px;
+    border-radius: 20px;
+    width: 278px;
+    position: relative;
+}
+
+.design-python {
+    border: 2px solid rgb(50, 41, 176);
+}
+
+.design-image {
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+    border-radius: 19px;
+}
+
+.design-details {
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    height: 100%;
+    padding: 240px 12px 12px 12px;
+    background: linear-gradient(
+        rgba(254, 254, 254, 0.1) 35%,  
+        rgb(255, 255, 255) 55%, 
+        rgb(255, 255, 255) 100%);
+}
+
+.design-title, .design-title-python {
+    font-size: 28px;
+    font-weight: bolder;
+    text-align: center;
+    color: rgba(125, 0, 92, 1);
+    cursor: default;
+}
+
+.design-title-python {
+    color: rgb(50, 41, 176)
+}
+
+.design-description {
+    font-size: 14px;
+    text-align: center;
+    font-weight: bolder;
+    padding: 14px 0px 38px 0px;
+    cursor: default;
+    margin-bottom: auto;
+}
+
+.design-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.design-actions a {
+    text-decoration: none;
+    width: 100%;
+}
+
+.view-icon,
+.view-icon-disabled,
+.view-icon-python {
+    background-color: rgba(125, 0, 92, 1);
+    padding: 12px 36px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-weight: bolder;
+    font-size: 16px;
+    transition: background-color 300ms;
+}
+
+.view-icon-python {
+    background-color: rgb(50, 41, 176);
+}
+
+.view-icon-disabled {
+    background-color: rgb(77, 76, 76);
+    border: 2px solid rgb(42, 42, 42);
+    color: rgb(255, 255, 255);
+    cursor: default
+}
+
+.view-icon:hover {
+    background-color: rgb(171, 39, 127);
+}
+.view-icon-python:hover {
+    background-color: rgb(60, 49, 211);
+}
+
+.view-icon img,
+.view-icon-disabled img,
+.view-icon-python img {
+    height: 16px;
+    margin-right: 3.2px;
+    align-self: center;
+}
+
+.view-icon a {
+    text-decoration: none;
+}
+
+.device-icons {
+    display: flex;
+    position: absolute;
+    right: 0;
+    border: solid black;
+    border-width: 0px 0px 2px 2px;
+    padding: 4px 8px;
+    border-radius: 0px 20px 0px 20px;
+    /*background: linear-gradient(
+        rgb(255, 255, 255) 0%,
+        rgb(255, 255, 255) 75%,
+        rgb(0, 0, 0, 0) 100%
+        );*/
+    background-color: white;
+}
+
+.device-icon {
+    height: 28px;
+    margin: 3px;
+}
+
+.device-text {
+    position: absolute;
+    top: -65%;
+    right: 0;
+    background-color: rgb(72, 72, 72);
+    color: white;
+    font-weight: bolder;
+    font-size: 14px;
+    border-radius: 10px;
+    padding: 2px 5px;
+    width: max-content;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 200ms;
+    transition-delay: 100ms;
+}
+
+.device-icons:hover .device-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/*-------- ABOUT PAGE CSS ---------*/
+
+#about-body {
+    background: linear-gradient(45deg, 
+    rgb(71, 0, 119) 0%, 
+    rgb(177, 0, 47) 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+#div-about {
+    display: flex;
+    justify-items: center;
+    padding: 60px;
+    transition: padding 300ms;
+}
+
+#about-box {
+    background-color: rgb(239, 239, 239);
+    border-radius: 40px;
+    border: 3px solid rgba(0, 0, 0, 0.2);
+    padding: 80px;
+    transition: padding 300ms;
+}
+
+#about-title,
+#about-content {
+    transition: font-size 300ms;
+}
+
+#about-title {
+    font-size: 50px;
+    color: rgba(125, 0, 92, 1);
+}
+
+#about-content {
+    font-size: 20px;
+    padding-top: 32px;
+    color: black;
+    font-weight: bolder;
+}
+
+#about-content span {
+    color: rgb(125, 0, 92)
+}
+
+#vlink {
+    text-decoration: underline 2px;
+    text-decoration-style: solid;
+    text-underline-offset: 2px;
+    text-decoration-color: rgb(125, 0, 92);
+    color: rgb(125, 0, 92, 1);
+    transition: text-decoration-color 300ms;
+}
+
+#vlink span {
+    text-decoration: underline 2px;
+    text-decoration-color: rgba(125, 0, 92, 0);
+    text-decoration-style: dashed;
+    text-underline-offset: 2px;
+    transition: text-decoration-color 300ms;
+}
+
+#vlink:hover {
+    text-decoration-color: rgba(245, 0, 180, 0);
+}
+
+#vlink:hover span {
+    text-decoration-color: rgb(125, 0, 92, 1);
+}
+
+#designs-link {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 3px 6px;
+    border-radius: 8px;
+    background: linear-gradient(45deg,
+            rgb(71, 0, 119) 0%,
+            rgb(177, 0, 47) 100%);
+    font-size: 20px;
+    transition: border-radius 300ms;
+}
+
+#designs-link:hover {
+    border-radius: 25px;
+}
+
+#designs-linkspan {
+    display: block;
+    margin-top: 8px;
+}
+
+/*-------- ABOUT PAGE CSS ---------*/
+
+#contact-body {
+    background-image: url(./index-designs/bgcontact.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+#div-contact {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.contact-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bolder;
+    background-color: rgb(238, 238, 238);
+    width: fit-content;
+    padding: 0px 40px 40px 40px;
+    border-radius: 30px;
+    border: 2px solid rgba(125, 0, 92, 0.747)
+}
+
+.contact-box>p {
+    font-size: 22px;
+    margin-top: 30px;
+    color: rgb(125, 0, 92)
+}
+
+.contact-box a {
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact-link {
+    background-color: white;
+    width: 250px;
+    border: 3px solid;
+    border-radius: 10px;
+    margin-top: 20px;
+    transition: background-color 300ms,
+        border-color 300ms, border-radius 300ms,
+        color 300ms,
+        width 300ms;
+    font-size: 18px;
+}
+
+.contact-link:hover {
+    border-radius: 17px;
+}
+
+.contact-link img {
+    height: 30px;
+    margin: 5px;
+    user-select: none;
+}
+
+.contact-link p {
+    padding: 6px;
+}
+
+#ab-linkedin {
+    border-color: rgb(0, 78, 156);
+}
+
+#ab-linkedin:hover {
+    background-color: rgb(175, 215, 255);
+}
+
+#ab-instagram {
+    border-color: rgb(219, 42, 246);
+}
+#ab-instagram:hover {
+    background-color: rgb(250, 216, 255);
+}
+
+#ab-email {
+    border-color: rgb(50, 135, 57);
+}
+#ab-email:hover {
+    background-color: rgb(185, 239, 191);
+}
+
+#ab-github, #ab-hrrank {
+    border-color: rgb(17, 17, 17);
+}
+#ab-github:hover, #ab-hrrank:hover {
+    background-color: rgb(204, 204, 204);
+}
+
+#ab-codechef {
+    border-color: rgb(91, 69, 56);
+}
+#ab-codechef:hover {
+    background-color: rgb(242, 220, 207);
+}
+
+/*-------- COMPATIBILITY ---------*/
+
+@media (max-width: 900px) {
+    #logo-image {
+        align-self: flex-start;
+        height: 48px
+    }
+
+    .nav-bar a {
+        font-size: 16px;
+        padding: 1.6px;
+    }
+
+    #div-about {
+        padding: 40px;
+    }
+
+    #about-box {
+        padding: 50px;
+    }
+}
+
+@media (max-width: 569px) {
+    .menu-icon {
+        width: 32px;
+    }
+
+    .div-top {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-bar {
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        height: 0px;
+        width: 100%;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .nav-bar.active {
+        height: 24px;
+        padding: 3.2px 0px;
+    }
+
+    .nav-bar a {
+        font-size: 14.4px;
+    }
+
+    .nav-bar a:hover {
+        color: unset;
+        border-color: transparent;
+    }
+
+    #logo-image {
+        align-self: flex-start;
+        height: 44.8px
+    }
+
+    .main-title {
+        font-size: 40px;
+    }
+
+    .main-description {
+        font-size: 19.2px;
+    }
+
+    /*  CARDS  */
+    .div-designs {
+        justify-content: center;
+    }
+
+    #div-about {
+        padding: 20px;
+    }
+
+    #about-box {
+        padding: 30px;
+    }
+
+    #about-title {
+        font-size: 40px;
+    }
+
+    #about-content,
+    #designs-link {
+        font-size: 18px;
+    }
+
+    .contact-link {
+        width: 200px;
+    }
+
+    #ab-linkedin:hover, 
+    #ab-github:hover, 
+    #ab-instagram:hover, 
+    #ab-email:hover,
+    #ab-codechef:hover,
+    #ab-hrrank:hover {
+        background-color: white;
+        border-radius: 10px;
+    }
+
+    #ab-linkedin:active {
+        background-color: rgb(175, 215, 255);
+    }
+    #ab-instagram:active {
+        background-color: rgb(250, 216, 255);
+    }
+    #ab-email:active {
+        background-color: rgb(185, 239, 191);
+    }
+    #ab-github:active, #ab-hrrank:active {
+        background-color: rgb(204, 204, 204);
+    }
+    #ab-codechef:active {
+        background-color: rgb(242, 220, 207);
+    }
+}
+
+@media (max-width: 373px) {
+    .div-designs {
+        justify-content: center;
+        align-content: stretch;
+    }
+
+    /*  DESIGN  */
+
+    #div-about {
+        padding: 10px;
+    }
+
+    #about-box {
+        padding: 20px;
+    }
+
+    #about-title {
+        font-size: 35px;
+    }
+
+    #about-content,
+    #designs-link {
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 285px) {
+    #logo-image {
+        height: 40px;
+    }
+
+    #about-title {
+        font-size: 30px;
+    }
+
+    .contact-link {
+        width: 150px;
+        font-size: 16px;
+    }
+
+    .contact-link img{
+        height: 24px;
+    }
+}

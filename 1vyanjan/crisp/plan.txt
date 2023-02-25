@@ -1,0 +1,15 @@
+Restaurant - Crisposaurus
+Tagline - Devour like a Beast
+Short Description - Prehistoric Themed Restaurant offering all kinds of food
+Long Description -
+Crisposaurus is a Prehistoric Themed Restaurant located in Punjab,
+offering all kinds of food you can imagine!
+We have South Indian, Chinese, Italian, French, American and lots more.
+Pay us a visit today and have fun in our dino-themed environment!
+
+Logo - sslogo.png
+       https://user-images.githubusercontent.com/68178267/161425017-ba36870c-b0d3-4a47-9c64-3bd417d4119d.png
+big logo - sslogobig.png
+           https://user-images.githubusercontent.com/68178267/161426256-0baf7bd6-1ba2-4ccc-899d-b8f96754d5fa.png
+
+bg = rgb(46, 28, 10)
