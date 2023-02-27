@@ -16,5 +16,40 @@ for(const card of document.querySelectorAll(".tile")) {
 
 const myDetails = {
     fullname: "Abhineet Kelley",
-    description: ""
+    description: "A random guy who likes making Desktop and Web Applications, in addition to Graphic Designing. I always find unique solutions to problems and I love exploring and learning new technologies.",
+    languages: ["Python", "Java", "C++", "HTML", "CSS", "JavaScript"],
+    skills: ["JavaFX", "Qt", "Git", "tkinter"]
 }
+
+function contentTitle(){
+    const titleDiv = document.createElement("div");
+    titleDiv.className = "content-title";
+
+    const nameSpan = document.createElement("span");
+    nameSpan.id = "fullname";
+    nameSpan.innerHTML = myDetails.fullname;
+    
+    titleDiv.innerHTML = "Hi, I am ";
+    titleDiv.append(nameSpan);
+
+    return titleDiv;
+}
+
+function contentDescription(){
+    const descDiv = document.createElement("div");
+    descDiv.className = "content-desc";
+
+    descDiv.innerText = myDetails.description;
+    return descDiv;
+}
+
+function addContent(){
+    const parent = document.getElementsByClassName("content")[0];
+
+    const mainDiv = document.createElement("div");
+    mainDiv.append(contentTitle(), contentDescription())
+
+    parent.append(mainDiv);
+}
+
+addContent();
