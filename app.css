@@ -12,6 +12,7 @@
     --medium-font-size: 3rem;
     --small-font-size: 2rem;
     --smallest-font-size: 1.33rem;
+    --base-font-size: 12px;
     /* 10:5:3:2:1.33 */
 }
 
@@ -42,7 +43,7 @@ body {
 }
 
 html {
-    font-size: 12px;
+    font-size: var(--base-font-size);
 }
 
 body {
@@ -52,6 +53,8 @@ body {
     position: relative;
     color: white;
     font-family: 'Poppins', sans-serif;
+    font-size: var(--small-font-size);
+    overflow-x: hidden;
 }
 
 /* FOR GLOBAL USE */
@@ -156,7 +159,7 @@ body {
 .social-button {
     display: flex;
     border: none;
-    background-color: transparent;
+    background-color: rgba(var(--white), 0);
     align-items: center;
     justify-content: center;
     padding: 8px;
@@ -191,11 +194,16 @@ body {
     align-items: center;
     justify-content: center;
     flex-grow: 1;
+    line-height: 1.2;
+    cursor: default;
+    transform: translateX(12rem);
+    opacity: 0;
+    transition: transform 500ms, opacity 600ms;
 }
 
 .content-title {
     font-size: var(--large-font-size);
-    margin-bottom: 4%;
+    margin-bottom: 2rem;
     line-height: 1
 }
 
@@ -208,7 +216,7 @@ body {
 }
 
 @media (max-width: 550px) {
-    html {
-        font-size: 8px;
+    :root {
+        --base-font-size: 8px;
     }
 }

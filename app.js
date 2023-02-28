@@ -16,7 +16,7 @@ for(const card of document.querySelectorAll(".tile")) {
 
 const myDetails = {
     fullname: "Abhineet Kelley",
-    description: "A random guy who likes making Desktop and Web Applications, in addition to Graphic Designing. I always find unique solutions to problems and I love exploring and learning new technologies.",
+    description: "A random guy who likes making Desktop and Web Applications, in addition to Graphic Designing. I always find unique solutions to problems and I love exploring & learning new technologies.",
     languages: ["Python", "Java", "HTML", "CSS", "JavaScript"],
     skills: ["JavaFX", "Qt", "Git", "tkinter"]
 }
@@ -53,3 +53,10 @@ function addContent(){
 }
 
 addContent();
+
+window.onload = setTimeout(loadVisuals, 300);
+
+function loadVisuals(){
+    const coverDiv = document.getElementsByClassName("content")[0];
+    coverDiv.style = "transform: translateX(0%); opacity: 1;";
+}
