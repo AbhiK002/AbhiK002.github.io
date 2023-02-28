@@ -55,8 +55,29 @@ function addContent(){
 addContent();
 
 window.onload = setTimeout(loadVisuals, 300);
+const logo = document.getElementById("logo-container");
+const bgSVG = document.getElementById("background-svg");
+const topDiv = document.getElementsByClassName("top-bar")[0];
+const coverDiv = document.getElementsByClassName("content")[0];
 
 function loadVisuals(){
-    const coverDiv = document.getElementsByClassName("content")[0];
+    bgSVG.style = "opacity: 1";
+
+    setTimeout(loadTopBar, 300);
+}
+
+function loadTopBar(){
+    topDiv.style = "transform: translateY(0%);"
+
+    setTimeout(loadCoverContent, 300);
+}
+
+function loadCoverContent(){
     coverDiv.style = "transform: translateX(0%); opacity: 1;";
+    
+    setTimeout(loadLogo, 500);
+}
+
+function loadLogo(){
+    logo.style = "width: 240px;"
 }

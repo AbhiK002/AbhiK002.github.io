@@ -133,6 +133,8 @@ body {
     left: 0;
     transform: translateX(-50px) translateY(-10%);
     animation: svg-motion 60s cubic-bezier(1, 0.9, 0.9, 1) infinite;
+    opacity: 0;
+    transition: all 300ms;
 }
 
 @keyframes svg-motion {
@@ -145,11 +147,22 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    transform: translateY(-100%);
+    transition: all 400ms;
 }
 
 #logo-container {
     padding: 4px 8px;
     user-select: none;
+    width: 80px;
+    overflow: hidden;
+    transition: width 400ms, opacity 500ms;
+    display: flex;
+    justify-content: flex-start;
+}
+
+#logoimg {
+    height: 50px;
 }
 
 .top-bar-buttons {
