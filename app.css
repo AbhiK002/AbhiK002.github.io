@@ -18,7 +18,7 @@
 
 /* DEBUGGING */
 
-div {
+/* div {
     border: 1px solid rgba(0, 255, 106, 0.573);
     background-color: rgba(0, 217, 255, 0.02);
 }
@@ -29,7 +29,7 @@ img {
 span {
     border: 1px solid rgba(217, 0, 255, 0.699);
     background-color: rgba(218, 10, 255, 0.129);
-}
+} */
 
 /* DEBUGGING */
 
@@ -63,7 +63,6 @@ body {
     position: relative;
     display: flex;
     width: fit-content;
-    padding: 0px 4px;
     border: var(--tile-bd) solid rgba(var(--tile-bd-col), 0);
     border-radius: 12px;
     justify-content: space-around;
@@ -84,10 +83,9 @@ body {
 .tile::before {
     position: absolute;
     border-radius: inherit;
-    top: calc(0px - var(--tile-bd));
-    left: calc(0px - var(--tile-bd));
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0;
+    width: calc(100% - 2*var(--tile-bd));
+    height: calc(100% - 2*var(--tile-bd));
     content: "";
     background: radial-gradient(
         400px circle at var(--mouse-x) var(--mouse-y),
@@ -152,7 +150,7 @@ body {
 }
 
 #logo-container {
-    padding: 4px 8px;
+    padding: 4px;
     user-select: none;
     width: 80px;
     overflow: hidden;
@@ -226,6 +224,11 @@ body {
     width: 100%;
     color: rgb(var(--sig-orange));
     display: block;
+}
+
+.content-desc {
+    opacity: 0;
+    transition: opacity 600ms;
 }
 
 @media (max-width: 550px) {

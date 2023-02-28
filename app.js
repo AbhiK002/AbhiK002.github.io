@@ -59,25 +59,29 @@ const logo = document.getElementById("logo-container");
 const bgSVG = document.getElementById("background-svg");
 const topDiv = document.getElementsByClassName("top-bar")[0];
 const coverDiv = document.getElementsByClassName("content")[0];
+const coverDesc = document.getElementsByClassName("content-desc")[0];
 
 function loadVisuals(){
-    bgSVG.style = "opacity: 1";
-
+    bgSVG.style.setProperty("opacity", "1");
     setTimeout(loadTopBar, 300);
 }
 
 function loadTopBar(){
-    topDiv.style = "transform: translateY(0%);"
-
+    topDiv.style.setProperty("transform","translateY(0%)");
     setTimeout(loadCoverContent, 300);
 }
 
 function loadCoverContent(){
-    coverDiv.style = "transform: translateX(0%); opacity: 1;";
-    
-    setTimeout(loadLogo, 500);
+    coverDiv.style.setProperty("transform", "translateX(0%)")
+    coverDiv.style.setProperty("opacity", "1");
+    setTimeout(loadCoverDesc, 500);
+}
+
+function loadCoverDesc(){
+    coverDesc.style.setProperty("opacity", "1");
+    setTimeout(loadLogo, 1000);
 }
 
 function loadLogo(){
-    logo.style = "width: 240px;"
+    logo.style.setProperty("width", "240px");
 }
