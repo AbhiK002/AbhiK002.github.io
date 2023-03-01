@@ -1,4 +1,6 @@
 :root {
+    --main-font: "Poppins", sans-serif;
+
     --white: 255, 255, 255;
     --major-bg: 56, 56, 56;
     --minor-bg: 78, 78, 78;
@@ -52,7 +54,7 @@ body {
     padding: 0;
     position: relative;
     color: white;
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--main-font);
     font-size: var(--small-font-size);
     overflow-x: hidden;
 }
@@ -220,7 +222,7 @@ body {
 
 #fullname {
     font-size: var(--largest-font-size);
-    font-weight: bold;
+    font-weight: 600;
     width: 100%;
     color: rgb(var(--sig-orange));
     display: block;
