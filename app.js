@@ -1,3 +1,7 @@
+function debugText(text) {
+    document.getElementById("js-tester").innerText = text;
+}
+
 const handleOnMouseMove = e => {
     const { currentTarget: target } = e;
     const rect = target.getBoundingClientRect(),
@@ -7,7 +11,7 @@ const handleOnMouseMove = e => {
     target.style.setProperty("--mouse-x", `${x}px`);
     target.style.setProperty("--mouse-y", `${y}px`);
 
-    document.getElementById("js-tester").innerText = `${target} ${rect} == ${rect.left} ${rect.top} == ${e.clientX} ${e.clientY}`;
+    // debugText(`${target} ${rect} == ${rect.left} ${rect.top} == ${e.clientX} ${e.clientY}`);
 }
 
 for(const card of document.querySelectorAll(".tile")) {
@@ -17,9 +21,18 @@ for(const card of document.querySelectorAll(".tile")) {
 const myDetails = {
     fullname: "Abhineet Kelley",
     description: "A random guy who likes making Desktop and Web Applications, in addition to Graphic Designing. I always find unique solutions to problems and I love exploring & learning new technologies.",
-    languages: ["Python", "Java", "HTML", "CSS", "JavaScript"],
-    skills: ["JavaFX", "Qt", "Git", "tkinter"]
+    langs: ["Python", "Java", "C++", "JavaScript", "HTML", "CSS"],
+    skills: ["JavaFX", "Qt", "tkinter"]
 }
+const colors = [
+    ["red", "#de3b51"],
+    ["yellow", "#f0ed4d"],
+    ["blue", "#2a4bf5"],
+    ["green", "#7bf52a"],
+    ["light-blue", "#6bf5ff"],
+    ["orange", "#ff9736"],
+    ["purple", "#7820e3"]
+]
 
 function contentTitle(){
     const titleDiv = document.createElement("div");
@@ -56,6 +69,9 @@ addContent();
 
 window.onload = setTimeout(loadVisuals, 300);
 const logo = document.getElementById("logo-container");
+let initLogoWidth = logo.offsetWidth;
+logo.style.setProperty("width", `${parseInt(initLogoWidth)/3}px`)
+
 const bgSVG = document.getElementById("background-svg");
 const topDiv = document.getElementsByClassName("top-bar")[0];
 const coverDiv = document.getElementsByClassName("content")[0];
@@ -83,5 +99,28 @@ function loadCoverDesc(){
 }
 
 function loadLogo(){
-    logo.style.setProperty("width", "240px");
+    logo.style.setProperty("width", `${initLogoWidth}px`);
 }
+
+// skills section
+
+function addSkills(){
+    const mainDiv = document.getElementsByClassName("skills-div")[0];
+    
+    const skillTitle = document.createElement("h1");
+    skillTitle.innerText = "My Skills"
+
+    const langsDiv = document.createElement("div");
+    langsDiv.className = "lang-div";
+    
+    for (const lang in myDetails.langs){
+        let ld = document.createElement("div");
+        ld.className = "lang-item";
+        ld.innerText = myDetails.langs[lang];
+        langsDiv.append(ld);
+    }
+
+    mainDiv.append(skillTitle, langsDiv);
+}
+
+addSkills();

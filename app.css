@@ -6,10 +6,13 @@
     --minor-bg: 78, 78, 78;
     --tile-bd-col: 146, 146, 146;
     --sig-orange: 255, 167, 53;
+    --sig-yellow: 255, 200, 128;
     --sig-red: 255, 56, 54;
     --tile-bd: 2px;
+    --logo-width: 240px;
 
     --largest-font-size: 10rem;
+    --larger-font-size: 7.5rem;
     --large-font-size: 5rem;
     --medium-font-size: 3rem;
     --small-font-size: 2rem;
@@ -57,6 +60,7 @@ body {
     font-family: var(--main-font);
     font-size: var(--small-font-size);
     overflow-x: hidden;
+    cursor: default;
 }
 
 /* FOR GLOBAL USE */
@@ -102,7 +106,7 @@ body {
 }
 
 /* MAIN FRONT DIV */
-.bg-wrapper {
+.cover-div {
     height: 100vh;
     height: 100svh;
     display: flex;
@@ -110,7 +114,7 @@ body {
     justify-content: space-between;
 }
 
-.bg-wrapper::after {
+.cover-div::after {
     position: fixed;
     top:0;
     left:0;
@@ -154,7 +158,7 @@ body {
 #logo-container {
     padding: 4px;
     user-select: none;
-    width: 80px;
+    width: var(--logo-width);
     overflow: hidden;
     transition: width 400ms, opacity 500ms;
     display: flex;
@@ -224,7 +228,7 @@ body {
     font-size: var(--largest-font-size);
     font-weight: 600;
     width: 100%;
-    color: rgb(var(--sig-orange));
+    color: rgb(var(--sig-yellow));
     display: block;
 }
 
@@ -233,6 +237,34 @@ body {
     transition: opacity 600ms;
 }
 
+/* SKILLS SECTION */
+.skills-div {
+    height: 100vh;
+    height: 100svh;
+    padding: 2rem;
+    line-height: 1;
+}
+
+.skills-div h1 {
+    font-size: var(--largest-font-size);
+    margin: 0;
+}
+
+.lang-div {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+    gap: 1rem;
+    margin-top: 2rem
+}
+
+.lang-item {
+    align-self: center;
+    justify-self: center;
+    font-family: "Roboto Slab";
+    font-size: var(--medium-font-size);
+}
+
+/* RESPONSIVE BEHAVIOUR */
 @media (max-width: 550px) {
     :root {
         --base-font-size: 8px;
