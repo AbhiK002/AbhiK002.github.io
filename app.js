@@ -22,7 +22,7 @@ const myDetails = {
     fullname: "Abhineet Kelley",
     description: "A random guy who likes making Desktop and Web Applications, in addition to Graphic Designing. I always find unique solutions to problems and I love exploring & learning new technologies.",
     langs: ["Python", "Java", "C++", "JavaScript", "HTML", "CSS"],
-    skills: ["JavaFX", "Qt", "tkinter"]
+    tools: ["JavaFX", "Qt", "tkinter"]
 }
 const colors = [
     ["red", "#de3b51"],
@@ -120,7 +120,23 @@ function addSkills(){
         langsDiv.append(ld);
     }
 
-    mainDiv.append(skillTitle, langsDiv);
+    const toolDiv = document.createElement("div");
+    toolDiv.className = "tool-div";
+
+    const toolTitle = document.createElement("h2");
+    const toolItems = document.createElement("div");
+    toolItems.className = "tool-items";
+    for (const tool in myDetails.tools){
+        let ld = document.createElement("div");
+        ld.className = "tool-item";
+        ld.innerText = myDetails.tools[tool];
+        toolItems.append(ld);
+    }
+    
+    toolTitle.append(toolItems);
+    toolDiv.append(toolTitle);
+
+    mainDiv.append(skillTitle, langsDiv, toolDiv);
 }
 
 addSkills();
