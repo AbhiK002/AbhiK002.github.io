@@ -22,7 +22,7 @@ const myDetails = {
     fullname: "Abhineet Kelley",
     description: "A random guy who likes making Desktop and Web Applications, in addition to Graphic Designing. I always find unique solutions to problems and I love exploring & learning new technologies.",
     langs: ["Python", "Java", "C++", "JavaScript", "HTML", "CSS"],
-    tools: ["JavaFX", "Qt", "tkinter"]
+    tools: ["JavaFX", "Qt C++", "PyQt5", "tkinter"]
 }
 const colors = [
     ["red", "#de3b51"],
