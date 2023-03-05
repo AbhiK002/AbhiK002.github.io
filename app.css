@@ -115,7 +115,7 @@ body {
 }
 
 .cover-div::after {
-    position: fixed;
+    position: absolute;
     top:0;
     left:0;
     height: 100%;
@@ -131,7 +131,7 @@ body {
 
 #background-svg {
     height: 150vh;
-    position: fixed;
+    position: absolute;
     z-index: -3;
     top: 0;
     left: 0;
@@ -238,11 +238,9 @@ body {
 }
 
 /* SKILLS SECTION */
-.skills-div {
+.content-div {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    gap: 2rem;
     min-height: 100vh;
     min-height: 100svh;
     padding: 2rem;
@@ -271,10 +269,6 @@ body {
     background-color: rgba(var(--sig-yellow), 0.14);
     border: 2px solid;
     border-radius: 1rem;
-}
-
-.tool-div {
-    
 }
 
 .tool-div h2 {
