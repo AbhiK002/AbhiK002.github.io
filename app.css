@@ -131,7 +131,7 @@ body {
 
 #background-svg {
     height: 150vh;
-    position: absolute;
+    position: fixed;
     z-index: -3;
     top: 0;
     left: 0;
@@ -247,12 +247,14 @@ body {
     line-height: 1;
 }
 
-.skills-div h1 {
+.second-div h1 {
     font-size: var(--largest-font-size);
     margin: 0;
     margin-bottom: 2rem;
 }
 
+
+/* skill summary */
 .lang-div {
     display: flex;
     flex-wrap: wrap;
