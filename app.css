@@ -238,7 +238,7 @@ body {
 }
 
 /* SKILLS SECTION */
-.content-div {
+.second-div {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
