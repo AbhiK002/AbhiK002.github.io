@@ -147,9 +147,10 @@ const secondh1 = document.getElementById("second-h1");
 const codeCursor = document.getElementById("cursor");
 
 designWord.style.setProperty("background-color", "transparent");
-designWord.style.setProperty("height", "0rem");
+designWord.style.setProperty("opacity", "0");
 intoWord.style.setProperty("opacity", "0");
 secondh1.style.setProperty("opacity", "0");
+codeCursor.style.setProperty("visibility", "hidden")
 
 function loadDecoration() {
     const bars = document.getElementsByClassName("decoration-bar");
@@ -159,13 +160,13 @@ function loadDecoration() {
     secondh1.style.setProperty("opacity", "1");
     designWord.style.setProperty("background-color", "rgba(var(--sig-red), 0.2)");
     setTimeout(() => {
-        designWord.style.setProperty("height", "13rem");
-        switchBorderRadius();
+        designWord.style.setProperty("opacity", "1");
         setTimeout(() => {
             intoWord.style.setProperty("opacity", "1");
             if(codeText.innerText.length > 1) untypeCode();
             setTimeout(() => {
-                typeCode();                
+                codeCursor.style.setProperty("visibility", "visible");
+                setTimeout(typeCode, 300);
             }, 800);
         }, 500);
     }, 700);
@@ -179,6 +180,7 @@ function typeCode() {
             codeText.innerText = "Cod";
             setTimeout(() => {
                 codeText.innerText = "Code";
+                setTimeout(switchBorderRadius, 300);
             }, 200);
         }, 100);
     }, 200);
@@ -196,25 +198,11 @@ function untypeCode() {
     }, 100);
 }
 
-function hideDecoration() { //unused
-    secondh1.style.setProperty("opacity", "0");
-    const bars = document.getElementsByClassName("decoration-bar");
-    for(let i in bars) bars[i].style = "opacity: 0;"
-    designWord.style.setProperty("background-color", "rgba(var(--sig-yellow), 0)");
-    designWord.style.setProperty("height", "0rem");
-    intoWord.style.setProperty("opacity", "0");
-    untypeCode();
-    codeCursor.style.setProperty("visibility", "hidden");
-}
-
 function controlDecoration(entries, observer)
 {
   entries.forEach(entry => {
     if(entry.isIntersecting){
         loadDecoration();
-    }
-    else {
-        // hideDecoration();
     }
   });
 }
@@ -222,13 +210,13 @@ function controlDecoration(entries, observer)
 let options = {
     root: null,
     rootMargin: '0px',
-    threshold: 0.4
-  };
+    threshold: 0.6
+};
 
 let observer = new IntersectionObserver(controlDecoration, options);
 observer.observe(secondDiv);
 
-const brvalues = ["0rem 10rem 0rem 10rem", "10rem 0rem 10rem 0rem"];
+const brvalues = ["2rem 10rem 2rem 10rem", "10rem 2rem 10rem 2rem"];
 let curr = 0;
 function switchBorderRadius(){
     designWord.style.setProperty("border-radius", brvalues[curr%2])

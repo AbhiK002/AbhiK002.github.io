@@ -40,6 +40,7 @@ span {
 
 * {
     box-sizing: border-box;
+    transition-delay: 100ms;
 }
 
 html, 
@@ -256,6 +257,7 @@ body {
     margin: 0;
     margin-bottom: 2rem;
     text-align: center;
+    opacity: 0;
     transition: all 300ms;
 }
 
@@ -314,6 +316,8 @@ body {
     color: rgb(var(--sig-yellow));
     display: block;
     margin-top: 20px;
+    height: 13rem;
+    opacity: 0;
     background-color: rgba(var(--sig-yellow), 0);
     transition: all 600ms;
 }
@@ -323,6 +327,7 @@ body {
     margin-top: 1.7rem;
     margin-bottom: 1.4rem;
     transition: all 500ms;
+    opacity: 0;
 }
 
 #word-code {
@@ -334,6 +339,7 @@ body {
 
 #cursor {
     opacity: 1;
+    visibility: hidden;
     animation: blink 0.7s infinite;
 }
 
