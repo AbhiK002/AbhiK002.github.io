@@ -20,7 +20,7 @@ for(const card of document.querySelectorAll(".tile")) {
 
 const myDetails = {
     fullname: "Abhineet Kelley",
-    description: "A random guy who likes making Desktop and Web Applications, in addition to Graphic Designing. I always find unique solutions to problems and I love exploring & learning new technologies.",
+    description: "A random guy who enjoys developing desktop and web applications, while brainstorming creative solutions to challenging problems",
     langs: ["Python", "Java", "C++", "JavaScript", "HTML", "CSS"],
     tools: ["JavaFX", "Qt C++", "PyQt5", "tkinter"]
 }
@@ -103,8 +103,7 @@ function loadLogo(){
 }
 
 // skills section
-
-function addSkills(){
+function addSkillsSummary(){
     const mainDiv = document.getElementsByClassName("skills-div")[0];
     
     const skillTitle = document.createElement("h1");
@@ -139,4 +138,103 @@ function addSkills(){
     mainDiv.append(skillTitle, langsDiv, toolDiv);
 }
 
-addSkills();
+// second div
+const secondDiv = document.getElementsByClassName("second-div")[0];
+const codeText = document.getElementById("word-code");
+const designWord = document.getElementById("word-design");
+const intoWord = document.getElementById("word-into");
+const secondh1 = document.getElementById("second-h1");
+const codeCursor = document.getElementById("cursor");
+
+designWord.style.setProperty("background-color", "transparent");
+designWord.style.setProperty("height", "0rem");
+intoWord.style.setProperty("opacity", "0");
+secondh1.style.setProperty("opacity", "0");
+
+function loadDecoration() {
+    const bars = document.getElementsByClassName("decoration-bar");
+    for(let i in bars){
+        bars[i].style = "opacity: 1;"
+    }
+    secondh1.style.setProperty("opacity", "1");
+    designWord.style.setProperty("background-color", "rgba(var(--sig-red), 0.2)");
+    setTimeout(() => {
+        designWord.style.setProperty("height", "13rem");
+        switchBorderRadius();
+        setTimeout(() => {
+            intoWord.style.setProperty("opacity", "1");
+            if(codeText.innerText.length > 1) untypeCode();
+            setTimeout(() => {
+                typeCode();                
+            }, 800);
+        }, 500);
+    }, 700);
+}
+
+function typeCode() {
+    codeText.innerText = "C";
+    setTimeout(() => {
+        codeText.innerText = "Co";
+        setTimeout(() => {
+            codeText.innerText = "Cod";
+            setTimeout(() => {
+                codeText.innerText = "Code";
+            }, 200);
+        }, 100);
+    }, 200);
+}
+function untypeCode() {
+    codeText.innerText = "Cod";
+    setTimeout(() => {
+        codeText.innerText = "Co";
+        setTimeout(() => {
+            codeText.innerText = "C";
+            setTimeout(() => {
+                codeText.innerText = "";
+            }, 200);
+        }, 200);
+    }, 100);
+}
+
+function hideDecoration() { //unused
+    secondh1.style.setProperty("opacity", "0");
+    const bars = document.getElementsByClassName("decoration-bar");
+    for(let i in bars) bars[i].style = "opacity: 0;"
+    designWord.style.setProperty("background-color", "rgba(var(--sig-yellow), 0)");
+    designWord.style.setProperty("height", "0rem");
+    intoWord.style.setProperty("opacity", "0");
+    untypeCode();
+    codeCursor.style.setProperty("visibility", "hidden");
+}
+
+function controlDecoration(entries, observer)
+{
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+        loadDecoration();
+    }
+    else {
+        // hideDecoration();
+    }
+  });
+}
+
+let options = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.4
+  };
+
+let observer = new IntersectionObserver(controlDecoration, options);
+observer.observe(secondDiv);
+
+const brvalues = ["0rem 10rem 0rem 10rem", "10rem 0rem 10rem 0rem"];
+let curr = 0;
+function switchBorderRadius(){
+    designWord.style.setProperty("border-radius", brvalues[curr%2])
+    curr++;
+}
+
+switchBorderRadius();
+designWord.onmouseover = switchBorderRadius
+

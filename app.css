@@ -68,7 +68,6 @@ body {
 .tile {
     position: relative;
     display: flex;
-    width: fit-content;
     border: var(--tile-bd) solid rgba(var(--tile-bd-col), 0);
     border-radius: 12px;
     justify-content: space-around;
@@ -112,6 +111,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    overflow: hidden;
 }
 
 .cover-div::after {
@@ -241,18 +241,115 @@ body {
 .second-div {
     display: flex;
     flex-direction: column;
+    position: relative;
+    background-color: rgb(var(--major-bg));
     min-height: 100vh;
     min-height: 100svh;
     padding: 2rem;
     line-height: 1;
+    justify-content: center;
+    align-items: center;
 }
 
 .second-div h1 {
-    font-size: var(--largest-font-size);
+    font-size: var(--larger-font-size);
     margin: 0;
     margin-bottom: 2rem;
+    text-align: center;
+    transition: all 300ms;
 }
 
+.decoration-bar {
+    position: absolute;
+    width: 30rem;
+    background-color: rgba(var(--sig-orange), 0.5);
+    height: 0.6rem;
+    border-radius: 2rem;
+    align-self: flex-start;
+    transition: all 1500ms;
+}
+
+@keyframes pulse-length-neg {
+    50% {transform: translateX(-9rem);}
+}
+@keyframes pulse-length-pos {
+    50% {transform: translateX(9rem);}
+}
+
+#b2, #b4 {
+    width: 20rem;
+}
+
+#b1, #b2 {
+    top: 3rem;
+    left: 0rem;
+    opacity: 0;
+    animation: pulse-length-neg 8s ease-in-out infinite;
+}
+
+#b2 {
+    margin-top: 2rem;
+    animation: pulse-length-neg 10s forwards infinite;
+}
+
+#b3, #b4 {
+    bottom: 3rem;
+    right: 0rem;
+    opacity: 0;
+    animation: pulse-length-pos 7s forwards infinite;
+}
+
+#b4 {
+    margin-bottom: 2rem;
+    animation: pulse-length-pos 11s forwards infinite;
+}
+
+
+#word-design {
+    font-family: "Lora";
+    font-style: italic;
+    font-weight: lighter;
+    overflow: hidden;
+    font-size: var(--largest-font-size);
+    color: rgb(var(--sig-yellow));
+    display: block;
+    margin-top: 20px;
+    background-color: rgba(var(--sig-yellow), 0);
+    transition: all 600ms;
+}
+
+#word-into {
+    display: block;
+    margin-top: 1.7rem;
+    margin-bottom: 1.4rem;
+    transition: all 500ms;
+}
+
+#word-code {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: lighter;
+    font-size: var(--largest-font-size);
+    color: rgb(var(--sig-yellow));
+}
+
+#cursor {
+    opacity: 1;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    50% {opacity: 0}
+}
+
+/* third div */
+.third-div {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: rgb(var(--major-bg));
+    min-height: 100vh;
+    min-height: 100svh;
+}
 
 /* skill summary */
 .lang-div {
