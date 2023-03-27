@@ -152,6 +152,8 @@ intoWord.style.setProperty("opacity", "0");
 secondh1.style.setProperty("opacity", "0");
 codeCursor.style.setProperty("visibility", "hidden")
 
+let busy = false;
+
 function loadDecoration() {
     const bars = document.getElementsByClassName("decoration-bar");
     for(let i in bars){
@@ -163,6 +165,7 @@ function loadDecoration() {
         designWord.style.setProperty("opacity", "1");
         setTimeout(() => {
             intoWord.style.setProperty("opacity", "1");
+            if(busy) return;
             if(codeText.innerText.length > 1) untypeCode();
             setTimeout(() => {
                 codeCursor.style.setProperty("visibility", "visible");
@@ -180,12 +183,15 @@ function typeCode() {
             codeText.innerText = "Cod";
             setTimeout(() => {
                 codeText.innerText = "Code";
+                busy = false;
                 setTimeout(switchBorderRadius, 300);
             }, 200);
         }, 100);
     }, 200);
 }
 function untypeCode() {
+    if(busy) return;
+    busy = true;
     codeText.innerText = "Cod";
     setTimeout(() => {
         codeText.innerText = "Co";
@@ -219,10 +225,35 @@ observer.observe(secondDiv);
 const brvalues = ["2rem 10rem 2rem 10rem", "10rem 2rem 10rem 2rem"];
 let curr = 0;
 function switchBorderRadius(){
-    designWord.style.setProperty("border-radius", brvalues[curr%2])
+    designWord.style.setProperty("border-radius", brvalues[curr%brvalues.length])
     curr++;
 }
 
 switchBorderRadius();
 designWord.onmouseover = switchBorderRadius
 
+// third div
+thirdDiv = document.getElementsByClassName("third-div")[0];
+focusTitle = document.getElementById("focus-title");
+
+function loadThirdDiv(){
+    focusTitle.style.setProperty("transform", "translateX(0rem)");
+}
+
+function resetThirdDiv(){
+    focusTitle.style.setProperty("transform", "translateX(-4rem)")
+}
+
+function controlFocusDiv(entries, observer){
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            loadThirdDiv();
+        }
+        else {
+            resetThirdDiv();
+        }
+    })
+}
+
+let secondObserver = new IntersectionObserver(controlFocusDiv, options);
+secondObserver.observe(thirdDiv);
