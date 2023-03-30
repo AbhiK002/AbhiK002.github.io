@@ -235,9 +235,23 @@ designWord.onmouseover = switchBorderRadius
 // third div
 thirdDiv = document.getElementsByClassName("third-div")[0];
 focusTitle = document.getElementById("focus-title");
+const focusItems = document.getElementsByClassName("focus-item");
+const shapesDiv = document.getElementsByClassName("shapes")[0];
+const textCr = document.getElementById("focus-creativity");
+const textSi = document.getElementById("focus-simplicity");
+const textPe = document.getElementById("focus-perfection");
 
 function loadThirdDiv(){
     focusTitle.style.setProperty("transform", "translateX(0rem)");
+
+    let time = 300;
+    for(const i in focusItems){
+        setTimeout(() => {
+            focusItems[i].style.setProperty("transform", "translateY(0rem)")
+            focusItems[i].style.setProperty("opacity", "1");
+        }, time);
+        time += 400
+    }
 }
 
 function resetThirdDiv(){
@@ -259,17 +273,16 @@ let secondObserver = new IntersectionObserver(controlFocusDiv, options);
 secondObserver.observe(thirdDiv);
 
 // shapes
-const textCr = document.getElementById("focus-creativity");
-const textSi = document.getElementById("focus-simplicity");
-const textPe = document.getElementById("focus-perfection");
-
 const shapes = 7;
+
+const idleWH = ["14em", "11em"]
 const idleCoords = [
-    "0em, 0em", "0em, 0em", 
-    "0em, 0em", "0em, 0em", 
-    "0em, 0em", "0em, 0em", 
-    "0em, 0em"
+    "0em, 0em", "6em, 2em", 
+    "3em, 4em", "10em, 1em", 
+    "2em, 6em", "5em, 6em", 
+    "10em, 5em"
 ]
+const squareWH = ["10em", "10em"]
 const squareCoords = [
     "0em, 0em", "6em, 0em", 
     "0em, 4em", "3em, 4em", 
@@ -277,19 +290,52 @@ const squareCoords = [
     "8em, 4em"
 ]
 
+const circularWH = ["20em", "12em"]
+const circularCoords = [
+    "0em, 0em", 
+    "14em, -0.7em", 
+    "8em, -0.5em", 
+    "13em, 10em", 
+    "6em, 11em", 
+    "0em, 9em", 
+    "16em, 3.4em"
+]
+const circularAngles = [135, 45, 0, 135, 90, 135, 90]
+
 function makeIdleShape(){
     for(let i=0; i<shapes; i++){
         const shape = document.getElementById(`shape${i+1}`);
         shape.style.setProperty("transform", `translate(${idleCoords[i]})`);
+        shape.style.setProperty("border-radius", "12rem")
     }
+    shapesDiv.style.setProperty("width", idleWH[0]);
+    shapesDiv.style.setProperty("height", idleWH[1]);
 }
 
 function makeSquare(){
     for(let i=0; i<shapes; i++){
         const shape = document.getElementById(`shape${i+1}`);
         shape.style.setProperty("transform", `translate(${squareCoords[i]})`);
+        shape.style.setProperty("border-radius", "2rem")
     }
+    shapesDiv.style.setProperty("width", squareWH[0]);
+    shapesDiv.style.setProperty("height", squareWH[1]);
 }
+
+function makeCircular(){
+    for(let i=0; i<shapes; i++){
+        const shape = document.getElementById(`shape${i+1}`);
+        shape.style.setProperty("transform", `translate(${circularCoords[i]}) rotate(${circularAngles[i]}deg)`);
+        shape.style.setProperty("border-radius", "12rem")
+    }
+    shapesDiv.style.setProperty("width", circularWH[0]);
+    shapesDiv.style.setProperty("height", circularWH[1]);
+}
+
+makeIdleShape();
 
 textPe.onmouseenter = makeSquare;
 textPe.onmouseleave = makeIdleShape;
+
+textSi.onmouseenter = makeCircular;
+textSi.onmouseleave = makeIdleShape;

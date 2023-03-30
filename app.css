@@ -355,6 +355,16 @@ body {
     background-color: rgb(var(--major-bg));
     min-height: 100vh;
     min-height: 100svh;
+    overflow: hidden;
+}
+
+.third-div::after {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    content: "";
+    background-color: rgba(var(--major-bg), 0.7);
+    z-index: 2;
 }
 
 #focus-title {
@@ -363,13 +373,15 @@ body {
     margin: 1rem;
     line-height: 1.2;
     text-align: center;
-    transition: all 300ms;
+    transition: all 400ms;
+    transition-delay: 200ms;
     font-family: "Lora";
     color: rgb(var(--sig-orange));
     transform: translateX(-4rem);
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 3;
 }
 
 .focus-div {
@@ -390,7 +402,10 @@ body {
 .focus-item {
     font-size: var(--larger-font-size);
     display: block;
-    padding-left: 2rem;
+    transition: all 400ms;
+    transition-delay: 200ms;
+    opacity: 0;
+    transform: translateY(-4rem);
 }
 
 .focus-visual {
@@ -400,22 +415,16 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2.7rem;
 }
 
 .shapes {
     position: relative;
     height: 10em;
     width: 10em;
+    transition: all 300ms ease-out;
+    transition-delay: 100ms;
+    font-size: 2.5rem;
     animation: rotate-full 25s linear infinite;
-}
-
-.shapes::after {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    content: "";
-    background-color: rgba(var(--major-bg), 0.6);
 }
 
 @keyframes rotate-full {
@@ -428,43 +437,39 @@ body {
     border-radius: 0.5em;
     border: 0.1em solid rgb(var(--major-bg));
     transition: all 500ms;
-    background-color: rgb(var(--sig-orange));
+    transition-delay: 150ms;
+    background-color: rgb(var(--sig-yellow));
 }
 
 #shape1 {
     width: 6em; height: 4em;
-    background-color: aqua;
 }
 
 #shape2 {
     width: 4em; height: 4em;
-    background-color: red;
 }
 
 #shape3 {
     width: 3em; height: 2em;
-    background-color: orange;
 }
 
 #shape4 {
     width: 5em; height: 4em;
-    background-color: green;
 }
 
 #shape5 {
     width: 3em; height: 4em;
-    background-color: yellow;
 }
 
 #shape6 {
     width: 5em; height: 2em;
-    background-color: blue;
 }
 
 #shape7 {
     width: 2em; height: 6em;
-    background-color: coral;
 }
+
+/* #shape1 {background-color: cyan;} #shape2 {background-color: red;} #shape3 {background-color: orange;} #shape4 {background-color: green;} #shape5 {background-color: yellow;} #shape6 {background-color: blue;} #shape7 {background-color: coral;} */
 
 /* skill summary */
 .lang-div {
