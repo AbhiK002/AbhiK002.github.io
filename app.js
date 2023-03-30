@@ -257,3 +257,39 @@ function controlFocusDiv(entries, observer){
 
 let secondObserver = new IntersectionObserver(controlFocusDiv, options);
 secondObserver.observe(thirdDiv);
+
+// shapes
+const textCr = document.getElementById("focus-creativity");
+const textSi = document.getElementById("focus-simplicity");
+const textPe = document.getElementById("focus-perfection");
+
+const shapes = 7;
+const idleCoords = [
+    "0em, 0em", "0em, 0em", 
+    "0em, 0em", "0em, 0em", 
+    "0em, 0em", "0em, 0em", 
+    "0em, 0em"
+]
+const squareCoords = [
+    "0em, 0em", "6em, 0em", 
+    "0em, 4em", "3em, 4em", 
+    "0em, 6em", "3em, 8em", 
+    "8em, 4em"
+]
+
+function makeIdleShape(){
+    for(let i=0; i<shapes; i++){
+        const shape = document.getElementById(`shape${i+1}`);
+        shape.style.setProperty("transform", `translate(${idleCoords[i]})`);
+    }
+}
+
+function makeSquare(){
+    for(let i=0; i<shapes; i++){
+        const shape = document.getElementById(`shape${i+1}`);
+        shape.style.setProperty("transform", `translate(${squareCoords[i]})`);
+    }
+}
+
+textPe.onmouseenter = makeSquare;
+textPe.onmouseleave = makeIdleShape;

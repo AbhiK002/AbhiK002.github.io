@@ -358,6 +358,7 @@ body {
 }
 
 #focus-title {
+    flex-grow: 1;
     font-size: var(--larger-font-size);
     margin: 1rem;
     line-height: 1.2;
@@ -366,10 +367,13 @@ body {
     font-family: "Lora";
     color: rgb(var(--sig-orange));
     transform: translateX(-4rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .focus-div {
-    flex-grow: 1;
+    flex-grow: 5;
     display: flex;
     flex-direction: row;
     position: relative;
@@ -396,7 +400,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 3rem;
+    font-size: 2.7rem;
 }
 
 .shapes {
@@ -422,51 +426,44 @@ body {
 .shape {
     position: absolute;
     border-radius: 0.5em;
-    border: 0.1em solid rgb(var(--major-bg))
+    border: 0.1em solid rgb(var(--major-bg));
+    transition: all 500ms;
+    background-color: rgb(var(--sig-orange));
 }
 
 #shape1 {
-    width: 6em;
-    height: 4em;
+    width: 6em; height: 4em;
     background-color: aqua;
 }
 
 #shape2 {
-    width: 4em;
-    height: 4em;
+    width: 4em; height: 4em;
     background-color: red;
-    transform: translate(6em, 0em);
 }
 
 #shape3 {
-    width: 3em;
-    height: 2em;
+    width: 3em; height: 2em;
     background-color: orange;
-    transform: translate(0em, 4em);
 }
 
 #shape4 {
     width: 5em; height: 4em;
     background-color: green;
-    transform: translate(3em, 4em);
 }
 
 #shape5 {
     width: 3em; height: 4em;
     background-color: yellow;
-    transform: translate(0em, 6em);
 }
 
 #shape6 {
     width: 5em; height: 2em;
     background-color: blue;
-    transform: translate(3em, 8em);
 }
 
 #shape7 {
     width: 2em; height: 6em;
     background-color: coral;
-    transform: translate(8em, 4em)
 }
 
 /* skill summary */
