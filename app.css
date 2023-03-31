@@ -424,7 +424,7 @@ body {
     transition: all 300ms ease-out;
     transition-delay: 100ms;
     font-size: 2.5rem;
-    animation: rotate-full 25s linear infinite;
+    /* animation: rotate-full 25s linear infinite; */
 }
 
 @keyframes rotate-full {
@@ -469,7 +469,7 @@ body {
     width: 2em; height: 6em;
 }
 
-/* #shape1 {background-color: cyan;} #shape2 {background-color: red;} #shape3 {background-color: orange;} #shape4 {background-color: green;} #shape5 {background-color: yellow;} #shape6 {background-color: blue;} #shape7 {background-color: coral;} */
+#shape1 {background-color: cyan;} #shape2 {background-color: red;} #shape3 {background-color: orange;} #shape4 {background-color: green;} #shape5 {background-color: yellow;} #shape6 {background-color: blue;} #shape7 {background-color: coral;}
 
 /* skill summary */
 .lang-div {

@@ -67,40 +67,48 @@ function addContent(){
 
 addContent();
 
-window.onload = setTimeout(loadVisuals, 300);
 const logo = document.getElementById("logo-container");
 let initLogoWidth = logo.offsetWidth;
 logo.style.setProperty("width", `${parseInt(initLogoWidth)/3}px`)
 
+const coverDiv = document.getElementsByClassName("cover-div")[0];
 const bgSVG = document.getElementById("background-svg");
 const topDiv = document.getElementsByClassName("top-bar")[0];
-const coverDiv = document.getElementsByClassName("content")[0];
+const contentDiv = document.getElementsByClassName("content")[0];
 const coverDesc = document.getElementsByClassName("content-desc")[0];
 
-function loadVisuals(){
+function loadCoverDiv(){
     bgSVG.style.setProperty("opacity", "1");
-    setTimeout(loadTopBar, 300);
+    setTimeout(() => {
+        topDiv.style.setProperty("transform","translateY(0%)");
+        setTimeout(() => {
+            contentDiv.style.setProperty("transform", "translateX(0%)")
+            contentDiv.style.setProperty("opacity", "1");
+            setTimeout(() => {    
+                coverDesc.style.setProperty("opacity", "1");
+                setTimeout(() => {
+                    logo.style.setProperty("width", `${initLogoWidth}px`);
+                }, 1000);
+            }, 500);
+        }, 300);
+    }, 300);
 }
 
-function loadTopBar(){
-    topDiv.style.setProperty("transform","translateY(0%)");
-    setTimeout(loadCoverContent, 300);
+function controlCover(entries, observer){
+    entries.forEach(entry => {
+        if(entry.isIntersecting) loadCoverDiv();
+    })
 }
 
-function loadCoverContent(){
-    coverDiv.style.setProperty("transform", "translateX(0%)")
-    coverDiv.style.setProperty("opacity", "1");
-    setTimeout(loadCoverDesc, 500);
-}
+let coverIntersectOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.6
+};
 
-function loadCoverDesc(){
-    coverDesc.style.setProperty("opacity", "1");
-    setTimeout(loadLogo, 1000);
-}
+let coverObserver = new IntersectionObserver(controlCover, coverIntersectOptions);
+coverObserver.observe(coverDiv);
 
-function loadLogo(){
-    logo.style.setProperty("width", `${initLogoWidth}px`);
-}
 
 // skills section
 function addSkillsSummary(){
@@ -302,6 +310,18 @@ const circularCoords = [
 ]
 const circularAngles = [135, 45, 0, 135, 90, 135, 90]
 
+const funnyWH = ["15em", "15em"]
+const funnyCoords = [
+    "10em, 10em", 
+    "10em, 10em", 
+    "10em, 10em", 
+    "10em, 10em", 
+    "10em, 10em", 
+    "10em, 10em", 
+    "10em, 10em"
+]
+const funnyAngles = [0, 0, 0, 0, 0, 0, 0]
+
 function makeIdleShape(){
     for(let i=0; i<shapes; i++){
         const shape = document.getElementById(`shape${i+1}`);
@@ -332,10 +352,24 @@ function makeCircular(){
     shapesDiv.style.setProperty("height", circularWH[1]);
 }
 
-makeIdleShape();
+function makeFunnyShape(){
+    for(let i=0; i<shapes; i++){
+        const shape = document.getElementById(`shape${i+1}`);
+        shape.style.setProperty("transform", `translate(${funnyCoords[i]}) rotate(${funnyAngles[i]}deg)`);
+        shape.style.setProperty("border-radius", "12rem")
+    }
+    shapesDiv.style.setProperty("width", funnyWH[0]);
+    shapesDiv.style.setProperty("height", funnyWH[1]);
+}
 
-textPe.onmouseenter = makeSquare;
-textPe.onmouseleave = makeIdleShape;
+makeIdleShape();
+makeFunnyShape();
+
+textCr.onmouseenter = makeFunnyShape;
+textCr.onmouseleave = makeIdleShape;
 
 textSi.onmouseenter = makeCircular;
 textSi.onmouseleave = makeIdleShape;
+
+textPe.onmouseenter = makeSquare;
+textPe.onmouseleave = makeIdleShape;
