@@ -184,6 +184,7 @@ function loadDecoration() {
 }
 
 function typeCode() {
+    busy = true;
     codeText.innerText = "C";
     setTimeout(() => {
         codeText.innerText = "Co";
@@ -191,7 +192,9 @@ function typeCode() {
             codeText.innerText = "Cod";
             setTimeout(() => {
                 codeText.innerText = "Code";
-                busy = false;
+                setTimeout(() => {
+                    busy = false;
+                }, 400);
                 setTimeout(switchBorderRadius, 300);
             }, 200);
         }, 100);
