@@ -363,7 +363,7 @@ body {
     height: 100%;
     width: 100%;
     content: "";
-    background-color: rgba(var(--major-bg), 0.7);
+    background-color: rgba(var(--major-bg), 0.75);
     z-index: 2;
 }
 
@@ -376,7 +376,7 @@ body {
     transition: all 400ms;
     transition-delay: 200ms;
     font-family: "Lora";
-    color: rgb(var(--sig-orange));
+    color: rgb(var(--sig-yellow));
     transform: translateX(-4rem);
     display: flex;
     align-items: center;
@@ -408,6 +408,12 @@ body {
     transform: translateY(-4rem);
 }
 
+.focus-item span {
+    display: inline-block;
+    transition: all 500ms;
+    transition-delay: 150ms;
+}
+
 .focus-visual {
     position: absolute;
     width: 100%;
@@ -424,7 +430,7 @@ body {
     transition: all 300ms ease-out;
     transition-delay: 100ms;
     font-size: 2.5rem;
-    /* animation: rotate-full 25s linear infinite; */
+    animation: rotate-full 25s linear infinite;
 }
 
 @keyframes rotate-full {
@@ -438,7 +444,7 @@ body {
     border: 0.1em solid rgb(var(--major-bg));
     transition: all 500ms;
     transition-delay: 150ms;
-    background-color: rgb(var(--sig-yellow));
+    background-color: rgb(var(--white));
 }
 
 #shape1 {
@@ -469,7 +475,7 @@ body {
     width: 2em; height: 6em;
 }
 
-#shape1 {background-color: cyan;} #shape2 {background-color: red;} #shape3 {background-color: orange;} #shape4 {background-color: green;} #shape5 {background-color: yellow;} #shape6 {background-color: blue;} #shape7 {background-color: coral;}
+/* #shape1 {background-color: cyan;} #shape2 {background-color: red;} #shape3 {background-color: orange;} #shape4 {background-color: green;} #shape5 {background-color: yellow;} #shape6 {background-color: blue;} #shape7 {background-color: coral;} */
 
 /* skill summary */
 .lang-div {

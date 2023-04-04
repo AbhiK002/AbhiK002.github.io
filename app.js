@@ -256,9 +256,9 @@ function loadThirdDiv(){
     focusTitle.style.setProperty("transform", "translateX(0rem)");
 
     let time = 300;
-    for(const i in focusItems){
+    for(let i = 0; i < focusItems.length; i++){
         setTimeout(() => {
-            focusItems[i].style.setProperty("transform", "translateY(0rem)")
+            focusItems[i].style.transform = "translateY(0rem)"
             focusItems[i].style.setProperty("opacity", "1");
         }, time);
         time += 400
@@ -285,7 +285,11 @@ secondObserver.observe(thirdDiv);
 
 // shapes
 const shapes = 7;
+const perfection_letters = document.getElementsByClassName("letter");
+const simpl_letters = document.getElementsByClassName("s-letter");
 
+const perfection_shuffle = ["15deg", "-15deg", "12deg", "16deg", "-14deg", "11deg", "15deg", "-16deg", "13deg", "-14deg"]
+const simpl_shuffle = [0.4, -0.4, 0.4, -0.4, 0.4, -0.4, 0.4, -0.4, 0.4, -0.4, 0.4, -0.4, 0.4, -0.4]
 const idleWH = ["14em", "11em"]
 const idleCoords = [
     "0em, 0em", "6em, 2em", 
@@ -331,6 +335,15 @@ function makeIdleShape(){
         shape.style.setProperty("transform", `translate(${idleCoords[i]})`);
         shape.style.setProperty("border-radius", "12rem")
     }
+    
+    for(let i=0; i<perfection_letters.length; i++){
+        perfection_letters[i].style.setProperty("transform", `rotate(${perfection_shuffle[i]})`);
+        perfection_letters[i].style.setProperty("color", "rgb(var(--white))")
+    }
+    for(let i=0; i<simpl_letters.length; i++){
+        simpl_letters[i].style.setProperty("transform", `translateY(${simpl_shuffle[i]}rem)`);
+        simpl_letters[i].style.setProperty("color", "rgb(var(--white))")
+    }
     shapesDiv.style.setProperty("width", idleWH[0]);
     shapesDiv.style.setProperty("height", idleWH[1]);
 }
@@ -341,6 +354,10 @@ function makeSquare(){
         shape.style.setProperty("transform", `translate(${squareCoords[i]})`);
         shape.style.setProperty("border-radius", "2rem")
     }
+    for(let i=0; i<perfection_letters.length; i++){
+        perfection_letters[i].style.setProperty("transform", `rotate(0deg)`);
+        perfection_letters[i].style.setProperty("color", "rgb(var(--sig-orange))")
+    }
     shapesDiv.style.setProperty("width", squareWH[0]);
     shapesDiv.style.setProperty("height", squareWH[1]);
 }
@@ -350,6 +367,10 @@ function makeCircular(){
         const shape = document.getElementById(`shape${i+1}`);
         shape.style.setProperty("transform", `translate(${circularCoords[i]}) rotate(${circularAngles[i]}deg)`);
         shape.style.setProperty("border-radius", "12rem")
+    }
+    for(let i=0; i<simpl_letters.length; i++){
+        simpl_letters[i].style.setProperty("transform", `translateY(0rem)`);
+        simpl_letters[i].style.setProperty("color", "rgb(var(--sig-orange))")
     }
     shapesDiv.style.setProperty("width", circularWH[0]);
     shapesDiv.style.setProperty("height", circularWH[1]);
@@ -366,7 +387,6 @@ function makeFunnyShape(){
 }
 
 makeIdleShape();
-makeFunnyShape();
 
 textCr.onmouseenter = makeFunnyShape;
 textCr.onmouseleave = makeIdleShape;
