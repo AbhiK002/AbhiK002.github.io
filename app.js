@@ -252,44 +252,16 @@ const textCr = document.getElementById("focus-creativity");
 const textSi = document.getElementById("focus-simplicity");
 const textPe = document.getElementById("focus-perfection");
 
-function loadThirdDiv(){
-    focusTitle.style.setProperty("transform", "translateX(0rem)");
-
-    let time = 300;
-    for(let i = 0; i < focusItems.length; i++){
-        setTimeout(() => {
-            focusItems[i].style.transform = "translateY(0rem)"
-            focusItems[i].style.setProperty("opacity", "1");
-        }, time);
-        time += 400
-    }
-}
-
-function resetThirdDiv(){
-    focusTitle.style.setProperty("transform", "translateX(-4rem)")
-}
-
-function controlFocusDiv(entries, observer){
-    entries.forEach(entry => {
-        if(entry.isIntersecting){
-            loadThirdDiv();
-        }
-        else {
-            resetThirdDiv();
-        }
-    })
-}
-
-let secondObserver = new IntersectionObserver(controlFocusDiv, options);
-secondObserver.observe(thirdDiv);
-
 // shapes
 const shapes = 7;
 const perfection_letters = document.getElementsByClassName("letter");
 const simpl_letters = document.getElementsByClassName("s-letter");
+const creat_letters = document.getElementsByClassName("c-letter");
 
 const perfection_shuffle = ["15deg", "-15deg", "12deg", "16deg", "-14deg", "11deg", "15deg", "-16deg", "13deg", "-14deg"]
 const simpl_shuffle = [0.4, -0.4, 0.4, -0.4, 0.4, -0.4, 0.4, -0.4, 0.4, -0.4, 0.4, -0.4, 0.4, -0.4]
+const creat_shuffle = [0.9, 1.1, 0.9, 1.1, 0.9, 1.1, 0.9, 1.1, 0.9, 1.1, 0.9, 1.1, 0.9, 1.1]
+
 const idleWH = ["14em", "11em"]
 const idleCoords = [
     "0em, 0em", "6em, 2em", 
@@ -329,13 +301,9 @@ const funnyCoords = [
 ]
 const funnyAngles = [0, 0, 0, 0, 0, 0, 0]
 
-function makeIdleShape(){
-    for(let i=0; i<shapes; i++){
-        const shape = document.getElementById(`shape${i+1}`);
-        shape.style.setProperty("transform", `translate(${idleCoords[i]})`);
-        shape.style.setProperty("border-radius", "12rem")
-    }
-    
+let ready = false;
+
+function idleTextEffects(){
     for(let i=0; i<perfection_letters.length; i++){
         perfection_letters[i].style.setProperty("transform", `rotate(${perfection_shuffle[i]})`);
         perfection_letters[i].style.setProperty("color", "rgb(var(--white))")
@@ -344,38 +312,74 @@ function makeIdleShape(){
         simpl_letters[i].style.setProperty("transform", `translateY(${simpl_shuffle[i]}rem)`);
         simpl_letters[i].style.setProperty("color", "rgb(var(--white))")
     }
+    for(let i=0; i<creat_letters.length; i++){
+        creat_letters[i].style.setProperty("transform", `scale(${creat_shuffle[i]})`)
+        creat_letters[i].style.color = "rgb(var(--white))"
+    }
+}
+function makeIdleShape(){
+    for(let i=0; i<shapes; i++){
+        const shape = document.getElementById(`shape${i+1}`);
+        shape.style.setProperty("transform", `translate(${idleCoords[i]})`);
+        shape.style.setProperty("border-radius", "12rem")
+    }
     shapesDiv.style.setProperty("width", idleWH[0]);
     shapesDiv.style.setProperty("height", idleWH[1]);
 }
+function idleHover(){
+    if(!ready) return;
+    makeIdleShape();
+    idleTextEffects();
+}
 
+function squareTextEffects(){
+    for(let i=0; i<perfection_letters.length; i++){
+        perfection_letters[i].style.setProperty("transform", `rotate(0deg)`);
+        perfection_letters[i].style.setProperty("color", "rgb(var(--sig-orange))")
+    }
+}
 function makeSquare(){
     for(let i=0; i<shapes; i++){
         const shape = document.getElementById(`shape${i+1}`);
         shape.style.setProperty("transform", `translate(${squareCoords[i]})`);
         shape.style.setProperty("border-radius", "2rem")
     }
-    for(let i=0; i<perfection_letters.length; i++){
-        perfection_letters[i].style.setProperty("transform", `rotate(0deg)`);
-        perfection_letters[i].style.setProperty("color", "rgb(var(--sig-orange))")
-    }
     shapesDiv.style.setProperty("width", squareWH[0]);
     shapesDiv.style.setProperty("height", squareWH[1]);
 }
+function squareHover(){
+    if(!ready) return;
+    makeSquare();
+    squareTextEffects();
+}
 
+function circularTextEffects(){
+    for(let i=0; i<simpl_letters.length; i++){
+        simpl_letters[i].style.setProperty("transform", `translateY(0rem)`);
+        simpl_letters[i].style.setProperty("color", "rgb(var(--sig-orange))")
+    }
+}
 function makeCircular(){
     for(let i=0; i<shapes; i++){
         const shape = document.getElementById(`shape${i+1}`);
         shape.style.setProperty("transform", `translate(${circularCoords[i]}) rotate(${circularAngles[i]}deg)`);
         shape.style.setProperty("border-radius", "12rem")
     }
-    for(let i=0; i<simpl_letters.length; i++){
-        simpl_letters[i].style.setProperty("transform", `translateY(0rem)`);
-        simpl_letters[i].style.setProperty("color", "rgb(var(--sig-orange))")
-    }
     shapesDiv.style.setProperty("width", circularWH[0]);
     shapesDiv.style.setProperty("height", circularWH[1]);
 }
+function circularHover(){
+    if(!ready) return;
+    makeCircular();
+    circularTextEffects();
+}
 
+function funnyTextEffects(){
+    for(let i=0; i<creat_letters.length; i++){
+        creat_letters[i].style.setProperty("transform", `scale(1)`)
+        creat_letters[i].style.color = "rgb(var(--sig-orange))"
+    }
+};
 function makeFunnyShape(){
     for(let i=0; i<shapes; i++){
         const shape = document.getElementById(`shape${i+1}`);
@@ -385,14 +389,67 @@ function makeFunnyShape(){
     shapesDiv.style.setProperty("width", funnyWH[0]);
     shapesDiv.style.setProperty("height", funnyWH[1]);
 }
+function funnyHover(){
+    if(!ready) return;
+    makeFunnyShape();
+    funnyTextEffects();
+}
 
-makeIdleShape();
+// makeIdleShape();
 
-textCr.onmouseenter = makeFunnyShape;
-textCr.onmouseleave = makeIdleShape;
+textCr.onmouseenter = funnyHover;
+textCr.onmouseleave = idleHover;
 
-textSi.onmouseenter = makeCircular;
-textSi.onmouseleave = makeIdleShape;
+textSi.onmouseenter = circularHover;
+textSi.onmouseleave = idleHover;
 
-textPe.onmouseenter = makeSquare;
-textPe.onmouseleave = makeIdleShape;
+textPe.onmouseenter = squareHover;
+textPe.onmouseleave = idleHover;
+
+const shapeFuncs = [[makeFunnyShape, funnyTextEffects], [makeCircular, circularTextEffects], [makeSquare, squareTextEffects]];
+
+let done_once = false;
+
+function loadThirdDiv(){
+    focusTitle.style.setProperty("transform", "translateX(0rem)");
+
+    if(done_once) return;
+    let time = 300;
+    for(let i = 0; i < focusItems.length; i++){
+        setTimeout(() => {
+            focusItems[i].style.transform = "translateY(0rem)"
+            focusItems[i].style.setProperty("opacity", "1");
+            shapeFuncs[i][0]();
+            shapeFuncs[i][1]();
+            setTimeout(() => {
+                idleTextEffects();
+            }, 700);
+            if(i == 2){
+                setTimeout(() => {
+                    makeIdleShape();
+                    ready = true;
+                }, 800);
+            }
+        }, time);
+        time += 800
+    }
+    done_once = true;
+}
+
+function resetThirdDiv(){
+    focusTitle.style.setProperty("transform", "translateX(-4rem)")
+}
+
+function controlFocusDiv(entries, observer){
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            loadThirdDiv();
+        }
+        else {
+            resetThirdDiv();
+        }
+    })
+}
+
+let secondObserver = new IntersectionObserver(controlFocusDiv, options);
+secondObserver.observe(thirdDiv);
