@@ -326,6 +326,8 @@ function makeIdleShape(){
     shapesDiv.style.setProperty("width", idleWH[0]);
     shapesDiv.style.setProperty("height", idleWH[1]);
 }
+makeIdleShape();
+
 function idleHover(){
     if(!ready) return;
     makeIdleShape();

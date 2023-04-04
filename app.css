@@ -445,6 +445,7 @@ body {
     transition: all 500ms;
     transition-delay: 150ms;
     background-color: rgb(var(--sig-yellow));
+    transform: scale(0);
 }
 
 #shape1 {
