@@ -410,18 +410,17 @@ textPe.onmouseleave = idleHover;
 
 const shapeFuncs = [[makeFunnyShape, funnyTextEffects], [makeCircular, circularTextEffects], [makeSquare, squareTextEffects]];
 
-let done_once = false;
+let temp_x = 0
 
 function loadThirdDiv(){
     focusTitle.style.setProperty("transform", "translateX(0rem)");
     shapesDiv.style.setProperty("opacity", 1)
-    if(done_once) return;
     let time = 700;
     for(let i = 0; i < focusItems.length; i++){
         setTimeout(() => {
             focusItems[i].style.transform = "translateY(0rem)"
             focusItems[i].style.setProperty("opacity", "1");
-            shapeFuncs[i][0]();
+            if(temp_x <= 1) shapeFuncs[i][0]();
             shapeFuncs[i][1]();
             setTimeout(() => {
                 idleTextEffects();
@@ -435,7 +434,7 @@ function loadThirdDiv(){
         }, time);
         time += 800
     }
-    done_once = true;
+    temp_x += 1
 }
 
 function resetThirdDiv(){
