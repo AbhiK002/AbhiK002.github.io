@@ -326,8 +326,6 @@ function makeIdleShape(){
     }
     shapesDiv.style.setProperty("width", idleWH[0]);
     shapesDiv.style.setProperty("height", idleWH[1]);
-    shapesDiv.style.setProperty('animation', shapes_animation);
-    shapesDiv.style.setProperty("animation-play-state", "running")
 }
 
 function idleHover(){
@@ -350,8 +348,6 @@ function makeSquare(){
     }
     shapesDiv.style.setProperty("width", squareWH[0]);
     shapesDiv.style.setProperty("height", squareWH[1]);
-    shapesDiv.style.setProperty('animation', shapes_animation);
-    shapesDiv.style.setProperty("animation-play-state", "running")
 }
 function squareHover(){
     if(!ready) return;
@@ -373,8 +369,6 @@ function makeCircular(){
     }
     shapesDiv.style.setProperty("width", circularWH[0]);
     shapesDiv.style.setProperty("height", circularWH[1]);
-    shapesDiv.style.setProperty('animation', shapes_animation);
-    shapesDiv.style.setProperty("animation-play-state", "running")
 }
 function circularHover(){
     if(!ready) return;
