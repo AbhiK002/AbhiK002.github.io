@@ -445,7 +445,7 @@ body {
     border: 0.1em solid rgb(var(--major-bg));
     transition: all 500ms;
     transition-delay: 150ms;
-    background-color: rgb(var(--sig-yellow));
+    background-color: rgb(var(--white));
 }
 
 #shape1 {

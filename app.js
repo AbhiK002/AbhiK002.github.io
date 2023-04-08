@@ -416,6 +416,7 @@ function loadThirdDiv(){
     focusTitle.style.setProperty("transform", "translateX(0rem)");
     shapesDiv.style.setProperty("opacity", 1)
     let time = 700;
+    ready = false;
     for(let i = 0; i < focusItems.length; i++){
         setTimeout(() => {
             focusItems[i].style.transform = "translateY(0rem)"
