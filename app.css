@@ -107,8 +107,8 @@ body {
 
 /* MAIN FRONT DIV */
 .cover-div {
-    height: 100vh;
-    height: 100svh;
+    min-height: 100vh;
+    min-height: 100svh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -431,6 +431,7 @@ body {
     transition-delay: 100ms;
     font-size: 2.5rem;
     animation: rotate-full 25s linear infinite;
+    opacity: 0;
 }
 
 @keyframes rotate-full {
@@ -445,11 +446,10 @@ body {
     transition: all 500ms;
     transition-delay: 150ms;
     background-color: rgb(var(--sig-yellow));
-    transform: scale(0);
 }
 
 #shape1 {
-    width: 6em; height: 4em;
+    width: 6em; height: 4em; z-index: 2;
 }
 
 #shape2 {

@@ -103,7 +103,7 @@ function controlCover(entries, observer){
 let coverIntersectOptions = {
     root: null,
     rootMargin: '0px',
-    threshold: 0.6
+    threshold: 0.4
 };
 
 let coverObserver = new IntersectionObserver(controlCover, coverIntersectOptions);
@@ -179,7 +179,7 @@ function loadDecoration() {
                 codeCursor.style.setProperty("visibility", "visible");
                 setTimeout(typeCode, 300);
             }, 800);
-        }, 500);
+        }, 700);
     }, 700);
 }
 
@@ -244,8 +244,8 @@ switchBorderRadius();
 designWord.onmouseover = switchBorderRadius
 
 // third div
-thirdDiv = document.getElementsByClassName("third-div")[0];
-focusTitle = document.getElementById("focus-title");
+const thirdDiv = document.getElementsByClassName("third-div")[0];
+const focusTitle = document.getElementById("focus-title");
 const focusItems = document.getElementsByClassName("focus-item");
 const shapesDiv = document.getElementsByClassName("shapes")[0];
 const textCr = document.getElementById("focus-creativity");
@@ -261,6 +261,7 @@ const creat_letters = document.getElementsByClassName("c-letter");
 const perfection_shuffle = ["15deg", "-15deg", "12deg", "16deg", "-14deg", "11deg", "15deg", "-16deg", "13deg", "-14deg"]
 const simpl_shuffle = [0.4, -0.4, 0.4, -0.4, 0.4, -0.4, 0.4, -0.4, 0.4, -0.4, 0.4, -0.4, 0.4, -0.4]
 const creat_shuffle = [0.9, 1.1, 0.9, 1.1, 0.9, 1.1, 0.9, 1.1, 0.9, 1.1, 0.9, 1.1, 0.9, 1.1]
+const shapes_animation = "rotate-full 25s linear infinite"
 
 const idleWH = ["14em", "11em"]
 const idleCoords = [
@@ -291,15 +292,15 @@ const circularAngles = [135, 45, 0, 135, 90, 135, 90]
 
 const funnyWH = ["15em", "15em"]
 const funnyCoords = [
-    "10em, 10em", 
-    "10em, 10em", 
-    "10em, 10em", 
-    "10em, 10em", 
-    "10em, 10em", 
-    "10em, 10em", 
-    "10em, 10em"
+    "4em, 2em", 
+    "7.5em, 10em", 
+    "5.5em, 0em", 
+    "4.5em, 6em", 
+    "3.5em, 10em", 
+    "0em, 1em", 
+    "10.5em, 2em"
 ]
-const funnyAngles = [0, 0, 0, 0, 0, 0, 0]
+const funnyAngles = [0, 0, 0, 0, 0, 45, 150]
 
 let ready = false;
 
@@ -325,8 +326,9 @@ function makeIdleShape(){
     }
     shapesDiv.style.setProperty("width", idleWH[0]);
     shapesDiv.style.setProperty("height", idleWH[1]);
+    shapesDiv.style.setProperty('animation', shapes_animation);
+    shapesDiv.style.setProperty("animation-play-state", "running")
 }
-makeIdleShape();
 
 function idleHover(){
     if(!ready) return;
@@ -348,6 +350,8 @@ function makeSquare(){
     }
     shapesDiv.style.setProperty("width", squareWH[0]);
     shapesDiv.style.setProperty("height", squareWH[1]);
+    shapesDiv.style.setProperty('animation', shapes_animation);
+    shapesDiv.style.setProperty("animation-play-state", "running")
 }
 function squareHover(){
     if(!ready) return;
@@ -369,6 +373,8 @@ function makeCircular(){
     }
     shapesDiv.style.setProperty("width", circularWH[0]);
     shapesDiv.style.setProperty("height", circularWH[1]);
+    shapesDiv.style.setProperty('animation', shapes_animation);
+    shapesDiv.style.setProperty("animation-play-state", "running")
 }
 function circularHover(){
     if(!ready) return;
@@ -386,7 +392,7 @@ function makeFunnyShape(){
     for(let i=0; i<shapes; i++){
         const shape = document.getElementById(`shape${i+1}`);
         shape.style.setProperty("transform", `translate(${funnyCoords[i]}) rotate(${funnyAngles[i]}deg)`);
-        shape.style.setProperty("border-radius", "12rem")
+        shape.style.setProperty("border-radius", "1rem")
     }
     shapesDiv.style.setProperty("width", funnyWH[0]);
     shapesDiv.style.setProperty("height", funnyWH[1]);
@@ -397,7 +403,7 @@ function funnyHover(){
     funnyTextEffects();
 }
 
-// makeIdleShape();
+// makeFunnyShape();
 
 textCr.onmouseenter = funnyHover;
 textCr.onmouseleave = idleHover;
@@ -414,9 +420,9 @@ let done_once = false;
 
 function loadThirdDiv(){
     focusTitle.style.setProperty("transform", "translateX(0rem)");
-
+    shapesDiv.style.setProperty("opacity", 1)
     if(done_once) return;
-    let time = 300;
+    let time = 700;
     for(let i = 0; i < focusItems.length; i++){
         setTimeout(() => {
             focusItems[i].style.transform = "translateY(0rem)"
