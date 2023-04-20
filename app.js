@@ -258,10 +258,7 @@ const perfection_letters = document.getElementsByClassName("letter");
 const simpl_letters = document.getElementsByClassName("s-letter");
 const creat_letters = document.getElementsByClassName("c-letter");
 
-const perfection_shuffle = ["15deg", "-15deg", "12deg", "16deg", "-14deg", "11deg", "15deg", "-16deg", "13deg", "-14deg"]
-const simpl_shuffle = [0.4, -0.4, 0.4, -0.4, 0.4, -0.4, 0.4, -0.4, 0.4, -0.4, 0.4, -0.4, 0.4, -0.4]
-const creat_shuffle = [0.9, 1.1, 0.9, 1.1, 0.9, 1.1, 0.9, 1.1, 0.9, 1.1, 0.9, 1.1, 0.9, 1.1]
-const shapes_animation = "rotate-full 25s linear infinite"
+const letter_shuffle = [0.4, -0.4, 0.4, -0.4, 0.4, -0.4, 0.4, -0.4, 0.4, -0.4, 0.4, -0.4, 0.4, -0.4, 0.4, -0.4, 0.4, -0.4, 0.4, -0.4]
 
 const idleWH = ["14em", "11em"]
 const idleCoords = [
@@ -306,15 +303,15 @@ let ready = false;
 
 function idleTextEffects(){
     for(let i=0; i<perfection_letters.length; i++){
-        perfection_letters[i].style.setProperty("transform", `rotate(${perfection_shuffle[i]})`);
+        perfection_letters[i].style.setProperty("transform", `translateY(${letter_shuffle[i]}rem)`);
         perfection_letters[i].style.setProperty("color", "rgb(var(--white))")
     }
     for(let i=0; i<simpl_letters.length; i++){
-        simpl_letters[i].style.setProperty("transform", `translateY(${simpl_shuffle[i]}rem)`);
+        simpl_letters[i].style.setProperty("transform", `translateY(${letter_shuffle[i]}rem)`);
         simpl_letters[i].style.setProperty("color", "rgb(var(--white))")
     }
     for(let i=0; i<creat_letters.length; i++){
-        creat_letters[i].style.setProperty("transform", `scale(${creat_shuffle[i]})`)
+        creat_letters[i].style.setProperty("transform", `translateY(${letter_shuffle[i]}rem)`)
         creat_letters[i].style.color = "rgb(var(--white))"
     }
 }
@@ -336,7 +333,7 @@ function idleHover(){
 
 function squareTextEffects(){
     for(let i=0; i<perfection_letters.length; i++){
-        perfection_letters[i].style.setProperty("transform", `rotate(0deg)`);
+        perfection_letters[i].style.setProperty("transform", `translateY(0rem)`);
         perfection_letters[i].style.setProperty("color", "rgb(var(--sig-orange))")
     }
 }
@@ -378,7 +375,7 @@ function circularHover(){
 
 function funnyTextEffects(){
     for(let i=0; i<creat_letters.length; i++){
-        creat_letters[i].style.setProperty("transform", `scale(1)`)
+        creat_letters[i].style.setProperty("transform", `translateY(0rem)`)
         creat_letters[i].style.color = "rgb(var(--sig-orange))"
     }
 };
@@ -415,7 +412,7 @@ let temp_x = 0
 function loadThirdDiv(){
     focusTitle.style.setProperty("transform", "translateX(0rem)");
     shapesDiv.style.setProperty("opacity", 1)
-    let time = 700;
+    let time = 500;
     ready = false;
     for(let i = 0; i < focusItems.length; i++){
         setTimeout(() => {
@@ -430,7 +427,7 @@ function loadThirdDiv(){
                 setTimeout(() => {
                     makeIdleShape();
                     ready = true;
-                }, 800);
+                }, 1000);
             }
         }, time);
         time += 800
