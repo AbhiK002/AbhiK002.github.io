@@ -17,6 +17,7 @@
     --medium-font-size: 3rem;
     --small-font-size: 2rem;
     --smallest-font-size: 1.33rem;
+
     --base-font-size: 12px;
     /* 10:5:3:2:1.33 */
 }
@@ -60,7 +61,6 @@ body {
     color: white;
     font-family: var(--main-font);
     font-size: var(--small-font-size);
-    overflow-x: hidden;
     cursor: default;
 }
 
@@ -150,10 +150,15 @@ body {
 .top-bar {
     padding: 4px;
     display: flex;
+    width: 100%;
     align-items: center;
     justify-content: space-between;
     transform: translateY(-100%);
     transition: all 400ms;
+    position: fixed;
+    border-bottom: 2px solid rgba(var(--sig-yellow), 0.5);
+    top: 0;
+    z-index: 100;
 }
 
 #logo-container {
@@ -250,6 +255,7 @@ body {
     line-height: 1;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 .second-div h1 {
@@ -492,6 +498,15 @@ body {
 @media (max-width: 550px) {
     :root {
         --base-font-size: 8px;
+    }
+
+    .third-div {
+        min-height: 70vh;
+        min-height: 70svh;
+    }
+
+    .third-div::after {
+        background-color: rgba(var(--major-bg), 0.8);
     }
 
     .focus-div {

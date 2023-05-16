@@ -77,20 +77,21 @@ const topDiv = document.getElementsByClassName("top-bar")[0];
 const contentDiv = document.getElementsByClassName("content")[0];
 const coverDesc = document.getElementsByClassName("content-desc")[0];
 
+setTimeout(() => {
+    topDiv.style.setProperty("transform","translateY(0%)"); 
+}, 500);
+
 function loadCoverDiv(){
     bgSVG.style.setProperty("opacity", "1");
     setTimeout(() => {
-        topDiv.style.setProperty("transform","translateY(0%)");
-        setTimeout(() => {
-            contentDiv.style.setProperty("transform", "translateX(0%)")
-            contentDiv.style.setProperty("opacity", "1");
-            setTimeout(() => {    
-                coverDesc.style.setProperty("opacity", "1");
-                setTimeout(() => {
-                    logo.style.setProperty("width", `${initLogoWidth}px`);
-                }, 1000);
-            }, 500);
-        }, 300);
+        contentDiv.style.setProperty("transform", "translateX(0%)")
+        contentDiv.style.setProperty("opacity", "1");
+        setTimeout(() => {    
+            coverDesc.style.setProperty("opacity", "1");
+            setTimeout(() => {
+                logo.style.setProperty("width", `${initLogoWidth}px`);
+            }, 1000);
+        }, 500);
     }, 300);
 }
 
@@ -108,6 +109,29 @@ let coverIntersectOptions = {
 
 let coverObserver = new IntersectionObserver(controlCover, coverIntersectOptions);
 coverObserver.observe(coverDiv);
+
+function controlTopBarTransparency(entries, observer){
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            topDiv.style.setProperty("background","rgb(0, 0, 0, 0)"); 
+            topDiv.style.setProperty("border-color", "transparent")
+        }
+        else{
+            topDiv.style.setProperty("background","rgb(var(--major-bg))"); 
+            topDiv.style.setProperty("border-color", "rgba(255, 255, 255, 0.3)")
+        }
+    })
+}
+
+let topbarTransparencyObserver = new IntersectionObserver(
+    controlTopBarTransparency,
+    {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.9
+    }
+);
+topbarTransparencyObserver.observe(coverDiv)
 
 
 // skills section
