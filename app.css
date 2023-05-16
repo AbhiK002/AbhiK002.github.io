@@ -353,8 +353,8 @@ body {
     flex-direction: column;
     position: relative;
     background-color: rgb(var(--major-bg));
-    min-height: 100vh;
-    min-height: 100svh;
+    min-height: 90vh;
+    min-height: 90svh;
     overflow: hidden;
 }
 
@@ -369,14 +369,14 @@ body {
 
 #focus-title {
     flex-grow: 1;
-    font-size: var(--larger-font-size);
+    font-size: var(--large-font-size);
     margin: 1rem;
     line-height: 1.2;
     text-align: center;
     transition: all 400ms;
     transition-delay: 200ms;
     font-family: "Lora";
-    color: rgb(var(--sig-yellow));
+    color: rgb(var(--sig-orange));
     transform: translateX(-4rem);
     display: flex;
     align-items: center;
@@ -385,19 +385,20 @@ body {
 }
 
 .focus-div {
-    flex-grow: 5;
+    flex-grow: 8;
     display: flex;
     flex-direction: row;
     position: relative;
 }
 
 .focus-text {
-    flex-grow: 1;
     display: flex;
+    width: 50%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     z-index: 3;
+    transition: width 300ms
 }
 .focus-item {
     font-size: var(--larger-font-size);
@@ -416,11 +417,13 @@ body {
 
 .focus-visual {
     position: absolute;
-    width: 100%;
+    width: 50%;
     height: 100%;
+    right: 0;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: width 300ms
 }
 
 .shapes {
@@ -429,7 +432,7 @@ body {
     width: 15em;
     transition: all 300ms ease-out;
     transition-delay: 100ms;
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     animation: rotate-full 25s linear infinite;
     opacity: 0;
 }
@@ -485,43 +488,6 @@ body {
 
 /* #shape1 {background-color: cyan;} #shape2 {background-color: red;} #shape3 {background-color: orange;} #shape4 {background-color: green;} #shape5 {background-color: yellow;} #shape6 {background-color: blue;} #shape7 {background-color: coral;} */
 
-/* skill summary */
-.lang-div {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-.lang-item {
-    align-self: center;
-    padding: 1rem;
-    justify-self: center;
-    font-family: "Roboto Slab";
-    font-size: var(--medium-font-size);
-    color: rgb(var(--sig-orange));
-    background-color: rgba(var(--sig-yellow), 0.14);
-    border: 2px solid;
-    border-radius: 1rem;
-}
-
-.tool-div h2 {
-    font-size: var(--medium-font-size);
-    margin: 0;
-}
-
-.tool-items {
-    display: flex;
-    gap: 1rem;
-    color: rgb(var(--sig-red));
-}
-
-.tool-item {
-    padding: 1rem;
-    background-color: rgba(var(--major-bg), 0.7);
-    border: 2px solid;
-    border-radius: 1rem;
-}
-
 /* RESPONSIVE BEHAVIOUR */
 @media (max-width: 550px) {
     :root {
@@ -530,5 +496,15 @@ body {
 
     .focus-div {
         flex-direction: column;
+    }
+
+    .focus-text {
+        flex-grow: 1;
+        width: 100%;
+    }
+
+    .focus-visual {
+        transition: width 300ms;
+        width: 100%;
     }
 }
