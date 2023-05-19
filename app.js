@@ -2,6 +2,43 @@ function debugText(text) {
     document.getElementById("js-tester").innerText = text;
 }
 
+// useful functions
+function runAfter(func, duration){
+    const init = performance.now();
+
+    function check(){
+        let elapsed = performance.now() - init;
+        if(elapsed >= duration){
+            func(); return;
+        }
+        requestAnimationFrame(check);
+    }
+    requestAnimationFrame(check);
+}
+
+function styleAfter(element, attr, value, duration){
+    if(element == null || element.nodeType != 1){
+        console.log(`${element} doesn't exist`)
+        return;
+    }
+    const init = performance.now();
+
+    function check(){
+        let elapsed = performance.now() - init;
+        if(elapsed >= duration){
+            element.style.setProperty(attr, value);
+            return;
+        }
+        requestAnimationFrame(check);
+    }
+    requestAnimationFrame(check);
+}
+
+function stylesAfter(... eleAttrValDur){
+
+}
+
+// DOM stuff
 const handleOnMouseMove = e => {
     const { currentTarget: target } = e;
     const rect = target.getBoundingClientRect(),
@@ -20,7 +57,8 @@ for(const card of document.querySelectorAll(".tile")) {
 
 const myDetails = {
     fullname: "Abhineet Kelley",
-    description: "A random guy who enjoys developing desktop and web applications, while brainstorming creative solutions to challenging problems",
+    image: "./TESTS/me.jpg",
+    description: "A Desktop & Web Application Designer and Developer with a proficiency in both Back-End and Front-End",
     langs: ["Python", "Java", "C++", "JavaScript", "HTML", "CSS"],
     tools: ["JavaFX", "Qt C++", "PyQt5", "tkinter"]
 }
@@ -76,9 +114,7 @@ const topDiv = document.getElementsByClassName("top-bar")[0];
 const contentDiv = document.getElementsByClassName("content")[0];
 const coverDesc = document.getElementsByClassName("content-desc")[0];
 
-setTimeout(() => {
-    topDiv.style.setProperty("transform","translateY(0%)"); 
-}, 500);
+styleAfter(topDiv, "transform", "translateY(0%)", 500)
 
 function loadCoverDiv(){
     bgSVG.style.setProperty("opacity", "1");
@@ -235,7 +271,6 @@ function typeCode() {
                 setTimeout(() => {
                     busy = false;
                 }, 400);
-                setTimeout(switchBorderRadius, 300);
             }, 200);
         }, 100);
     }, 200);
@@ -283,6 +318,9 @@ function switchBorderRadius(){
 switchBorderRadius();
 designWord.onmouseover = switchBorderRadius
 
+// about me div
+
+
 // third div
 const thirdDiv = document.getElementsByClassName("third-div")[0];
 const focusTitle = document.getElementById("focus-title");
@@ -298,7 +336,7 @@ const perfection_letters = document.getElementsByClassName("letter");
 const simpl_letters = document.getElementsByClassName("s-letter");
 const creat_letters = document.getElementsByClassName("c-letter");
 
-const letter_shuffle = [0.4, -0.4, 0.4, -0.4, 0.4, -0.4, 0.4, -0.4, 0.4, -0.4, 0.4, -0.4, 0.4, -0.4, 0.4, -0.4, 0.4, -0.4, 0.4, -0.4]
+const letter_shuffle = [0.3, -0.3, 0.3, -0.3, 0.3, -0.3, 0.3, -0.3, 0.3, -0.3, 0.3, -0.3, 0.3, -0.3, 0.3, -0.3, 0.3, -0.3, 0.3, -0.3]
 
 const idleWH = ["14em", "11em"]
 const idleCoords = [
@@ -451,6 +489,7 @@ let temp_x = 0
 
 function loadThirdDiv(){
     focusTitle.style.setProperty("transform", "translateX(0rem)");
+    focusTitle.style.setProperty("opacity", "1")
     shapesDiv.style.setProperty("opacity", 1)
     let time = 500;
     ready = false;
@@ -476,7 +515,8 @@ function loadThirdDiv(){
 }
 
 function resetThirdDiv(){
-    focusTitle.style.setProperty("transform", "translateX(-4rem)")
+    focusTitle.style.setProperty("transform", "translateX(-4rem)");
+    focusTitle.style.setProperty("opacity", "0")
 }
 
 function controlFocusDiv(entries, observer){

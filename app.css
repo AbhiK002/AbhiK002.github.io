@@ -178,7 +178,7 @@ body {
     transform: translateX(0);
     transform-origin: left;
     z-index: -100;
-    transition: transform 800ms, opacity 800ms;
+    transition: transform 600ms, opacity 300ms;
     padding: 0px 4px;
 }
 
@@ -360,6 +360,11 @@ body {
     50% {opacity: 0}
 }
 
+ /* about me div */
+.aboutme-div {
+    
+}
+
 /* third div */
 .third-div {
     display: flex;
@@ -534,4 +539,6 @@ body {
         transition: width 300ms;
         width: 100%;
     }
+
+    #b1, #b2, #b3, #b4 {animation: none}
 }
