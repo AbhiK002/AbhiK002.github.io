@@ -9,7 +9,6 @@
     --sig-yellow: 255, 200, 128;
     --sig-red: 255, 75, 75;
     --tile-bd: 2px;
-    --logo-width: 240px;
 
     --largest-font-size: 10rem;
     --larger-font-size: 7.5rem;
@@ -154,7 +153,7 @@ body {
     align-items: center;
     justify-content: space-between;
     transform: translateY(-100%);
-    transition: all 400ms;
+    transition: all 800ms;
     position: fixed;
     border-bottom: 2px solid rgba(var(--sig-yellow), 0.5);
     top: 0;
@@ -164,15 +163,23 @@ body {
 #logo-container {
     padding: 4px;
     user-select: none;
-    width: var(--logo-width);
     overflow: hidden;
-    transition: width 400ms, opacity 500ms;
+    transition: width 800ms, opacity 500ms;
     display: flex;
     justify-content: flex-start;
 }
 
 #logoimg {
     height: 50px;
+}
+
+#logotext {
+    font-size: 30px;
+    transform: translateX(0);
+    transform-origin: left;
+    z-index: -100;
+    transition: transform 800ms, opacity 800ms;
+    padding: 0px 4px;
 }
 
 .top-bar-buttons {
@@ -249,8 +256,8 @@ body {
     flex-direction: column;
     position: relative;
     background-color: rgb(var(--major-bg));
-    min-height: 100vh;
-    min-height: 100svh;
+    min-height: 90vh;
+    min-height: 90svh;
     padding: 2rem;
     line-height: 1;
     justify-content: center;
@@ -259,7 +266,7 @@ body {
 }
 
 .second-div h1 {
-    font-size: var(--larger-font-size);
+    font-size: var(--large-font-size);
     margin: 0;
     margin-bottom: 2rem;
     text-align: center;
@@ -323,8 +330,8 @@ body {
     display: block;
     margin-top: 20px;
     height: 13rem;
+    padding: 0rem 4rem;
     opacity: 0;
-    background-color: rgba(var(--sig-yellow), 0);
     transition: all 1000ms;
 }
 
@@ -381,8 +388,9 @@ body {
     text-align: center;
     transition: all 400ms;
     transition-delay: 200ms;
-    font-family: "Lora";
     color: rgb(var(--sig-orange));
+    font-weight: lighter;
+    letter-spacing: 0.6rem;
     transform: translateX(-4rem);
     display: flex;
     align-items: center;
@@ -419,6 +427,10 @@ body {
     display: inline-block;
     transition: all 500ms;
     transition-delay: 150ms;
+}
+
+#hover-help {
+    color:rgba(var(--white), 0.4)
 }
 
 .focus-visual {
@@ -501,8 +513,8 @@ body {
     }
 
     .third-div {
-        min-height: 70vh;
-        min-height: 70svh;
+        min-height: 80vh;
+        min-height: 80svh;
     }
 
     .third-div::after {

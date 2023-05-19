@@ -67,9 +67,8 @@ function addContent(){
 
 addContent();
 
-const logo = document.getElementById("logo-container");
-let initLogoWidth = logo.offsetWidth;
-logo.style.setProperty("width", `${parseInt(initLogoWidth)/3}px`)
+const logotext = document.getElementById("logotext");
+const logoContainer = document.getElementById("logo-container");
 
 const coverDiv = document.getElementsByClassName("cover-div")[0];
 const bgSVG = document.getElementById("background-svg");
@@ -88,9 +87,6 @@ function loadCoverDiv(){
         contentDiv.style.setProperty("opacity", "1");
         setTimeout(() => {    
             coverDesc.style.setProperty("opacity", "1");
-            setTimeout(() => {
-                logo.style.setProperty("width", `${initLogoWidth}px`);
-            }, 1000);
         }, 500);
     }, 300);
 }
@@ -110,15 +106,35 @@ let coverIntersectOptions = {
 let coverObserver = new IntersectionObserver(controlCover, coverIntersectOptions);
 coverObserver.observe(coverDiv);
 
+function hideLogo() {
+    logotext.style.setProperty("transform", `translateX(-30%)`);
+    logotext.style.setProperty("opacity", "0")
+}
+
+function showLogo() {
+    logotext.style.setProperty("transform", `translateX(0)`);
+    logotext.style.setProperty("opacity", "1")
+}
+
 function controlTopBarTransparency(entries, observer){
     entries.forEach(entry => {
         if(entry.isIntersecting){
             topDiv.style.setProperty("background","rgb(0, 0, 0, 0)"); 
-            topDiv.style.setProperty("border-color", "transparent")
+            topDiv.style.setProperty("border-color", "transparent");
+            logoContainer.onmouseenter = showLogo
+            logoContainer.onmouseleave = null
+            setTimeout(() => {
+                showLogo();
+            }, 800);
         }
         else{
             topDiv.style.setProperty("background","rgb(var(--major-bg))"); 
-            topDiv.style.setProperty("border-color", "rgba(255, 255, 255, 0.3)")
+            topDiv.style.setProperty("border-color", "rgba(255, 255, 255, 0.3)");
+            logoContainer.onmouseenter = showLogo
+            logoContainer.onmouseleave = hideLogo
+            setTimeout(() => {
+                hideLogo();
+            }, 800);
         }
     })
 }
