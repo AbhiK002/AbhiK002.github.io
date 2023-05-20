@@ -65,7 +65,10 @@ const handleOnMouseMove = e => {
 function toggleTheme() {
     document.documentElement.classList.toggle('light-mode');
 }
-// toggleTheme()
+buts = document.getElementsByClassName("social-button")
+for(const but of buts){
+    but.onclick = toggleTheme;
+}
 
 for(const card of document.querySelectorAll(".tile")) {
     card.onmousemove = e => handleOnMouseMove(e);
@@ -197,43 +200,6 @@ let topbarTransparencyObserver = new IntersectionObserver(
 );
 topbarTransparencyObserver.observe(coverDiv)
 
-
-// skills section
-function addSkillsSummary(){
-    const mainDiv = document.getElementsByClassName("skills-div")[0];
-    
-    const skillTitle = document.createElement("h1");
-    skillTitle.innerText = "My Skills"
-
-    const langsDiv = document.createElement("div");
-    langsDiv.className = "lang-div";
-    
-    for (const lang in myDetails.langs){
-        let ld = document.createElement("div");
-        ld.className = "lang-item";
-        ld.innerText = myDetails.langs[lang];
-        langsDiv.append(ld);
-    }
-
-    const toolDiv = document.createElement("div");
-    toolDiv.className = "tool-div";
-
-    const toolTitle = document.createElement("h2");
-    const toolItems = document.createElement("div");
-    toolItems.className = "tool-items";
-    for (const tool in myDetails.tools){
-        let ld = document.createElement("div");
-        ld.className = "tool-item";
-        ld.innerText = myDetails.tools[tool];
-        toolItems.append(ld);
-    }
-    
-    toolTitle.append(toolItems);
-    toolDiv.append(toolTitle);
-
-    mainDiv.append(skillTitle, langsDiv, toolDiv);
-}
-
 // second div
 const secondDiv = document.getElementsByClassName("second-div")[0];
 const codeText = document.getElementById("word-code");
@@ -270,19 +236,6 @@ function loadDecoration() {
     else{
         runAfter(typeCode, 2200)
     }
-    
-    // setTimeout(() => {
-    //     designWord.style.setProperty("opacity", "1");
-    //     setTimeout(() => {
-    //         // intoWord.style.setProperty("opacity", "1");
-    //         // if(busy) return;
-    //         // if(codeText.innerText.length > 1) untypeCode();
-    //         setTimeout(() => {
-    //             codeCursor.style.setProperty("visibility", "visible");
-    //             setTimeout(typeCode, 300);
-    //         }, 800);
-    //     }, 700);
-    // }, 700);
 }
 
 function typeCode() {
@@ -307,7 +260,7 @@ function controlDecoration(entries, observer)
 {
   entries.forEach(entry => {
     if(entry.isIntersecting){
-        loadDecoration();
+        runAfter(loadDecoration, 100)
     }
   });
 }
@@ -549,10 +502,10 @@ function resetThirdDiv(){
 function controlFocusDiv(entries, observer){
     entries.forEach(entry => {
         if(entry.isIntersecting){
-            loadThirdDiv();
+            runAfter(loadThirdDiv, 100);
         }
         else {
-            resetThirdDiv();
+            runAfter(resetThirdDiv, 100);
         }
     })
 }

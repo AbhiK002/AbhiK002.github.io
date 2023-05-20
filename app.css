@@ -16,7 +16,7 @@
     --major-bg-light: 255, 255, 255;
     --minor-bg-light: 210, 210, 210;
     --tile-bd-col-light: 146, 146, 146;
-    --sig-orange-light: 148, 107, 33;
+    --sig-orange-light: 240, 80, 0;
     --sig-yellow-light: 200, 40, 40;
     --sig-red-light: 255, 75, 75;
     --tile-bd-light: 2px;
@@ -63,7 +63,6 @@ span {
 
 * {
     box-sizing: border-box;
-    transition-delay: 50ms;
 }
 
 html, 
@@ -84,6 +83,7 @@ body {
     font-family: var(--main-font);
     font-size: var(--small-font-size);
     cursor: default;
+    transition: background-color 300ms
 }
 
 /* FOR GLOBAL USE */
@@ -176,7 +176,7 @@ body {
     align-items: center;
     justify-content: space-between;
     transform: translateY(-100%);
-    transition: all 800ms;
+    transition: transform 800ms, box-shadow 800ms;
     position: fixed;
     border-bottom: 2px solid rgba(var(--white), 0.1);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
@@ -195,13 +195,14 @@ body {
 
 #logoimg {
     height: 50px;
+    z-index: 20;
 }
 
 #logotext {
     font-size: 30px;
     transform: translateX(0);
     transform-origin: left;
-    z-index: -100;
+    z-index: -10;
     transition: transform 600ms, opacity 300ms;
     padding: 0px 4px;
 }
@@ -218,13 +219,12 @@ body {
     justify-content: center;
     padding: 8px;
     cursor: pointer;
-    transition: all 200ms;
     border-radius: 20%;
 }
 
 .social-button img {
-    transition: all 200ms;
     width: 32px;
+    transition: transform 200ms;
 }
 
 .social-button:hover {
@@ -366,7 +366,7 @@ body {
     display: block;
     margin-top: 1.7rem;
     margin-bottom: 1.4rem;
-    transition: all 500ms;
+    transition: font-size 100ms;
     opacity: 0;
 }
 
