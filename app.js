@@ -9,7 +9,13 @@ function runAfter(func, duration){
     function check(){
         let elapsed = performance.now() - init;
         if(elapsed >= duration){
-            func(); return;
+            try {
+                func();
+            } catch (error) {
+                // Handle the error here
+                console.error('An error occurred:', error);
+            }
+            return;
         }
         requestAnimationFrame(check);
     }
@@ -34,8 +40,13 @@ function styleAfter(element, attr, value, duration){
     requestAnimationFrame(check);
 }
 
-function stylesAfter(... eleAttrValDur){
-
+function stylesAfter(... eleAttrValDurs){
+    init = performance.now();
+    let time = 0
+    for(const [ele, attr, val, dur] of eleAttrValDurs){
+        time += dur;
+        styleAfter(ele, attr, val, time);
+    }
 }
 
 // DOM stuff
@@ -51,6 +62,11 @@ const handleOnMouseMove = e => {
     // debugText(`${target} ${rect} == ${rect.left} ${rect.top} == ${e.clientX} ${e.clientY}`);
 }
 
+function toggleTheme() {
+    document.documentElement.classList.toggle('light-mode');
+}
+// toggleTheme()
+
 for(const card of document.querySelectorAll(".tile")) {
     card.onmousemove = e => handleOnMouseMove(e);
 }
@@ -58,7 +74,7 @@ for(const card of document.querySelectorAll(".tile")) {
 const myDetails = {
     fullname: "Abhineet Kelley",
     image: "./TESTS/me.jpg",
-    description: "A Desktop & Web Application Designer and Developer with a proficiency in both Back-End and Front-End",
+    description: "A Desktop & Web Application Designer and Developer proficient with both Back-End and Front-End",
     langs: ["Python", "Java", "C++", "JavaScript", "HTML", "CSS"],
     tools: ["JavaFX", "Qt C++", "PyQt5", "tkinter"]
 }
@@ -117,14 +133,12 @@ const coverDesc = document.getElementsByClassName("content-desc")[0];
 styleAfter(topDiv, "transform", "translateY(0%)", 500)
 
 function loadCoverDiv(){
-    bgSVG.style.setProperty("opacity", "1");
-    setTimeout(() => {
-        contentDiv.style.setProperty("transform", "translateX(0%)")
-        contentDiv.style.setProperty("opacity", "1");
-        setTimeout(() => {    
-            coverDesc.style.setProperty("opacity", "1");
-        }, 500);
-    }, 300);
+    stylesAfter(
+        [bgSVG, "opacity", "1", 0],
+        [contentDiv, "transform", "translateX(0%)", 300],
+        [contentDiv, "opacity", "1", 0],
+        [coverDesc, "opacity", "1", 500]
+    )
 }
 
 function controlCover(entries, observer){
@@ -144,7 +158,7 @@ coverObserver.observe(coverDiv);
 
 function hideLogo() {
     logotext.style.setProperty("transform", `translateX(-30%)`);
-    logotext.style.setProperty("opacity", "0")
+    logotext.style.setProperty("opacity", "0");
 }
 
 function showLogo() {
@@ -157,20 +171,18 @@ function controlTopBarTransparency(entries, observer){
         if(entry.isIntersecting){
             topDiv.style.setProperty("background","rgb(0, 0, 0, 0)"); 
             topDiv.style.setProperty("border-color", "transparent");
+            topDiv.style.setProperty("box-shadow", "0 4px 16px rgba(0, 0, 0, 0)");
             logoContainer.onmouseenter = showLogo
             logoContainer.onmouseleave = null
-            setTimeout(() => {
-                showLogo();
-            }, 800);
+            runAfter(showLogo, 600)
         }
         else{
             topDiv.style.setProperty("background","rgb(var(--major-bg))"); 
-            topDiv.style.setProperty("border-color", "rgba(255, 255, 255, 0.3)");
+            topDiv.style.setProperty("border-color", "rgba(var(--white), 0.1)");
+            topDiv.style.setProperty("box-shadow", "0 4px 16px rgba(0, 0, 0, 0.4)");
             logoContainer.onmouseenter = showLogo
             logoContainer.onmouseleave = hideLogo
-            setTimeout(() => {
-                hideLogo();
-            }, 800);
+            runAfter(hideLogo, 600)
         }
     })
 }
@@ -245,49 +257,50 @@ function loadDecoration() {
     }
     secondh1.style.setProperty("opacity", "1");
     designWord.style.setProperty("background-color", "rgba(var(--sig-red), 0.2)");
-    setTimeout(() => {
-        designWord.style.setProperty("opacity", "1");
-        setTimeout(() => {
-            intoWord.style.setProperty("opacity", "1");
-            if(busy) return;
-            if(codeText.innerText.length > 1) untypeCode();
-            setTimeout(() => {
-                codeCursor.style.setProperty("visibility", "visible");
-                setTimeout(typeCode, 300);
-            }, 800);
-        }, 700);
-    }, 700);
+    stylesAfter(
+        [designWord, "opacity", "1", 700],
+        [intoWord, "opacity", "1", 700],
+        [codeCursor, "visibility", "visible", 800]
+    )
+    if(busy) return;
+    if(codeText.innerText.length > 1) {
+        runAfter(untypeCode, 1200);
+        runAfter(typeCode, 2200);
+    }
+    else{
+        runAfter(typeCode, 2200)
+    }
+    
+    // setTimeout(() => {
+    //     designWord.style.setProperty("opacity", "1");
+    //     setTimeout(() => {
+    //         // intoWord.style.setProperty("opacity", "1");
+    //         // if(busy) return;
+    //         // if(codeText.innerText.length > 1) untypeCode();
+    //         setTimeout(() => {
+    //             codeCursor.style.setProperty("visibility", "visible");
+    //             setTimeout(typeCode, 300);
+    //         }, 800);
+    //     }, 700);
+    // }, 700);
 }
 
 function typeCode() {
     busy = true;
     codeText.innerText = "C";
-    setTimeout(() => {
-        codeText.innerText = "Co";
-        setTimeout(() => {
-            codeText.innerText = "Cod";
-            setTimeout(() => {
-                codeText.innerText = "Code";
-                setTimeout(() => {
-                    busy = false;
-                }, 400);
-            }, 200);
-        }, 100);
-    }, 200);
+    runAfter(()=>{codeText.innerText = "Co"}, 200)
+    runAfter(()=>{codeText.innerText = "Cod"}, 400)
+    runAfter(()=>{codeText.innerText = "Code"}, 600)
+    runAfter(()=>{busy=false}, 1400);
 }
+
 function untypeCode() {
     if(busy) return;
     busy = true;
     codeText.innerText = "Cod";
-    setTimeout(() => {
-        codeText.innerText = "Co";
-        setTimeout(() => {
-            codeText.innerText = "C";
-            setTimeout(() => {
-                codeText.innerText = "";
-            }, 200);
-        }, 200);
-    }, 100);
+    runAfter(()=>{codeText.innerText = "Co"}, 200)
+    runAfter(()=>{codeText.innerText = "C"}, 400)
+    runAfter(()=>{codeText.innerText = ""}, 600)
 }
 
 function controlDecoration(entries, observer)
@@ -308,7 +321,7 @@ let options = {
 let observer = new IntersectionObserver(controlDecoration, options);
 observer.observe(secondDiv);
 
-const brvalues = ["2rem 10rem 2rem 10rem", "10rem 2rem 10rem 2rem"];
+const brvalues = ["2rem 7rem 2rem 7rem", "7rem 2rem 7rem 2rem"];
 let curr = 0;
 function switchBorderRadius(){
     designWord.style.setProperty("border-radius", brvalues[curr%brvalues.length])
@@ -377,22 +390,8 @@ const funnyCoords = [
 ]
 const funnyAngles = [0, 0, 0, 0, 0, 45, 150]
 
-let ready = false;
+let hoverEffectsEnabled = false;
 
-function idleTextEffects(){
-    for(let i=0; i<perfection_letters.length; i++){
-        perfection_letters[i].style.setProperty("transform", `translateY(${letter_shuffle[i]}rem)`);
-        perfection_letters[i].style.setProperty("color", "rgb(var(--white))")
-    }
-    for(let i=0; i<simpl_letters.length; i++){
-        simpl_letters[i].style.setProperty("transform", `translateY(${letter_shuffle[i]}rem)`);
-        simpl_letters[i].style.setProperty("color", "rgb(var(--white))")
-    }
-    for(let i=0; i<creat_letters.length; i++){
-        creat_letters[i].style.setProperty("transform", `translateY(${letter_shuffle[i]}rem)`)
-        creat_letters[i].style.color = "rgb(var(--white))"
-    }
-}
 function makeIdleShape(){
     for(let i=0; i<shapes; i++){
         const shape = document.getElementById(`shape${i+1}`);
@@ -403,17 +402,18 @@ function makeIdleShape(){
     shapesDiv.style.setProperty("height", idleWH[1]);
 }
 
-function idleHover(){
-    if(!ready) return;
-    makeIdleShape();
-    idleTextEffects();
-}
-
 function squareTextEffects(){
     for(let i=0; i<perfection_letters.length; i++){
         perfection_letters[i].style.setProperty("transform", `translateY(0rem)`);
         perfection_letters[i].style.setProperty("color", "rgb(var(--sig-orange))")
     }
+}
+function undoSquareTextEffects(idleShape = true){
+    for(let i=0; i<perfection_letters.length; i++){
+        perfection_letters[i].style.setProperty("transform", `translateY(${letter_shuffle[i]}rem)`);
+        perfection_letters[i].style.setProperty("color", "rgb(var(--white))")
+    }
+    if(idleShape) makeIdleShape();
 }
 function makeSquare(){
     for(let i=0; i<shapes; i++){
@@ -425,7 +425,7 @@ function makeSquare(){
     shapesDiv.style.setProperty("height", squareWH[1]);
 }
 function squareHover(){
-    if(!ready) return;
+    if(!hoverEffectsEnabled) return;
     makeSquare();
     squareTextEffects();
 }
@@ -435,6 +435,13 @@ function circularTextEffects(){
         simpl_letters[i].style.setProperty("transform", `translateY(0rem)`);
         simpl_letters[i].style.setProperty("color", "rgb(var(--sig-orange))")
     }
+}
+function undoCircularTextEffects(idleShape = true){
+    for(let i=0; i<simpl_letters.length; i++){
+        simpl_letters[i].style.setProperty("transform", `translateY(${letter_shuffle[i]}rem)`);
+        simpl_letters[i].style.setProperty("color", "rgb(var(--white))")
+    }
+    if(idleShape) makeIdleShape();
 }
 function makeCircular(){
     for(let i=0; i<shapes; i++){
@@ -446,7 +453,7 @@ function makeCircular(){
     shapesDiv.style.setProperty("height", circularWH[1]);
 }
 function circularHover(){
-    if(!ready) return;
+    if(!hoverEffectsEnabled) return;
     makeCircular();
     circularTextEffects();
 }
@@ -457,6 +464,13 @@ function funnyTextEffects(){
         creat_letters[i].style.color = "rgb(var(--sig-orange))"
     }
 };
+function undoFunnyTextEffects(idleShape = true){
+    for(let i=0; i<creat_letters.length; i++){
+        creat_letters[i].style.setProperty("transform", `translateY(${letter_shuffle[i]}rem)`)
+        creat_letters[i].style.color = "rgb(var(--white))"
+    }
+    if(idleShape) makeIdleShape();
+}
 function makeFunnyShape(){
     for(let i=0; i<shapes; i++){
         const shape = document.getElementById(`shape${i+1}`);
@@ -467,56 +481,69 @@ function makeFunnyShape(){
     shapesDiv.style.setProperty("height", funnyWH[1]);
 }
 function funnyHover(){
-    if(!ready) return;
+    if(!hoverEffectsEnabled) return;
     makeFunnyShape();
     funnyTextEffects();
 }
 
-// makeFunnyShape();
+function idleTextEffects(idleShape = true){
+    undoSquareTextEffects(idleShape);
+    undoCircularTextEffects(idleShape);
+    undoFunnyTextEffects(idleShape);
+}
 
-textCr.onmouseenter = funnyHover;
-textCr.onmouseleave = idleHover;
 
-textSi.onmouseenter = circularHover;
-textSi.onmouseleave = idleHover;
+textCr.onmouseover = funnyHover;
+textCr.onmouseleave = undoFunnyTextEffects;
 
-textPe.onmouseenter = squareHover;
-textPe.onmouseleave = idleHover;
+textSi.onmouseover = circularHover;
+textSi.onmouseleave = undoCircularTextEffects;
+
+textPe.onmouseover = squareHover;
+textPe.onmouseleave = undoSquareTextEffects;
 
 const shapeFuncs = [[makeFunnyShape, funnyTextEffects], [makeCircular, circularTextEffects], [makeSquare, squareTextEffects]];
 
-let temp_x = 0
+let divAlreadyDrawn = false;
 
 function loadThirdDiv(){
     focusTitle.style.setProperty("transform", "translateX(0rem)");
     focusTitle.style.setProperty("opacity", "1")
-    shapesDiv.style.setProperty("opacity", 1)
+    shapesDiv.style.setProperty("opacity", "1")
     let time = 500;
-    ready = false;
-    for(let i = 0; i < focusItems.length; i++){
-        setTimeout(() => {
-            focusItems[i].style.transform = "translateY(0rem)"
+    // hoverEffectsEnabled = false;
+
+    for(let i = 0; i < shapeFuncs.length; i++){
+        runAfter(()=>{
+            focusItems[i].style.setProperty("transform", "translateY(0rem)");
             focusItems[i].style.setProperty("opacity", "1");
-            if(temp_x <= 1) shapeFuncs[i][0]();
+            
+            if(!divAlreadyDrawn) {
+                shapeFuncs[i][0]();
+                runAfter(idleTextEffects, 750);
+            }
+            else{
+                runAfter(()=>{idleTextEffects(false)}, 750)
+            }
             shapeFuncs[i][1]();
-            setTimeout(() => {
-                idleTextEffects();
-            }, 700);
-            if(i == 2){
-                setTimeout(() => {
-                    makeIdleShape();
-                    ready = true;
+
+            if(i == shapeFuncs.length-1){
+                runAfter(()=>{
+                    idleTextEffects(false);
+                    hoverEffectsEnabled = true;
                 }, 800);
             }
-        }, time);
+        }, time)
+
         time += 800
     }
-    temp_x += 1
+    
+    runAfter(()=>{divAlreadyDrawn=true}, time)
 }
 
 function resetThirdDiv(){
     focusTitle.style.setProperty("transform", "translateX(-4rem)");
-    focusTitle.style.setProperty("opacity", "0")
+    focusTitle.style.setProperty("opacity", "0");
 }
 
 function controlFocusDiv(entries, observer){
