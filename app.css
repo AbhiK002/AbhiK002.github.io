@@ -83,7 +83,10 @@ body {
     font-family: var(--main-font);
     font-size: var(--small-font-size);
     cursor: default;
-    transition: background-color 300ms
+}
+
+body div, body {
+    transition: background-color 0ms;
 }
 
 /* FOR GLOBAL USE */
@@ -161,7 +164,6 @@ body {
     transform: translateX(-50px) translateY(-10%);
     animation: svg-motion 60s cubic-bezier(1, 0.9, 0.9, 1) infinite;
     opacity: 0;
-    transition: all 300ms;
 }
 
 @keyframes svg-motion {
@@ -295,7 +297,7 @@ body {
     margin-bottom: 2rem;
     text-align: center;
     opacity: 0;
-    transition: all 300ms;
+    transition: font-size 300ms;
 }
 
 .decoration-bar {
@@ -305,7 +307,7 @@ body {
     height: 0.6rem;
     border-radius: 2rem;
     align-self: flex-start;
-    transition: all 1500ms;
+    transition: opacity 1500ms;
 }
 
 @keyframes pulse-length-neg {
@@ -410,7 +412,7 @@ body {
     line-height: 1.2;
     text-align: center;
     transition: all 400ms;
-    transition-delay: 200ms;
+    transition-delay: 100ms;
     color: rgb(var(--sig-yellow));
     font-weight: lighter;
     letter-spacing: 0.5rem;
@@ -440,16 +442,15 @@ body {
 .focus-item {
     font-size: var(--larger-font-size);
     display: block;
-    transition: all 400ms;
-    transition-delay: 200ms;
+    transition: font-size 400ms, opacity 400ms, transform 400ms;
     opacity: 0;
     transform: translateY(-4rem);
 }
 
 .focus-item span {
     display: inline-block;
-    transition: all 500ms;
-    transition-delay: 150ms;
+    transition: transform 400ms, color 400ms;
+    transition-delay: 100ms;
 }
 
 #hover-help {
@@ -473,7 +474,7 @@ body {
     position: relative;
     height: 1em;
     width: 1em;
-    transition: all 300ms ease-out;
+    transition: transform 400ms ease-out, scale 300ms;
     transition-delay: 100ms;
     font-size: 2.2rem;
     animation: rotate-full 25s linear infinite;
@@ -489,8 +490,8 @@ body {
     position: absolute;
     border-radius: 0.5em;
     border: 0.1em solid rgb(var(--major-bg));
-    transition: all 500ms, background-color 150ms, opacity 200ms;
-    transition-delay: 150ms;
+    transition: all 500ms, background-color 400ms, border-color 400ms, opacity 200ms;
+    transition-delay: 100ms;
     background-color: rgb(var(--minor-bg));
 }
 
