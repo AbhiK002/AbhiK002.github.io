@@ -355,62 +355,7 @@ function makeIdleShape(){
     // shapesDiv.style.setProperty("height", idleWH[1]);
 }
 
-function squareTextEffects(){
-    for(let i=0; i<perfection_letters.length; i++){
-        perfection_letters[i].style.setProperty("transform", `translateY(0rem)`);
-        perfection_letters[i].style.setProperty("color", "rgb(var(--sig-orange))")
-    }
-}
-function undoSquareTextEffects(idleShape = true){
-    for(let i=0; i<perfection_letters.length; i++){
-        perfection_letters[i].style.setProperty("transform", `translateY(${letter_shuffle[i]}rem)`);
-        perfection_letters[i].style.setProperty("color", "rgb(var(--white))")
-    }
-    if(idleShape) makeIdleShape();
-}
-function makeSquare(){
-    for(let i=0; i<shapes; i++){
-        const shape = document.getElementById(`shape${i+1}`);
-        shape.style.setProperty("transform", `translate(${squareCoords[i]})`);
-        shape.style.setProperty("border-radius", "2rem")
-    }
-    // shapesDiv.style.setProperty("width", squareWH[0]);
-    // shapesDiv.style.setProperty("height", squareWH[1]);
-}
-function squareHover(){
-    if(!hoverEffectsEnabled) return;
-    makeSquare();
-    squareTextEffects();
-}
-
-function circularTextEffects(){
-    for(let i=0; i<simpl_letters.length; i++){
-        simpl_letters[i].style.setProperty("transform", `translateY(0rem)`);
-        simpl_letters[i].style.setProperty("color", "rgb(var(--sig-orange))")
-    }
-}
-function undoCircularTextEffects(idleShape = true){
-    for(let i=0; i<simpl_letters.length; i++){
-        simpl_letters[i].style.setProperty("transform", `translateY(${letter_shuffle[i]}rem)`);
-        simpl_letters[i].style.setProperty("color", "rgb(var(--white))")
-    }
-    if(idleShape) makeIdleShape();
-}
-function makeCircular(){
-    for(let i=0; i<shapes; i++){
-        const shape = document.getElementById(`shape${i+1}`);
-        shape.style.setProperty("transform", `translate(${circularCoords[i]}) rotate(${circularAngles[i]}deg)`);
-        shape.style.setProperty("border-radius", "12rem")
-    }
-    // shapesDiv.style.setProperty("width", circularWH[0]);
-    // shapesDiv.style.setProperty("height", circularWH[1]);
-}
-function circularHover(){
-    if(!hoverEffectsEnabled) return;
-    makeCircular();
-    circularTextEffects();
-}
-
+// Creativity
 function funnyTextEffects(){
     for(let i=0; i<creat_letters.length; i++){
         creat_letters[i].style.setProperty("transform", `translateY(0rem)`)
@@ -422,7 +367,6 @@ function undoFunnyTextEffects(idleShape = true){
         creat_letters[i].style.setProperty("transform", `translateY(${letter_shuffle[i]}rem)`)
         creat_letters[i].style.color = "rgb(var(--white))"
     }
-    if(idleShape) makeIdleShape();
 }
 function makeFunnyShape(){
     for(let i=0; i<shapes; i++){
@@ -430,34 +374,105 @@ function makeFunnyShape(){
         shape.style.setProperty("transform", `translate(${funnyCoords[i]}) rotate(${funnyAngles[i]}deg)`);
         shape.style.setProperty("border-radius", "1rem")
     }
-    // shapesDiv.style.setProperty("width", funnyWH[0]);
-    // shapesDiv.style.setProperty("height", funnyWH[1]);
 }
+
+// Simplicity
+function circularTextEffects(){
+    for(let i=0; i<simpl_letters.length; i++){
+        simpl_letters[i].style.setProperty("transform", `translateY(0rem)`);
+        simpl_letters[i].style.setProperty("color", "rgb(var(--sig-orange))")
+    }
+}
+function undoCircularTextEffects(idleShape = true){
+    for(let i=0; i<simpl_letters.length; i++){
+        simpl_letters[i].style.setProperty("transform", `translateY(${letter_shuffle[i]}rem)`);
+        simpl_letters[i].style.setProperty("color", "rgb(var(--white))")
+    }
+}
+function makeCircular(){
+    for(let i=0; i<shapes; i++){
+        const shape = document.getElementById(`shape${i+1}`);
+        shape.style.setProperty("transform", `translate(${circularCoords[i]}) rotate(${circularAngles[i]}deg)`);
+        shape.style.setProperty("border-radius", "12rem")
+    }
+}
+
+// Perfection
+function squareTextEffects(){
+    for(let i=0; i<perfection_letters.length; i++){
+        perfection_letters[i].style.setProperty("transform", `translateY(0rem)`);
+        perfection_letters[i].style.setProperty("color", "rgb(var(--sig-orange))")
+    }
+}
+function undoSquareTextEffects(idleShape = true){
+    for(let i=0; i<perfection_letters.length; i++){
+        perfection_letters[i].style.setProperty("transform", `translateY(${letter_shuffle[i]}rem)`);
+        perfection_letters[i].style.setProperty("color", "rgb(var(--white))")
+    }
+}
+function makeSquare(){
+    for(let i=0; i<shapes; i++){
+        const shape = document.getElementById(`shape${i+1}`);
+        shape.style.setProperty("transform", `translate(${squareCoords[i]})`);
+        shape.style.setProperty("border-radius", "2rem")
+    }
+}
+
+// Hover and Hover out functions
 function funnyHover(){
     if(!hoverEffectsEnabled) return;
     makeFunnyShape();
     funnyTextEffects();
+}
+function circularHover(){
+    if(!hoverEffectsEnabled) return;
+    makeCircular();
+    circularTextEffects();
+}
+function squareHover(){
+    if(!hoverEffectsEnabled) return;
+    makeSquare();
+    squareTextEffects();
+}
+
+function funnyHoverOut(){
+    if(!hoverEffectsEnabled) return;
+    makeIdleShape();
+    undoFunnyTextEffects();
+}
+function circularHoverOut(){
+    if(!hoverEffectsEnabled) return;
+    makeIdleShape();
+    undoCircularTextEffects();
+}
+function squareHoverOut(){
+    if(!hoverEffectsEnabled) return;
+    makeIdleShape();
+    undoSquareTextEffects();
 }
 
 function idleTextEffects(idleShape = true){
     undoSquareTextEffects(idleShape);
     undoCircularTextEffects(idleShape);
     undoFunnyTextEffects(idleShape);
+    if(idleShape) makeIdleShape();
 }
 
-
 textCr.onmouseover = funnyHover;
-textCr.onmouseleave = undoFunnyTextEffects;
+textCr.onmouseleave = funnyHoverOut;
 
 textSi.onmouseover = circularHover;
-textSi.onmouseleave = undoCircularTextEffects;
+textSi.onmouseleave = circularHoverOut;
 
 textPe.onmouseover = squareHover;
-textPe.onmouseleave = undoSquareTextEffects;
+textPe.onmouseleave = squareHoverOut;
 
-const shapeFuncs = [[makeFunnyShape, funnyTextEffects], [makeCircular, circularTextEffects], [makeSquare, squareTextEffects]];
+const shapeFuncs = [
+    [makeFunnyShape, funnyTextEffects, undoFunnyTextEffects], 
+    [makeCircular, circularTextEffects, undoCircularTextEffects], 
+    [makeSquare, squareTextEffects, undoSquareTextEffects]];
 
-let divAlreadyDrawn = false;
+let firstTime = true;
 
 function loadThirdDiv(){
     focusTitle.style.setProperty("transform", "translateX(0rem)");
@@ -469,25 +484,23 @@ function loadThirdDiv(){
         [shapesDiv, "scale", "1", 500],
         [helpText, "opacity", "1", 3000]
     );
-    // hoverEffectsEnabled = false;
 
     for(let i = 0; i < shapeFuncs.length; i++){
         runAfter(()=>{
             focusItems[i].style.setProperty("transform", "translateY(0rem)");
             focusItems[i].style.setProperty("opacity", "1");
             
-            if(!divAlreadyDrawn) {
-                shapeFuncs[i][0]();
-                runAfter(idleTextEffects, 750);
+            if(firstTime) {
+                shapeFuncs[i][0]();  // change the shapes arrangement on first run
+                runAfter(idleTextEffects, 750);  // reset the text effects and the shapes
             }
             else{
-                runAfter(()=>{idleTextEffects(false)}, 750)
+                runAfter(shapeFuncs[i][2], 750)  // reset only the text effects
             }
             shapeFuncs[i][1]();
 
-            if(i == shapeFuncs.length-1){
+            if(firstTime && i == shapeFuncs.length-1){
                 runAfter(()=>{
-                    idleTextEffects(false);
                     hoverEffectsEnabled = true;
                 }, 800);
             }
@@ -496,7 +509,7 @@ function loadThirdDiv(){
         time += 800
     }
     
-    runAfter(()=>{divAlreadyDrawn=true}, time)
+    runAfter(()=>{firstTime=false}, time)
 }
 
 function resetThirdDiv(){

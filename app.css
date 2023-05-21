@@ -311,10 +311,10 @@ body div, body {
 }
 
 @keyframes pulse-length-neg {
-    50% {transform: translateX(-9rem);}
+    50% {transform: translateX(-4rem);}
 }
 @keyframes pulse-length-pos {
-    50% {transform: translateX(9rem);}
+    50% {transform: translateX(4rem);}
 }
 
 #b2, #b4 {
@@ -337,7 +337,7 @@ body div, body {
     bottom: 3rem;
     right: 0rem;
     opacity: 0;
-    animation: pulse-length-pos 7s forwards infinite;
+    animation: pulse-length-pos 7s ease-in-out infinite;
 }
 
 #b4 {
@@ -421,6 +421,7 @@ body div, body {
     align-items: center;
     justify-content: center;
     z-index: 3;
+    opacity: 0;
 }
 
 .focus-div {
@@ -490,8 +491,8 @@ body div, body {
     position: absolute;
     border-radius: 0.5em;
     border: 0.1em solid rgb(var(--major-bg));
-    transition: all 500ms, background-color 400ms, border-color 400ms, opacity 200ms;
-    transition-delay: 100ms;
+    transition: all 500ms, background-color 400ms, border-color 0ms, opacity 200ms;
+    transition-delay: all 100ms, border-color 0ms;
     background-color: rgb(var(--minor-bg));
 }
 
