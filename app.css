@@ -10,6 +10,8 @@
     --sig-yellow: 255, 200, 128;
     --sig-red: 255, 75, 75;
     --tile-bd: 2px;
+    --lamp-shade-opacity: 0;
+    --lamp-string-y: -12px;
 
       /* Light Mode Colors */
     --white-light: 0, 0, 0;
@@ -20,6 +22,8 @@
     --sig-yellow-light: 200, 40, 40;
     --sig-red-light: 255, 75, 75;
     --tile-bd-light: 2px;
+    --lamp-shade-opacity-light: 1;
+    --lamp-string-y-light: 0px;
 
     --largest-font-size: 10rem;
     --larger-font-size: 7.5rem;
@@ -42,6 +46,8 @@
     --sig-yellow: var(--sig-yellow-light);
     --sig-red: var(--sig-red-light);
     --tile-bd: var(--tile-bd-light);
+    --lamp-shade-opacity: var(--lamp-shade-opacity-light);
+    --lamp-string-y: var(--lamp-string-y-light);
 }  
 
 /* DEBUGGING */
@@ -164,6 +170,7 @@ body div, body {
     transform: translateX(-50px) translateY(-10%);
     animation: svg-motion 60s cubic-bezier(1, 0.9, 0.9, 1) infinite;
     opacity: 0;
+    user-select: none;
 }
 
 @keyframes svg-motion {
@@ -209,6 +216,27 @@ body div, body {
     padding: 0px 4px;
 }
 
+.theme-switch-div {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+.theme-switch-div #theme-switch-button {
+    position: absolute;
+    cursor: pointer;
+}
+
+.lamp-string {
+    transition: transform 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: translateY(var(--lamp-string-y))
+}
+
+.lamp-body {
+    transition: fill 100ms, opacity 200ms;
+    opacity: var(--lamp-shade-opacity);
+}
+
 .top-bar-buttons {
     display: flex;
 }
@@ -224,18 +252,21 @@ body div, body {
     border-radius: 20%;
 }
 
-.social-button img {
+.social-button svg {
     width: 32px;
     transition: transform 200ms;
+}
+.social-button svg * {
+    fill: rgb(var(--white));
 }
 
 .social-button:hover {
     background-color: rgba(var(--white), 0.21);
 }
-.social-button:hover > img {
+.social-button:hover > svg {
     transform: translateY(-2px);
 }
-.social-button:active, .social-button:active > img {
+.social-button:active > svg {
     transform: scale(0.96);
 }
 
@@ -260,7 +291,9 @@ body div, body {
 .content-title {
     font-size: var(--large-font-size);
     margin-bottom: 2rem;
-    line-height: 1
+    line-height: 1;
+    user-select: none;
+    transition: color 0ms
 }
 
 #fullname {
@@ -269,6 +302,8 @@ body div, body {
     width: 100%;
     color: rgb(var(--sig-yellow));
     display: block;
+    user-select: text;
+    transition: color 300ms
 }
 
 .content-desc {

@@ -65,10 +65,8 @@ const handleOnMouseMove = e => {
 function toggleTheme() {
     document.documentElement.classList.toggle('light-mode');
 }
-buts = document.getElementsByClassName("social-button")
-for(const but of buts){
-    but.onclick = toggleTheme;
-}
+but = document.getElementsByClassName("theme-switch-div")[0];
+but.onclick = toggleTheme;
 
 for(const card of document.querySelectorAll(".tile")) {
     card.onmousemove = e => handleOnMouseMove(e);
