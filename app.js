@@ -306,40 +306,40 @@ const letter_shuffle = [0.3, -0.3, 0.3, -0.3, 0.3, -0.3, 0.3, -0.3, 0.3, -0.3, 0
 
 const idleWH = ["14em", "11em"]
 const idleCoords = [
-    "0em, 0em", "6em, 2em", 
-    "3em, 4em", "10em, 1em", 
-    "2em, 6em", "5em, 6em", 
-    "10em, 5em"
+    "-7em, -5em", "-1em, -3em", 
+    "-4em, -1em", "3em, -4em", 
+    "-5em, 1em", "-2em, 1em", 
+    "3em, 0em"
 ]
 const squareWH = ["10em", "10em"]
 const squareCoords = [
-    "0em, 0em", "6em, 0em", 
-    "0em, 4em", "3em, 4em", 
-    "0em, 6em", "3em, 8em", 
-    "8em, 4em"
+    "-5em, -5em", "1em, -5em", 
+    "-5em, -1em", "-2em, -1em", 
+    "-5em, 1em", "-2em, 3em", 
+    "3em, -1em"
 ]
 
 const circularWH = ["20em", "12em"]
 const circularCoords = [
-    "0em, 0em", 
-    "14em, -0.7em", 
-    "8em, -0.5em", 
-    "13em, 10em", 
-    "6em, 11em", 
-    "0em, 9em", 
-    "16em, 3.4em"
+    "-10em, -6em", 
+    "4em, -6.7em", 
+    "-2em, -6.5em", 
+    "3em, 4em", 
+    "-4em, 5em", 
+    "-10em, 3em", 
+    "6em, -2.6em"
 ]
 const circularAngles = [135, 45, 0, 135, 90, 135, 90]
 
 const funnyWH = ["15em", "15em"]
 const funnyCoords = [
-    "4em, 2em", 
-    "7.5em, 10em", 
-    "5.5em, 0em", 
-    "4.5em, 6em", 
-    "3.5em, 10em", 
-    "0em, 1em", 
-    "10.5em, 2em"
+    "-3.5em, -5.5em", 
+    "0em, 2.5em", 
+    "-2em, -7.5em", 
+    "-3em, -1.5em", 
+    "-4em, 2.5em", 
+    "-7.5em, -6.5em", 
+    "3em, -5.5em"
 ]
 const funnyAngles = [0, 0, 0, 0, 0, 45, 150]
 
@@ -351,8 +351,8 @@ function makeIdleShape(){
         shape.style.setProperty("transform", `translate(${idleCoords[i]})`);
         shape.style.setProperty("border-radius", "12rem")
     }
-    shapesDiv.style.setProperty("width", idleWH[0]);
-    shapesDiv.style.setProperty("height", idleWH[1]);
+    // shapesDiv.style.setProperty("width", idleWH[0]);
+    // shapesDiv.style.setProperty("height", idleWH[1]);
 }
 
 function squareTextEffects(){
@@ -374,8 +374,8 @@ function makeSquare(){
         shape.style.setProperty("transform", `translate(${squareCoords[i]})`);
         shape.style.setProperty("border-radius", "2rem")
     }
-    shapesDiv.style.setProperty("width", squareWH[0]);
-    shapesDiv.style.setProperty("height", squareWH[1]);
+    // shapesDiv.style.setProperty("width", squareWH[0]);
+    // shapesDiv.style.setProperty("height", squareWH[1]);
 }
 function squareHover(){
     if(!hoverEffectsEnabled) return;
@@ -402,8 +402,8 @@ function makeCircular(){
         shape.style.setProperty("transform", `translate(${circularCoords[i]}) rotate(${circularAngles[i]}deg)`);
         shape.style.setProperty("border-radius", "12rem")
     }
-    shapesDiv.style.setProperty("width", circularWH[0]);
-    shapesDiv.style.setProperty("height", circularWH[1]);
+    // shapesDiv.style.setProperty("width", circularWH[0]);
+    // shapesDiv.style.setProperty("height", circularWH[1]);
 }
 function circularHover(){
     if(!hoverEffectsEnabled) return;
@@ -430,8 +430,8 @@ function makeFunnyShape(){
         shape.style.setProperty("transform", `translate(${funnyCoords[i]}) rotate(${funnyAngles[i]}deg)`);
         shape.style.setProperty("border-radius", "1rem")
     }
-    shapesDiv.style.setProperty("width", funnyWH[0]);
-    shapesDiv.style.setProperty("height", funnyWH[1]);
+    // shapesDiv.style.setProperty("width", funnyWH[0]);
+    // shapesDiv.style.setProperty("height", funnyWH[1]);
 }
 function funnyHover(){
     if(!hoverEffectsEnabled) return;
@@ -462,8 +462,13 @@ let divAlreadyDrawn = false;
 function loadThirdDiv(){
     focusTitle.style.setProperty("transform", "translateX(0rem)");
     focusTitle.style.setProperty("opacity", "1")
-    shapesDiv.style.setProperty("opacity", "1")
+
     let time = 500;
+    helpText = document.getElementById("hover-help");
+    stylesAfter(
+        [shapesDiv, "scale", "1", 500],
+        [helpText, "opacity", "1", 3000]
+    );
     // hoverEffectsEnabled = false;
 
     for(let i = 0; i < shapeFuncs.length; i++){

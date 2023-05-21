@@ -453,7 +453,9 @@ body {
 }
 
 #hover-help {
-    color:rgba(var(--white), 0.4)
+    color:rgba(var(--white), 0.4);
+    opacity: 0;
+    transition: opacity 300ms
 }
 
 .focus-visual {
@@ -469,17 +471,17 @@ body {
 
 .shapes {
     position: relative;
-    height: 15em;
-    width: 15em;
+    height: 1em;
+    width: 1em;
     transition: all 300ms ease-out;
     transition-delay: 100ms;
     font-size: 2.2rem;
     animation: rotate-full 25s linear infinite;
-    opacity: 0;
+    scale: 0;
 }
 
 @keyframes rotate-full {
-    from {transform: rotate(0deg);}
+    from {transform: rotate(0deg)}
     to {transform: rotate(360deg)}
 }
 
@@ -487,44 +489,37 @@ body {
     position: absolute;
     border-radius: 0.5em;
     border: 0.1em solid rgb(var(--major-bg));
-    transition: all 500ms, background-color 150ms;
+    transition: all 500ms, background-color 150ms, opacity 200ms;
     transition-delay: 150ms;
     background-color: rgb(var(--minor-bg));
 }
 
 #shape1 {
     width: 6em; height: 4em; z-index: 2;
-    transform: translate(4em, 2em)
 }
 
 #shape2 {
     width: 4em; height: 4em;
-    transform: translate(7.5em, 10em)
 }
 
 #shape3 {
     width: 3em; height: 2em;
-    transform: translate(5.5em, 0em)
 }
 
 #shape4 {
     width: 5em; height: 4em;
-    transform: translate(4.5em, 6em)
 }
 
 #shape5 {
     width: 3em; height: 4em;
-    transform: translate(3.5em, 10em)
 }
 
 #shape6 {
     width: 5em; height: 2em;
-    transform: translate(0em, 1em) rotate(45deg)
 }
 
 #shape7 {
     width: 2em; height: 6em;
-    transform: translate(10.5em, 2em) rotate(150deg)
 }
 
 /* #shape1 {background-color: cyan;} #shape2 {background-color: red;} #shape3 {background-color: orange;} #shape4 {background-color: green;} #shape5 {background-color: yellow;} #shape6 {background-color: blue;} #shape7 {background-color: coral;} */
