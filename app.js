@@ -63,7 +63,8 @@ const handleOnMouseMove = e => {
 }
 
 function toggleTheme() {
-    document.documentElement.classList.toggle('light-mode');
+    document.getElementsByClassName("lamp-string")[0].classList.toggle('string-pulled-down');
+    runAfter(()=>{document.documentElement.classList.toggle('light-mode');}, 300);
 }
 but = document.getElementsByClassName("theme-switch-div")[0];
 but.onclick = toggleTheme;

@@ -11,7 +11,6 @@
     --sig-red: 255, 75, 75;
     --tile-bd: 2px;
     --lamp-shade-opacity: 0;
-    --lamp-string-y: -12px;
 
       /* Light Mode Colors */
     --white-light: 0, 0, 0;
@@ -23,7 +22,6 @@
     --sig-red-light: 255, 75, 75;
     --tile-bd-light: 2px;
     --lamp-shade-opacity-light: 1;
-    --lamp-string-y-light: 0px;
 
     --largest-font-size: 10rem;
     --larger-font-size: 7.5rem;
@@ -47,7 +45,6 @@
     --sig-red: var(--sig-red-light);
     --tile-bd: var(--tile-bd-light);
     --lamp-shade-opacity: var(--lamp-shade-opacity-light);
-    --lamp-string-y: var(--lamp-string-y-light);
 }  
 
 /* DEBUGGING */
@@ -229,7 +226,10 @@ body div, body {
 
 .lamp-string {
     transition: transform 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    transform: translateY(var(--lamp-string-y))
+    transform: translateY(-12px)
+}
+.string-pulled-down {
+    transform: translateY(0px);
 }
 
 .lamp-body {
