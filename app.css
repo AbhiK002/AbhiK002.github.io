@@ -12,7 +12,7 @@
     --tile-bd: 2px;
     --lamp-shade-opacity: 0;
 
-      /* Light Mode Colors */
+    /* Light Mode Colors */
     --white-light: 0, 0, 0;
     --major-bg-light: 255, 255, 255;
     --minor-bg-light: 210, 210, 210;
@@ -182,7 +182,7 @@ body div, body {
     align-items: center;
     justify-content: space-between;
     transform: translateY(-100%);
-    transition: transform 800ms, box-shadow 800ms;
+    transition: transform 800ms, box-shadow 800ms, background-color 200ms;
     position: fixed;
     border-bottom: 2px solid rgba(var(--white), 0.1);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
