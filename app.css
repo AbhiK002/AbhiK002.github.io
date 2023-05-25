@@ -253,7 +253,7 @@ body div, body {
 }
 
 .lamp-body {
-    transition: fill 100ms, opacity 200ms;
+    transition: opacity 200ms;
     opacity: var(--lamp-shade-opacity);
 }
 
@@ -400,6 +400,9 @@ body div, body {
     animation: pulse-length-pos 11s forwards infinite;
 }
 
+#second-h1 {
+    transition: opacity 300ms;
+}
 
 #word-design {
     font-family: "Lora";
@@ -423,7 +426,7 @@ body div, body {
     display: block;
     margin-top: 1.7rem;
     margin-bottom: 1.4rem;
-    transition: font-size 100ms;
+    transition: font-size 100ms, opacity 300ms;
     opacity: 0;
 }
 
@@ -530,7 +533,7 @@ body div, body {
     position: relative;
     height: 1em;
     width: 1em;
-    transition: transform 400ms ease-out, scale 300ms;
+    transition: transform 300ms ease-out, scale 300ms;
     transition-delay: 100ms;
     font-size: 2.2rem;
     animation: rotate-full 25s linear infinite;

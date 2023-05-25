@@ -479,10 +479,7 @@ function loadThirdDiv(){
 
     let time = 500;
     helpText = document.getElementById("hover-help");
-    stylesAfter(
-        [shapesDiv, "scale", "1", 500],
-        [helpText, "opacity", "1", 3000]
-    );
+    styleAfter(shapesDiv, "scale", "1", 400);
 
     for(let i = 0; i < shapeFuncs.length; i++){
         runAfter(()=>{
@@ -491,21 +488,19 @@ function loadThirdDiv(){
             
             if(firstTime) {
                 shapeFuncs[i][0]();  // change the shapes arrangement on first run
-                runAfter(idleTextEffects, 750);  // reset the text effects and the shapes
             }
-            else{
-                runAfter(shapeFuncs[i][2], 750)  // reset only the text effects
-            }
+            runAfter(shapeFuncs[i][2], 900);
             shapeFuncs[i][1]();
 
             if(firstTime && i == shapeFuncs.length-1){
                 runAfter(()=>{
+                    makeIdleShape();
                     hoverEffectsEnabled = true;
-                }, 800);
+                }, 1000);
             }
         }, time)
 
-        time += 800
+        time += 1000
     }
     
     runAfter(()=>{firstTime=false}, time)
