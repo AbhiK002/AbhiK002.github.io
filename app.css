@@ -10,6 +10,7 @@
     --sig-yellow: 255, 200, 128;
     --sig-red: 255, 75, 75;
     --tile-bd: 2px;
+    --tile-bg: 255, 255, 255;
     --lamp-shade-opacity: 0;
 
     /* Light Mode Colors */
@@ -21,6 +22,7 @@
     --sig-yellow-light: 200, 40, 40;
     --sig-red-light: 255, 75, 75;
     --tile-bd-light: 2px;
+    --tile-bg-light: 180, 180, 180;
     --lamp-shade-opacity-light: 1;
 
     --largest-font-size: 10rem;
@@ -44,6 +46,7 @@
     --sig-yellow: var(--sig-yellow-light);
     --sig-red: var(--sig-red-light);
     --tile-bd: var(--tile-bd-light);
+    --tile-bg: var(--tile-bg-light);
     --lamp-shade-opacity: var(--lamp-shade-opacity-light);
 }  
 
@@ -96,20 +99,16 @@ body div, body {
 
 .tile {
     position: relative;
-    display: flex;
     border: var(--tile-bd) solid rgba(var(--tile-bd-col), 0);
     border-radius: 12px;
-    justify-content: space-around;
-    align-items: center;
     transition: all 200ms;
-    cursor: pointer;
 }
 .tile:hover::before {
     opacity: 1;
     border: var(--tile-bd) solid rgba(var(--tile-bd-col), 0.7);
 }
 .tile:active::before {
-    border: var(--tile-bd) solid rgba(var(--tile-bd-col), 0.3);
+    border: var(--tile-bd) solid rgba(var(--tile-bd-col), 0.5);
 }
 .tile:active::before, .tile:active {
     transform: scale(0.98);
@@ -117,17 +116,16 @@ body div, body {
 .tile::before {
     position: absolute;
     border-radius: inherit;
-    top: 0; left: 0;
+    top: -1; left: -1;
+    border: var(--tile-bd) solid rgba(var(--tile-bd-col), 0);
     width: calc(100% - 2*var(--tile-bd));
     height: calc(100% - 2*var(--tile-bd));
     content: "";
     background: radial-gradient(
         400px circle at var(--mouse-x) var(--mouse-y),
-        rgba(var(--white), 0.20),
+        rgba(var(--tile-bg), 0.20),
         transparent 50%
     );
-    user-select: none;
-    border: var(--tile-bd) solid rgba(var(--tile-bd-col), 0);
     z-index: 1;
     transition: all 200ms;
     opacity: 0;
@@ -196,7 +194,9 @@ body div, body {
     overflow: hidden;
     transition: width 800ms, opacity 500ms;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-around;
+    align-items: center;
+    cursor: pointer;
 }
 
 #logoimg {
@@ -213,15 +213,35 @@ body div, body {
     padding: 0px 4px;
 }
 
+.top-bar-right-div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1rem
+}
+
 .theme-switch-div {
     position: relative;
     display: flex;
     justify-content: center;
     align-items:center;
+    width: 40px;
+    height: 40px;
+    padding: 24px 24px 28px 24px;
+    border: 2px solid rgba(var(--tile-bd-col), 0.7);
+    border-radius: 12px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    background-color: #565656;
+    transition: border-color 100ms, box-shadow 100ms;
+    cursor: pointer;
 }
+.theme-switch-div:hover {
+    border-color: rgba(var(--sig-orange), 0.9);
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8), 0px 0px 8px rgb(var(--sig-orange)), inset 0px 0px 4px rgb(var(--sig-orange));
+}
+
 .theme-switch-div #theme-switch-button {
     position: absolute;
-    cursor: pointer;
 }
 
 .lamp-string {
