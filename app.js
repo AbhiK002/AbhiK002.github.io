@@ -75,8 +75,7 @@ for(const card of document.querySelectorAll(".tile")) {
 
 const myDetails = {
     fullname: "Abhineet Kelley",
-    image: "./TESTS/me.jpg",
-    description: "A Desktop & Web Application Designer and Developer proficient with both Back-End and Front-End",
+    description: "A Desktop App Developer currently transitioning to Full-Stack Web Development, focused on crafting memorable products",
     langs: ["Python", "Java", "C++", "JavaScript", "HTML", "CSS"],
     tools: ["JavaFX", "Qt C++", "PyQt5", "tkinter"]
 }
@@ -223,17 +222,17 @@ function loadDecoration() {
     secondh1.style.setProperty("opacity", "1");
     designWord.style.setProperty("background-color", "rgba(var(--sig-red), 0.2)");
     stylesAfter(
-        [designWord, "opacity", "1", 700],
-        [intoWord, "opacity", "1", 700],
-        [codeCursor, "visibility", "visible", 800]
+        [designWord, "opacity", "1", 400],
+        [intoWord, "opacity", "1", 400],
+        [codeCursor, "visibility", "visible", 400]
     )
     if(busy) return;
     if(codeText.innerText.length > 1) {
-        runAfter(untypeCode, 1200);
-        runAfter(typeCode, 2200);
+        runAfter(untypeCode, 600);
+        runAfter(typeCode, 1600);
     }
     else{
-        runAfter(typeCode, 2200)
+        runAfter(typeCode, 1200)
     }
 }
 
@@ -243,7 +242,7 @@ function typeCode() {
     runAfter(()=>{codeText.innerText = "Co"}, 200)
     runAfter(()=>{codeText.innerText = "Cod"}, 400)
     runAfter(()=>{codeText.innerText = "Code"}, 600)
-    runAfter(()=>{busy=false}, 1400);
+    runAfter(()=>{busy=false}, 1600);
 }
 
 function untypeCode() {
@@ -477,9 +476,8 @@ function loadThirdDiv(){
     focusTitle.style.setProperty("transform", "translateX(0rem)");
     focusTitle.style.setProperty("opacity", "1")
 
-    let time = 500;
+    let time = 700;
     helpText = document.getElementById("hover-help");
-    styleAfter(shapesDiv, "scale", "1", 400);
 
     for(let i = 0; i < shapeFuncs.length; i++){
         runAfter(()=>{
@@ -489,18 +487,18 @@ function loadThirdDiv(){
             if(firstTime) {
                 shapeFuncs[i][0]();  // change the shapes arrangement on first run
             }
-            runAfter(shapeFuncs[i][2], 900);
+            runAfter(shapeFuncs[i][2], 800);
             shapeFuncs[i][1]();
 
             if(firstTime && i == shapeFuncs.length-1){
                 runAfter(()=>{
                     makeIdleShape();
                     hoverEffectsEnabled = true;
-                }, 1000);
+                }, 850);
             }
         }, time)
 
-        time += 1000
+        time += 850
     }
     
     runAfter(()=>{firstTime=false}, time)

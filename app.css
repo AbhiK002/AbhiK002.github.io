@@ -192,7 +192,7 @@ body div, body {
     padding: 4px;
     user-select: none;
     overflow: hidden;
-    transition: width 800ms, opacity 500ms;
+    transition: transform 400ms, opacity 500ms;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -537,7 +537,6 @@ body div, body {
     transition-delay: 100ms;
     font-size: 2.2rem;
     animation: rotate-full 25s linear infinite;
-    scale: 0;
 }
 
 @keyframes rotate-full {
@@ -556,30 +555,37 @@ body div, body {
 
 #shape1 {
     width: 6em; height: 4em; z-index: 2;
+    transform: translate(-5rem, -5rem);
 }
 
 #shape2 {
     width: 4em; height: 4em;
+    transform: translate(-5rem, -5rem);
 }
 
 #shape3 {
     width: 3em; height: 2em;
+    transform: translate(-5rem, -5rem);
 }
 
 #shape4 {
     width: 5em; height: 4em;
+    transform: translate(-5rem, -5rem);
 }
 
 #shape5 {
     width: 3em; height: 4em;
+    transform: translate(-5rem, -5rem);
 }
 
 #shape6 {
     width: 5em; height: 2em;
+    transform: translate(-5rem, -5rem);
 }
 
 #shape7 {
     width: 2em; height: 6em;
+    transform: translate(-1rem, -7rem);
 }
 
 /* #shape1 {background-color: cyan;} #shape2 {background-color: red;} #shape3 {background-color: orange;} #shape4 {background-color: green;} #shape5 {background-color: yellow;} #shape6 {background-color: blue;} #shape7 {background-color: coral;} */
