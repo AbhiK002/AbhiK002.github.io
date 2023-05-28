@@ -1,0 +1,33 @@
+<svg height="40" version="1.1" viewBox="0 0 60.601 61.187" id="theme-switch-button"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <filter id="filter10794" x="-.19377" y="-.40112" width="1.3875" height="1.8022"
+                            color-interpolation-filters="sRGB">
+                            <feFlood flood-color="rgb(255,61,5)" flood-opacity=".96471" result="flood" />
+                            <feComposite in="flood" in2="SourceGraphic" operator="in" result="composite1" />
+                            <feGaussianBlur in="composite1" result="blur" stdDeviation="3.9" />
+                            <feOffset dx="-1.38778e-16" dy="0" result="offset" />
+                            <feComposite in="SourceGraphic" in2="offset" result="composite2" />
+                        </filter>
+                        <filter id="filter383" x="0" y="0" width="1" height="1" color-interpolation-filters="sRGB">
+                            <feFlood flood-color="rgb(0,0,0)" flood-opacity="0" result="flood" />
+                            <feComposite in="flood" in2="SourceGraphic" operator="out" result="composite1" />
+                            <feGaussianBlur in="composite1" result="blur" />
+                            <feOffset dx="0" dy="0" result="offset" />
+                            <feComposite in="offset" in2="SourceGraphic" operator="atop" result="composite2" />
+                        </filter>
+                    </defs>
+                    <rect x="27.059" y="23.992" width="5.0727" height="31.07" fill="#CCCCCC"
+                        style="paint-order:markers stroke fill" />
+                    <path class="lamp-string"
+                        d="m18.393 47.379a2.8745 3.0436 0 0 1-2.8745 3.0436 2.8745 3.0436 0 0 1-2.8745-3.0436 2.8745 3.0436 0 0 1 2.8745-3.0436 2.8745 3.0436 0 0 1 2.8745 3.0436zm-3.7623-21.432h1.9023v21.305h-1.9023z"
+                        fill="#bababa" style="paint-order:markers stroke fill" />
+                    <path
+                        d="m20.066 5.8129h20.095c0.77125 0 2.7452 1.6098 3.5219 2.9168l10.399 17.501c0.82545 1.3892-1.3009 2.9168-2.9168 2.9168h-42.104c-1.6159 0-3.7423-1.5276-2.9168-2.9168l10.399-17.501c0.77665-1.307 2.7506-2.9168 3.5219-2.9168z"
+                        fill="#adadad" filter="url(#filter383)" style="paint-order:markers stroke fill" />
+                    <path class="lamp-body"
+                        d="m20.055 5.7302h20.095c0.77125 0 2.7452 1.6098 3.5219 2.9168l10.399 17.501c0.82545 1.3892-1.3009 2.9168-2.9168 2.9168h-42.104c-1.6159 0-3.7423-1.5276-2.9168-2.9168l10.399-17.501c0.77665-1.307 2.7506-2.9168 3.5219-2.9168z"
+                        fill="#ff9373" filter="url(#filter10794)" style="paint-order:markers stroke fill" />
+                    <rect x="16.854" y="53.794" width="26.125" height="6.975" rx="1.9023" ry="2.9168" fill="#bababa"
+                        style="paint-order:markers stroke fill" />
+                </svg>

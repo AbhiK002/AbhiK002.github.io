@@ -1,3 +1,5 @@
+lightTheme = false;
+
 function debugText(text) {
     document.getElementById("js-tester").innerText = text;
 }
@@ -62,9 +64,20 @@ const handleOnMouseMove = e => {
     // debugText(`${target} ${rect} == ${rect.left} ${rect.top} == ${e.clientX} ${e.clientY}`);
 }
 
+const lampString = document.getElementsByClassName("lamp-string")[0];
+const docElement = document.documentElement;
+
+if(lightTheme){
+    docElement.classList.add("light-mode");
+}
+
+if(docElement.classList.contains("light-mode")){
+    lampString.classList.add("string-pulled-down")
+}
+
 function toggleTheme() {
-    document.getElementsByClassName("lamp-string")[0].classList.toggle('string-pulled-down');
-    runAfter(()=>{document.documentElement.classList.toggle('light-mode');}, 300);
+    lampString.classList.toggle('string-pulled-down');
+    runAfter(()=>{docElement.classList.toggle('light-mode');}, 300);
 }
 but = document.getElementsByClassName("theme-switch-div")[0];
 but.onclick = toggleTheme;
