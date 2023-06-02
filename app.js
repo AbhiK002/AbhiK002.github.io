@@ -236,8 +236,8 @@ function loadDecoration() {
     designWord.style.setProperty("background-color", "rgba(var(--sig-red), 0.2)");
     stylesAfter(
         [designWord, "opacity", "1", 400],
-        [intoWord, "opacity", "1", 400],
-        [codeCursor, "visibility", "visible", 400]
+        [intoWord, "opacity", "1", 700],
+        [codeCursor, "visibility", "visible", 700]
     )
     if(busy) return;
     if(codeText.innerText.length > 1) {
@@ -245,7 +245,7 @@ function loadDecoration() {
         runAfter(typeCode, 1600);
     }
     else{
-        runAfter(typeCode, 1200)
+        runAfter(typeCode, 1800)
     }
 }
 

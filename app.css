@@ -236,8 +236,8 @@ body div, body {
     cursor: pointer;
 }
 .theme-switch-div:hover {
-    border-color: rgba(var(--sig-orange), 0.9);
-    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8), 0px 0px 8px rgb(var(--sig-orange)), inset 0px 0px 4px rgb(var(--sig-orange));
+    border-color: rgba(255, 93, 73, 0.9);
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8), 0px 0px 8px rgb(255, 93, 73), inset 0px 0px 4px rgb(var(--sig-orange));
 }
 
 .theme-switch-div #theme-switch-button {
