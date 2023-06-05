@@ -145,10 +145,10 @@ const contentDiv = document.getElementsByClassName("content")[0];
 const coverDesc = document.getElementsByClassName("content-desc")[0];
 
 styleAfter(topDiv, "transform", "translateY(0%)", 500)
+styleAfter(bgSVG, "opacity", "1", 0)
 
 function loadCoverDiv(){
     stylesAfter(
-        [bgSVG, "opacity", "1", 0],
         [contentDiv, "transform", "translateX(0%)", 300],
         [contentDiv, "opacity", "1", 0],
         [coverDesc, "opacity", "1", 500]

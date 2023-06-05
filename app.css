@@ -340,6 +340,7 @@ body div, body {
     min-height: 90vh;
     min-height: 90svh;
     padding: 2rem;
+    box-shadow: -1px 12px 16px rgba(0, 0, 0, 0.5);
     line-height: 1;
     justify-content: center;
     align-items: center;
@@ -449,7 +450,11 @@ body div, body {
 
  /* about me div */
 .aboutme-div {
-    
+    height: 90vh;
+    height: 90svh;
+    background: rgb(255,200,128);
+    background: linear-gradient(25deg, rgba(255,200,128,1) 0%, rgba(210,127,20,1) 51%, rgba(96,60,60,1) 100%);
+    box-shadow: 0px 0px 24px rgba(67, 31, 2, 0.934) inset;
 }
 
 /* third div */
