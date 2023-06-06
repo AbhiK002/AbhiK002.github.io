@@ -296,7 +296,50 @@ switchBorderRadius();
 designWord.onmouseover = switchBorderRadius
 
 // about me div
+aboutMeContent = [
+    [
+        "User-Centric Development", 
+        "I prioritize user experience and think from the user's perspective when creating desktop apps and websites. My focus is on crafting beautiful, bug-free, and easy-to-use applications that seamlessly complement the needs of the users."
+    ],
+    [
+        "Modern & Technical Designs", 
+    "I have a strong background in modern UI design and possess both front-end and back-end development skills. I stay updated with the latest technologies and industry trends to provide cutting-edge solutions that meet the evolving needs of clients."
+    ],
+    [
+        "Attention to Detail", 
+    "I pay meticulous attention to detail, ensuring that no aspect of the application is overlooked. I believe that even the smallest details can make a big difference in the overall impression and usability of an application."
+    ],
+    [
+        "Creative Problem-Solving", 
+    "I thrive on finding creative solutions to challenges that arise during development. I approach projects with a fresh and imaginative perspective, constantly seeking innovative ways to address problems and create unique solutions."
+    ]
+]
 
+const aboutMeCardsDiv = document.getElementsByClassName("aboutme-cards-div")[0];
+
+function makeAboutMeCard(title, description) {
+    cardDiv = document.createElement("div");
+    cardDiv.className = "aboutme-card";
+
+    cardTitle = document.createElement("span");
+    cardTitle.className = "aboutme-title";
+    cardTitle.innerText = title;
+
+    cardDesc = document.createElement("span");
+    cardDesc.className = "aboutme-desc";
+    cardDesc.innerText = description;
+
+    cardDiv.append(cardTitle, cardDesc);
+    return cardDiv;
+}
+
+function addAboutMeCards(){
+    for(const cardContent of aboutMeContent){
+        aboutMeCardsDiv.appendChild(makeAboutMeCard(cardContent[0], cardContent[1]));
+    }
+}
+
+addAboutMeCards();
 
 // third div
 const thirdDiv = document.getElementsByClassName("third-div")[0];
