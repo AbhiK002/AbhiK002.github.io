@@ -19,7 +19,7 @@
     --minor-bg-light: 210, 210, 210;
     --tile-bd-col-light: 146, 146, 146;
     --sig-orange-light: 240, 80, 0;
-    --sig-yellow-light: 200, 40, 40;
+    --sig-yellow-light: 190, 40, 40;
     --sig-red-light: 255, 75, 75;
     --tile-bd-light: 2px;
     --tile-bg-light: 180, 180, 180;
@@ -29,9 +29,9 @@
     --larger-font-size: 7.5rem;
     --large-font-size: 5rem;
     --medium-font-size: 2.5rem;
-    --small-font-size: 2rem;
-    --smaller-font-size: 1.7rem;
-    --smallest-font-size: 1.33rem;
+    --small-font-size: 2.3rem;
+    --smaller-font-size: 2rem;
+    --smallest-font-size: 1.5rem;
 
     --base-font-size: 12px;
     /* 10:5:3:2:1.33 */
@@ -307,6 +307,7 @@ body div, body {
     transform: translateX(12rem);
     opacity: 0;
     transition: transform 500ms, opacity 600ms;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
 }
 
 .content-title {
@@ -325,7 +326,7 @@ body div, body {
     display: block;
     user-select: text;
     transition: color 300ms;
-    text-shadow: 0px 0px 8px rgba(var(--sig-yellow), 0.8);
+    text-shadow: 0px 0px 8px rgba(var(--sig-yellow), 0.6);
 }
 
 .content-desc {
@@ -450,18 +451,32 @@ body div, body {
 }
 
  /* about me div */
+
+ :root {
+    --aboutme-gradient: linear-gradient(25deg, rgba(255,200,128,1) 0%, rgba(210,127,20,1) 51%, rgba(96,60,60,1) 100%);
+    --aboutme-fallback: rgb(255,200,128);
+
+    --aboutme-gradient-light: linear-gradient(25deg, rgba(255,210,146,1) 0%, rgba(255,184,154,1) 51%, rgba(255,165,165,1) 100%);
+    --aboutme-fallback-light: rgb(255,210,146);
+ }
+
+ .light-mode {
+    --aboutme-gradient: var(--aboutme-gradient-light);
+    --aboutme-fallback: var(--aboutme-fallback-light);
+ }
+
 .aboutme-div {
     min-height: 90vh;
     min-height: 90svh;
-    background: rgb(255,200,128);
-    background: linear-gradient(25deg, rgba(255,200,128,1) 0%, rgba(210,127,20,1) 51%, rgba(96,60,60,1) 100%);
+    background: var(--aboutme-fallback);
+    background: var(--aboutme-gradient);
     box-shadow: 0px 0px 24px rgba(67, 31, 2, 0.934) inset;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     padding: 4rem 2rem;
-    gap: 3rem
+    gap: 4rem
 }
 
 .aboutme-div-title {
@@ -472,34 +487,50 @@ body div, body {
 
 .aboutme-cards-div {
     display: grid;
-    grid-gap: 1rem;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 100%;
+    grid-gap: 2rem;
+    justify-content: space-evenly;
+    grid-template-columns: repeat(4, minmax(min-content, 25rem));
 }
 
 .aboutme-card {
     background-color: rgba(var(--major-bg), 0.8);
-    border: 2px solid rgba(var(--sig-yellow), 0.8);
+    border: 2px solid rgba(var(--sig-yellow), 0.5);
     border-radius: 1.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     padding: 2rem 2rem;
     gap: 2rem
 }
 
+.aboutme-icon svg {
+    height: 8rem;
+}
+
+.aboutme-icon .fill-ele{
+    fill: rgb(var(--sig-yellow));
+}
+.aboutme-icon .border-ele{
+    stroke: rgb(var(--sig-yellow))
+}
+
 .aboutme-title {
-    font-size: var(--medium-font-size);
+    font-size: var(--small-font-size);
     text-align: center;
     font-family: "Lora", "Times New Roman", "Poppins", "Calibri";
     color: rgb(var(--sig-yellow));
-    text-shadow: 0px 0px 6px rgba(var(--sig-yellow), 0.6);
+    text-shadow: 0px 0px 8px rgba(255, 200, 128, 0.6);
     font-weight: bolder;
+    transition: text-shadow 300ms;
+    flex-grow: 1;
 }
 
 .aboutme-desc {
     font-size: 14px;
     display: flex;
+    flex-grow: 1;
     align-items: baseline;
     text-align: center;
 }
@@ -513,6 +544,7 @@ body div, body {
     min-height: 90vh;
     min-height: 90svh;
     overflow: hidden;
+    padding-top: 4rem
 }
 
 #focus-title {
@@ -649,7 +681,7 @@ body div, body {
     }
 
     .aboutme-cards-div {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(min-content, 340px);
     }
 
     .third-div {
