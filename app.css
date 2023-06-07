@@ -452,18 +452,18 @@ body div, body {
 
  /* about me div */
 
- :root {
+:root {
     --aboutme-gradient: linear-gradient(25deg, rgba(255,200,128,1) 0%, rgba(210,127,20,1) 51%, rgba(96,60,60,1) 100%);
     --aboutme-fallback: rgb(255,200,128);
 
     --aboutme-gradient-light: linear-gradient(25deg, rgba(255,210,146,1) 0%, rgba(255,184,154,1) 51%, rgba(255,165,165,1) 100%);
     --aboutme-fallback-light: rgb(255,210,146);
- }
+}
 
- .light-mode {
+.light-mode {
     --aboutme-gradient: var(--aboutme-gradient-light);
     --aboutme-fallback: var(--aboutme-fallback-light);
- }
+}
 
 .aboutme-div {
     min-height: 90vh;
@@ -502,7 +502,14 @@ body div, body {
     align-items: center;
     justify-content: space-between;
     padding: 2rem 2rem;
-    gap: 2rem
+    gap: 2rem;
+    opacity: 0;
+    transform: translateY(-2rem);
+    transition: opacity 500ms, transform 500ms
+}
+.aboutme-card.card-fade-in {
+    opacity: 1;
+    transform: translateY(0rem);
 }
 
 .aboutme-icon svg {

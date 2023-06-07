@@ -1,4 +1,4 @@
-lightTheme = false;
+lightTheme = true;
 
 function debugText(text) {
     document.getElementById("js-tester").innerText = text;
@@ -14,7 +14,6 @@ function runAfter(func, duration){
             try {
                 func();
             } catch (error) {
-                // Handle the error here
                 console.error('An error occurred:', error);
             }
             return;
@@ -365,7 +364,35 @@ function addAboutMeCards(){
     }
 }
 
+function showCard(card){
+    card.classList.add("card-fade-in")
+}
+function hideCard(card){
+    card.classList.remove("card-fade-in")
+}
+
+function loadAboutMeDiv(entries, observer){
+    delay = 100;
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            runAfter(()=>{showCard(entry.target);}, delay);
+            delay += 300;
+        }
+    })
+}
+
 addAboutMeCards();
+
+let cardObserver = new IntersectionObserver(loadAboutMeDiv, {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.2
+})
+
+const cards = document.getElementsByClassName("aboutme-card");
+for(const card of cards){
+    cardObserver.observe(card);
+}
 
 // third div
 const thirdDiv = document.getElementsByClassName("third-div")[0];
