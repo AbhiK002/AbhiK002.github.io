@@ -307,7 +307,7 @@ body div, body {
     transform: translateX(12rem);
     opacity: 0;
     transition: transform 500ms, opacity 600ms;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
 }
 
 .content-title {
