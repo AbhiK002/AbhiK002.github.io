@@ -2,7 +2,7 @@
     --main-font: "Poppins", sans-serif;
 
     /* Dark Mode (Default) Colors */
-    --white: 255, 255, 255;
+    --text-color: 255, 255, 255;
     --major-bg: 56, 56, 56;
     --minor-bg: 80, 80, 80;
     --tile-bd-col: 146, 146, 146;
@@ -14,7 +14,7 @@
     --lamp-shade-opacity: 0;
 
     /* Light Mode Colors */
-    --white-light: 0, 0, 0;
+    --text-color-light: 0, 0, 0;
     --major-bg-light: 255, 255, 255;
     --minor-bg-light: 210, 210, 210;
     --tile-bd-col-light: 146, 146, 146;
@@ -39,7 +39,7 @@
 
 /* Light Mode Theme */
 .light-mode {
-    --white: var(--white-light);
+    --text-color: var(--text-color-light);
     --major-bg: var(--major-bg-light);
     --minor-bg: var(--minor-bg-light);
     --tile-bd-col: var(--tile-bd-col-light);
@@ -86,7 +86,7 @@ body {
     margin: 0;
     padding: 0;
     position: relative;
-    color: rgb(var(--white));
+    color: rgb(var(--text-color));
     font-family: var(--main-font);
     font-size: var(--small-font-size);
     cursor: default;
@@ -183,7 +183,7 @@ body div, body {
     transform: translateY(-100%);
     transition: transform 800ms, box-shadow 800ms, background-color 800ms;
     position: fixed;
-    border-bottom: 2px solid rgba(var(--white), 0.1);
+    border-bottom: 2px solid rgba(var(--text-color), 0.1);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
     top: 0;
     z-index: 100;
@@ -212,13 +212,6 @@ body div, body {
     z-index: -10;
     transition: transform 600ms, opacity 300ms;
     padding: 0px 4px;
-}
-
-.top-bar-right-div {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    gap: 1rem
 }
 
 .theme-switch-div {
@@ -260,38 +253,31 @@ body div, body {
 
 .top-bar-buttons {
     display: flex;
+    align-self: stretch;
 }
 
-.social-button {
+.nav-button {
     display: flex;
     border: none;
-    background-color: rgba(var(--white), 0);
     align-items: center;
-    justify-content: center;
-    padding: 8px;
+    text-align: center;
+    background-color: transparent;
+    color: rgb(var(--text-color));
+    font-size: 18px;
+    font-family: "Poppins", "Calibri";
+    padding: 1rem;
     cursor: pointer;
-    border-radius: 20%;
+    transition: color 300ms;
 }
 
-.social-button svg {
-    width: 32px;
-    transition: transform 200ms;
+.nav-button:hover {
+    color: rgb(var(--sig-yellow));
 }
-.social-button svg * {
-    fill: rgb(var(--white));
-}
-
-.social-button:hover {
-    background-color: rgba(var(--white), 0.21);
-}
-.social-button:hover > svg {
-    transform: translateY(-2px);
-}
-.social-button:active > svg {
-    transform: scale(0.96);
+.nav-button:active {
+    color: rgba(var(--sig-yellow), 0.4);
 }
 
-/* CONTENT */
+/* COVER DIV CONTENT */
 .content {
     display: flex;
     padding: 4% 8%;
@@ -539,8 +525,8 @@ body div, body {
     text-align: center;
 }
 
-/* third div */
-.third-div {
+/* ARTISTIC TRIFECTA DIV */
+.trifecta-div {
     display: flex;
     flex-direction: column;
     position: relative;
@@ -551,7 +537,7 @@ body div, body {
     padding-top: 4rem
 }
 
-#focus-title {
+#trifecta-title {
     flex-grow: 1;
     font-size: var(--large-font-size);
     margin: 1rem;
@@ -570,14 +556,14 @@ body div, body {
     opacity: 0;
 }
 
-.focus-div {
+.trifecta-content-div {
     flex-grow: 8;
     display: flex;
     flex-direction: row;
     position: relative;
 }
 
-.focus-text {
+.trifecta-text {
     display: flex;
     width: 50%;
     flex-direction: column;
@@ -586,7 +572,7 @@ body div, body {
     z-index: 3;
     transition: width 300ms
 }
-.focus-item {
+.trifecta-item {
     font-size: var(--larger-font-size);
     display: block;
     transition: font-size 400ms, opacity 400ms, transform 400ms;
@@ -594,19 +580,19 @@ body div, body {
     transform: translateY(-4rem);
 }
 
-.focus-item span {
+.trifecta-item span {
     display: inline-block;
     transition: transform 400ms, color 400ms;
     transition-delay: 100ms;
 }
 
 #hover-help {
-    color:rgba(var(--white), 0.4);
+    color:rgba(var(--text-color), 0.4);
     opacity: 0;
     transition: opacity 300ms
 }
 
-.focus-visual {
+.trifecta-visual {
     position: absolute;
     width: 50%;
     height: 100%;
@@ -678,6 +664,36 @@ body div, body {
 
 /* #shape1 {background-color: cyan;} #shape2 {background-color: red;} #shape3 {background-color: orange;} #shape4 {background-color: green;} #shape5 {background-color: yellow;} #shape6 {background-color: blue;} #shape7 {background-color: coral;} */
 
+/* CONTACT DIV */
+.social-button {
+    display: flex;
+    border: none;
+    background-color: rgba(var(--text-color), 0);
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 20%;
+}
+
+.social-button svg {
+    width: 32px;
+    transition: transform 200ms;
+}
+.social-button svg * {
+    fill: rgb(var(--text-color));
+}
+
+.social-button:hover {
+    background-color: rgba(var(--text-color), 0.21);
+}
+.social-button:hover > svg {
+    transform: translateY(-2px);
+}
+.social-button:active > svg {
+    transform: scale(0.96);
+}
+
 /* RESPONSIVE BEHAVIOUR */
 @media (max-width: 550px) {
     :root {
@@ -688,12 +704,12 @@ body div, body {
         grid-template-columns: minmax(min-content, 340px);
     }
 
-    .third-div {
+    .trifecta-div {
         min-height: 80vh;
         min-height: 80svh;
     }
 
-    .third-div::after {
+    .trifecta-div::after {
         background-color: rgba(var(--major-bg), 0.8);
     }
 

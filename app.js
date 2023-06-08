@@ -393,7 +393,7 @@ addAboutMeCards();
 let cardObserver = new IntersectionObserver(loadAboutMeDiv, {
     root: null,
     rootMargin: '0px',
-    threshold: 0.3
+    threshold: 0.25
 })
 
 const cards = document.getElementsByClassName("aboutme-card");
@@ -401,10 +401,10 @@ for(const card of cards){
     cardObserver.observe(card);
 }
 
-// third div
-const thirdDiv = document.getElementsByClassName("third-div")[0];
-const focusTitle = document.getElementById("focus-title");
-const focusItems = document.getElementsByClassName("focus-item");
+// trifecta div
+const trifectaDiv = document.getElementsByClassName("trifecta-div")[0];
+const trifectaTitle = document.getElementById("trifecta-title");
+const trifectaItems = document.getElementsByClassName("trifecta-item");
 const shapesDiv = document.getElementsByClassName("shapes")[0];
 const textCr = document.getElementById("focus-creativity");
 const textSi = document.getElementById("focus-simplicity");
@@ -588,17 +588,17 @@ const shapeFuncs = [
 
 let firstTime = true;
 
-function loadThirdDiv(){
-    focusTitle.style.setProperty("transform", "translateX(0rem)");
-    focusTitle.style.setProperty("opacity", "1")
+function loadTrifectaDiv(){
+    trifectaTitle.style.setProperty("transform", "translateX(0rem)");
+    trifectaTitle.style.setProperty("opacity", "1")
 
     let time = 700;
     helpText = document.getElementById("hover-help");
 
     for(let i = 0; i < shapeFuncs.length; i++){
         runAfter(()=>{
-            focusItems[i].style.setProperty("transform", "translateY(0rem)");
-            focusItems[i].style.setProperty("opacity", "1");
+            trifectaItems[i].style.setProperty("transform", "translateY(0rem)");
+            trifectaItems[i].style.setProperty("opacity", "1");
             
             if(firstTime) {
                 shapeFuncs[i][0]();  // change the shapes arrangement on first run
@@ -620,21 +620,21 @@ function loadThirdDiv(){
     runAfter(()=>{firstTime=false}, time)
 }
 
-function resetThirdDiv(){
-    focusTitle.style.setProperty("transform", "translateX(-4rem)");
-    focusTitle.style.setProperty("opacity", "0");
+function resetTrifectaDiv(){
+    trifectaTitle.style.setProperty("transform", "translateX(-4rem)");
+    trifectaTitle.style.setProperty("opacity", "0");
 }
 
-function controlFocusDiv(entries, observer){
+function controlTrifectaDiv(entries, observer){
     entries.forEach(entry => {
         if(entry.isIntersecting){
-            runAfter(loadThirdDiv, 100);
+            runAfter(loadTrifectaDiv, 100);
         }
         else {
-            runAfter(resetThirdDiv, 100);
+            runAfter(resetTrifectaDiv, 100);
         }
     })
 }
 
-let secondObserver = new IntersectionObserver(controlFocusDiv, options);
-secondObserver.observe(thirdDiv);
+let secondObserver = new IntersectionObserver(controlTrifectaDiv, options);
+secondObserver.observe(trifectaDiv);
