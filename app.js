@@ -87,9 +87,16 @@ for(const card of document.querySelectorAll(".tile")) {
 
 const myDetails = {
     fullname: "Abhineet Kelley",
-    description: "A Desktop App Developer currently transitioning to Full-Stack Web Development, focused on crafting memorable products",
-    langs: ["Python", "Java", "C++", "JavaScript", "HTML", "CSS"],
-    tools: ["JavaFX", "Qt C++", "PyQt5", "tkinter"]
+    description: `
+        I am a <b>WPF Desktop Application</b> and <b>MERN Full-Stack</b> 
+        Web Developer, dedicated to crafting memorable products using 
+        <i>awesome</i> technologies
+        `,
+    bestLangs: ["C#", "Python"],
+    bestTools: ["React", "Node.js", "WPF", "Avalonia UI"],
+    bestJS: ["React", "Node"],
+    avgLangs: ["Java", "C++"],
+    avgTools: ["JavaFX", "Qt C++", "PyQt5", "tkinter"]
 }
 const colors = [
     ["red", "#de3b51"],
@@ -119,7 +126,7 @@ function contentDescription(){
     const descDiv = document.createElement("div");
     descDiv.className = "content-desc";
 
-    descDiv.innerText = myDetails.description;
+    descDiv.innerHTML = myDetails.description;
     return descDiv;
 }
 
@@ -386,7 +393,7 @@ addAboutMeCards();
 let cardObserver = new IntersectionObserver(loadAboutMeDiv, {
     root: null,
     rootMargin: '0px',
-    threshold: 0.2
+    threshold: 0.3
 })
 
 const cards = document.getElementsByClassName("aboutme-card");

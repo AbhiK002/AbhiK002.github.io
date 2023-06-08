@@ -151,7 +151,7 @@ body div, body {
     content: "";
     background: linear-gradient(
         rgba(var(--major-bg), 1) 2%,
-        rgba(var(--major-bg), 0.5) 50%,
+        rgba(var(--major-bg), 0.7) 50%,
         rgba(var(--major-bg), 1) 98%
     );
     z-index: -2;
@@ -292,9 +292,6 @@ body div, body {
 }
 
 /* CONTENT */
-.content * {
-    transition: all 200ms;
-}
 .content {
     display: flex;
     padding: 4% 8%;
