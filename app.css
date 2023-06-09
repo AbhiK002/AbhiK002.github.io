@@ -483,7 +483,7 @@ body div, body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: baseline;
     padding: 2rem 2rem;
     gap: 2rem;
     opacity: 0;
@@ -513,14 +513,11 @@ body div, body {
     color: rgb(var(--sig-yellow));
     text-shadow: 0px 0px 8px rgba(255, 200, 128, 0.6);
     font-weight: bolder;
-    transition: text-shadow 300ms;
-    flex-grow: 1;
 }
 
 .aboutme-desc {
     font-size: 14px;
     display: flex;
-    flex-grow: 1;
     align-items: baseline;
     text-align: center;
 }
@@ -584,6 +581,7 @@ body div, body {
     display: inline-block;
     transition: transform 400ms, color 400ms;
     transition-delay: 100ms;
+    font-family: 'Lora', 'Times New Roman', Times, serif;
 }
 
 #hover-help {
@@ -713,16 +711,16 @@ body div, body {
         background-color: rgba(var(--major-bg), 0.8);
     }
 
-    .focus-div {
+    .trifecta-content-div {
         flex-direction: column;
     }
 
-    .focus-text {
+    .trifecta-text {
         flex-grow: 1;
         width: 100%;
     }
 
-    .focus-visual {
+    .trifecta-visual {
         transition: width 300ms;
         width: 100%;
     }

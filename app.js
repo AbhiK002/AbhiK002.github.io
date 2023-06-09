@@ -198,7 +198,7 @@ function controlTopBarTransparency(entries, observer){
         }
         else{
             topDiv.style.setProperty("background","rgb(var(--major-bg))"); 
-            topDiv.style.setProperty("border-color", "rgba(var(--white), 0.1)");
+            topDiv.style.setProperty("border-color", "rgba(var(--text-color), 0.1)");
             topDiv.style.setProperty("box-shadow", "0 4px 16px rgba(0, 0, 0, 0.4)");
             logoContainer.onmouseenter = showLogo
             logoContainer.onmouseleave = hideLogo
@@ -322,7 +322,7 @@ aboutMeContent = [
         "I have a strong background in modern UI design and possess both front-end and back-end development skills. I stay updated with the latest technologies and industry trends to provide cutting-edge solutions that meet the evolving needs of clients."
     ],
     [
-        "Attention to Detail",
+        "Precise Attention to Detail",
         `<?xml version="1.0" encoding="UTF-8"?>
         <svg width="26.086mm" height="26.015mm" version="1.1" viewBox="0 0 26.086 26.015" xmlns="http://www.w3.org/2000/svg">
          <path d="m10.295 15.688c0.59806 0.59806 2.5597-0.40064-0.84521 3.0043l-5.6056 5.6056c-1.0663 1.0663-2.4062 1.4433-3.0043 0.84521-0.59806-0.59806-0.2211-1.938 0.8452-3.0043l5.6056-5.6056c3.592-3.592 2.4062-1.4433 3.0043-0.8452z" fill="#e49c3e" stroke="#e49c3e" class="fill-ele border-ele"/>
@@ -479,7 +479,7 @@ function funnyTextEffects(){
 function undoFunnyTextEffects(idleShape = true){
     for(let i=0; i<creat_letters.length; i++){
         creat_letters[i].style.setProperty("transform", `translateY(${letter_shuffle[i]}rem)`)
-        creat_letters[i].style.color = "rgb(var(--white))"
+        creat_letters[i].style.color = "rgb(var(--text-color))"
     }
 }
 function makeFunnyShape(){
@@ -500,7 +500,7 @@ function circularTextEffects(){
 function undoCircularTextEffects(idleShape = true){
     for(let i=0; i<simpl_letters.length; i++){
         simpl_letters[i].style.setProperty("transform", `translateY(${letter_shuffle[i]}rem)`);
-        simpl_letters[i].style.setProperty("color", "rgb(var(--white))")
+        simpl_letters[i].style.setProperty("color", "rgb(var(--text-color))")
     }
 }
 function makeCircular(){
@@ -521,7 +521,7 @@ function squareTextEffects(){
 function undoSquareTextEffects(idleShape = true){
     for(let i=0; i<perfection_letters.length; i++){
         perfection_letters[i].style.setProperty("transform", `translateY(${letter_shuffle[i]}rem)`);
-        perfection_letters[i].style.setProperty("color", "rgb(var(--white))")
+        perfection_letters[i].style.setProperty("color", "rgb(var(--text-color))")
     }
 }
 function makeSquare(){
