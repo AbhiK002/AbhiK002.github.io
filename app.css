@@ -175,7 +175,7 @@ body div, body {
 
 /* TOP BAR */
 .top-bar {
-    padding: 4px;
+    padding: 6px;
     display: flex;
     width: 100%;
     align-items: center;
@@ -191,7 +191,6 @@ body div, body {
 
 #logo-container {
     padding: 4px;
-    user-select: none;
     overflow: hidden;
     transition: transform 400ms, opacity 500ms;
     display: flex;
@@ -283,7 +282,7 @@ body div, body {
     padding: 4% 8%;
     font-size: var(--medium-font-size);
     align-items: center;
-    justify-content: center;
+    justify-content: left;
     flex-grow: 1;
     line-height: 1.2;
     cursor: default;
@@ -315,6 +314,7 @@ body div, body {
 .content-desc {
     opacity: 0;
     transition: opacity 600ms;
+    max-width: 800px;
 }
 
 /* SKILLS SECTION */
@@ -477,9 +477,14 @@ body div, body {
 }
 
 .aboutme-card {
-    background-color: rgba(var(--major-bg), 0.8);
+    background: rgba(var(--major-bg), 0.8);
+    background: linear-gradient(
+        rgba(var(--minor-bg), 0.7) 0%,
+        rgba(var(--major-bg), 0.8) 100%
+    );
     border: 2px solid rgba(var(--sig-yellow), 0.5);
     border-radius: 1.5rem;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.6);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -488,15 +493,28 @@ body div, body {
     gap: 2rem;
     opacity: 0;
     transform: translateY(-2rem);
-    transition: opacity 500ms, transform 500ms
+    transition: opacity 500ms, transform 500ms, box-shadow 500ms
 }
 .aboutme-card.card-fade-in {
     opacity: 1;
     transform: translateY(0rem);
 }
+.light-mode *> .aboutme-card {
+    background: linear-gradient(
+        rgba(var(--major-bg), 0.9) 0%,
+        rgba(var(--major-bg), 0.9) 100%
+    );
+}
+.aboutme-card:hover {
+    transform: scale(1.02);
+}
 
-.aboutme-icon svg {
+.aboutme-icon svg, .aboutme-icon {
     height: 8rem;
+    width: 8rem;
+}
+.aboutme-icon {
+    position: relative;
 }
 
 .aboutme-icon .fill-ele{
@@ -504,6 +522,66 @@ body div, body {
 }
 .aboutme-icon .border-ele{
     stroke: rgb(var(--sig-yellow))
+}
+
+@keyframes move-shape-BL {
+    0% {transform: translate(0%, 0%);}
+    40% {transform: translate(-6.3%, 7%)}
+    60% {transform: translate(-6.3%, 7%)}
+    100% {transform: translate(0%, 0%);}
+}
+@keyframes move-shape-TR {
+    0% {transform: translate(0%, 0%);}
+    40% {transform: translate(6.28%, -7%)}
+    60% {transform: translate(6.28%, -7%)}
+    100% {transform: translate(0%, 0%);}
+}
+.aboutme-card:hover *> #modern-icon-part {
+    animation: move-shape-BL forwards 3s infinite;
+}
+.aboutme-card:hover *> #modern-icon-whole {
+    animation: move-shape-TR forwards 3s infinite;
+}
+
+@keyframes blink-eye {
+    15% {transform: scaleY(1);}
+    20% {transform: scaleY(0.1);}
+    25% {transform: scaleY(1);}
+}
+#eye {
+    transform-origin: 50% 40%
+}
+.aboutme-card:hover *> #eye {
+    animation: blink-eye 2s infinite;
+}
+
+@keyframes full-rotation {
+    from {rotate: 0deg;}
+    to {rotate: 360deg;}
+}
+
+#wheel-1 {
+    position: absolute;
+    height: 4rem; width: 4rem;
+}
+.aboutme-card:hover *> #wheel-1 {
+    animation: full-rotation 8s linear infinite;
+}
+#wheel-2 {
+    position: absolute;
+    height: 3.5rem; width: 3.5rem;
+    right: 8%; top: 30%;
+}
+.aboutme-card:hover *> #wheel-2 {
+    animation: full-rotation 6s linear reverse infinite;
+}
+#wheel-3 {
+    position: absolute;
+    height: 3rem; width: 3rem;
+    bottom: 0; left: 17%;
+}
+.aboutme-card:hover *> #wheel-3 {
+    animation: full-rotation 4s linear infinite
 }
 
 .aboutme-title {
