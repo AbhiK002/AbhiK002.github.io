@@ -114,9 +114,9 @@ function contentTitle(){
 
     const nameSpan = document.createElement("span");
     nameSpan.id = "fullname";
-    nameSpan.innerHTML = myDetails.fullname;
+    nameSpan.innerText = myDetails.fullname;
     
-    titleDiv.innerHTML = "Hi, I am ";
+    titleDiv.innerText = "Hi, I am ";
     titleDiv.append(nameSpan);
 
     return titleDiv;
