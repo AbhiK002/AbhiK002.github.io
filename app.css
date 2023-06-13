@@ -701,6 +701,7 @@ body div, body {
     transition: all 500ms, background-color 400ms, border-color 0ms, opacity 200ms;
     transition-delay: all 100ms, border-color 0ms;
     background-color: rgb(var(--minor-bg));
+    box-shadow: inset 0px 0px 16px rgba(0, 0, 0, 0.2);
 }
 
 #shape1 {
