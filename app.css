@@ -459,7 +459,8 @@ body div, body {
     justify-content: space-evenly;
     align-items: center;
     padding: 4rem 2rem;
-    gap: 4rem
+    gap: 4rem;
+    overflow-x: hidden;
 }
 
 .aboutme-div-title {
