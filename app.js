@@ -63,6 +63,21 @@ const handleOnMouseMove = e => {
     // debugText(`${target} ${rect} == ${rect.left} ${rect.top} == ${e.clientX} ${e.clientY}`);
 }
 
+let prevYScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+let userScrollingUp = false;
+document.addEventListener("scroll", (ev) => {
+    const currentYScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+
+    if(currentYScrollPosition > prevYScrollPosition) {
+        userScrollingUp = false;
+    }
+    else {
+        userScrollingUp = true;
+    }
+
+    prevYScrollPosition = currentYScrollPosition;
+})
+
 const lampString = document.getElementsByClassName("lamp-string")[0];
 const docElement = document.documentElement;
 
@@ -247,12 +262,29 @@ function loadDecoration() {
     )
     if(busy) return;
     if(codeText.innerText.length > 1) {
+        if(!userScrollingUp) return;
         runAfter(untypeCode, 600);
         runAfter(typeCode, 1600);
     }
     else{
         runAfter(typeCode, 1800)
     }
+}
+
+function hideDecoration() {
+    const bars = document.getElementsByClassName("decoration-bar");
+    for(let i in bars){
+        bars[i].style = "opacity: 0;"
+    }
+    secondh1.style.setProperty("opacity", "0");
+    stylesAfter(
+        [designWord, "opacity", "0", 0],
+        [intoWord, "opacity", "0", 0],
+        [codeCursor, "visibility", "hidden", 0]
+    )
+
+    codeText.innerText = ""
+    busy = false;
 }
 
 function typeCode() {
@@ -278,6 +310,11 @@ function controlDecoration(entries, observer)
   entries.forEach(entry => {
     if(entry.isIntersecting){
         runAfter(loadDecoration, 100)
+    }
+    else {
+        if(userScrollingUp) {
+            runAfter(hideDecoration, 0)
+        }
     }
   });
 }
@@ -355,6 +392,7 @@ aboutMeContent = [
 ]
 
 const aboutMeCardsDiv = document.getElementsByClassName("aboutme-cards-div")[0];
+const aboutMeDivTitle = document.getElementsByClassName("aboutme-div-title")[0];
 
 function makeAboutMeCard(title, description, icon) {
     cardDiv = document.createElement("div");
@@ -396,6 +434,12 @@ function loadAboutMeDiv(entries, observer){
             runAfter(()=>{showCard(entry.target);}, delay);
             delay += 300;
         }
+        else{
+            if(userScrollingUp){
+                runAfter(()=>{hideCard(entry.target);}, delay);
+                delay += 300;
+            }
+        }
     })
 }
 
@@ -411,6 +455,26 @@ const cards = document.getElementsByClassName("aboutme-card");
 for(const card of cards){
     cardObserver.observe(card);
 }
+
+let divObserver = new IntersectionObserver((entries, observer)=>{
+    entries.forEach(entry =>{
+        if(entry.isIntersecting){
+            aboutMeDivTitle.style.transform = "translateX(0)"
+            aboutMeDivTitle.style.opacity = "1"
+        }
+        else {
+            if(!userScrollingUp) return;
+
+            aboutMeDivTitle.style.transform = "translateX(-10%)"
+            aboutMeDivTitle.style.opacity = "0"
+        }
+    })
+}, {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.9
+})
+divObserver.observe(aboutMeDivTitle)
 
 // trifecta div
 const trifectaDiv = document.getElementsByClassName("trifecta-div")[0];

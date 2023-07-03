@@ -467,6 +467,9 @@ body div, body {
     font-size: var(--large-font-size);
     text-align: center;
     line-height: 1;
+    opacity: 0;
+    transform: translateX(-10%);
+    transition: transform 600ms, opacity 600ms;
 }
 
 .aboutme-cards-div {
