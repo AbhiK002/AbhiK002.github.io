@@ -713,3 +713,24 @@ function controlTrifectaDiv(entries, observer){
 
 let secondObserver = new IntersectionObserver(controlTrifectaDiv, options);
 secondObserver.observe(trifectaDiv);
+
+// Skills Div
+const mainSkillsDiv = document.getElementsByClassName("main-skills");
+const knowSkillsDiv = document.getElementsByClassName("know-skills");
+const touchSkillsDiv = document.getElementsByClassName("touch-skills");
+
+const skillsInfo = {
+    main: {
+        title: "My Major Skills",
+        skills: [
+            {
+                title: "MERN Stack Web Development",
+                description: "I utilize the MERN stack efficiently to produce stable, optimised and beautiful websites that are able to satisfy the users' needs, in addition to the client's requirements. My UI/UX skills really enhance the ease-of-use of the applications, resulting in better products."
+            },
+            {
+                title: "WPF Desktop & Avalonia Development",
+                description: ""
+            }
+        ]
+    }
+}
