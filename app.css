@@ -1,5 +1,29 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url('./resources/fonts/Poppins-Light.ttf') format('truetype');
+    font-weight: 200;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('./resources/fonts/Poppins-Regular.ttf') format('truetype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('./resources/fonts/Poppins-Bold.ttf') format('truetype');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'Lora';
+    src: url('./resources/fonts/Lora-VariableFont_wght.ttf') format('truetype');
+}
+
 :root {
     --main-font: "Poppins", sans-serif;
+    --second-font: "Lora";
 
     /* Dark Mode (Default) Colors */
     --text-color: 255, 255, 255;
@@ -89,6 +113,7 @@ body {
     color: rgb(var(--text-color));
     font-family: var(--main-font);
     font-size: var(--small-font-size);
+    font-weight: 400;
     cursor: default;
 }
 
@@ -302,10 +327,10 @@ body div, body {
 
 #fullname {
     font-size: var(--largest-font-size);
-    font-weight: 600;
     width: 100%;
     color: rgb(var(--sig-yellow));
     display: block;
+    letter-spacing: -2px;
     user-select: text;
     text-shadow: 0px 0px 8px rgba(var(--sig-yellow), 0.6);
 }
@@ -333,6 +358,7 @@ body div, body {
 
 .second-div h1 {
     font-size: var(--large-font-size);
+    font-weight: 400;
     margin: 0;
     margin-bottom: 2rem;
     text-align: center;
@@ -390,9 +416,9 @@ body div, body {
 }
 
 #word-design {
-    font-family: "Lora";
+    font-family: var(--second-font);
     font-style: italic;
-    font-weight: lighter;
+    font-weight: normal;
     overflow: hidden;
     font-size: var(--largest-font-size);
     color: rgb(var(--sig-yellow));
@@ -464,6 +490,7 @@ body div, body {
 
 .aboutme-div-title {
     font-size: var(--large-font-size);
+    letter-spacing: -2px;
     text-align: center;
     line-height: 1;
     opacity: 0;
@@ -518,6 +545,7 @@ body div, body {
 }
 .aboutme-icon {
     position: relative;
+    align-self: flex-start;
 }
 
 .aboutme-icon .fill-ele{
@@ -589,18 +617,19 @@ body div, body {
 
 .aboutme-title {
     font-size: var(--small-font-size);
-    text-align: center;
-    font-family: "Lora", "Times New Roman", "Poppins", "Calibri";
+    align-self: flex-start;
+    font-family: var(--second-font), var(--main-font), "Calibri";
     color: rgb(var(--sig-yellow));
     text-shadow: 0px 0px 8px rgba(255, 200, 128, 0.4);
-    font-weight: bolder;
+    font-weight: 600;
 }
 
 .aboutme-desc {
     font-size: 14px;
+    font-weight: 400;
     display: flex;
     align-items: baseline;
-    text-align: center;
+    text-align: left
 }
 
 /* ARTISTIC TRIFECTA DIV */
@@ -624,8 +653,7 @@ body div, body {
     transition: transform 400ms, opacity 400ms;
     transition-delay: 100ms;
     color: rgb(var(--sig-yellow));
-    font-weight: lighter;
-    letter-spacing: 0.5rem;
+    font-weight: 400;
     transform: translateX(-4rem);
     display: flex;
     align-items: center;
