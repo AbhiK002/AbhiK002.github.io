@@ -56,6 +56,51 @@ function setCssStyles(element, styles) {
     }
 }
 
+function node(tagname, attributes, children, cssStyle) {
+    if (!tagname) return;
+    let node = document.createElement(tagname);
+
+    if (attributes != null) {
+        for (const key of Object.keys(attributes)) {
+            switch (key) {
+                case "cl": case "class": {
+                    node.className = attributes[key]; break;
+                }
+                case "id": {
+                    node.id = attributes[key]; break;
+                }
+                case "iText": case "innerText": {
+                    node.innerText = attributes[key]; break;
+                }
+                case "iHTML": case "innerHTML": {
+                    node.innerHTML = attributes[key]; break;
+                }
+                case "src": {
+                    node.src = attributes[key]; break;
+                }
+                case "href": {
+                    node.href = attributes[key]; break;
+                }
+                case "alt": {
+                    node.alt = attributes[key]; break;
+                }
+                default: {
+                    break;
+                }
+            }
+        }
+    }
+    if (children != null) {
+        for (const child of children) {
+            node.appendChild(child);
+        }
+    }
+    if (cssStyle != null) {
+        setCssStyles(node, cssStyle);
+    }
+    return node;
+}
+
 // DOM stuff
 const handleOnMouseMove = e => {
     const { currentTarget: target } = e;
@@ -270,8 +315,8 @@ let busy = false;
 
 function loadDecoration() {
     const bars = document.getElementsByClassName("decoration-bar");
-    for (let i in bars) {
-        setCssStyles(bars[i], { "opacity": "1" })
+    for (const bar of bars) {
+        setCssStyles(bar, { "opacity": "1" })
     }
     setCssStyles(secondh1, { "opacity": "1" })
     setCssStyles(designWord, { "background-color": "rgba(var(--sig-red), 0.2)" })
@@ -293,8 +338,8 @@ function loadDecoration() {
 
 function hideDecoration() {
     const bars = document.getElementsByClassName("decoration-bar");
-    for (let i in bars) {
-        setCssStyles(bars[i], { "opacity": "0" })
+    for (const bar of bars) {
+        setCssStyles(bar, { "opacity": "0" })
     }
     setCssStyles(secondh1, { "opacity": "0" })
     stylesAfter(
@@ -764,49 +809,6 @@ let secondObserver = new IntersectionObserver(controlTrifectaDiv, options);
 secondObserver.observe(trifectaDiv);
 
 // Skills Div
-
-// framework lol
-function node(tagname, attributes, children) {
-    if (!tagname) return;
-    let node = document.createElement(tagname);
-
-    if (attributes != null) {
-        for (const key of Object.keys(attributes)) {
-            switch (key) {
-                case "cl": case "class": {
-                    node.className = attributes[key]; break;
-                }
-                case "id": {
-                    node.id = attributes[key]; break;
-                }
-                case "iText": case "innerText": {
-                    node.innerText = attributes[key]; break;
-                }
-                case "iHTML": case "innerHTML": {
-                    node.innerHTML = attributes[key]; break;
-                }
-                case "src": {
-                    node.src = attributes[key]; break;
-                }
-                case "href": {
-                    node.href = attributes[key]; break;
-                }
-                case "alt": {
-                    node.alt = attributes[key]; break;
-                }
-                default: {
-                    break;
-                }
-            }
-        }
-    }
-    if (children != null) {
-        for (const child of children) {
-            node.appendChild(child);
-        }
-    }
-}
-
 const mainSkillsDiv = document.getElementsByClassName("main-skills")[0];
 const knowSkillsDiv = document.getElementsByClassName("know-skills")[0];
 const touchSkillsDiv = document.getElementsByClassName("touch-skills")[0];
@@ -872,37 +874,17 @@ const skillsInfo = {
 }
 
 // main skills
-const msTitle = document.createElement("h2");
-msTitle.className = "main-skills-title";
-msTitle.innerText = skillsInfo.main.title;
-
-const msSkills = document.createElement("div");
-msSkills.className = "main-skills-items";
-
-for (const skill of skillsInfo.main.skills) {
-    let msItem = document.createElement("div");
-    msItem.className = "main-skills-item";
-
-    let msIcon = document.createElement("div");
-    msIcon.className = "ms-icon";
-    let msImg = document.createElement("img");
-    msImg.src = skill.icon;
-
-    msIcon.append(msImg);
-
-    let msDetails = document.createElement("div");
-    msDetails.className = "ms-details";
-    let msName = document.createElement("h4");
-    msName.className = "ms-name";
-    msName.innerText = skill.name;
-    let msDesc = document.createElement("span");
-    msDesc.className = "ms-desc";
-    msDesc.innerText = skill.description;
-
-    msDetails.append(msName, msDesc);
-
-    msItem.append(msIcon, msDetails);
-    msSkills.append(msItem);
-}
+const msTitle = node("h2", { cl: "main-skills-title", innerText: skillsInfo.main.title })
+const msSkills = node("div", { cl: "main-skills-items" }, skillsInfo.main.skills.map(
+    (skill) => {
+        return node("div", { cl: "main-skills-item "}, [
+            node("div", { cl: "ms-icon" }, [ node("img", { src: skill.icon}) ]),
+            node("div", { cl: "ms-details" }, [
+                node("h4", { cl: "ms-name", innerText: skill.name }),
+                node("span", { cl: "ms-desc", innerText: skill.description })
+            ])
+        ])
+    }
+))
 
 mainSkillsDiv.append(msTitle, msSkills);
