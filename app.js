@@ -5,12 +5,12 @@ function debugText(text) {
 }
 
 // useful functions
-function runAfter(func, duration){
+function runAfter(func, duration) {
     const init = performance.now();
 
-    function check(){
+    function check() {
         let elapsed = performance.now() - init;
-        if(elapsed >= duration){
+        if (elapsed >= duration) {
             try {
                 func();
             } catch (error) {
@@ -23,16 +23,16 @@ function runAfter(func, duration){
     requestAnimationFrame(check);
 }
 
-function styleAfter(element, attr, value, duration){
-    if(element == null || element.nodeType != 1){
+function styleAfter(element, attr, value, duration) {
+    if (element == null || element.nodeType != 1) {
         console.log(`${element} doesn't exist`)
         return;
     }
     const init = performance.now();
 
-    function check(){
+    function check() {
         let elapsed = performance.now() - init;
-        if(elapsed >= duration){
+        if (elapsed >= duration) {
             element.style.setProperty(attr, value);
             return;
         }
@@ -41,12 +41,18 @@ function styleAfter(element, attr, value, duration){
     requestAnimationFrame(check);
 }
 
-function stylesAfter(... eleAttrValDurs){
+function stylesAfter(...eleAttrValDurs) {
     init = performance.now();
     let time = 0
-    for(const [ele, attr, val, dur] of eleAttrValDurs){
+    for (const [ele, attr, val, dur] of eleAttrValDurs) {
         time += dur;
         styleAfter(ele, attr, val, time);
+    }
+}
+
+function setCssStyles(element, styles) {
+    for (const [property, value] of Object.entries(styles)) {
+        element.style.setProperty(property, value);
     }
 }
 
@@ -56,9 +62,11 @@ const handleOnMouseMove = e => {
     const rect = target.getBoundingClientRect(),
         x = e.clientX - rect.left,
         y = e.clientY - rect.top;
-    
-    target.style.setProperty("--mouse-x", `${x}px`);
-    target.style.setProperty("--mouse-y", `${y}px`);
+
+    setCssStyles(target, {
+        "--mouse-x": `${x}px`,
+        "--mouse-y": `${y}px`
+    });
 
     // debugText(`${target} ${rect} == ${rect.left} ${rect.top} == ${e.clientX} ${e.clientY}`);
 }
@@ -68,7 +76,7 @@ let userScrollingUp = false;
 document.addEventListener("scroll", (ev) => {
     const currentYScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
 
-    if(currentYScrollPosition > prevYScrollPosition) {
+    if (currentYScrollPosition > prevYScrollPosition) {
         userScrollingUp = false;
     }
     else {
@@ -81,22 +89,22 @@ document.addEventListener("scroll", (ev) => {
 const lampString = document.getElementsByClassName("lamp-string")[0];
 const docElement = document.documentElement;
 
-if(lightTheme){
+if (lightTheme) {
     docElement.classList.add("light-mode");
 }
 
-if(docElement.classList.contains("light-mode")){
+if (docElement.classList.contains("light-mode")) {
     lampString.classList.add("string-pulled-down")
 }
 
 function toggleTheme() {
     lampString.classList.toggle('string-pulled-down');
-    runAfter(()=>{docElement.classList.toggle('light-mode');}, 300);
+    runAfter(() => { docElement.classList.toggle('light-mode'); }, 300);
 }
 but = document.getElementsByClassName("theme-switch-div")[0];
 but.onclick = toggleTheme;
 
-for(const card of document.querySelectorAll(".tile")) {
+for (const card of document.querySelectorAll(".tile")) {
     card.onmousemove = e => handleOnMouseMove(e);
 }
 
@@ -123,21 +131,21 @@ const colors = [
     ["purple", "#7820e3"]
 ]
 
-function contentTitle(){
+function contentTitle() {
     const titleDiv = document.createElement("div");
     titleDiv.className = "content-title";
 
     const nameSpan = document.createElement("span");
     nameSpan.id = "fullname";
     nameSpan.innerText = myDetails.fullname;
-    
+
     titleDiv.innerText = "Hi, I am ";
     titleDiv.append(nameSpan);
 
     return titleDiv;
 }
 
-function contentDescription(){
+function contentDescription() {
     const descDiv = document.createElement("div");
     descDiv.className = "content-desc";
 
@@ -145,7 +153,7 @@ function contentDescription(){
     return descDiv;
 }
 
-function addContent(){
+function addContent() {
     const parent = document.getElementsByClassName("content")[0];
 
     const mainDiv = document.createElement("div");
@@ -168,7 +176,7 @@ const coverDesc = document.getElementsByClassName("content-desc")[0];
 styleAfter(topDiv, "transform", "translateY(0%)", 500)
 styleAfter(bgSVG, "opacity", "1", 0)
 
-function loadCoverDiv(){
+function loadCoverDiv() {
     stylesAfter(
         [contentDiv, "transform", "translateX(0%)", 300],
         [contentDiv, "opacity", "1", 0],
@@ -176,9 +184,9 @@ function loadCoverDiv(){
     )
 }
 
-function controlCover(entries, observer){
+function controlCover(entries, observer) {
     entries.forEach(entry => {
-        if(entry.isIntersecting) loadCoverDiv();
+        if (entry.isIntersecting) loadCoverDiv();
     })
 }
 
@@ -192,29 +200,38 @@ let coverObserver = new IntersectionObserver(controlCover, coverIntersectOptions
 coverObserver.observe(coverDiv);
 
 function hideLogo() {
-    logotext.style.setProperty("transform", `translateX(-30%)`);
-    logotext.style.setProperty("opacity", "0");
+    setCssStyles(logotext, {
+        "transform": "translateX(-30%)",
+        "opacity": "0"
+    });
 }
 
 function showLogo() {
-    logotext.style.setProperty("transform", `translateX(0)`);
-    logotext.style.setProperty("opacity", "1")
+    setCssStyles(logotext, {
+        "transform": "translateX(0)",
+        "opacity": "1"
+    });
 }
 
-function controlTopBarTransparency(entries, observer){
+function controlTopBarTransparency(entries, observer) {
     entries.forEach(entry => {
-        if(entry.isIntersecting){
-            topDiv.style.setProperty("background","rgb(0, 0, 0, 0)"); 
-            topDiv.style.setProperty("border-color", "transparent");
-            topDiv.style.setProperty("box-shadow", "0 4px 16px rgba(0, 0, 0, 0)");
+        if (entry.isIntersecting) {
+            setCssStyles(topDiv, {
+                "background": "rgb(0, 0, 0, 0)",
+                "border-color": "transparent",
+                "box-shadow": "0 4px 16px rgba(0, 0, 0, 0)"
+            });
+
             logoContainer.onmouseenter = showLogo
             logoContainer.onmouseleave = null
             runAfter(showLogo, 600)
         }
-        else{
-            topDiv.style.setProperty("background","rgb(var(--major-bg))"); 
-            topDiv.style.setProperty("border-color", "rgba(var(--text-color), 0.1)");
-            topDiv.style.setProperty("box-shadow", "0 4px 16px rgba(0, 0, 0, 0.4)");
+        else {
+            setCssStyles(topDiv, {
+                "background": "rgb(var(--major-bg))",
+                "border-color": "rgba(var(--text-color), 0.1)",
+                "box-shadow": "0 4px 16px rgba(0, 0, 0, 0.4)"
+            });
             logoContainer.onmouseenter = showLogo
             logoContainer.onmouseleave = hideLogo
             runAfter(hideLogo, 600)
@@ -240,43 +257,46 @@ const intoWord = document.getElementById("word-into");
 const secondh1 = document.getElementById("second-h1");
 const codeCursor = document.getElementById("cursor");
 
-designWord.style.setProperty("background-color", "transparent");
-designWord.style.setProperty("opacity", "0");
-intoWord.style.setProperty("opacity", "0");
-secondh1.style.setProperty("opacity", "0");
-codeCursor.style.setProperty("visibility", "hidden")
+setCssStyles(designWord, { "background-color": "transparent", "opacity": "0" });
+
+setCssStyles(intoWord, { "opacity": "0" });
+
+setCssStyles(secondh1, { "opacity": "0" });
+
+setCssStyles(codeCursor, { "visibility": "hidden" });
+
 
 let busy = false;
 
 function loadDecoration() {
     const bars = document.getElementsByClassName("decoration-bar");
-    for(let i in bars){
-        bars[i].style = "opacity: 1;"
+    for (let i in bars) {
+        setCssStyles(bars[i], { "opacity": "1" })
     }
-    secondh1.style.setProperty("opacity", "1");
-    designWord.style.setProperty("background-color", "rgba(var(--sig-red), 0.2)");
+    setCssStyles(secondh1, { "opacity": "1" })
+    setCssStyles(designWord, { "background-color": "rgba(var(--sig-red), 0.2)" })
     stylesAfter(
         [designWord, "opacity", "1", 400],
         [intoWord, "opacity", "1", 700],
         [codeCursor, "visibility", "visible", 700]
     )
-    if(busy) return;
-    if(codeText.innerText.length > 1) {
-        if(!userScrollingUp) return;
+    if (busy) return;
+    if (codeText.innerText.length > 1) {
+        if (!userScrollingUp) return;
         runAfter(untypeCode, 600);
         runAfter(typeCode, 1600);
     }
-    else{
+    else {
         runAfter(typeCode, 1800)
     }
 }
 
 function hideDecoration() {
     const bars = document.getElementsByClassName("decoration-bar");
-    for(let i in bars){
-        bars[i].style = "opacity: 0;"
+    for (let i in bars) {
+        setCssStyles(bars[i], { "opacity": "0" })
     }
-    secondh1.style.setProperty("opacity", "0");
+    setCssStyles(secondh1, { "opacity": "0" })
     stylesAfter(
         [designWord, "opacity", "0", 0],
         [intoWord, "opacity", "0", 0],
@@ -290,33 +310,32 @@ function hideDecoration() {
 function typeCode() {
     busy = true;
     codeText.innerText = "C";
-    runAfter(()=>{codeText.innerText = "Co"}, 200)
-    runAfter(()=>{codeText.innerText = "Cod"}, 400)
-    runAfter(()=>{codeText.innerText = "Code"}, 600)
-    runAfter(()=>{busy=false}, 1600);
+    runAfter(() => { codeText.innerText = "Co" }, 200)
+    runAfter(() => { codeText.innerText = "Cod" }, 400)
+    runAfter(() => { codeText.innerText = "Code" }, 600)
+    runAfter(() => { busy = false }, 1600);
 }
 
 function untypeCode() {
-    if(busy) return;
+    if (busy) return;
     busy = true;
     codeText.innerText = "Cod";
-    runAfter(()=>{codeText.innerText = "Co"}, 200)
-    runAfter(()=>{codeText.innerText = "C"}, 400)
-    runAfter(()=>{codeText.innerText = ""}, 600)
+    runAfter(() => { codeText.innerText = "Co" }, 200)
+    runAfter(() => { codeText.innerText = "C" }, 400)
+    runAfter(() => { codeText.innerText = "" }, 600)
 }
 
-function controlDecoration(entries, observer)
-{
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-        runAfter(loadDecoration, 100)
-    }
-    else {
-        if(userScrollingUp) {
-            runAfter(hideDecoration, 0)
+function controlDecoration(entries, observer) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            runAfter(loadDecoration, 100)
         }
-    }
-  });
+        else {
+            if (userScrollingUp) {
+                runAfter(hideDecoration, 0)
+            }
+        }
+    });
 }
 
 let options = {
@@ -330,8 +349,8 @@ observer.observe(secondDiv);
 
 const brvalues = ["2rem 7rem 2rem 7rem", "7rem 2rem 7rem 2rem"];
 let curr = 0;
-function switchBorderRadius(){
-    designWord.style.setProperty("border-radius", brvalues[curr%brvalues.length])
+function switchBorderRadius() {
+    setCssStyles(designWord, { "border-radius": brvalues[curr % brvalues.length] })
     curr++;
 }
 
@@ -375,7 +394,7 @@ aboutMeContent = [
         "I pay meticulous attention to detail, ensuring that no aspect of the application is overlooked. I believe that even the smallest details can make a big difference in the overall impression and usability of an application."
     ],
     [
-        "Creative Problem-Solving", 
+        "Creative Problem-Solving",
         `<?xml version="1.0" encoding="UTF-8"?>
         <svg id="wheel-1" width="16.735mm" height="16.735mm" version="1.1" viewBox="0 0 16.735 16.735" xmlns="http://www.w3.org/2000/svg">
          <path class="fill-ele" d="m7.4843 0c-0.20709-9.3569e-6 -0.37362 0.22553-0.37362 0.50591v1.5208c-0.28065 0.057827-0.55475 0.13467-0.82114 0.22738l-0.76429-1.3234c-0.14019-0.24282-0.39736-0.35469-0.57671-0.25115l-1.5296 0.88315c-0.17935 0.10355-0.21047 0.38195-0.07028 0.62477l0.7705 1.3353c-0.21121 0.18597-0.4106 0.38495-0.59635 0.59635l-1.3348-0.77101c-0.24261-0.13982-0.52174-0.10851-0.62528 0.070797l-0.88315 1.5296c-0.10354 0.17934 0.008791 0.43651 0.25166 0.57671l1.3255 0.76533c-0.092299 0.26609-0.16835 0.53983-0.22583 0.8201h-1.5245c-0.28037 2.81e-5 -0.50643 0.16654-0.50643 0.37362v1.7658c-1.8714e-6 0.20709 0.22604 0.37414 0.50643 0.37414h1.5043c0.053645 0.28599 0.12569 0.56545 0.21549 0.83716l-1.295 0.74828c-0.24282 0.14019-0.35521 0.39736-0.25166 0.57671l0.88315 1.5291c0.10355 0.17934 0.38247 0.21095 0.62528 0.0708l1.2733-0.73536c0.19131 0.22413 0.39754 0.43498 0.61702 0.63149l-0.72967 1.2645c-0.14017 0.2428-0.10907 0.52174 0.07028 0.62528l1.5296 0.88315c0.17935 0.10356 0.43652-0.0084 0.57671-0.25166l0.71262-1.234c0.28254 0.10101 0.57403 0.18344 0.87281 0.24495v1.4139c-9e-7 0.28038 0.16652 0.50643 0.37362 0.50643h1.7663c0.20709 0 0.37362-0.22605 0.37362-0.50643v-1.3911c0.30538-0.05698 0.60344-0.13542 0.89245-0.23358l0.69298 1.1999c0.14019 0.24282 0.39736 0.35521 0.57671 0.25166l1.5296-0.88315c0.17935-0.10355 0.21047-0.38248 0.07028-0.62528l-0.68988-1.1958c0.2335-0.20257 0.45244-0.42146 0.65526-0.65474l1.1953 0.68988c0.24261 0.13983 0.52174 0.10858 0.62528-0.0708l0.88315-1.5291c0.10355-0.17935-0.0089-0.43652-0.25166-0.57671l-1.1968-0.69143c0.09865-0.28946 0.17671-0.5881 0.23409-0.894h1.3875c0.28038-9.4e-6 0.50643-0.16704 0.50643-0.37414v-1.7658c-2e-6 -0.20709-0.22605-0.37362-0.50643-0.37362h-1.4077c-0.06152-0.30006-0.14411-0.59273-0.24546-0.87643l1.2283-0.709c0.24282-0.14019 0.35521-0.39737 0.25166-0.57671l-0.88315-1.5296c-0.10355-0.17936-0.38246-0.21095-0.62528-0.070797l-1.2578 0.72657c-0.19731-0.22051-0.40943-0.42752-0.63459-0.6196l0.73174-1.2676c0.14017-0.2428 0.10906-0.52123-0.07028-0.62477l-1.5296-0.88315c-0.17936-0.10357-0.43652 0.00842-0.57671 0.25115l-0.74517 1.2904c-0.27271-0.090016-0.55317-0.16291-0.84026-0.21652v-1.4986c0-0.28038-0.16653-0.50591-0.37362-0.50591h-1.7663zm0.94154 3.3936c2.7852 0 5.0276 2.2418 5.0276 5.0271 2e-6 2.7852-2.2424 5.0276-5.0276 5.0276s-5.0271-2.2424-5.0271-5.0276c-9e-7 -2.7852 2.2418-5.0271 5.0271-5.0271z" fill="#e49c3e"/>
@@ -414,29 +433,29 @@ function makeAboutMeCard(title, description, icon) {
     return cardDiv;
 }
 
-function addAboutMeCards(){
-    for(const cardContent of aboutMeContent){
+function addAboutMeCards() {
+    for (const cardContent of aboutMeContent) {
         aboutMeCardsDiv.appendChild(makeAboutMeCard(cardContent[0], cardContent[2], cardContent[1]));
     }
 }
 
-function showCard(card){
+function showCard(card) {
     card.classList.add("card-fade-in")
 }
-function hideCard(card){
+function hideCard(card) {
     card.classList.remove("card-fade-in")
 }
 
-function loadAboutMeDiv(entries, observer){
+function loadAboutMeDiv(entries, observer) {
     delay = 100;
     entries.forEach(entry => {
-        if(entry.isIntersecting){
-            runAfter(()=>{showCard(entry.target);}, delay);
+        if (entry.isIntersecting) {
+            runAfter(() => { showCard(entry.target); }, delay);
             delay += 300;
         }
-        else{
-            if(userScrollingUp){
-                runAfter(()=>{hideCard(entry.target);}, delay);
+        else {
+            if (userScrollingUp) {
+                runAfter(() => { hideCard(entry.target); }, delay);
                 delay += 300;
             }
         }
@@ -452,21 +471,25 @@ let cardObserver = new IntersectionObserver(loadAboutMeDiv, {
 })
 
 const cards = document.getElementsByClassName("aboutme-card");
-for(const card of cards){
+for (const card of cards) {
     cardObserver.observe(card);
 }
 
-let divObserver = new IntersectionObserver((entries, observer)=>{
-    entries.forEach(entry =>{
-        if(entry.isIntersecting){
-            aboutMeDivTitle.style.transform = "translateX(0)"
-            aboutMeDivTitle.style.opacity = "1"
+let divObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            setCssStyles(aboutMeDivTitle, {
+                "transform": "translateX(0)",
+                "opacity": "1"
+            });
         }
         else {
-            if(!userScrollingUp) return;
+            if (!userScrollingUp) return;
 
-            aboutMeDivTitle.style.transform = "translateX(-10%)"
-            aboutMeDivTitle.style.opacity = "0"
+            setCssStyles(aboutMeDivTitle, {
+                "transform": "translateX(-10%)",
+                "opacity": "0"
+            });
         }
     })
 }, {
@@ -495,156 +518,176 @@ const letter_shuffle = [0.3, -0.3, 0.3, -0.3, 0.3, -0.3, 0.3, -0.3, 0.3, -0.3, 0
 
 const idleWH = ["14em", "11em"]
 const idleCoords = [
-    "-7em, -5em", "-1em, -3em", 
-    "-4em, -1em", "3em, -4em", 
-    "-5em, 1em", "-2em, 1em", 
+    "-7em, -5em", "-1em, -3em",
+    "-4em, -1em", "3em, -4em",
+    "-5em, 1em", "-2em, 1em",
     "3em, 0em"
 ]
 const squareWH = ["10em", "10em"]
 const squareCoords = [
-    "-5em, -5em", "1em, -5em", 
-    "-5em, -1em", "-2em, -1em", 
-    "-5em, 1em", "-2em, 3em", 
+    "-5em, -5em", "1em, -5em",
+    "-5em, -1em", "-2em, -1em",
+    "-5em, 1em", "-2em, 3em",
     "3em, -1em"
 ]
 
 const circularWH = ["20em", "12em"]
 const circularCoords = [
-    "-10em, -6em", 
-    "4em, -6.7em", 
-    "-2em, -6.5em", 
-    "3em, 4em", 
-    "-4em, 5em", 
-    "-10em, 3em", 
+    "-10em, -6em",
+    "4em, -6.7em",
+    "-2em, -6.5em",
+    "3em, 4em",
+    "-4em, 5em",
+    "-10em, 3em",
     "6em, -2.6em"
 ]
 const circularAngles = [135, 45, 0, 135, 90, 135, 90]
 
 const funnyWH = ["15em", "15em"]
 const funnyCoords = [
-    "-3.5em, -5.5em", 
-    "0em, 2.5em", 
-    "-2em, -7.5em", 
-    "-3em, -1.5em", 
-    "-4em, 2.5em", 
-    "-7.5em, -6.5em", 
+    "-3.5em, -5.5em",
+    "0em, 2.5em",
+    "-2em, -7.5em",
+    "-3em, -1.5em",
+    "-4em, 2.5em",
+    "-7.5em, -6.5em",
     "3em, -5.5em"
 ]
 const funnyAngles = [0, 0, 0, 0, 0, 45, 150]
 
 let hoverEffectsEnabled = false;
 
-function makeIdleShape(){
-    for(let i=0; i<shapes; i++){
-        const shape = document.getElementById(`shape${i+1}`);
-        shape.style.setProperty("transform", `translate(${idleCoords[i]})`);
-        shape.style.setProperty("border-radius", "12rem")
+function makeIdleShape() {
+    for (let i = 0; i < shapes; i++) {
+        const shape = document.getElementById(`shape${i + 1}`);
+        setCssStyles(shape, {
+            "transform": `translate(${idleCoords[i]})`,
+            "border-radius": "12rem"
+        });
     }
     // shapesDiv.style.setProperty("width", idleWH[0]);
     // shapesDiv.style.setProperty("height", idleWH[1]);
 }
 
 // Creativity
-function funnyTextEffects(){
-    for(let i=0; i<creat_letters.length; i++){
-        creat_letters[i].style.setProperty("transform", `translateY(0rem)`)
-        creat_letters[i].style.color = "rgb(var(--sig-orange))"
+function funnyTextEffects() {
+    for (let i = 0; i < creat_letters.length; i++) {
+        setCssStyles(creat_letters[i], {
+            "transform": "translateY(0rem)",
+            "color": "rgb(var(--sig-orange))"
+        });
     }
 };
-function undoFunnyTextEffects(idleShape = true){
-    for(let i=0; i<creat_letters.length; i++){
-        creat_letters[i].style.setProperty("transform", `translateY(${letter_shuffle[i]}rem)`)
-        creat_letters[i].style.color = "rgb(var(--text-color))"
+function undoFunnyTextEffects(idleShape = true) {
+    for (let i = 0; i < creat_letters.length; i++) {
+        setCssStyles(creat_letters[i], {
+            "transform": `translateY(${letter_shuffle[i]}rem)`,
+            "color": "rgb(var(--text-color))"
+        });
     }
 }
-function makeFunnyShape(){
-    for(let i=0; i<shapes; i++){
-        const shape = document.getElementById(`shape${i+1}`);
-        shape.style.setProperty("transform", `translate(${funnyCoords[i]}) rotate(${funnyAngles[i]}deg)`);
-        shape.style.setProperty("border-radius", "1rem")
+function makeFunnyShape() {
+    for (let i = 0; i < shapes; i++) {
+        const shape = document.getElementById(`shape${i + 1}`);
+        setCssStyles(shape, {
+            "transform": `translate(${funnyCoords[i]}) rotate(${funnyAngles[i]}deg)`,
+            "border-radius": "1rem"
+        });
     }
 }
 
 // Simplicity
-function circularTextEffects(){
-    for(let i=0; i<simpl_letters.length; i++){
-        simpl_letters[i].style.setProperty("transform", `translateY(0rem)`);
-        simpl_letters[i].style.setProperty("color", "rgb(var(--sig-orange))")
+function circularTextEffects() {
+    for (let i = 0; i < simpl_letters.length; i++) {
+        setCssStyles(simpl_letters[i], {
+            "transform": "translateY(0rem)",
+            "color": "rgb(var(--sig-orange))"
+        });
     }
 }
-function undoCircularTextEffects(idleShape = true){
-    for(let i=0; i<simpl_letters.length; i++){
-        simpl_letters[i].style.setProperty("transform", `translateY(${letter_shuffle[i]}rem)`);
-        simpl_letters[i].style.setProperty("color", "rgb(var(--text-color))")
+function undoCircularTextEffects(idleShape = true) {
+    for (let i = 0; i < simpl_letters.length; i++) {
+        setCssStyles(simpl_letters[i], {
+            "transform": `translateY(${letter_shuffle[i]}rem)`,
+            "color": "rgb(var(--text-color))"
+        });
     }
 }
-function makeCircular(){
-    for(let i=0; i<shapes; i++){
-        const shape = document.getElementById(`shape${i+1}`);
-        shape.style.setProperty("transform", `translate(${circularCoords[i]}) rotate(${circularAngles[i]}deg)`);
-        shape.style.setProperty("border-radius", "12rem")
+function makeCircular() {
+    for (let i = 0; i < shapes; i++) {
+        const shape = document.getElementById(`shape${i + 1}`);
+        setCssStyles(shape, {
+            "transform": `translate(${circularCoords[i]}) rotate(${circularAngles[i]}deg)`,
+            "border-radius": "12rem"
+        });
     }
 }
 
 // Perfection
-function squareTextEffects(){
-    for(let i=0; i<perfection_letters.length; i++){
-        perfection_letters[i].style.setProperty("transform", `translateY(0rem)`);
-        perfection_letters[i].style.setProperty("color", "rgb(var(--sig-orange))")
+function squareTextEffects() {
+    for (let i = 0; i < perfection_letters.length; i++) {
+        setCssStyles(perfection_letters[i], {
+            "transform": "translateY(0rem)",
+            "color": "rgb(var(--sig-orange))"
+        });
     }
 }
-function undoSquareTextEffects(idleShape = true){
-    for(let i=0; i<perfection_letters.length; i++){
-        perfection_letters[i].style.setProperty("transform", `translateY(${letter_shuffle[i]}rem)`);
-        perfection_letters[i].style.setProperty("color", "rgb(var(--text-color))")
+function undoSquareTextEffects(idleShape = true) {
+    for (let i = 0; i < perfection_letters.length; i++) {
+        setCssStyles(perfection_letters[i], {
+            "transform": `translateY(${letter_shuffle[i]}rem)`,
+            "color": "rgb(var(--text-color))"
+        });
     }
 }
-function makeSquare(){
-    for(let i=0; i<shapes; i++){
-        const shape = document.getElementById(`shape${i+1}`);
-        shape.style.setProperty("transform", `translate(${squareCoords[i]})`);
-        shape.style.setProperty("border-radius", "2rem")
+function makeSquare() {
+    for (let i = 0; i < shapes; i++) {
+        const shape = document.getElementById(`shape${i + 1}`);
+        setCssStyles(shape, {
+            "transform": `translate(${squareCoords[i]})`,
+            "border-radius": "2rem"
+        });
     }
 }
 
 // Hover and Hover out functions
-function funnyHover(){
-    if(!hoverEffectsEnabled) return;
+function funnyHover() {
+    if (!hoverEffectsEnabled) return;
     makeFunnyShape();
     funnyTextEffects();
 }
-function circularHover(){
-    if(!hoverEffectsEnabled) return;
+function circularHover() {
+    if (!hoverEffectsEnabled) return;
     makeCircular();
     circularTextEffects();
 }
-function squareHover(){
-    if(!hoverEffectsEnabled) return;
+function squareHover() {
+    if (!hoverEffectsEnabled) return;
     makeSquare();
     squareTextEffects();
 }
 
-function funnyHoverOut(){
-    if(!hoverEffectsEnabled) return;
+function funnyHoverOut() {
+    if (!hoverEffectsEnabled) return;
     makeIdleShape();
     undoFunnyTextEffects();
 }
-function circularHoverOut(){
-    if(!hoverEffectsEnabled) return;
+function circularHoverOut() {
+    if (!hoverEffectsEnabled) return;
     makeIdleShape();
     undoCircularTextEffects();
 }
-function squareHoverOut(){
-    if(!hoverEffectsEnabled) return;
+function squareHoverOut() {
+    if (!hoverEffectsEnabled) return;
     makeIdleShape();
     undoSquareTextEffects();
 }
 
-function idleTextEffects(idleShape = true){
+function idleTextEffects(idleShape = true) {
     undoSquareTextEffects(idleShape);
     undoCircularTextEffects(idleShape);
     undoFunnyTextEffects(idleShape);
-    if(idleShape) makeIdleShape();
+    if (idleShape) makeIdleShape();
 }
 
 textCr.onmouseover = funnyHover;
@@ -657,32 +700,36 @@ textPe.onmouseover = squareHover;
 textPe.onmouseleave = squareHoverOut;
 
 const shapeFuncs = [
-    [makeFunnyShape, funnyTextEffects, undoFunnyTextEffects], 
-    [makeCircular, circularTextEffects, undoCircularTextEffects], 
+    [makeFunnyShape, funnyTextEffects, undoFunnyTextEffects],
+    [makeCircular, circularTextEffects, undoCircularTextEffects],
     [makeSquare, squareTextEffects, undoSquareTextEffects]];
 
 let firstTime = true;
 
-function loadTrifectaDiv(){
-    trifectaTitle.style.setProperty("transform", "translateX(0rem)");
-    trifectaTitle.style.setProperty("opacity", "1")
+function loadTrifectaDiv() {
+    setCssStyles(trifectaTitle, {
+        "transform": "translateX(0rem)",
+        "opacity": "1"
+    });
 
     let time = 700;
     helpText = document.getElementById("hover-help");
 
-    for(let i = 0; i < shapeFuncs.length; i++){
-        runAfter(()=>{
-            trifectaItems[i].style.setProperty("transform", "translateY(0rem)");
-            trifectaItems[i].style.setProperty("opacity", "1");
-            
-            if(firstTime) {
+    for (let i = 0; i < shapeFuncs.length; i++) {
+        runAfter(() => {
+            setCssStyles(trifectaItems[i], {
+                "transform": "translateY(0rem)",
+                "opacity": "1"
+            });
+
+            if (firstTime) {
                 shapeFuncs[i][0]();  // change the shapes arrangement on first run
             }
             runAfter(shapeFuncs[i][2], 800);
             shapeFuncs[i][1]();
 
-            if(firstTime && i == shapeFuncs.length-1){
-                runAfter(()=>{
+            if (firstTime && i == shapeFuncs.length - 1) {
+                runAfter(() => {
                     makeIdleShape();
                     hoverEffectsEnabled = true;
                 }, 850);
@@ -691,18 +738,20 @@ function loadTrifectaDiv(){
 
         time += 850
     }
-    
-    runAfter(()=>{firstTime=false}, time)
+
+    runAfter(() => { firstTime = false }, time)
 }
 
-function resetTrifectaDiv(){
-    trifectaTitle.style.setProperty("transform", "translateX(-4rem)");
-    trifectaTitle.style.setProperty("opacity", "0");
+function resetTrifectaDiv() {
+    setCssStyles(trifectaTitle, {
+        "transform": "translateX(-4rem)",
+        "opacity": "0"
+    });
 }
 
-function controlTrifectaDiv(entries, observer){
+function controlTrifectaDiv(entries, observer) {
     entries.forEach(entry => {
-        if(entry.isIntersecting){
+        if (entry.isIntersecting) {
             runAfter(loadTrifectaDiv, 100);
         }
         else {
@@ -715,22 +764,145 @@ let secondObserver = new IntersectionObserver(controlTrifectaDiv, options);
 secondObserver.observe(trifectaDiv);
 
 // Skills Div
-const mainSkillsDiv = document.getElementsByClassName("main-skills");
-const knowSkillsDiv = document.getElementsByClassName("know-skills");
-const touchSkillsDiv = document.getElementsByClassName("touch-skills");
+
+// framework lol
+function node(tagname, attributes, children) {
+    if (!tagname) return;
+    let node = document.createElement(tagname);
+
+    if (attributes != null) {
+        for (const key of Object.keys(attributes)) {
+            switch (key) {
+                case "cl": case "class": {
+                    node.className = attributes[key]; break;
+                }
+                case "id": {
+                    node.id = attributes[key]; break;
+                }
+                case "iText": case "innerText": {
+                    node.innerText = attributes[key]; break;
+                }
+                case "iHTML": case "innerHTML": {
+                    node.innerHTML = attributes[key]; break;
+                }
+                case "src": {
+                    node.src = attributes[key]; break;
+                }
+                case "href": {
+                    node.href = attributes[key]; break;
+                }
+                case "alt": {
+                    node.alt = attributes[key]; break;
+                }
+                default: {
+                    break;
+                }
+            }
+        }
+    }
+    if (children != null) {
+        for (const child of children) {
+            node.appendChild(child);
+        }
+    }
+}
+
+const mainSkillsDiv = document.getElementsByClassName("main-skills")[0];
+const knowSkillsDiv = document.getElementsByClassName("know-skills")[0];
+const touchSkillsDiv = document.getElementsByClassName("touch-skills")[0];
 
 const skillsInfo = {
     main: {
-        title: "My Major Skills",
+        title: "Main Skills",
         skills: [
             {
-                title: "MERN Stack Web Development",
+                icon: "./resources/skills/mern.png",
+                name: "MERN Stack Web Development",
                 description: "I utilize the MERN stack efficiently to produce stable, optimised and beautiful websites that are able to satisfy the users' needs, in addition to the client's requirements. My UI/UX skills really enhance the ease-of-use of the applications, resulting in better products."
             },
             {
-                title: "WPF Desktop & Avalonia Development",
-                description: ""
+                icon: "./resources/skills/wpf.png",
+                name: "WPF Desktop & Avalonia Development",
+                description: "I develop feature-rich and efficient Windows desktop applications using powerful technologies like WPF (Windows Presentation Foundation) and also have the capability to build cross-platform applications using the Avalonia UI technology with a C# .NET backend."
             }
+        ]
+    },
+    know: {
+        title: "Also good at these",
+        langs: [
+            { icon: "./resources/skills/js.png", name: "JavaScript", perc: 80 },
+            { icon: "./resources/skills/cs.png", name: "C#", perc: 75 },
+            { icon: "./resources/skills/py.png", name: "Python", perc: 70 },
+            { icon: "./resources/skills/java.png", name: "Java", perc: 55 }
+        ],
+        skills: [
+            [
+                { icon: "./resources/skills/html.png", name: "HTML" },
+                { icon: "./resources/skills/css.png", name: "CSS" },
+                { icon: "./resources/skills/ts.png", name: "TypeScript" },
+                { icon: "./resources/skills/express.png", name: "Express" },
+                { icon: "./resources/skills/mongo.png", name: "MongoDB" },
+                { icon: "./resources/skills/sql.png", name: "SQL" },
+                { icon: "./resources/skills/nextjs.png", name: "NextJS" },
+                { icon: "./resources/skills/cloud.png", name: "Google Cloud/AWS" }
+            ],
+            [
+                { icon: "./resources/skills/winui.png", name: "WinUI" },
+                { icon: "./resources/skills/pyqt5.png", name: "PyQt5" },
+                { icon: "./resources/skills/javafx.png", name: "JavaFX" },
+                { icon: "./resources/skills/tkinter.png", name: "tkinter" },
+                { icon: "./resources/skills/git.png", name: "Git" },
+                { icon: "./resources/skills/inkscape.png", name: "Inkscape" },
+                { icon: "./resources/skills/mspaint.png", name: "MS Paint" }
+            ]
+        ]
+    },
+    touch: {
+        title: "I know their names",
+        skills: [
+            { icon: "./resources/skills/figma.png", name: "Figma" },
+            { icon: "./resources/skills/electron.png", name: "Electron" },
+            { icon: "./resources/skills/cpp.png", name: "C++" },
+            { icon: "./resources/skills/bash.png", name: "Bash" },
+            { icon: "./resources/skills/excel.png", name: "MS Excel" },
+            { icon: "./resources/skills/ppt.png", name: "MS PowerPoint" },
+            { icon: "./resources/skills/photoshop.png", name: "PhotoShop" }
         ]
     }
 }
+
+// main skills
+const msTitle = document.createElement("h2");
+msTitle.className = "main-skills-title";
+msTitle.innerText = skillsInfo.main.title;
+
+const msSkills = document.createElement("div");
+msSkills.className = "main-skills-items";
+
+for (const skill of skillsInfo.main.skills) {
+    let msItem = document.createElement("div");
+    msItem.className = "main-skills-item";
+
+    let msIcon = document.createElement("div");
+    msIcon.className = "ms-icon";
+    let msImg = document.createElement("img");
+    msImg.src = skill.icon;
+
+    msIcon.append(msImg);
+
+    let msDetails = document.createElement("div");
+    msDetails.className = "ms-details";
+    let msName = document.createElement("h4");
+    msName.className = "ms-name";
+    msName.innerText = skill.name;
+    let msDesc = document.createElement("span");
+    msDesc.className = "ms-desc";
+    msDesc.innerText = skill.description;
+
+    msDetails.append(msName, msDesc);
+
+    msItem.append(msIcon, msDetails);
+    msSkills.append(msItem);
+}
+
+mainSkillsDiv.append(msTitle, msSkills);
