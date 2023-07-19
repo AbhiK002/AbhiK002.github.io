@@ -222,6 +222,7 @@ styleAfter(topDiv, "transform", "translateY(0%)", 500)
 styleAfter(bgSVG, "opacity", "1", 0)
 
 function loadCoverDiv() {
+    setCssStyles(bgSVG, { "opacity": "1" })
     stylesAfter(
         [contentDiv, "transform", "translateX(0%)", 300],
         [contentDiv, "opacity", "1", 0],
@@ -232,6 +233,7 @@ function loadCoverDiv() {
 function controlCover(entries, observer) {
     entries.forEach(entry => {
         if (entry.isIntersecting) loadCoverDiv();
+        else setCssStyles(bgSVG, { "opacity": "0" });
     })
 }
 
@@ -874,7 +876,7 @@ const skillsInfo = {
 }
 
 // main skills
-const msTitle = node("h2", { cl: "main-skills-title", innerText: skillsInfo.main.title })
+const msTitle = node("h2", { cl: "skills-title", innerText: skillsInfo.main.title })
 const msSkills = node("div", { cl: "main-skills-items" }, skillsInfo.main.skills.map(
     (skill) => {
         return node("div", { cl: "main-skills-item "}, [
@@ -886,5 +888,27 @@ const msSkills = node("div", { cl: "main-skills-items" }, skillsInfo.main.skills
         ])
     }
 ))
-
 mainSkillsDiv.append(msTitle, msSkills);
+
+// know skills
+function donutChart(innerNode, perc) {
+    const deg = `${Math.floor(perc/100 * 360)}deg`;
+    let donutType = "first";
+    if (perc > 50 && perc < 75) {
+        donutType = "second";
+    }
+    else {
+        donutType = "third";
+    }
+
+    const donut = node("div", { cl: `donut-chart ${donutType}` }, [node("span", null, [innerNode])], { "--deg": deg });
+    return donut;
+}
+
+const ksTitle = node("h2", { cl: "skills-title", innerText: skillsInfo.know.title } , [
+    node("div", {cl: "know-skills-langs"}, skillsInfo.know.langs.map(
+        (lang) => {return donutChart(node("img", { cl: "ks-lang-icon", src: lang.icon, alt: lang.name }), lang.perc)}
+    ))
+])
+
+knowSkillsDiv.append(ksTitle)
