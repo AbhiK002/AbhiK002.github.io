@@ -42,11 +42,14 @@
     --text-color: 255, 255, 255;
     --major-bg: 56, 56, 56;
     --minor-bg: 80, 80, 80;
-    --tile-bd-col: 146, 146, 146;
-    --sig-orange: 255, 167, 53;
+    
+    /* primary, secondary, accent */
     --sig-yellow: 255, 200, 128;
+    --sig-orange: 255, 167, 53;
     --sig-red: 255, 75, 75;
+
     --tile-bd: 2px;
+    --tile-bd-col: 146, 146, 146;
     --tile-bg: 255, 255, 255;
     --lamp-shade-opacity: 0;
 
@@ -475,27 +478,29 @@ body div, body {
  /* about me div */
 
 :root {
-    --aboutme-gradient: linear-gradient(25deg, rgba(255,200,128,1) 0%, rgba(210,127,20,1) 51%, rgba(96,60,60,1) 100%);
-    --aboutme-fallback: rgb(255,200,128);
+    /* --aboutme-gradient: linear-gradient(25deg, rgba(255,200,128,1) 0%, rgba(210,127,20,1) 51%, rgba(96,60,60,1) 100%);
+    --aboutme-fallback: rgb(255,200,128); */
+    --aboutme-gradient: linear-gradient(25deg, rgba(var(--sig-yellow), 1) 0%, rgba(var(--sig-red), 0.4) 100%);
+    --aboutme-fallback: var(--sig-yellow);
 
-    --aboutme-gradient-light: linear-gradient(25deg, rgba(255,210,146,1) 0%, rgba(255,184,154,1) 51%, rgba(255,165,165,1) 100%);
-    --aboutme-fallback-light: rgb(255,210,146);
+    /* --aboutme-gradient-light: linear-gradient(25deg, rgba(255,210,146,1) 0%, rgba(255,184,154,1) 51%, rgba(255,165,165,1) 100%);
+    --aboutme-fallback-light: rgb(255,210,146); */
 }
 
-.light-mode {
+/* .light-mode {
     --aboutme-gradient: var(--aboutme-gradient-light);
     --aboutme-fallback: var(--aboutme-fallback-light);
-}
+} */
 
 .aboutme-div {
-    min-height: 90vh;
-    min-height: 90svh;
+    min-height: 100vh;
+    min-height: 100svh;
     background: var(--aboutme-fallback);
     background: var(--aboutme-gradient);
     box-shadow: 0px 0px 24px rgba(67, 31, 2, 0.934) inset;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
     padding: 4rem 2rem;
     gap: 4rem;
@@ -506,9 +511,11 @@ body div, body {
     font-size: var(--large-font-size);
     text-align: center;
     line-height: 1;
+    margin: 0;
     opacity: 0;
     transform: translateX(-10%);
     transition: transform 600ms, opacity 600ms;
+    text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.4);
 }
 
 .aboutme-cards-div {
