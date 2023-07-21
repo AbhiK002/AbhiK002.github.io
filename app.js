@@ -84,6 +84,12 @@ function node(tagname, attributes, children, cssStyle) {
                 case "alt": {
                     node.alt = attributes[key]; break;
                 }
+                case "height": {
+                    node.height = attributes[key]; break;
+                }
+                case "width": {
+                    node.width = attributes[key]; break;
+                }
                 default: {
                     break;
                 }
@@ -877,10 +883,10 @@ const skillsInfo = {
 
 // main skills
 const msTitle = node("h2", { cl: "skills-title", innerText: skillsInfo.main.title })
-const msSkills = node("div", { cl: "main-skills-items" }, skillsInfo.main.skills.map(
+const msSkills = node("div", { cl: "main-skills-div" }, skillsInfo.main.skills.map(
     (skill) => {
-        return node("div", { cl: "main-skills-item "}, [
-            node("div", { cl: "ms-icon" }, [ node("img", { src: skill.icon}) ]),
+        return node("div", { cl: "main-skill-card "}, [
+            node("div", { cl: "ms-icon" }, [ node("img", { cl: "ms-img" ,src: skill.icon, alt: `${skill.name} icon`, height: 64}) ]),
             node("div", { cl: "ms-details" }, [
                 node("h4", { cl: "ms-name", innerText: skill.name }),
                 node("span", { cl: "ms-desc", innerText: skill.description })
@@ -891,7 +897,9 @@ const msSkills = node("div", { cl: "main-skills-items" }, skillsInfo.main.skills
 mainSkillsDiv.append(msTitle, msSkills);
 
 // know skills
-function donutChart(innerNode, perc) {
+function donutChart(innerNode, perc, extraClass) {
+    if (!extraClass) extraClass = "";
+
     const deg = `${Math.floor(perc/100 * 360)}deg`;
     let donutType = "first";
     if (perc > 50 && perc < 75) {
@@ -901,14 +909,29 @@ function donutChart(innerNode, perc) {
         donutType = "third";
     }
 
-    const donut = node("div", { cl: `donut-chart ${donutType}` }, [node("span", null, [innerNode])], { "--deg": deg });
+    const donut = node("div", { cl: `donut-chart ${donutType} ${extraClass}` }, [node("span", null, [innerNode])], { "--deg": deg });
     return donut;
 }
 
-const ksTitle = node("h2", { cl: "skills-title", innerText: skillsInfo.know.title } , [
+const ksTitle = node("h2", { cl: "skills-title", innerText: skillsInfo.know.title })
+const ksSkills = node("div", { cl: "know-skills-div" } , [
     node("div", {cl: "know-skills-langs"}, skillsInfo.know.langs.map(
-        (lang) => {return donutChart(node("img", { cl: "ks-lang-icon", src: lang.icon, alt: lang.name }), lang.perc)}
-    ))
+        (lang) => {return donutChart(node("img", { cl: "ks-lang-img", src: lang.icon, alt: `${lang.name} icon`, width: 48 }), lang.perc, "ks-lang")}
+    )),
+    node("div", {cl: "know-skills-techs"}, [
+        node("div", {cl: "know-skills-techs-inner"}, skillsInfo.know.skills[0].map(
+            (tech) => {return node("div", {cl: "ks-tech-card"}, [node("img", {cl: "ks-tech-img", src: tech.icon, alt: `${tech.name} icon`, height: 48})])}
+        )),
+        node("div", {cl: "know-skills-techs-inner"}, skillsInfo.know.skills[1].map(
+            (tech) => {return node("div", {cl: "ks-tech-card"}, [node("img", {cl: "ks-tech-img", src: tech.icon, alt: `${tech.name} icon`, height: 48})])}
+        ))
+    ])
 ])
+knowSkillsDiv.append(ksTitle, ksSkills)
 
-knowSkillsDiv.append(ksTitle)
+// touch skills
+const tsTitle = node("h2", { cl: "skills-title", innerText: skillsInfo.touch.title })
+const tsSkills = node("div", { cl: "touch-skills-div" }, skillsInfo.touch.skills.map(
+    (skill) => {return node("div", {cl: "ts-card"}, [node("img", {cl: "ts-img", src: webTech.icon, alt: `${webTech.name} icon`, height: 48})])}
+))
+touchSkillsDiv.append(tsTitle, tsSkills);

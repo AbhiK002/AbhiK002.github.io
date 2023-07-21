@@ -848,6 +848,7 @@ body div, body {
     .trifecta-text {
         flex-grow: 1;
         width: 100%;
+        font-weight: bold;
     }
 
     .trifecta-visual {
@@ -859,6 +860,10 @@ body div, body {
 }
 
 /* Skills Div */
+.skills-div {
+    background-color: rgb(var(--major-bg));
+}
+
 .donut-chart {
     --side-length: 80px;
     --chart-width: 4px;
