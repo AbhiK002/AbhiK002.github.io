@@ -932,6 +932,6 @@ knowSkillsDiv.append(ksTitle, ksSkills)
 // touch skills
 const tsTitle = node("h2", { cl: "skills-title", innerText: skillsInfo.touch.title })
 const tsSkills = node("div", { cl: "touch-skills-div" }, skillsInfo.touch.skills.map(
-    (skill) => {return node("div", {cl: "ts-card"}, [node("img", {cl: "ts-img", src: webTech.icon, alt: `${webTech.name} icon`, height: 48})])}
+    (skill) => {return node("div", {cl: "ts-card"}, [node("img", {cl: "ts-img", src: skill.icon, alt: `${skill.name} icon`, height: 48})])}
 ))
 touchSkillsDiv.append(tsTitle, tsSkills);
