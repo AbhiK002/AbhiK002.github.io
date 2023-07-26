@@ -7,6 +7,24 @@ const webdes = [
         support: ["pc"],
         link: "./1vyanjan/content1home.html",
         disabled: 0
+    },
+    {
+        index: "1-2",
+        title: "GiSmos - Online Shopping",
+        descr: "Full stack tech-shopping dummy website with authorization and express API",
+        image: "https://github-production-user-asset-6210df.s3.amazonaws.com/68178267/254085105-21f44079-1aae-461f-a29d-d7ef636d5d4e.png",
+        support: ["pc", "mob"],
+        link: "https://abhik002.github.io/gismos/",
+        disabled: 0
+    },
+    {
+        index: "1-3",
+        title: "CallThem - Contacts Storage",
+        descr: "Full stack contacts storage website with a modern and gorgeous User Interface",
+        image: "https://github-production-user-asset-6210df.s3.amazonaws.com/68178267/252859762-525afbc3-a63f-402c-b463-f1a4a69b1f0f.png",
+        support: ["pc", "mob],
+        link: "https://abhik002.github.io/call-them/",
+        disabled: 0
     }
 ]
 
