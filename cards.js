@@ -22,7 +22,7 @@ const webdes = [
         title: "CallThem - Contacts Storage",
         descr: "Full stack contacts storage website with a modern and gorgeous User Interface",
         image: "https://github-production-user-asset-6210df.s3.amazonaws.com/68178267/252859762-525afbc3-a63f-402c-b463-f1a4a69b1f0f.png",
-        support: ["pc", "mob],
+        support: ["pc", "mob"],
         link: "https://abhik002.github.io/call-them/",
         disabled: 0
     }
