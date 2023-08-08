@@ -162,10 +162,11 @@ for (const card of document.querySelectorAll(".tile")) {
 const myDetails = {
     fullname: "Abhineet Kelley",
     description: `
-        I am a <b>WPF Desktop Application</b> and <b>MERN Full-Stack</b> 
-        Web Developer, dedicated to crafting memorable products using 
+        I am a <b>Full-Stack</b> 
+        Web and <b>Desktop Application</b> Developer, dedicated to crafting memorable products using 
         <i>awesome</i> technologies
         `,
+    photo: "./resources/me.jpg",
     bestLangs: ["C#", "Python"],
     bestTools: ["React", "Node.js", "WPF", "Avalonia UI"],
     bestJS: ["React", "Node"],
@@ -383,11 +384,11 @@ function controlDecoration(entries, observer) {
         if (entry.isIntersecting) {
             runAfter(loadDecoration, 100)
         }
-        else {
-            if (userScrollingUp) {
-                runAfter(hideDecoration, 0)
-            }
-        }
+        // else {
+        //     if (userScrollingUp) {
+        //         runAfter(hideDecoration, 0)
+        //     }
+        // }
     });
 }
 
@@ -410,6 +411,18 @@ function switchBorderRadius() {
 switchBorderRadius();
 designWord.onmouseover = switchBorderRadius
 
+// myself-div
+
+const myselfDiv = document.getElementsByClassName("myself-div")[0];
+myselfDiv.appendChild(
+    node("div", {cl: "myself-container"}, [
+        node("div", {cl: "myself-photo"}, [
+            node("img", {cl: "myself-img", src: myDetails.photo, alt: "my photo"}),
+        ]),
+        node("div", {cl: "myself-details", innerText: "myself"})
+    ])
+)
+
 // about me div
 aboutMeContent = [
     [
@@ -419,7 +432,7 @@ aboutMeContent = [
          <path class="fill-ele" d="m12.168 12.613a0.75 0.75 0 0 0-0.15234 1.0508c0.62471 0.8371 1.333 1.3379 2.0527 1.5391s1.4099 0.09328 1.9609-0.11719c1.1022-0.42094 1.791-1.2539 1.791-1.2539a0.75 0.75 0 0 0-0.07813-1.0586 0.75 0.75 0 0 0-1.0586 0.08008s-0.52503 0.57828-1.1895 0.83203c-0.33221 0.12688-0.66562 0.17172-1.0215 0.07227-0.35587-0.09946-0.77687-0.35102-1.2539-0.99024a0.75 0.75 0 0 0-1.0508-0.1543zm1.7471-1.9074a1.0924 1.0924 0 0 1-1.0924 1.0924 1.0924 1.0924 0 0 1-1.0924-1.0924 1.0924 1.0924 0 0 1 1.0924-1.0924 1.0924 1.0924 0 0 1 1.0924 1.0924zm4.2333 0a1.0924 1.0924 0 0 1-1.0924 1.0924 1.0924 1.0924 0 0 1-1.0924-1.0924 1.0924 1.0924 0 0 1 1.0924-1.0924 1.0924 1.0924 0 0 1 1.0924 1.0924zm-0.0449 4.1163-0.28125 1.4746s1.1026 0.20927 2.2598 1.0859c1.1571 0.87667 2.3316 2.3491 2.4238 5.1016l0.13086 3.9492 1.5-0.05078-0.13281-3.9492c-0.10646-3.1784-1.5766-5.1559-3.0156-6.2461s-2.8848-1.3652-2.8848-1.3652zm-6.418 0s-1.4457 0.27501-2.8848 1.3652c-1.439 1.0902-2.9092 3.0677-3.0156 6.2461l-0.13281 3.9492 1.5 0.05078 0.13086-3.9492c0.092198-2.7524 1.2667-4.2249 2.4238-5.1016 1.1571-0.87667 2.2598-1.0859 2.2598-1.0859zm3.2539-8.8027c-3.164-1e-7 -5.7461 2.5801-5.7461 5.7441 2e-7 3.164 2.5821 5.7461 5.7461 5.7461 3.164-1e-6 5.7441-2.5821 5.7441-5.7461s-2.5801-5.7441-5.7441-5.7441zm0 1.5c2.3534 2e-7 4.2441 1.8908 4.2441 4.2441 0 2.3534-1.8908 4.2461-4.2441 4.2461-2.3534 0-4.2461-1.8927-4.2461-4.2461 0-2.3534 1.8927-4.2441 4.2461-4.2441zm-4e-6 -7.5195c-8.2419-3.9498e-7 -14.939 6.6976-14.939 14.939 0 8.2419 6.6976 14.939 14.939 14.939 8.2419 0 14.939-6.6976 14.939-14.939 1e-6 -8.2419-6.6976-14.939-14.939-14.939zm0 1.5c7.4312 0 13.439 6.0082 13.439 13.439 0 7.4312-6.0082 13.439-13.439 13.439-7.4312 1e-6 -13.439-6.0082-13.439-13.439-4e-7 -7.4312 6.0082-13.439 13.439-13.439z" color="#000000" fill="#e49c3e" stroke-linecap="round" style="-inkscape-stroke:none"/>
         </svg>
         `,
-        "I prioritize user experience and think from the user's perspective when creating desktop apps and websites. My focus is on crafting beautiful, bug-free, and easy-to-use applications that seamlessly complement the needs of the users."
+        "I prioritize user-centric design, crafting bug-free, beautiful apps and websites that seamlessly cater to users' needs."
     ],
     [
         "Modern & Technical Designs",
@@ -433,7 +446,7 @@ aboutMeContent = [
         </svg>
         
         `,
-        "I have a strong background in modern UI design and possess both front-end and back-end development skills. I stay updated with the latest technologies and industry trends to provide cutting-edge solutions that meet the evolving needs of clients."
+        "With a robust UI design background, I excel in full-stack development, staying current with tech trends to deliver innovative solutions."
     ],
     [
         "Precise Attention to Detail",
@@ -444,7 +457,7 @@ aboutMeContent = [
          <path id="eye" d="m16.674 5.4751c-2.0502 0.00319-4.3557 0.97468-6.6508 3.8933 7.0598 8.8457 13.758-0.12247 13.758-0.12247s-3.0543-3.7771-7.1071-3.7708zm0.10904 0.69608c1.749 0 3.1781 1.4291 3.1781 3.1781 0 1.749-1.4291 3.1776-3.1781 3.1776-1.749 0-3.1781-1.4286-3.1781-3.1776 0-1.749 1.4291-3.1781 3.1781-3.1781zm0 1.093c-1.1584 0-2.0846 0.92675-2.0846 2.0851 0 1.1584 0.92622 2.0846 2.0846 2.0846s2.0852-0.92623 2.0851-2.0846c0-1.1584-0.92665-2.0852-2.0851-2.0851z" fill="#e49c3e" class="fill-ele"/>
         </svg>
         `,
-        "I pay meticulous attention to detail, ensuring that no aspect of the application is overlooked. I believe that even the smallest details can make a big difference in the overall impression and usability of an application."
+        "I'm detail-focused, leaving no part of the app unnoticed. I believe small details do impact an app's impression and usability."
     ],
     [
         "Creative Problem-Solving",
@@ -459,7 +472,7 @@ aboutMeContent = [
          <path class="fill-ele" d="m7.4843 0c-0.20709-9.3569e-6 -0.37362 0.22553-0.37362 0.50591v1.5208c-0.28065 0.057827-0.55475 0.13467-0.82114 0.22738l-0.76429-1.3234c-0.14019-0.24282-0.39736-0.35469-0.57671-0.25115l-1.5296 0.88315c-0.17935 0.10355-0.21047 0.38195-0.07028 0.62477l0.7705 1.3353c-0.21121 0.18597-0.4106 0.38495-0.59635 0.59635l-1.3348-0.77101c-0.24261-0.13982-0.52174-0.10851-0.62528 0.070797l-0.88315 1.5296c-0.10354 0.17934 0.008791 0.43651 0.25166 0.57671l1.3255 0.76533c-0.092299 0.26609-0.16835 0.53983-0.22583 0.8201h-1.5245c-0.28037 2.81e-5 -0.50643 0.16654-0.50643 0.37362v1.7658c-1.8714e-6 0.20709 0.22604 0.37414 0.50643 0.37414h1.5043c0.053645 0.28599 0.12569 0.56545 0.21549 0.83716l-1.295 0.74828c-0.24282 0.14019-0.35521 0.39736-0.25166 0.57671l0.88315 1.5291c0.10355 0.17934 0.38247 0.21095 0.62528 0.0708l1.2733-0.73536c0.19131 0.22413 0.39754 0.43498 0.61702 0.63149l-0.72967 1.2645c-0.14017 0.2428-0.10907 0.52174 0.07028 0.62528l1.5296 0.88315c0.17935 0.10356 0.43652-0.0084 0.57671-0.25166l0.71262-1.234c0.28254 0.10101 0.57403 0.18344 0.87281 0.24495v1.4139c-9e-7 0.28038 0.16652 0.50643 0.37362 0.50643h1.7663c0.20709 0 0.37362-0.22605 0.37362-0.50643v-1.3911c0.30538-0.05698 0.60344-0.13542 0.89245-0.23358l0.69298 1.1999c0.14019 0.24282 0.39736 0.35521 0.57671 0.25166l1.5296-0.88315c0.17935-0.10355 0.21047-0.38248 0.07028-0.62528l-0.68988-1.1958c0.2335-0.20257 0.45244-0.42146 0.65526-0.65474l1.1953 0.68988c0.24261 0.13983 0.52174 0.10858 0.62528-0.0708l0.88315-1.5291c0.10355-0.17935-0.0089-0.43652-0.25166-0.57671l-1.1968-0.69143c0.09865-0.28946 0.17671-0.5881 0.23409-0.894h1.3875c0.28038-9.4e-6 0.50643-0.16704 0.50643-0.37414v-1.7658c-2e-6 -0.20709-0.22605-0.37362-0.50643-0.37362h-1.4077c-0.06152-0.30006-0.14411-0.59273-0.24546-0.87643l1.2283-0.709c0.24282-0.14019 0.35521-0.39737 0.25166-0.57671l-0.88315-1.5296c-0.10355-0.17936-0.38246-0.21095-0.62528-0.070797l-1.2578 0.72657c-0.19731-0.22051-0.40943-0.42752-0.63459-0.6196l0.73174-1.2676c0.14017-0.2428 0.10906-0.52123-0.07028-0.62477l-1.5296-0.88315c-0.17936-0.10357-0.43652 0.00842-0.57671 0.25115l-0.74517 1.2904c-0.27271-0.090016-0.55317-0.16291-0.84026-0.21652v-1.4986c0-0.28038-0.16653-0.50591-0.37362-0.50591h-1.7663zm0.94154 3.3936c2.7852 0 5.0276 2.2418 5.0276 5.0271 2e-6 2.7852-2.2424 5.0276-5.0276 5.0276s-5.0271-2.2424-5.0271-5.0276c-9e-7 -2.7852 2.2418-5.0271 5.0271-5.0271z" fill="#e49c3e"/>
         </svg>
         `,
-        "I thrive on finding creative solutions to challenges that arise during development. I approach projects with a fresh and imaginative perspective, constantly seeking innovative ways to address problems and create unique solutions."
+        "I excel at innovative problem-solving, embracing challenges with creativity and fresh perspective to craft unique solutions."
     ]
 ]
 
@@ -467,23 +480,14 @@ const aboutMeCardsDiv = document.getElementsByClassName("aboutme-cards-div")[0];
 const aboutMeDivTitle = document.getElementsByClassName("aboutme-div-title")[0];
 
 function makeAboutMeCard(title, description, icon) {
-    cardDiv = document.createElement("div");
-    cardDiv.className = "aboutme-card";
-
-    cardIcon = document.createElement("div");
-    cardIcon.className = "aboutme-icon";
-    cardIcon.innerHTML = icon;
-
-    cardTitle = document.createElement("span");
-    cardTitle.className = "aboutme-title";
-    cardTitle.innerText = title;
-
-    cardDesc = document.createElement("span");
-    cardDesc.className = "aboutme-desc";
-    cardDesc.innerText = description;
-
-    cardDiv.append(cardIcon, cardTitle, cardDesc);
-    return cardDiv;
+    let cardDiv = node("div", {cl: "aboutme-card"}, [
+        node("div", {cl: "aboutme-icon", innerHTML: icon}),
+        node("div", {cl: "aboutme-card-bottom"}, [
+            node("div", {cl: "aboutme-title", innerText: title}),
+            node("div", {cl: "aboutme-desc", innerText: description})
+        ])
+    ])
+    return cardDiv
 }
 
 function addAboutMeCards() {
@@ -828,22 +832,32 @@ const skillsInfo = {
             {
                 icon: "./resources/skills/mern.png",
                 name: "MERN Stack Web Development",
-                description: "I utilize the MERN stack efficiently to produce stable, optimised and beautiful websites that are able to satisfy the users' needs, in addition to the client's requirements. My UI/UX skills really enhance the ease-of-use of the applications, resulting in better products."
+                description: "I utilize the MERN stack efficiently to produce stable, optimised and beautiful dynamic websites that are able to satisfy the users' needs, in addition to the client's requirements."
             },
             {
-                icon: "./resources/skills/wpf.png",
-                name: "WPF Desktop & Avalonia Development",
-                description: "I develop feature-rich and efficient Windows desktop applications using powerful technologies like WPF (Windows Presentation Foundation) and also have the capability to build cross-platform applications using the Avalonia UI technology with a C# .NET backend."
+                icon: "./resources/skills/vanilla.png",
+                name: "Vanilla Web Development",
+                description: "I am adept at creating interactive and modern static websites using only pure HTML, CSS, and vanilla JavaScript. In fact, I've built this portfolio with foundational web technologies."
+            },
+            // {
+            //     icon: "./resources/skills/wpf.png",
+            //     name: "WPF Desktop & Avalonia Development",
+            //     description: "I develop feature-rich and efficient Windows desktop applications using the powerful technology WPF (Windows Presentation Foundation) and cross-platform apps using Microsoft's Avalonia."
+            // },
+            {
+                icon: "./resources/skills/pyqt5.png",
+                name: "PyQt5 Desktop App Development",
+                description: "I have a strong command of 'Qt,' a cross-platform desktop GUI technology, and utilize its Python variant, PyQt5, to develop desktop applications that have native-like features on any OS."
             }
         ]
     },
     know: {
         title: "Also good at these",
         langs: [
-            { icon: "./resources/skills/js.png", name: "JavaScript", perc: 80 },
-            { icon: "./resources/skills/cs.png", name: "C#", perc: 75 },
-            { icon: "./resources/skills/py.png", name: "Python", perc: 70 },
-            { icon: "./resources/skills/java.png", name: "Java", perc: 55 }
+            { icon: "./resources/skills/py.png", name: "Python", perc: 80 },
+            { icon: "./resources/skills/js.png", name: "JavaScript", perc: 75 },
+            { icon: "./resources/skills/cs.png", name: "C#", perc: 65 },
+            { icon: "./resources/skills/java.png", name: "Java", perc: 50 }
         ],
         skills: [
             [
@@ -902,7 +916,7 @@ function donutChart(innerNode, perc, extraClass) {
 
     const deg = `${Math.floor(perc/100 * 360)}deg`;
     let donutType = "first";
-    if (perc > 50 && perc < 75) {
+    if (perc >= 50 && perc < 75) {
         donutType = "second";
     }
     else {
@@ -915,15 +929,15 @@ function donutChart(innerNode, perc, extraClass) {
 
 const ksTitle = node("h2", { cl: "skills-title", innerText: skillsInfo.know.title })
 const ksSkills = node("div", { cl: "know-skills-div" } , [
-    node("div", {cl: "know-skills-langs"}, skillsInfo.know.langs.map(
-        (lang) => {return donutChart(node("img", { cl: "ks-lang-img", src: lang.icon, alt: `${lang.name} icon`, width: 48 }), lang.perc, "ks-lang")}
+    node("div", {cl: "know-langs"}, skillsInfo.know.langs.map(
+        (lang) => {return donutChart(node("img", { cl: "kl-img", src: lang.icon, alt: `${lang.name} icon`, width: 48 }), lang.perc, "ks-lang")}
     )),
-    node("div", {cl: "know-skills-techs"}, [
-        node("div", {cl: "know-skills-techs-inner"}, skillsInfo.know.skills[0].map(
-            (tech) => {return node("div", {cl: "ks-tech-card"}, [node("img", {cl: "ks-tech-img", src: tech.icon, alt: `${tech.name} icon`, height: 48})])}
+    node("div", {cl: "know-skills"}, [
+        node("div", {cl: "know-skills-inner"}, skillsInfo.know.skills[0].map(
+            (skill) => {return node("div", {cl: "skill-card ks"}, [node("img", {cl: "skill-img ks", src: skill.icon, alt: `${skill.name} icon`, height: 48})])}
         )),
-        node("div", {cl: "know-skills-techs-inner"}, skillsInfo.know.skills[1].map(
-            (tech) => {return node("div", {cl: "ks-tech-card"}, [node("img", {cl: "ks-tech-img", src: tech.icon, alt: `${tech.name} icon`, height: 48})])}
+        node("div", {cl: "know-skills-inner"}, skillsInfo.know.skills[1].map(
+            (skill) => {return node("div", {cl: "skill-card ks"}, [node("img", {cl: "skill-img ks", src: skill.icon, alt: `${skill.name} icon`, height: 48})])}
         ))
     ])
 ])
@@ -932,6 +946,6 @@ knowSkillsDiv.append(ksTitle, ksSkills)
 // touch skills
 const tsTitle = node("h2", { cl: "skills-title", innerText: skillsInfo.touch.title })
 const tsSkills = node("div", { cl: "touch-skills-div" }, skillsInfo.touch.skills.map(
-    (skill) => {return node("div", {cl: "ts-card"}, [node("img", {cl: "ts-img", src: skill.icon, alt: `${skill.name} icon`, height: 48})])}
+    (skill) => {return node("div", {cl: "skill-card ts"}, [node("img", {cl: "skill-img ts", src: skill.icon, alt: `${skill.name} icon`, height: 48})])}
 ))
 touchSkillsDiv.append(tsTitle, tsSkills);

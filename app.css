@@ -521,9 +521,9 @@ body div, body {
 .aboutme-cards-div {
     display: grid;
     width: 100%;
-    grid-gap: 2rem;
-    justify-content: space-evenly;
-    grid-template-columns: repeat(4, minmax(min-content, 25rem));
+    grid-gap: 4rem;
+    justify-content: center;
+    grid-template-columns: repeat(2, minmax(min-content, 500px));
 }
 
 .aboutme-card {
@@ -536,10 +536,7 @@ body div, body {
     border-radius: 1.5rem;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.6);
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: baseline;
-    padding: 2rem 2rem;
+    padding: 3rem 3rem;
     gap: 2rem;
     opacity: 0;
     transform: translateY(-2rem);
@@ -562,6 +559,9 @@ body div, body {
 .aboutme-icon svg, .aboutme-icon {
     height: 8rem;
     width: 8rem;
+}
+.aboutme-icon {
+    min-width: 8rem;
 }
 .aboutme-icon {
     position: relative;
@@ -636,7 +636,7 @@ body div, body {
 }
 
 .aboutme-title {
-    font-size: var(--small-font-size);
+    font-size: 24px;
     align-self: flex-start;
     font-family: var(--second-font), var(--main-font), "Calibri";
     font-weight: 600;
@@ -645,8 +645,9 @@ body div, body {
 }
 
 .aboutme-desc {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 400;
+    margin-top: 12px;
     display: flex;
     align-items: baseline;
     text-align: left
@@ -829,7 +830,12 @@ body div, body {
     }
 
     .aboutme-cards-div {
-        grid-template-columns: minmax(min-content, 340px);
+        grid-template-columns: minmax(min-content, 380px);
+        padding: 2rem
+    }
+
+    .aboutme-card {
+        flex-direction: column;
     }
 
     .trifecta-div {
