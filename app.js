@@ -166,7 +166,7 @@ const myDetails = {
         Web and <b>Desktop Application</b> Developer, dedicated to crafting memorable products using 
         <i>awesome</i> technologies
         `,
-    photo: "./resources/me.jpg",
+    photo: "./TESTS/me2.jpg",
     bestLangs: ["C#", "Python"],
     bestTools: ["React", "Node.js", "WPF", "Avalonia UI"],
     bestJS: ["React", "Node"],
@@ -424,7 +424,7 @@ const myselfDetails = `
 myselfDiv.appendChild(
     node("div", {cl: "myself-container"}, [
         node("div", {cl: "myself-photo"}, [
-            node("img", {cl: "myself-img", src: myDetails.photo, alt: "my photo"}),
+            node("img", {cl: "myself-img", src: myDetails.photo, alt: "my photo", width: 128}),
         ]),
         node("div", {cl: "myself-details", innerHTML: myselfDetails})
     ])
