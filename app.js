@@ -412,14 +412,21 @@ switchBorderRadius();
 designWord.onmouseover = switchBorderRadius
 
 // myself-div
-
 const myselfDiv = document.getElementsByClassName("myself-div")[0];
+const myselfDetails = `
+    <li> A <span class="gold">Full-Stack Web Developer</span> based in Punjab, India </li>
+    <li> Skilled in technologies like <span class="gold">MERN, NextJS</span> and <span class="gold">PostgreSQL </span> </li>
+    <li> Hobbyist Desktop App Developer using <span class="gold">Python</span> and very soon <span class="gold"> C# .NET</span> </li>
+    <li> Proficient with frameworks such as <span class="gold">PyQt5 and tkinter</span> </li>
+    <li> <span class="gold">Adaptable</span> to stressful situations and collaborative <span class="gold">team player</span>, </li>
+`
+
 myselfDiv.appendChild(
     node("div", {cl: "myself-container"}, [
         node("div", {cl: "myself-photo"}, [
             node("img", {cl: "myself-img", src: myDetails.photo, alt: "my photo"}),
         ]),
-        node("div", {cl: "myself-details", innerText: "myself"})
+        node("div", {cl: "myself-details", innerHTML: myselfDetails})
     ])
 )
 

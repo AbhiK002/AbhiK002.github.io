@@ -138,6 +138,10 @@ body div, body {
 }
 
 /* FOR GLOBAL USE */
+.gold {
+    color: rgb(var(--sig-yellow));
+    font-weight: bold;
+}
 
 .tile {
     position: relative;
