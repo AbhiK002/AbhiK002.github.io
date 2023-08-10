@@ -72,6 +72,7 @@
     --small-font-size: 2.1rem;
     --smaller-font-size: 1.8rem;
     --smallest-font-size: 1.5rem;
+    --tiny-font-size: 1.2rem;
 
     --base-font-size: 12px;
     /* 10:5:3:2:1.33 */
@@ -483,8 +484,11 @@ body div, body {
 }
 /* myself div */
 .myself-div {
-    background-color: rgb(var(--major-bg));
-    /* box-shadow: 0px 0px 150px 64px rgb(var(--minor-bg)) inset; */
+    background-color: rgb(var(--minor-bg));
+    /* border: 8px double rgba(var(--sig-yellow), 0.5); */
+    border-left: none;
+    border-right: none;
+    /* box-shadow: 0px 0px 16px 4px rgba(var(--major-bg), 1) inset; */
     min-height: 90vh;
     min-height: 90svh;
     display: flex;
@@ -522,9 +526,147 @@ body div, body {
     font-size: var(--smaller-font-size);
     max-width: 600px;
 }
+.myself-details .myself-title {
+    margin: 0;
+    margin-bottom: 2rem;
+    font-size: var(--large-font-size);
+    line-height: 1;
+}
 .myself-details li {
     line-height: 1.2;
     margin-bottom: 8px;
+}
+
+
+/* Skills Div */
+.skills-div {
+    background-color: rgb(var(--major-bg));
+    display: flex;
+    justify-content: center;
+}
+
+.donut-chart {
+    --side-length: 80px;
+    --chart-width: 4px;
+    --chart-width-neg: -4px;
+    --chart-fg: rgb(var(--sig-orange));
+    --chart-bg: transparent;
+    --deg: 0deg;
+
+    position: relative;
+    box-sizing: border-box;
+    width: var(--side-length);
+    height: var(--side-length);
+    padding: 8px;
+    text-align: center;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%;
+    border: var(--chart-width) solid var(--chart-bg);
+    transform: rotateZ(-45deg);
+}
+.donut-chart span {
+    transform: rotateZ(45deg)
+}
+.donut-chart::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    height: calc(100%);
+    width: calc(100%);
+    translate: var(--chart-width-neg) var(--chart-width-neg);
+    border-radius: 50%;
+    border: var(--chart-width) solid transparent;
+    border-color: var(--chart-fg) transparent transparent transparent;
+    transform: rotateZ(var(--deg));
+}
+
+.donut-chart.first {
+    border-color: var(--chart-bg) var(--chart-fg) var(--chart-bg) var(--chart-bg);
+}
+.donut-chart.second {
+    border-color: var(--chart-bg) var(--chart-fg) var(--chart-fg) var(--chart-bg);
+}
+.donut-chart.third {
+    border-color: var(--chart-bg) var(--chart-fg) var(--chart-fg) var(--chart-fg);
+}
+
+.skills-divisions {
+    display: grid;
+    justify-content: stretch;
+    gap: 1rem;
+    padding: 2rem;
+    font-size: var(--smallest-font-size);
+    width: 1024px;
+}
+
+.skills-title {
+    text-align: center;
+}
+
+.main-skills {
+    grid-column: 1 / span 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.main-skills-div {
+    display: grid;
+    width: fit-content;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    gap: 2rem;
+}
+.main-skill-card {
+    display: flex;
+    border: 2px solid rgba(var(--sig-yellow), 0.6);
+    background-color: rgba(var(--minor-bg), 0.5);
+    border-radius: 16px;
+    padding: 1rem;
+    gap: 2rem;
+    max-width: 400px;
+}
+.ms-icon {
+    height: 96px; min-width: 96px;
+    width: 96px;
+    border: 1px solid yellow;
+    align-self: center;
+    overflow: hidden;
+}
+.ms-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem
+}
+.ms-name {
+    margin: 0;
+    line-height: 1.4;
+    color: rgb(var(--sig-yellow))
+}
+.ms-desc {
+    font-size: var(--tiny-font-size);
+    display: block;
+    line-height: 1.3;
+}
+
+.know-skills-div {
+    display: flex;
+    gap: 2rem;
+}
+
+.know-skills-langs {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.ks-lang {
+    --chart-fg: rgba(var(--sig-orange), 1);
+    --chart-bg: rgb(var(--minor-bg));
+}
+
+.kl-img {
+    width: 42px;
+    border-radius: 8px;
 }
 
  /* about me div */
@@ -904,54 +1046,4 @@ body div, body {
     }
 
     #b1, #b2, #b3, #b4 {animation: none}
-}
-
-/* Skills Div */
-.skills-div {
-    background-color: rgb(var(--major-bg));
-}
-
-.donut-chart {
-    --side-length: 80px;
-    --chart-width: 4px;
-    --chart-width-neg: -4px;
-    --chart-fg: rgb(var(--sig-orange));
-    --chart-bg: transparent;
-    --deg: 0deg;
-
-    position: relative;
-    box-sizing: border-box;
-    width: var(--side-length);
-    height: var(--side-length);
-    padding: 8px;
-    text-align: center;
-    display: flex; align-items: center; justify-content: center;
-    border-radius: 50%;
-    border: var(--chart-width) solid var(--chart-bg);
-    transform: rotateZ(-45deg);
-}
-.donut-chart span {
-    transform: rotateZ(45deg)
-}
-.donut-chart::after {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    height: calc(100%);
-    width: calc(100%);
-    translate: var(--chart-width-neg) var(--chart-width-neg);
-    border-radius: 50%;
-    border: var(--chart-width) solid transparent;
-    border-color: var(--chart-fg) transparent transparent transparent;
-    transform: rotateZ(var(--deg));
-}
-
-.donut-chart.first {
-    border-color: var(--chart-bg) var(--chart-fg) var(--chart-bg) var(--chart-bg);
-}
-.donut-chart.second {
-    border-color: var(--chart-bg) var(--chart-fg) var(--chart-fg) var(--chart-bg);
-}
-.donut-chart.third {
-    border-color: var(--chart-bg) var(--chart-fg) var(--chart-fg) var(--chart-fg);
 }

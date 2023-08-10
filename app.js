@@ -166,12 +166,7 @@ const myDetails = {
         Web and <b>Desktop Application</b> Developer, dedicated to crafting memorable products using 
         <i>awesome</i> technologies
         `,
-    photo: "./TESTS/me2.jpg",
-    bestLangs: ["C#", "Python"],
-    bestTools: ["React", "Node.js", "WPF", "Avalonia UI"],
-    bestJS: ["React", "Node"],
-    avgLangs: ["Java", "C++"],
-    avgTools: ["JavaFX", "Qt C++", "PyQt5", "tkinter"]
+    photo: "./TESTS/me.jpg"
 }
 const colors = [
     ["red", "#de3b51"],
@@ -414,6 +409,7 @@ designWord.onmouseover = switchBorderRadius
 // myself-div
 const myselfDiv = document.getElementsByClassName("myself-div")[0];
 const myselfDetails = `
+<h2 class="myself-title"> About Abhineet Kelley </h2>
     <li> A <span class="gold">Full-Stack Web Developer</span> based in Punjab, India </li>
     <li> Skilled in technologies like <span class="gold">MERN, NextJS</span> and <span class="gold">PostgreSQL </span> </li>
     <li> Hobbyist Desktop App Developer using <span class="gold">Python</span> and very soon <span class="gold"> C# .NET</span> </li>
@@ -429,6 +425,136 @@ myselfDiv.appendChild(
         node("div", {cl: "myself-details", innerHTML: myselfDetails})
     ])
 )
+
+// Skills Div
+const mainSkillsDiv = document.getElementsByClassName("main-skills")[0];
+const knowSkillsDiv = document.getElementsByClassName("know-skills")[0];
+const touchSkillsDiv = document.getElementsByClassName("touch-skills")[0];
+
+const skillsInfo = {
+    main: {
+        title: "Main Skills",
+        skills: [
+            {
+                icon: "./resources/skills/mern.png",
+                name: "MERN Stack Web Development",
+                description: "I utilize the MERN stack efficiently to produce stable, optimised and beautiful dynamic websites that are able to satisfy the users' needs, in addition to the client's requirements."
+            },
+            {
+                icon: "./resources/skills/vanilla.png",
+                name: "Vanilla Web Development",
+                description: "I am adept at creating interactive and modern static websites using only pure HTML, CSS, and vanilla JavaScript. In fact, I've built this portfolio with foundational web technologies."
+            },
+            // {
+            //     icon: "./resources/skills/wpf.png",
+            //     name: "WPF Desktop & Avalonia Development",
+            //     description: "I develop feature-rich and efficient Windows desktop applications using the powerful technology WPF (Windows Presentation Foundation) and cross-platform apps using Microsoft's Avalonia."
+            // },
+            {
+                icon: "./resources/skills/pyqt5.png",
+                name: "PyQt5 Desktop App Development",
+                description: "I have a strong command of 'Qt,' a cross-platform desktop GUI technology, and utilize its Python variant, PyQt5, to develop desktop applications that have native-like features on any OS."
+            }
+        ]
+    },
+    know: {
+        title: "Also good at these",
+        langs: [
+            { icon: "./resources/skills/py.png", name: "Python", perc: 80 },
+            { icon: "./resources/skills/js.png", name: "JavaScript", perc: 75 },
+            { icon: "./resources/skills/cs.png", name: "C#", perc: 65 },
+            { icon: "./resources/skills/java.png", name: "Java", perc: 50 }
+        ],
+        skills: [
+            [
+                { icon: "./resources/skills/html.png", name: "HTML" },
+                { icon: "./resources/skills/css.png", name: "CSS" },
+                { icon: "./resources/skills/ts.png", name: "TypeScript" },
+                { icon: "./resources/skills/express.png", name: "Express" },
+                { icon: "./resources/skills/mongo.png", name: "MongoDB" },
+                { icon: "./resources/skills/sql.png", name: "SQL" },
+                { icon: "./resources/skills/nextjs.png", name: "NextJS" },
+                { icon: "./resources/skills/cloud.png", name: "Google Cloud/AWS" }
+            ],
+            [
+                { icon: "./resources/skills/winui.png", name: "WinUI" },
+                { icon: "./resources/skills/pyqt5.png", name: "PyQt5" },
+                { icon: "./resources/skills/javafx.png", name: "JavaFX" },
+                { icon: "./resources/skills/tkinter.png", name: "tkinter" },
+                { icon: "./resources/skills/git.png", name: "Git" },
+                { icon: "./resources/skills/inkscape.png", name: "Inkscape" },
+                { icon: "./resources/skills/mspaint.png", name: "MS Paint" }
+            ]
+        ]
+    },
+    touch: {
+        title: "I know their names",
+        skills: [
+            { icon: "./resources/skills/figma.png", name: "Figma" },
+            { icon: "./resources/skills/electron.png", name: "Electron" },
+            { icon: "./resources/skills/cpp.png", name: "C++" },
+            { icon: "./resources/skills/bash.png", name: "Bash" },
+            { icon: "./resources/skills/excel.png", name: "MS Excel" },
+            { icon: "./resources/skills/ppt.png", name: "MS PowerPoint" },
+            { icon: "./resources/skills/photoshop.png", name: "PhotoShop" }
+        ]
+    }
+}
+
+// main skills
+const msTitle = node("h2", { cl: "skills-title", innerText: skillsInfo.main.title })
+const msSkills = node("div", { cl: "main-skills-div" }, skillsInfo.main.skills.map(
+    (skill) => {
+        return node("div", { cl: "main-skill-card"}, [
+            node("div", { cl: "ms-icon" }, [ node("img", { cl: "ms-img" ,src: skill.icon, alt: `${skill.name} icon`, height: 64}) ]),
+            node("div", { cl: "ms-details" }, [
+                node("h4", { cl: "ms-name", innerText: skill.name }),
+                node("span", { cl: "ms-desc", innerText: skill.description })
+            ])
+        ])
+    }
+))
+mainSkillsDiv.append(msTitle, msSkills);
+
+// know skills
+function donutChart(innerNode, perc, extraClass) {
+    if (!extraClass) extraClass = "";
+
+    const deg = `${Math.floor(perc/100 * 360)}deg`;
+    let donutType = "first";
+    if (perc >= 50 && perc < 75) {
+        donutType = "second";
+    }
+    else {
+        donutType = "third";
+    }
+
+    const donut = node("div", { cl: `donut-chart ${donutType} ${extraClass}` }, [node("span", null, [innerNode])], { "--deg": deg });
+    return donut;
+}
+
+const ksTitle = node("h2", { cl: "skills-title", innerText: skillsInfo.know.title })
+const ksSkills = node("div", { cl: "know-skills-div" } , [
+    node("div", {cl: "know-skills-langs"}, skillsInfo.know.langs.map(
+        (lang) => {return donutChart(node("img", { cl: "kl-img", src: lang.icon, alt: `${lang.name} icon`, width: 48 }), lang.perc, "ks-lang")}
+    )),
+    node("div", {cl: "know-skills-container"}, [
+        node("div", {cl: "know-skills-inner"}, skillsInfo.know.skills[0].map(
+            (skill) => {return node("div", {cl: "skill-card ks"}, [node("img", {cl: "skill-img ks", src: skill.icon, alt: `${skill.name} icon`, height: 48})])}
+        )),
+        node("div", {cl: "know-skills-inner"}, skillsInfo.know.skills[1].map(
+            (skill) => {return node("div", {cl: "skill-card ks"}, [node("img", {cl: "skill-img ks", src: skill.icon, alt: `${skill.name} icon`, height: 48})])}
+        ))
+    ])
+])
+knowSkillsDiv.append(ksTitle, ksSkills)
+
+// touch skills
+const tsTitle = node("h2", { cl: "skills-title", innerText: skillsInfo.touch.title })
+const tsSkills = node("div", { cl: "touch-skills-div" }, skillsInfo.touch.skills.map(
+    (skill) => {return node("div", {cl: "skill-card ts"}, [node("img", {cl: "skill-img ts", src: skill.icon, alt: `${skill.name} icon`, height: 48})])}
+))
+touchSkillsDiv.append(tsTitle, tsSkills);
 
 // about me div
 aboutMeContent = [
@@ -826,133 +952,3 @@ function controlTrifectaDiv(entries, observer) {
 
 let secondObserver = new IntersectionObserver(controlTrifectaDiv, options);
 secondObserver.observe(trifectaDiv);
-
-// Skills Div
-const mainSkillsDiv = document.getElementsByClassName("main-skills")[0];
-const knowSkillsDiv = document.getElementsByClassName("know-skills")[0];
-const touchSkillsDiv = document.getElementsByClassName("touch-skills")[0];
-
-const skillsInfo = {
-    main: {
-        title: "Main Skills",
-        skills: [
-            {
-                icon: "./resources/skills/mern.png",
-                name: "MERN Stack Web Development",
-                description: "I utilize the MERN stack efficiently to produce stable, optimised and beautiful dynamic websites that are able to satisfy the users' needs, in addition to the client's requirements."
-            },
-            {
-                icon: "./resources/skills/vanilla.png",
-                name: "Vanilla Web Development",
-                description: "I am adept at creating interactive and modern static websites using only pure HTML, CSS, and vanilla JavaScript. In fact, I've built this portfolio with foundational web technologies."
-            },
-            // {
-            //     icon: "./resources/skills/wpf.png",
-            //     name: "WPF Desktop & Avalonia Development",
-            //     description: "I develop feature-rich and efficient Windows desktop applications using the powerful technology WPF (Windows Presentation Foundation) and cross-platform apps using Microsoft's Avalonia."
-            // },
-            {
-                icon: "./resources/skills/pyqt5.png",
-                name: "PyQt5 Desktop App Development",
-                description: "I have a strong command of 'Qt,' a cross-platform desktop GUI technology, and utilize its Python variant, PyQt5, to develop desktop applications that have native-like features on any OS."
-            }
-        ]
-    },
-    know: {
-        title: "Also good at these",
-        langs: [
-            { icon: "./resources/skills/py.png", name: "Python", perc: 80 },
-            { icon: "./resources/skills/js.png", name: "JavaScript", perc: 75 },
-            { icon: "./resources/skills/cs.png", name: "C#", perc: 65 },
-            { icon: "./resources/skills/java.png", name: "Java", perc: 50 }
-        ],
-        skills: [
-            [
-                { icon: "./resources/skills/html.png", name: "HTML" },
-                { icon: "./resources/skills/css.png", name: "CSS" },
-                { icon: "./resources/skills/ts.png", name: "TypeScript" },
-                { icon: "./resources/skills/express.png", name: "Express" },
-                { icon: "./resources/skills/mongo.png", name: "MongoDB" },
-                { icon: "./resources/skills/sql.png", name: "SQL" },
-                { icon: "./resources/skills/nextjs.png", name: "NextJS" },
-                { icon: "./resources/skills/cloud.png", name: "Google Cloud/AWS" }
-            ],
-            [
-                { icon: "./resources/skills/winui.png", name: "WinUI" },
-                { icon: "./resources/skills/pyqt5.png", name: "PyQt5" },
-                { icon: "./resources/skills/javafx.png", name: "JavaFX" },
-                { icon: "./resources/skills/tkinter.png", name: "tkinter" },
-                { icon: "./resources/skills/git.png", name: "Git" },
-                { icon: "./resources/skills/inkscape.png", name: "Inkscape" },
-                { icon: "./resources/skills/mspaint.png", name: "MS Paint" }
-            ]
-        ]
-    },
-    touch: {
-        title: "I know their names",
-        skills: [
-            { icon: "./resources/skills/figma.png", name: "Figma" },
-            { icon: "./resources/skills/electron.png", name: "Electron" },
-            { icon: "./resources/skills/cpp.png", name: "C++" },
-            { icon: "./resources/skills/bash.png", name: "Bash" },
-            { icon: "./resources/skills/excel.png", name: "MS Excel" },
-            { icon: "./resources/skills/ppt.png", name: "MS PowerPoint" },
-            { icon: "./resources/skills/photoshop.png", name: "PhotoShop" }
-        ]
-    }
-}
-
-// main skills
-const msTitle = node("h2", { cl: "skills-title", innerText: skillsInfo.main.title })
-const msSkills = node("div", { cl: "main-skills-div" }, skillsInfo.main.skills.map(
-    (skill) => {
-        return node("div", { cl: "main-skill-card "}, [
-            node("div", { cl: "ms-icon" }, [ node("img", { cl: "ms-img" ,src: skill.icon, alt: `${skill.name} icon`, height: 64}) ]),
-            node("div", { cl: "ms-details" }, [
-                node("h4", { cl: "ms-name", innerText: skill.name }),
-                node("span", { cl: "ms-desc", innerText: skill.description })
-            ])
-        ])
-    }
-))
-mainSkillsDiv.append(msTitle, msSkills);
-
-// know skills
-function donutChart(innerNode, perc, extraClass) {
-    if (!extraClass) extraClass = "";
-
-    const deg = `${Math.floor(perc/100 * 360)}deg`;
-    let donutType = "first";
-    if (perc >= 50 && perc < 75) {
-        donutType = "second";
-    }
-    else {
-        donutType = "third";
-    }
-
-    const donut = node("div", { cl: `donut-chart ${donutType} ${extraClass}` }, [node("span", null, [innerNode])], { "--deg": deg });
-    return donut;
-}
-
-const ksTitle = node("h2", { cl: "skills-title", innerText: skillsInfo.know.title })
-const ksSkills = node("div", { cl: "know-skills-div" } , [
-    node("div", {cl: "know-langs"}, skillsInfo.know.langs.map(
-        (lang) => {return donutChart(node("img", { cl: "kl-img", src: lang.icon, alt: `${lang.name} icon`, width: 48 }), lang.perc, "ks-lang")}
-    )),
-    node("div", {cl: "know-skills"}, [
-        node("div", {cl: "know-skills-inner"}, skillsInfo.know.skills[0].map(
-            (skill) => {return node("div", {cl: "skill-card ks"}, [node("img", {cl: "skill-img ks", src: skill.icon, alt: `${skill.name} icon`, height: 48})])}
-        )),
-        node("div", {cl: "know-skills-inner"}, skillsInfo.know.skills[1].map(
-            (skill) => {return node("div", {cl: "skill-card ks"}, [node("img", {cl: "skill-img ks", src: skill.icon, alt: `${skill.name} icon`, height: 48})])}
-        ))
-    ])
-])
-knowSkillsDiv.append(ksTitle, ksSkills)
-
-// touch skills
-const tsTitle = node("h2", { cl: "skills-title", innerText: skillsInfo.touch.title })
-const tsSkills = node("div", { cl: "touch-skills-div" }, skillsInfo.touch.skills.map(
-    (skill) => {return node("div", {cl: "skill-card ts"}, [node("img", {cl: "skill-img ts", src: skill.icon, alt: `${skill.name} icon`, height: 48})])}
-))
-touchSkillsDiv.append(tsTitle, tsSkills);
