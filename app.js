@@ -451,8 +451,8 @@ const skillsInfo = {
             //     description: "I develop feature-rich and efficient Windows desktop applications using the powerful technology WPF (Windows Presentation Foundation) and cross-platform apps using Microsoft's Avalonia."
             // },
             {
-                icon: "./resources/skills/pyqt5.png",
-                name: "PyQt5 Desktop App Development",
+                icon: "./resources/skills/qt.png",
+                name: "Qt Desktop App Development",
                 description: "I have a strong command of 'Qt,' a cross-platform desktop GUI technology, and utilize its Python variant, PyQt5, to develop desktop applications that have native-like features on any OS."
             }
         ]
@@ -478,7 +478,7 @@ const skillsInfo = {
             ],
             [
                 { icon: "./resources/skills/winui.png", name: "WinUI" },
-                { icon: "./resources/skills/pyqt5.png", name: "PyQt5" },
+                { icon: "./resources/skills/qt.png", name: "Qt" },
                 { icon: "./resources/skills/javafx.png", name: "JavaFX" },
                 { icon: "./resources/skills/tkinter.png", name: "tkinter" },
                 { icon: "./resources/skills/git.png", name: "Git" },
@@ -529,14 +529,17 @@ function donutChart(innerNode, perc, extraClass) {
         donutType = "third";
     }
 
-    const donut = node("div", { cl: `donut-chart ${donutType} ${extraClass}` }, [node("span", null, [innerNode])], { "--deg": deg });
+    const donut = node("div", { cl: `donut-chart ${donutType} ${extraClass}` }, [node("span", {cl: "donut-content"}, [innerNode, node("span", {cl: "perc-label", innerText: `${perc}%`})])], { "--deg": deg });
     return donut;
 }
 
 const ksTitle = node("h2", { cl: "skills-title", innerText: skillsInfo.know.title })
 const ksSkills = node("div", { cl: "know-skills-div" } , [
     node("div", {cl: "know-skills-langs"}, skillsInfo.know.langs.map(
-        (lang) => {return donutChart(node("img", { cl: "kl-img", src: lang.icon, alt: `${lang.name} icon`, width: 48 }), lang.perc, "ks-lang")}
+        (lang) => {return node("div", {cl: "ks-lang-container"}, [
+            donutChart(node("img", { cl: "kl-img", src: lang.icon, alt: `${lang.name} icon`, width: 48 }), lang.perc, "ks-lang"),
+            node("span", {cl: "kl-info", innerText: lang.name})
+        ])}
     )),
     node("div", {cl: "know-skills-container"}, [
         node("div", {cl: "know-skills-inner"}, skillsInfo.know.skills[0].map(
