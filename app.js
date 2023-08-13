@@ -467,23 +467,26 @@ const skillsInfo = {
         ],
         skills: [
             [
+                { icon: "./resources/skills/react.png", name: "React" },
                 { icon: "./resources/skills/html.png", name: "HTML" },
                 { icon: "./resources/skills/css.png", name: "CSS" },
-                { icon: "./resources/skills/ts.png", name: "TypeScript" },
-                { icon: "./resources/skills/express.png", name: "Express" },
-                { icon: "./resources/skills/mongo.png", name: "MongoDB" },
-                { icon: "./resources/skills/sql.png", name: "SQL" },
+                { icon: "./resources/skills/nodejs.png", name: "NodeJS" },
+                // { icon: "./resources/skills/ts.png", name: "TypeScript" },
                 { icon: "./resources/skills/nextjs.png", name: "NextJS" },
-                { icon: "./resources/skills/cloud.png", name: "Google Cloud/AWS" }
+                { icon: "./resources/skills/mongodb.png", name: "MongoDB" },
+                { icon: "./resources/skills/sql.png", name: "SQL" },
+                // { icon: "./resources/skills/cloud.png", name: "Google Cloud/AWS" }
             ],
             [
-                { icon: "./resources/skills/winui.png", name: "WinUI" },
+                // { icon: "./resources/skills/winui.png", name: "WinUI" },
+                // { icon: "./resources/skills/wpf.png", name: "Windows Presentation Foundation (WPF)" },
                 { icon: "./resources/skills/qt.png", name: "Qt" },
                 { icon: "./resources/skills/javafx.png", name: "JavaFX" },
                 { icon: "./resources/skills/tkinter.png", name: "tkinter" },
                 { icon: "./resources/skills/git.png", name: "Git" },
                 { icon: "./resources/skills/inkscape.png", name: "Inkscape" },
-                { icon: "./resources/skills/mspaint.png", name: "MS Paint" }
+                { icon: "./resources/skills/vscode.png", name: "Visual Studio Code" },
+                // { icon: "./resources/skills/mspaint.png", name: "MS Paint" }
             ]
         ]
     },

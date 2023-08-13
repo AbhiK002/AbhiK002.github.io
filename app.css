@@ -545,6 +545,7 @@ body div, body {
     background-color: rgb(var(--major-bg));
     display: flex;
     justify-content: center;
+    padding: 4rem 1rem
 }
 
 .donut-chart {
@@ -566,14 +567,18 @@ body div, body {
     justify-content: center;
     border-radius: 50%;
     border: var(--chart-width) solid var(--chart-bg);
-    overflow: hidden;
     transform: rotateZ(-45deg);
 }
 .donut-content {
     transform: rotateZ(45deg);
     display: flex;
+    height: 140%;
+    min-width: 120%;
+    border-radius: 100%;
     align-items: center;
+    justify-content: center;
     position: relative;
+    overflow: hidden;
 }
 .perc-label {
     position: absolute;
@@ -585,7 +590,7 @@ body div, body {
     scale: 1 1.2;
     color: rgb(var(--sig-yellow));
     text-shadow: 0px 0px 4px rgba(var(--sig-yellow), 0.5);
-    transform: translate(120%, 0px);
+    transform: translate(130%, 0px);
     transition: transform 600ms;
 }
 .donut-chart::after {
@@ -690,7 +695,7 @@ body div, body {
     --chart-fg: rgba(var(--sig-orange), 1);
     --chart-bg: rgb(var(--minor-bg));
     transition: all 300ms;
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.7) inset;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4) inset;
 }
 .ks-lang span {
     z-index: 2;
@@ -706,13 +711,13 @@ body div, body {
     translate: -150%
 }
 .ks-lang:hover .perc-label {
-    transform: translate(-7px, 0);
+    transform: translate(0, 0);
 }
 
 .kl-img {
     width: 42px;
     border-radius: 8px;
-    transition: translate 700ms;
+    transition: translate 600ms;
 }
 
 .kl-info {
@@ -980,7 +985,7 @@ body div, body {
 
 .trifecta-text {
     display: flex;
-    width: 50%;
+    width: 60%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -1010,7 +1015,7 @@ body div, body {
 
 .trifecta-visual {
     position: absolute;
-    width: 50%;
+    width: 60%;
     height: 100%;
     right: 0;
     display: flex;
