@@ -451,7 +451,7 @@ const skillsInfo = {
             //     description: "I develop feature-rich and efficient Windows desktop applications using the powerful technology WPF (Windows Presentation Foundation) and cross-platform apps using Microsoft's Avalonia."
             // },
             {
-                icon: "./resources/skills/qt.png",
+                icon: "./resources/skills/pyqt5.png",
                 name: "Qt Desktop App Development",
                 description: "I have a strong command of 'Qt,' a cross-platform desktop GUI technology, and utilize its Python variant, PyQt5, to develop desktop applications that have native-like features on any OS."
             }

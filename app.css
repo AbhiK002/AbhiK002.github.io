@@ -654,9 +654,15 @@ body div, body {
 .ms-icon {
     height: 96px; min-width: 96px;
     width: 96px;
-    border: 1px solid yellow;
     align-self: center;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ms-img {
+    width: 100%;
+    height: auto;
 }
 .ms-details {
     display: flex;
@@ -705,6 +711,7 @@ body div, body {
 }
 .ks-lang:hover ~ .kl-info {
     opacity: 1;
+    visibility: visible;
     transform: translate(8px, -50%);
 }
 .ks-lang:hover .kl-img {
@@ -726,6 +733,7 @@ body div, body {
     top: 50%;
     transform: translate(-8px, -50%);
     opacity: 0;
+    visibility: hidden;
     left: 100%;
     background-color: rgb(11, 11, 11);
     color: rgb(240, 240, 240);
