@@ -974,3 +974,30 @@ function controlTrifectaDiv(entries, observer) {
 
 let secondObserver = new IntersectionObserver(controlTrifectaDiv, options);
 secondObserver.observe(trifectaDiv);
+
+// setting links to nav bar links
+const navBarHeight = document.getElementsByClassName("top-bar")[0].getBoundingClientRect().height;
+const navLinks = {
+    Home: {divClass: "cover-div", height: false},
+    About: {divClass: "second-div", height: true},
+    Projects: {divClass: "aboutme-div", height: true},
+    Contact: {divClass: "call-div", height: true}
+}
+const topBarButtons = document.getElementsByClassName("nav-button");
+for (const button of topBarButtons) {
+    let selObj = null;
+    switch (button.innerHTML) {
+        case "Home": selObj = navLinks.Home; break;
+        case "About": selObj = navLinks.About; break;
+        case "Projects": selObj = navLinks.Projects; break;
+        case "Contact": selObj = navLinks.Contact; break;
+        default: break;
+    }
+    if (selObj == null) continue;
+
+    button.addEventListener("click", () => {
+        let y = document.getElementsByClassName(selObj.divClass)[0]?.getBoundingClientRect().top + window.scrollY;
+        scrollTo(0, selObj.height ? y - navBarHeight : y)
+        console.log(y);
+    })
+}
