@@ -334,7 +334,6 @@ body div, body {
     justify-content: left;
     flex-grow: 1;
     line-height: 1.2;
-    cursor: default;
     transform: translateX(12rem);
     opacity: 0;
     transition: transform 500ms, opacity 600ms;

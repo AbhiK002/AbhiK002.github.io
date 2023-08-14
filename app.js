@@ -317,9 +317,7 @@ setCssStyles(secondh1, { "opacity": "0" });
 
 setCssStyles(codeCursor, { "visibility": "hidden" });
 
-
-let busy = false;
-
+let effectDone = false;
 function loadDecoration() {
     const bars = document.getElementsByClassName("decoration-bar");
     for (const bar of bars) {
@@ -332,49 +330,27 @@ function loadDecoration() {
         [intoWord, "opacity", "1", 700],
         [codeCursor, "visibility", "visible", 700]
     )
-    if (busy) return;
-    if (codeText.innerText.length > 1) {
-        if (!userScrollingUp) return;
-        runAfter(untypeCode, 600);
-        runAfter(typeCode, 1600);
-    }
-    else {
-        runAfter(typeCode, 1800)
-    }
-}
-
-function hideDecoration() {
-    const bars = document.getElementsByClassName("decoration-bar");
-    for (const bar of bars) {
-        setCssStyles(bar, { "opacity": "0" })
-    }
-    setCssStyles(secondh1, { "opacity": "0" })
-    stylesAfter(
-        [designWord, "opacity", "0", 0],
-        [intoWord, "opacity", "0", 0],
-        [codeCursor, "visibility", "hidden", 0]
-    )
-
-    codeText.innerText = ""
-    busy = false;
+    if (effectDone) return;
+    runAfter(typeCode, 1800);
+    setInterval(() => {
+        untypeCode();
+        runAfter(typeCode, 1400)
+    }, 5000);
+    effectDone = true;
 }
 
 function typeCode() {
-    busy = true;
     codeText.innerText = "C";
     runAfter(() => { codeText.innerText = "Co" }, 200)
     runAfter(() => { codeText.innerText = "Cod" }, 400)
-    runAfter(() => { codeText.innerText = "Code" }, 600)
-    runAfter(() => { busy = false }, 1600);
+    runAfter(() => { codeText.innerText = "Code" }, 700)
 }
 
 function untypeCode() {
-    if (busy) return;
-    busy = true;
     codeText.innerText = "Cod";
     runAfter(() => { codeText.innerText = "Co" }, 200)
     runAfter(() => { codeText.innerText = "C" }, 400)
-    runAfter(() => { codeText.innerText = "" }, 600)
+    runAfter(() => { codeText.innerText = "" }, 700)
 }
 
 function controlDecoration(entries, observer) {
@@ -407,7 +383,7 @@ function switchBorderRadius() {
 }
 
 switchBorderRadius();
-designWord.onmouseover = switchBorderRadius
+designWord.onmouseenter = switchBorderRadius
 
 // myself-div
 const myselfDiv = document.getElementsByClassName("myself-div")[0];
