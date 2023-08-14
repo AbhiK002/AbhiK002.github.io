@@ -131,7 +131,6 @@ body {
     font-family: var(--main-font);
     font-size: var(--small-font-size);
     font-weight: 400;
-    cursor: default;
     overflow-x: hidden;
 }
 
@@ -627,6 +626,7 @@ body div, body {
 
 .skills-title {
     text-align: center;
+    letter-spacing: -1px;
 }
 
 .main-skills {
@@ -645,11 +645,19 @@ body div, body {
 .main-skill-card {
     display: flex;
     border: 2px solid rgba(var(--sig-yellow), 0.6);
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
     background-color: rgba(var(--minor-bg), 0.5);
     border-radius: 16px;
     padding: 1rem;
     gap: 2rem;
     max-width: 400px;
+    transition: all 300ms;
+}
+.main-skill-card:hover {
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4),
+                0px 0px 24px 2px rgba(var(--sig-yellow), 0.4);
+    background-color: rgba(var(--sig-yellow), 0.1);
+    border: 2px solid rgba(var(--sig-yellow), 1);
 }
 .ms-icon {
     height: 96px; min-width: 96px;
@@ -702,6 +710,7 @@ body div, body {
     --chart-bg: rgb(var(--minor-bg));
     transition: all 300ms;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4) inset;
+    cursor: pointer;
 }
 .ks-lang span {
     z-index: 2;
@@ -709,7 +718,7 @@ body div, body {
 .ks-lang::after {
     transition: all 300ms;
 }
-.ks-lang:hover ~ .kl-info {
+.ks-lang:hover ~ .tooltip {
     opacity: 1;
     visibility: visible;
     transform: translate(8px, -50%);
@@ -727,14 +736,16 @@ body div, body {
     transition: translate 600ms;
 }
 
-.kl-info {
+.tooltip {
     display: block;
     position: absolute;
-    top: 50%;
-    transform: translate(-8px, -50%);
+    top: 0;
+    left: 0;
     opacity: 0;
-    visibility: hidden;
+    top: 50%;
     left: 100%;
+    transform: translate(-8px, -50%);
+    visibility: hidden;
     background-color: rgb(11, 11, 11);
     color: rgb(240, 240, 240);
     padding: 4px 8px;
@@ -742,6 +753,8 @@ body div, body {
     border: 2px solid white;
     box-shadow: 2px 2px 8px black;
     transition: transform 300ms, opacity 300ms;
+    pointer-events: none;
+    z-index: 5
 }
 
 .know-skills-container {
@@ -761,24 +774,48 @@ body div, body {
     width: 84px; height: 84px;
     padding: 8px; 
     border-radius: 8px;
-    border: 2px solid rgba(var(--text-color), 0.7);
+    border: 1px solid rgba(77, 77, 77, 0.4);
     background-color: rgba(255, 255, 255, 0.1);
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
     display: flex; 
     justify-content: center;
     align-items: center;
+    cursor: pointer;
     transition: box-shadow 300ms, border 300ms, background-color 300ms;
 }
-.skill-card:hover {
+.skill-card.ks:hover {
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4),
-                0px 0px 24px 2px rgba(var(--sig-yellow), 0.4), 
-                0px 0px 8px 2px rgba(var(--sig-yellow), 0.3) inset;
-    border: 2px solid rgb(var(--sig-yellow));
+                0px 0px 24px 2px rgba(var(--sig-yellow), 0.4);
     background-color: rgba(var(--sig-yellow), 0.1);
+    border: 1px solid rgba(var(--sig-yellow), 1);
+}
+.skill-card.ts:hover {
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4),
+                0px 0px 24px 2px rgba(var(--text-color), 0.4);
+    background-color: rgba(var(--text-color), 0.1);
+    border: 1px solid rgba(var(--text-color), 0.5);
 }
 .skill-img {
     width: 90%;
     height: auto;
+}
+.ks-info, .ts-info {
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -8px);
+    text-align: center;
+    min-width: 100%;
+    width: max-content;
+    max-width: 150px;
+}
+
+.skill-card-container {
+    position: relative;
+}
+.skill-card-container:hover > .tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 4px);
 }
 
 .touch-skills {
@@ -841,7 +878,7 @@ body div, body {
     gap: 2rem;
     opacity: 0;
     transform: translateY(-2rem);
-    transition: opacity 500ms, transform 500ms, box-shadow 500ms
+    transition: opacity 500ms, transform 500ms, box-shadow 500ms, border 300ms;
 }
 .aboutme-card.card-fade-in {
     opacity: 1;
@@ -855,6 +892,7 @@ body div, body {
 }
 .aboutme-card:hover {
     transform: scale(1.02);
+    border: 2px solid rgb(var(--sig-yellow));
 }
 
 .aboutme-icon svg, .aboutme-icon {
@@ -1006,6 +1044,7 @@ body div, body {
     transition: font-size 400ms, opacity 400ms, transform 400ms;
     opacity: 0;
     transform: translateY(-4rem);
+    cursor: default;
 }
 
 .trifecta-item span {

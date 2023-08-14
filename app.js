@@ -90,6 +90,9 @@ function node(tagname, attributes, children, cssStyle) {
                 case "width": {
                     node.width = attributes[key]; break;
                 }
+                case "target": {
+                    node.target = attributes[key]; break;
+                }
                 default: {
                     break;
                 }
@@ -433,7 +436,7 @@ const touchSkillsDiv = document.getElementsByClassName("touch-skills")[0];
 
 const skillsInfo = {
     main: {
-        title: "Main Skills",
+        title: "Major Skills",
         skills: [
             {
                 icon: "./resources/skills/mern.png",
@@ -458,49 +461,53 @@ const skillsInfo = {
         ]
     },
     know: {
-        title: "Also good at these",
+        title: "Proficient with these technologies",
         langs: [
-            { icon: "./resources/skills/py.png", name: "Python", perc: 80 },
-            { icon: "./resources/skills/js.png", name: "JavaScript", perc: 75 },
-            { icon: "./resources/skills/cs.png", name: "C#", perc: 65 },
-            { icon: "./resources/skills/java.png", name: "Java", perc: 50 }
+            { icon: "./resources/skills/py.png", name: "Python", perc: 80, url: "https://python.org/" },
+            { icon: "./resources/skills/js.png", name: "JavaScript", perc: 75, url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
+            { icon: "./resources/skills/cs.png", name: "C#", perc: 65, url: "https://learn.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/" },
+            { icon: "./resources/skills/java.png", name: "Java", perc: 50, url: "https://www.java.com/en/download/help/whatis_java.html" }
         ],
         skills: [
             [
-                { icon: "./resources/skills/react.png", name: "React" },
-                { icon: "./resources/skills/html.png", name: "HTML" },
-                { icon: "./resources/skills/css.png", name: "CSS" },
-                { icon: "./resources/skills/nodejs.png", name: "NodeJS" },
+                { icon: "./resources/skills/react.png", name: "React", url: "https://reactjs.org/" },
+                { icon: "./resources/skills/html.png", name: "HTML", url: "https://developer.mozilla.org/en-US/docs/Web/HTML" },
+                { icon: "./resources/skills/css.png", name: "CSS", url: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
+                { icon: "./resources/skills/nodejs.png", name: "NodeJS", url: "https://nodejs.org/en/about" },
                 // { icon: "./resources/skills/ts.png", name: "TypeScript" },
-                { icon: "./resources/skills/nextjs.png", name: "NextJS" },
-                { icon: "./resources/skills/mongodb.png", name: "MongoDB" },
-                { icon: "./resources/skills/sql.png", name: "SQL" },
+                { icon: "./resources/skills/nextjs.png", name: "NextJS", url: "https://nextjs.org/" },
+                { icon: "./resources/skills/mongodb.png", name: "MongoDB", url: "https://www.mongodb.com/" },
+                { icon: "./resources/skills/sql.png", name: "SQL", url: "https://en.wikipedia.org/wiki/SQL" },
                 // { icon: "./resources/skills/cloud.png", name: "Google Cloud/AWS" }
             ],
             [
-                // { icon: "./resources/skills/winui.png", name: "WinUI" },
-                // { icon: "./resources/skills/wpf.png", name: "Windows Presentation Foundation (WPF)" },
-                { icon: "./resources/skills/qt.png", name: "Qt" },
-                { icon: "./resources/skills/javafx.png", name: "JavaFX" },
-                { icon: "./resources/skills/tkinter.png", name: "tkinter" },
-                { icon: "./resources/skills/git.png", name: "Git" },
-                { icon: "./resources/skills/inkscape.png", name: "Inkscape" },
-                { icon: "./resources/skills/vscode.png", name: "Visual Studio Code" },
-                // { icon: "./resources/skills/mspaint.png", name: "MS Paint" }
+                // { icon: "./resources/skills/winui.png", name: "WinUI", url: "https://learn.microsoft.com/en-us/windows/apps/winui/" },
+                // { icon: "./resources/skills/wpf.png", name: "Windows Presentation Foundation (WPF)", url: "https://learn.microsoft.com/en-us/dotnet/desktop/wpf/overview/?view=netdesktop-7.0" },
+                { icon: "./resources/skills/qt.png", name: "Qt", url: "https://www.qt.io/" },
+                { icon: "./resources/skills/javafx.png", name: "JavaFX", url: "https://openjfx.io/" },
+                { icon: "./resources/skills/tkinter.png", name: "tkinter", url: "https://docs.python.org/3/library/tkinter.html" },
+                { icon: "./resources/skills/git.png", name: "Git", url: "https://git-scm.com/" },
+                { icon: "./resources/skills/inkscape.png", name: "Inkscape", url:"https://inkscape.org/" },
+                { icon: "./resources/skills/vscode.png", name:"Visual Studio Code" ,url:"https://code.visualstudio.com/"},
+                // { icon:"./resources/skills/mspaint.png" ,name:"MS Paint"}
             ]
-        ]
+        ]        
     },
     touch: {
-        title: "I know their names",
+        title: "Foundational Understanding",
         skills: [
-            { icon: "./resources/skills/figma.png", name: "Figma" },
-            { icon: "./resources/skills/electron.png", name: "Electron" },
-            { icon: "./resources/skills/cpp.png", name: "C++" },
-            { icon: "./resources/skills/bash.png", name: "Bash" },
-            { icon: "./resources/skills/excel.png", name: "MS Excel" },
-            { icon: "./resources/skills/ppt.png", name: "MS PowerPoint" },
-            { icon: "./resources/skills/photoshop.png", name: "PhotoShop" }
-        ]
+            { icon: "./resources/skills/electron.png", name: "ElectronJS", url: "https://www.electronjs.org/" },
+            { icon:"./resources/skills/angular.png" ,name:"Angular" ,url:"https://angular.io/"},
+            { icon: "./resources/skills/vite.png", name: "Vite", url: "https://vitejs.dev/" },
+            { icon: "./resources/skills/chatgpt.png", name: "ChatGPT", url:"https://openai.com/blog/better-language-models/"},
+            { icon: "./resources/skills/figma.png", name: "Figma", url: "https://www.figma.com/" },
+            { icon: "./resources/skills/wordpress.png", name:"WordPress" ,url:"https://wordpress.org/"},
+            { icon:"./resources/skills/bootstrap.png" ,name:"Bootstrap" ,url:"https://getbootstrap.com/"},
+            { icon: "./resources/skills/bash.png", name: "Bash", url: "https://www.gnu.org/software/bash/" },
+            { icon: "./resources/skills/excel.png", name: "Microsoft Office Excel", url: "https://www.microsoft.com/en-us/microsoft-365/excel" },
+            // { icon: "./resources/skills/ppt.png", name: "MS PowerPoint", url: "https://www.microsoft.com/en-us/microsoft-365/powerpoint" },
+            // { icon: "./resources/skills/photoshop.png", name: "PhotoShop" }
+        ]        
     }
 }
 
@@ -520,7 +527,7 @@ const msSkills = node("div", { cl: "main-skills-div" }, skillsInfo.main.skills.m
 mainSkillsDiv.append(msTitle, msSkills);
 
 // know skills
-function donutChart(innerNode, perc, extraClass) {
+function donutChart(innerNode, perc, extraClass, url) {
     if (!extraClass) extraClass = "";
 
     const deg = `${Math.floor(perc/100 * 360)}deg`;
@@ -532,7 +539,7 @@ function donutChart(innerNode, perc, extraClass) {
         donutType = "third";
     }
 
-    const donut = node("div", { cl: `donut-chart ${donutType} ${extraClass}` }, [node("span", {cl: "donut-content"}, [innerNode, node("span", {cl: "perc-label", innerText: `${perc}%`})])], { "--deg": deg });
+    const donut = node("a", { cl: `donut-chart ${donutType} ${extraClass}`, href: url, target: "_blank" }, [node("a", {cl: "donut-content"}, [innerNode, node("span", {cl: "perc-label", innerText: `${perc}%`})])], { "--deg": deg });
     return donut;
 }
 
@@ -540,16 +547,22 @@ const ksTitle = node("h2", { cl: "skills-title", innerText: skillsInfo.know.titl
 const ksSkills = node("div", { cl: "know-skills-div" } , [
     node("div", {cl: "know-skills-langs"}, skillsInfo.know.langs.map(
         (lang) => {return node("div", {cl: "ks-lang-container"}, [
-            donutChart(node("img", { cl: "kl-img", src: lang.icon, alt: `${lang.name} icon`, width: 48 }), lang.perc, "ks-lang"),
-            node("span", {cl: "kl-info", innerText: lang.name})
+            donutChart(node("img", { cl: "kl-img", src: lang.icon, alt: `${lang.name} icon`, width: 48 }), lang.perc, "ks-lang", lang.url),
+            node("span", {cl: "tooltip kl-info", innerText: lang.name})
         ])}
     )),
     node("div", {cl: "know-skills-container"}, [
         node("div", {cl: "know-skills-inner"}, skillsInfo.know.skills[0].map(
-            (skill) => {return node("div", {cl: "skill-card ks"}, [node("img", {cl: "skill-img ks", src: skill.icon, alt: `${skill.name} icon`, height: 48})])}
+            (skill) => {return node("div", {cl: "skill-card-container"}, [
+                node("a", {cl: "skill-card ks", href: skill.url, target: "_blank"}, [node("img", {cl: "skill-img ks", src: skill.icon, alt: `${skill.name} icon`, height: 48})]),
+                node("span", {cl: "tooltip ks-info", innerText: skill.name})
+            ])}
         )),
         node("div", {cl: "know-skills-inner"}, skillsInfo.know.skills[1].map(
-            (skill) => {return node("div", {cl: "skill-card ks"}, [node("img", {cl: "skill-img ks", src: skill.icon, alt: `${skill.name} icon`, height: 48})])}
+            (skill) => {return node("div", {cl: "skill-card-container"}, [
+                node("a", {cl: "skill-card ks", href: skill.url, target: "_blank"}, [node("img", {cl: "skill-img ks", src: skill.icon, alt: `${skill.name} icon`, height: 48})]),
+                node("span", {cl: "tooltip ks-info", innerText: skill.name})
+            ])}
         ))
     ])
 ])
@@ -558,7 +571,10 @@ knowSkillsDiv.append(ksTitle, ksSkills)
 // touch skills
 const tsTitle = node("h2", { cl: "skills-title", innerText: skillsInfo.touch.title })
 const tsSkills = node("div", { cl: "touch-skills-div" }, skillsInfo.touch.skills.map(
-    (skill) => {return node("div", {cl: "skill-card ts"}, [node("img", {cl: "skill-img ts", src: skill.icon, alt: `${skill.name} icon`, height: 48})])}
+    (skill) => {return node("div", {cl: "skill-card-container"}, [
+        node("a", {cl: "skill-card ts", href: skill.url, target: "_blank"}, [node("img", {cl: "skill-img ts", src: skill.icon, alt: `${skill.name} icon`, height: 48})]),
+        node("span", {cl: "tooltip ts-info", innerText: skill.name})
+    ])}
 ))
 touchSkillsDiv.append(tsTitle, tsSkills);
 
