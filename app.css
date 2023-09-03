@@ -775,26 +775,20 @@ body div, body {
     width: 84px; height: 84px;
     padding: 8px; 
     border-radius: 8px;
-    border: 1px solid rgba(77, 77, 77, 0.4);
+    border: 2px solid rgba(77, 77, 77, 0.4);
     background-color: rgba(255, 255, 255, 0.1);
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
     display: flex; 
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    transition: box-shadow 300ms, border 300ms, background-color 300ms;
+    transition: border 300ms;
 }
 .skill-card.ks:hover {
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4),
-                0px 0px 24px 2px rgba(var(--sig-yellow), 0.4);
-    background-color: rgba(var(--sig-yellow), 0.1);
-    border: 1px solid rgba(var(--sig-yellow), 1);
+    border: 2px solid rgba(var(--sig-yellow), 0.9);
 }
 .skill-card.ts:hover {
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4),
-                0px 0px 24px 2px rgba(var(--text-color), 0.4);
-    background-color: rgba(var(--text-color), 0.1);
-    border: 1px solid rgba(var(--text-color), 0.5);
+    border: 2px solid rgba(var(--text-color), 0.9);
 }
 .skill-img {
     width: 90%;
