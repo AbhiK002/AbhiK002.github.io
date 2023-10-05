@@ -481,11 +481,18 @@ p {
     background-color: rgb(204, 204, 204);
 }
 
-#ab-codechef {
-    border-color: rgb(91, 69, 56);
+#ab-leetcode {
+    border-color: rgb(224, 118, 56);
 }
-#ab-codechef:hover {
-    background-color: rgb(242, 220, 207);
+#ab-leetcode:hover {
+    background-color: rgb(255, 229, 213);
+}
+
+#ab-hrrank {
+    border-color: rgb(0, 202, 112);
+}
+#ab-hrrank:hover {
+    background-color: rgb(188, 252, 223);
 }
 
 /*-------- COMPATIBILITY ---------*/
@@ -587,7 +594,7 @@ p {
     #ab-github:hover, 
     #ab-instagram:hover, 
     #ab-email:hover,
-    #ab-codechef:hover,
+    #ab-leetcode:hover,
     #ab-hrrank:hover {
         background-color: white;
         border-radius: 10px;
@@ -605,7 +612,7 @@ p {
     #ab-github:active, #ab-hrrank:active {
         background-color: rgb(204, 204, 204);
     }
-    #ab-codechef:active {
+    #ab-leetcode:active {
         background-color: rgb(242, 220, 207);
     }
 }
