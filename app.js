@@ -326,24 +326,22 @@ function loadDecoration() {
     setCssStyles(secondh1, { "opacity": "1" })
     setCssStyles(designWord, { "background-color": "rgba(var(--sig-red), 0.2)" })
     stylesAfter(
-        [designWord, "opacity", "1", 400],
-        [intoWord, "opacity", "1", 700],
-        [codeCursor, "visibility", "visible", 700]
+        [designWord, "opacity", "1", 100],
+        [intoWord, "opacity", "1", 100],
+        [codeCursor, "visibility", "visible", 100]
     )
     if (effectDone) return;
-    runAfter(typeCode, 1800);
-    setInterval(() => {
-        untypeCode();
-        runAfter(typeCode, 1400)
-    }, 5000);
+    runAfter(typeCode, 1000);
     effectDone = true;
 }
 
+let lock = true;
 function typeCode() {
     codeText.innerText = "C";
     runAfter(() => { codeText.innerText = "Co" }, 200)
     runAfter(() => { codeText.innerText = "Cod" }, 400)
     runAfter(() => { codeText.innerText = "Code" }, 700)
+    runAfter(() => { lock = false; }, 1400)
 }
 
 function untypeCode() {
@@ -352,6 +350,13 @@ function untypeCode() {
     runAfter(() => { codeText.innerText = "C" }, 400)
     runAfter(() => { codeText.innerText = "" }, 700)
 }
+
+codeText.addEventListener("mouseover", () => {
+    if (lock) return;
+    lock = true;
+    untypeCode();
+    runAfter(typeCode, 1400);
+})
 
 function controlDecoration(entries, observer) {
     entries.forEach(entry => {
@@ -977,3 +982,9 @@ for (const button of topBarButtons) {
         console.log(y);
     })
 }
+
+// Projects Div
+const projectsDiv = document.getElementsByClassName("projects-div")[0];
+const projectsList = document.getElementsByClassName("projects-list")[0];
+const projectPreview = document.getElementsByClassName("project-preview")[0];
+

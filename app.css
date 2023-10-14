@@ -655,9 +655,10 @@ body div, body {
 }
 .main-skill-card:hover {
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4),
-                0px 0px 24px 2px rgba(var(--sig-yellow), 0.4);
+                0px 0px 12px 0px rgba(var(--sig-yellow), 0.4);
     background-color: rgba(var(--sig-yellow), 0.1);
     border: 2px solid rgba(var(--sig-yellow), 1);
+    translate: 0px -4px
 }
 .ms-icon {
     height: 96px; min-width: 96px;
@@ -781,7 +782,10 @@ body div, body {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    transition: border 300ms;
+    transition: border 300ms, scale 400ms;
+}
+.skill-card:hover {
+    scale: 1.1
 }
 .skill-card.ks:hover {
     border: 2px solid rgba(var(--sig-yellow), 0.9);
