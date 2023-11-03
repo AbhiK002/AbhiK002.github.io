@@ -774,15 +774,15 @@ function makeIdleShape() {
 function funnyTextEffects() {
     for (let i = 0; i < creat_letters.length; i++) {
         setCssStyles(creat_letters[i], {
-            "transform": "translateY(0rem)",
+            "transform": `translateY(${letter_shuffle[i]}rem)`,
             "color": "rgb(var(--sig-orange))"
         });
     }
 };
-function undoFunnyTextEffects(idleShape = true) {
+function undoFunnyTextEffects() {
     for (let i = 0; i < creat_letters.length; i++) {
         setCssStyles(creat_letters[i], {
-            "transform": `translateY(${letter_shuffle[i]}rem)`,
+            "transform": "translateY(0rem)",
             "color": "rgb(var(--text-color))"
         });
     }
@@ -801,15 +801,15 @@ function makeFunnyShape() {
 function circularTextEffects() {
     for (let i = 0; i < simpl_letters.length; i++) {
         setCssStyles(simpl_letters[i], {
-            "transform": "translateY(0rem)",
+            "transform": `translateY(${letter_shuffle[i]}rem)`,
             "color": "rgb(var(--sig-orange))"
         });
     }
 }
-function undoCircularTextEffects(idleShape = true) {
+function undoCircularTextEffects() {
     for (let i = 0; i < simpl_letters.length; i++) {
         setCssStyles(simpl_letters[i], {
-            "transform": `translateY(${letter_shuffle[i]}rem)`,
+            "transform": "translateY(0rem)",
             "color": "rgb(var(--text-color))"
         });
     }
@@ -828,15 +828,15 @@ function makeCircular() {
 function squareTextEffects() {
     for (let i = 0; i < perfection_letters.length; i++) {
         setCssStyles(perfection_letters[i], {
-            "transform": "translateY(0rem)",
+            "transform": `translateY(${letter_shuffle[i]}rem)`,
             "color": "rgb(var(--sig-orange))"
         });
     }
 }
-function undoSquareTextEffects(idleShape = true) {
+function undoSquareTextEffects() {
     for (let i = 0; i < perfection_letters.length; i++) {
         setCssStyles(perfection_letters[i], {
-            "transform": `translateY(${letter_shuffle[i]}rem)`,
+            "transform": "translateY(0rem)",
             "color": "rgb(var(--text-color))"
         });
     }
@@ -846,7 +846,7 @@ function makeSquare() {
         const shape = document.getElementById(`shape${i + 1}`);
         setCssStyles(shape, {
             "transform": `translate(${squareCoords[i]})`,
-            "border-radius": "2rem"
+            "border-radius": "1rem"
         });
     }
 }
@@ -884,13 +884,6 @@ function squareHoverOut() {
     undoSquareTextEffects();
 }
 
-function idleTextEffects(idleShape = true) {
-    undoSquareTextEffects(idleShape);
-    undoCircularTextEffects(idleShape);
-    undoFunnyTextEffects(idleShape);
-    if (idleShape) makeIdleShape();
-}
-
 textCr.onmouseover = funnyHover;
 textCr.onmouseleave = funnyHoverOut;
 
@@ -926,8 +919,8 @@ function loadTrifectaDiv() {
             if (firstTime) {
                 shapeFuncs[i][0]();  // change the shapes arrangement on first run
             }
-            runAfter(shapeFuncs[i][2], 800);
             shapeFuncs[i][1]();
+            runAfter(shapeFuncs[i][2], 800);
 
             if (firstTime && i == shapeFuncs.length - 1) {
                 runAfter(() => {
