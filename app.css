@@ -40,8 +40,8 @@
 
     /* Dark Mode (Default) Colors */
     --text-color: 255, 255, 255;
-    --major-bg: 56, 56, 56;
-    --minor-bg: 80, 80, 80;
+    --major-bg: 40, 40, 40;
+    --minor-bg: 60, 60, 60;
     
     /* primary, secondary, accent */
     --sig-yellow: 255, 200, 128;
@@ -646,7 +646,7 @@ body div, body {
     display: flex;
     border: 2px solid rgba(var(--sig-yellow), 0.6);
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);
-    background-color: rgba(var(--minor-bg), 0.5);
+    background-color: rgba(var(--minor-bg), 0.2);
     border-radius: 16px;
     padding: 1rem;
     gap: 2rem;
@@ -776,7 +776,7 @@ body div, body {
     border-radius: 8px;
     border: 2px solid rgba(77, 77, 77, 0.4);
     background-color: rgba(255, 255, 255, 0.1);
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
     display: flex; 
     justify-content: center;
     align-items: center;
@@ -1174,3 +1174,51 @@ body div, body {
     transform: scale(0.96);
 }
 
+/* PROJECTS SECTION */
+.projects-div {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.projects-list {
+    width: 70%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 32px;
+    gap: 32px;
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    padding: 12px;
+    border: 2px solid rgba(var(--sig-orange), 0.6);
+    border-radius: 12px;
+}
+
+.project-details {
+    display: flex;
+    flex-direction: column;
+    gap: 12px
+}
+
+.project-name {
+    font-size: var(--medium-font-size);
+    margin: 0;
+    line-height: 1.1;
+}
+.project-desc {
+    display: flex;
+    font-size: var(--tiny-font-size);
+    line-height: 1.2;
+    margin: 0;
+}
+
+.project-img {
+    width: 100%;
+}

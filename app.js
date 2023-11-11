@@ -988,3 +988,73 @@ const projectsDiv = document.getElementsByClassName("projects-div")[0];
 const projectsList = document.getElementsByClassName("projects-list")[0];
 const projectPreview = document.getElementsByClassName("project-preview")[0];
 
+const projects = [
+    {
+        index: "1-1",
+        title: "Restaurant Classic",
+        descr: "Traditional, Old-Fashioned and Themed Website Design with Colorful Elements",
+        image: "./index-designs/restaurant/classic.jpg",
+        support: ["pc"],
+        link: "./1vyanjan/content1home.html",
+        disabled: 0
+    },
+    {
+        index: "1-2",
+        title: "GiSmos - Online Shopping",
+        descr: "Full stack tech-shopping dummy website with authorization and express API",
+        image: "https://github-production-user-asset-6210df.s3.amazonaws.com/68178267/256121099-f3b3e9bc-a575-48ec-9a0d-31196f492d47.png",
+        support: ["pc", "mob"],
+        link: "https://abhik002.github.io/gismos/",
+        disabled: 0
+    },
+    {
+        index: "1-2",
+        title: "CallThem - Contacts Storage",
+        descr: "Full stack contacts storage website with a modern and gorgeous User Interface",
+        image: "https://github-production-user-asset-6210df.s3.amazonaws.com/68178267/256121022-f3f4bbd9-7f2b-4032-8b2b-9da23db78c89.png",
+        support: ["pc", "mob"],
+        link: "https://abhik002.github.io/call-them/",
+        disabled: 0
+    },
+    {
+        index: "1-1",
+        title: "Restaurant Classic",
+        descr: "Traditional, Old-Fashioned and Themed Website Design with Colorful Elements",
+        image: "./index-designs/restaurant/classic.jpg",
+        support: ["pc"],
+        link: "./1vyanjan/content1home.html",
+        disabled: 0
+    },
+    {
+        index: "1-2",
+        title: "GiSmos - Online Shopping",
+        descr: "Full stack tech-shopping dummy website with authorization and express API",
+        image: "https://github-production-user-asset-6210df.s3.amazonaws.com/68178267/256121099-f3b3e9bc-a575-48ec-9a0d-31196f492d47.png",
+        support: ["pc", "mob"],
+        link: "https://abhik002.github.io/gismos/",
+        disabled: 0
+    },
+    {
+        index: "1-2",
+        title: "CallThem - Contacts Storage",
+        descr: "Full stack contacts storage website with a modern and gorgeous User Interface",
+        image: "https://github-production-user-asset-6210df.s3.amazonaws.com/68178267/256121022-f3f4bbd9-7f2b-4032-8b2b-9da23db78c89.png",
+        support: ["pc", "mob"],
+        link: "https://abhik002.github.io/call-them/",
+        disabled: 0
+    }
+]
+
+for (const project of projects) {
+    projectsList.append(
+        node("div", {cl: "project-card"}, [
+            node("div", {cl: "project-img-container"}, [
+                node("img", {cl: "project-img", src: "./TESTS/godscraftedrocks.jpg", width: "400"})
+            ]),
+            node("div", {cl: "project-details"}, [
+                node("h3", {cl: "project-name", innerText: project.title}),
+                node("span", {cl: "project-desc", innerText: project.descr})
+            ])
+        ])
+    )
+}
