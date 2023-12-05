@@ -165,11 +165,6 @@ for (const card of document.querySelectorAll(".tile")) {
 
 const myDetails = {
     fullname: "Abhineet Kelley",
-    description: `
-        I am a <b>Full-Stack</b> 
-        Web and <b>Desktop Application</b> Developer, dedicated to crafting memorable products using 
-        <i>awesome</i> technologies
-        `,
     photo: "./TESTS/me.jpg"
 }
 const colors = [
@@ -181,39 +176,6 @@ const colors = [
     ["orange", "#ff9736"],
     ["purple", "#7820e3"]
 ]
-
-function contentTitle() {
-    const titleDiv = document.createElement("div");
-    titleDiv.className = "content-title";
-
-    const nameSpan = document.createElement("span");
-    nameSpan.id = "fullname";
-    nameSpan.innerText = myDetails.fullname;
-
-    titleDiv.innerText = "Hi, I am ";
-    titleDiv.append(nameSpan);
-
-    return titleDiv;
-}
-
-function contentDescription() {
-    const descDiv = document.createElement("div");
-    descDiv.className = "content-desc";
-
-    descDiv.innerHTML = myDetails.description;
-    return descDiv;
-}
-
-function addContent() {
-    const parent = document.getElementsByClassName("content")[0];
-
-    const mainDiv = document.createElement("div");
-    mainDiv.append(contentTitle(), contentDescription())
-
-    parent.append(mainDiv);
-}
-
-addContent();
 
 const logotext = document.getElementById("logotext");
 const logoContainer = document.getElementById("logo-container");
@@ -393,21 +355,21 @@ designWord.onmouseenter = switchBorderRadius
 
 // myself-div
 const myselfDiv = document.getElementsByClassName("myself-div")[0];
-const myselfDetails = `
-<h2 class="myself-title"> About Abhineet Kelley </h2>
-    <li> A <span class="gold">Full-Stack Web Developer</span> based in Punjab, India </li>
-    <li> Skilled in technologies like <span class="gold">MERN, NextJS</span> and <span class="gold">PostgreSQL </span> </li>
-    <li> Hobbyist Desktop App Developer using <span class="gold">Python</span> and very soon <span class="gold"> C# .NET</span> </li>
-    <li> Proficient with frameworks such as <span class="gold">PyQt5 and tkinter</span> </li>
-    <li> <span class="gold">Adaptable</span> to stressful situations and collaborative <span class="gold">team player</span>, </li>
-`
+const myselfDetails = [
+    'A <span class="gold">Full-Stack Web Developer</span> based in India',
+    'Skilled in developing websites using technologies like <span class="gold">MERN</span>',
+    'Hobbyist Desktop App Developer with <span class="gold">Python and Java</span>',
+    'Fascinated with the <span class="gold">.NET</span> ecosystem with its cross platform techs'
+]
 
 myselfDiv.appendChild(
     node("div", {cl: "myself-container"}, [
         node("div", {cl: "myself-photo"}, [
             node("img", {cl: "myself-img", src: myDetails.photo, alt: "my photo", width: 128}),
         ]),
-        node("div", {cl: "myself-details", innerHTML: myselfDetails})
+        node("div", {cl: "myself-details" }, myselfDetails.map(detail => {
+            return node("p", { cl: "myself-item", innerHTML: detail })
+        }))
     ])
 )
 
@@ -958,32 +920,6 @@ function controlTrifectaDiv(entries, observer) {
 let secondObserver = new IntersectionObserver(controlTrifectaDiv, options);
 secondObserver.observe(trifectaDiv);
 
-// setting links to nav bar links
-const navLinks = {
-    Home: {divClass: "cover-div", height: false},
-    About: {divClass: "second-div", height: true},
-    Projects: {divClass: "aboutme-div", height: true},
-    Contact: {divClass: "call-div", height: true}
-}
-const topBarButtons = document.getElementsByClassName("nav-button");
-for (const button of topBarButtons) {
-    let selObj = null;
-    switch (button.innerHTML) {
-        case "Home": selObj = navLinks.Home; break;
-        case "About": selObj = navLinks.About; break;
-        case "Projects": selObj = navLinks.Projects; break;
-        case "Contact": selObj = navLinks.Contact; break;
-        default: break;
-    }
-    if (selObj == null) continue;
-
-    button.addEventListener("click", () => {
-        const navBarHeight = document.getElementsByClassName("top-bar")[0].getBoundingClientRect().height;
-        let y = document.getElementsByClassName(selObj.divClass)[0]?.getBoundingClientRect().top + window.scrollY;
-        scrollTo(0, selObj.height ? y - navBarHeight : y)
-    })
-}
-
 // Projects Div
 const projectsDiv = document.getElementsByClassName("projects-div")[0];
 const projectsList = document.getElementsByClassName("projects-list")[0];
@@ -1051,7 +987,7 @@ function addProjects(list) {
                         ]),
                         node((project.specialDisabled ? "span" : "a"), { type: "button", cl: `project-button right ${project.disabled ? "unavailable" : ""} ${project.specialDisabled ? "special-disabled" : ""}`, href: project.link, target: "_blank" }, [
                             node("img", { src: "./resources/web.png", width: 36, alt: ">"}),
-                            node("span", { innerText: (project.specialDisabled ? "Already Here" : "Visit") } )
+                            node("span", { innerText: (project.specialDisabled ? "You're here!" : "Visit") } )
                         ])
                     ])
                 ])
@@ -1073,7 +1009,7 @@ function controlProjects(entries, observer) {
     })
 }
 
-let projectsObserver = new IntersectionObserver(controlProjects, { ...options, threshold: 0.6});
+let projectsObserver = new IntersectionObserver(controlProjects, { ...options, threshold: 0.5});
 for (const proj of document.getElementsByClassName("project")) {
     projectsObserver.observe(proj)
 }
