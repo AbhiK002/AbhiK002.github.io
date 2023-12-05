@@ -94,6 +94,7 @@ function node(tagname, attributes, children, cssStyle) {
                     node.target = attributes[key]; break;
                 }
                 default: {
+                    node.setAttribute(key, attributes[key]);
                     break;
                 }
             }
@@ -274,9 +275,9 @@ function controlTopBarTransparency(entries, observer) {
                 "box-shadow": "0 4px 16px rgba(0, 0, 0, 0)"
             });
 
-            logoContainer.onmouseenter = showLogo
-            logoContainer.onmouseleave = null
-            runAfter(showLogo, 600)
+            // logoContainer.onmouseenter = showLogo
+            // logoContainer.onmouseleave = null
+            // runAfter(showLogo, 600)
         }
         else {
             setCssStyles(topDiv, {
@@ -284,9 +285,9 @@ function controlTopBarTransparency(entries, observer) {
                 "border-color": "rgba(var(--text-color), 0.1)",
                 "box-shadow": "0 4px 16px rgba(0, 0, 0, 0.4)"
             });
-            logoContainer.onmouseenter = showLogo
-            logoContainer.onmouseleave = hideLogo
-            runAfter(hideLogo, 600)
+            // logoContainer.onmouseenter = showLogo
+            // logoContainer.onmouseleave = hideLogo
+            // runAfter(hideLogo, 600)
         }
     })
 }
@@ -451,7 +452,7 @@ const skillsInfo = {
         ],
         skills: [
             [
-                { icon: "./resources/skills/react.png", name: "React", url: "https://reactjs.org/" },
+                { icon: "./resources/skills/react.png", name: "React", url: "https://react.dev/" },
                 { icon: "./resources/skills/html.png", name: "HTML", url: "https://developer.mozilla.org/en-US/docs/Web/HTML" },
                 { icon: "./resources/skills/css.png", name: "CSS", url: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
                 { icon: "./resources/skills/nodejs.png", name: "NodeJS", url: "https://nodejs.org/en/about" },
@@ -579,7 +580,7 @@ aboutMeContent = [
         "I prioritize user-centric design, crafting bug-free, beautiful apps and websites that seamlessly cater to users' needs."
     ],
     [
-        "Modern & Technical Designs",
+        "Strong Fundamental Concepts",
         `<?xml version="1.0" encoding="UTF-8"?>
         <svg width="28.635mm" height="30.029mm" version="1.1" viewBox="0 0 28.635 30.029" xmlns="http://www.w3.org/2000/svg">
          <g fill="none" stroke="#e49c3e" stroke-width="1.6" class="border-ele">
@@ -590,7 +591,7 @@ aboutMeContent = [
         </svg>
         
         `,
-        "With a robust UI design background, I excel in full-stack development, staying current with tech trends to deliver innovative solutions."
+        "In addition to new frameworks and technologies, I'm well aware of the underlying fundamental concepts that make them up."
     ],
     [
         "Precise Attention to Detail",
@@ -601,7 +602,7 @@ aboutMeContent = [
          <path id="eye" d="m16.674 5.4751c-2.0502 0.00319-4.3557 0.97468-6.6508 3.8933 7.0598 8.8457 13.758-0.12247 13.758-0.12247s-3.0543-3.7771-7.1071-3.7708zm0.10904 0.69608c1.749 0 3.1781 1.4291 3.1781 3.1781 0 1.749-1.4291 3.1776-3.1781 3.1776-1.749 0-3.1781-1.4286-3.1781-3.1776 0-1.749 1.4291-3.1781 3.1781-3.1781zm0 1.093c-1.1584 0-2.0846 0.92675-2.0846 2.0851 0 1.1584 0.92622 2.0846 2.0846 2.0846s2.0852-0.92623 2.0851-2.0846c0-1.1584-0.92665-2.0852-2.0851-2.0851z" fill="#e49c3e" class="fill-ele"/>
         </svg>
         `,
-        "I'm detail-focused, leaving no part of the app unnoticed. I believe small details do impact an app's impression and usability."
+        "I'm detail-focused, leaving no part of the app unnoticed. Small details do impact an app's impression and usability."
     ],
     [
         "Creative Problem-Solving",
@@ -616,7 +617,7 @@ aboutMeContent = [
          <path class="fill-ele" d="m7.4843 0c-0.20709-9.3569e-6 -0.37362 0.22553-0.37362 0.50591v1.5208c-0.28065 0.057827-0.55475 0.13467-0.82114 0.22738l-0.76429-1.3234c-0.14019-0.24282-0.39736-0.35469-0.57671-0.25115l-1.5296 0.88315c-0.17935 0.10355-0.21047 0.38195-0.07028 0.62477l0.7705 1.3353c-0.21121 0.18597-0.4106 0.38495-0.59635 0.59635l-1.3348-0.77101c-0.24261-0.13982-0.52174-0.10851-0.62528 0.070797l-0.88315 1.5296c-0.10354 0.17934 0.008791 0.43651 0.25166 0.57671l1.3255 0.76533c-0.092299 0.26609-0.16835 0.53983-0.22583 0.8201h-1.5245c-0.28037 2.81e-5 -0.50643 0.16654-0.50643 0.37362v1.7658c-1.8714e-6 0.20709 0.22604 0.37414 0.50643 0.37414h1.5043c0.053645 0.28599 0.12569 0.56545 0.21549 0.83716l-1.295 0.74828c-0.24282 0.14019-0.35521 0.39736-0.25166 0.57671l0.88315 1.5291c0.10355 0.17934 0.38247 0.21095 0.62528 0.0708l1.2733-0.73536c0.19131 0.22413 0.39754 0.43498 0.61702 0.63149l-0.72967 1.2645c-0.14017 0.2428-0.10907 0.52174 0.07028 0.62528l1.5296 0.88315c0.17935 0.10356 0.43652-0.0084 0.57671-0.25166l0.71262-1.234c0.28254 0.10101 0.57403 0.18344 0.87281 0.24495v1.4139c-9e-7 0.28038 0.16652 0.50643 0.37362 0.50643h1.7663c0.20709 0 0.37362-0.22605 0.37362-0.50643v-1.3911c0.30538-0.05698 0.60344-0.13542 0.89245-0.23358l0.69298 1.1999c0.14019 0.24282 0.39736 0.35521 0.57671 0.25166l1.5296-0.88315c0.17935-0.10355 0.21047-0.38248 0.07028-0.62528l-0.68988-1.1958c0.2335-0.20257 0.45244-0.42146 0.65526-0.65474l1.1953 0.68988c0.24261 0.13983 0.52174 0.10858 0.62528-0.0708l0.88315-1.5291c0.10355-0.17935-0.0089-0.43652-0.25166-0.57671l-1.1968-0.69143c0.09865-0.28946 0.17671-0.5881 0.23409-0.894h1.3875c0.28038-9.4e-6 0.50643-0.16704 0.50643-0.37414v-1.7658c-2e-6 -0.20709-0.22605-0.37362-0.50643-0.37362h-1.4077c-0.06152-0.30006-0.14411-0.59273-0.24546-0.87643l1.2283-0.709c0.24282-0.14019 0.35521-0.39737 0.25166-0.57671l-0.88315-1.5296c-0.10355-0.17936-0.38246-0.21095-0.62528-0.070797l-1.2578 0.72657c-0.19731-0.22051-0.40943-0.42752-0.63459-0.6196l0.73174-1.2676c0.14017-0.2428 0.10906-0.52123-0.07028-0.62477l-1.5296-0.88315c-0.17936-0.10357-0.43652 0.00842-0.57671 0.25115l-0.74517 1.2904c-0.27271-0.090016-0.55317-0.16291-0.84026-0.21652v-1.4986c0-0.28038-0.16653-0.50591-0.37362-0.50591h-1.7663zm0.94154 3.3936c2.7852 0 5.0276 2.2418 5.0276 5.0271 2e-6 2.7852-2.2424 5.0276-5.0276 5.0276s-5.0271-2.2424-5.0271-5.0276c-9e-7 -2.7852 2.2418-5.0271 5.0271-5.0271z" fill="#e49c3e"/>
         </svg>
         `,
-        "I excel at innovative problem-solving, embracing challenges with creativity and fresh perspective to craft unique solutions."
+        "I excel at innovative problem-solving, embracing challenges with a fresh perspective to craft unique solutions."
     ]
 ]
 
@@ -990,71 +991,89 @@ const projectPreview = document.getElementsByClassName("project-preview")[0];
 
 const projects = [
     {
-        index: "1-1",
-        title: "Restaurant Classic",
-        descr: "Traditional, Old-Fashioned and Themed Website Design with Colorful Elements",
-        image: "./index-designs/restaurant/classic.jpg",
-        support: ["pc"],
-        link: "./1vyanjan/content1home.html",
-        disabled: 0
+        title: "Gismos - Tech Shopping",
+        descr: "A full stack e-commerce website that allows users to browse tech gadgets like laptops, smartphones, headsets, and a lot more. It's complete with secure user authentication, a shopping cart, product filters and sorting functionalities.",
+        image: "./resources/projects/gismos.jpg",
+        link: "https://abhik002.github.io/gismos",
+        github: "https://github.com/AbhiK002/gismos",
+        techstack: ["MongoDB", "Express", "React", "Node"],
+        disabled: false
     },
     {
-        index: "1-2",
-        title: "GiSmos - Online Shopping",
-        descr: "Full stack tech-shopping dummy website with authorization and express API",
-        image: "https://github-production-user-asset-6210df.s3.amazonaws.com/68178267/256121099-f3b3e9bc-a575-48ec-9a0d-31196f492d47.png",
-        support: ["pc", "mob"],
-        link: "https://abhik002.github.io/gismos/",
-        disabled: 0
+        title: "EduLearn - Online Learning",
+        descr: "An online course selling website that lets users buy their desired courses via the Razorpay payment gateway. It features secure user authentication, a basic searching feature and a modern user interface, along with special admin accounts.",
+        image: "./resources/projects/edulearn.jpg",
+        link: "https://edulearn-abhik002.netlify.app",
+        github: "https://github.com/AbhiK002/edulearn",
+        techstack: ["MongoDB", "Express", "React", "Node", "Razorpay"],
+        disabled: false
     },
     {
-        index: "1-2",
         title: "CallThem - Contacts Storage",
-        descr: "Full stack contacts storage website with a modern and gorgeous User Interface",
-        image: "https://github-production-user-asset-6210df.s3.amazonaws.com/68178267/256121022-f3f4bbd9-7f2b-4032-8b2b-9da23db78c89.png",
-        support: ["pc", "mob"],
-        link: "https://abhik002.github.io/call-them/",
-        disabled: 0
+        descr: "A CRUD application that lets you store your contacts in a secure database after securely registering with your email and password. It boasts a beautiful, neon lighting themed and interactive user interface along with a secure token based authorization.",
+        image: "./resources/projects/callthem.jpg",
+        link: "https://abhik002.github.io/call-them",
+        github: "https://github.com/AbhiK002/call-them",
+        techstack: ["MongoDB", "Express", "React", "Node"],
+        disabled: false
     },
     {
-        index: "1-1",
-        title: "Restaurant Classic",
-        descr: "Traditional, Old-Fashioned and Themed Website Design with Colorful Elements",
-        image: "./index-designs/restaurant/classic.jpg",
-        support: ["pc"],
-        link: "./1vyanjan/content1home.html",
-        disabled: 0
-    },
-    {
-        index: "1-2",
-        title: "GiSmos - Online Shopping",
-        descr: "Full stack tech-shopping dummy website with authorization and express API",
-        image: "https://github-production-user-asset-6210df.s3.amazonaws.com/68178267/256121099-f3b3e9bc-a575-48ec-9a0d-31196f492d47.png",
-        support: ["pc", "mob"],
-        link: "https://abhik002.github.io/gismos/",
-        disabled: 0
-    },
-    {
-        index: "1-2",
-        title: "CallThem - Contacts Storage",
-        descr: "Full stack contacts storage website with a modern and gorgeous User Interface",
-        image: "https://github-production-user-asset-6210df.s3.amazonaws.com/68178267/256121022-f3f4bbd9-7f2b-4032-8b2b-9da23db78c89.png",
-        support: ["pc", "mob"],
-        link: "https://abhik002.github.io/call-them/",
-        disabled: 0
+        title: "Website Portfolio",
+        descr: "A showcase of my work and some information about me, converted into an elegantly designed static website. Comes in 2 color themes and has lots of animations without any dependence on 3rd party libraries.",
+        image: "./resources/projects/portfolio.jpg",
+        link: "https://abhik002.github.io/",
+        github: "https://github.com/AbhiK002/AbhiK002.github.io",
+        techstack: ["HTML", "CSS", "JavaScript"],
+        disabled: false,
+        specialDisabled: true
     }
 ]
 
-for (const project of projects) {
-    projectsList.append(
-        node("div", {cl: "project-card"}, [
-            node("div", {cl: "project-img-container"}, [
-                node("img", {cl: "project-img", src: "./TESTS/godscraftedrocks.jpg", width: "400"})
-            ]),
-            node("div", {cl: "project-details"}, [
-                node("h3", {cl: "project-name", innerText: project.title}),
-                node("span", {cl: "project-desc", innerText: project.descr})
+function addProjects(list) {
+    for (let i=0; i<list.length; i++) {
+        const project = list[i];
+    
+        projectsList.append(
+            node("div", { cl: `project ${(i%2 == 1 ? "alt" : "")}` }, [
+                node("div", { cl: "project-media" }, [
+                    node("img", { src: project.image, width: 256, alt: "Project Image" })
+                ]),
+                node("div", { cl: "project-details" }, [
+                    node("h2", { cl: "project-title", innerText: project.title }),
+                    node("p", { cl: "project-desc", innerText: project.descr }),
+                    node("p", { cl: "project-tech", innerText: "Tech Stack: " }, [
+                        node("span", { cl: "gold", innerText: project.techstack.join(", ") })
+                    ], { "font-family": "var(--second-font)"}),
+                    node("div", { cl: "project-buttons" }, [
+                        node("a", { type: "button", cl: "project-button left", href: project.github, target: "_blank" }, [
+                            node("img", { src: "./resources/github-logo.svg", width: 36, alt: ">"}),
+                            node("span", { innerText: "Source Code"} )
+                        ]),
+                        node((project.specialDisabled ? "span" : "a"), { type: "button", cl: `project-button right ${project.disabled ? "unavailable" : ""} ${project.specialDisabled ? "special-disabled" : ""}`, href: project.link, target: "_blank" }, [
+                            node("img", { src: "./resources/web.png", width: 36, alt: ">"}),
+                            node("span", { innerText: (project.specialDisabled ? "Already Here" : "Visit") } )
+                        ])
+                    ])
+                ])
             ])
-        ])
-    )
+        )
+    }
+}
+
+addProjects(projects)
+
+function controlProjects(entries, observer) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("viewed");
+        }
+        else {
+            if (userScrollingUp) entry.target.classList.remove("viewed");
+        }
+    })
+}
+
+let projectsObserver = new IntersectionObserver(controlProjects, { ...options, threshold: 0.6});
+for (const proj of document.getElementsByClassName("project")) {
+    projectsObserver.observe(proj)
 }
