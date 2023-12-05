@@ -522,6 +522,69 @@ const tsSkills = node("div", { cl: "touch-skills-div" }, skillsInfo.touch.skills
 ))
 touchSkillsDiv.append(tsTitle, tsSkills);
 
+const cc = (str) => {return document.getElementsByClassName(str)}
+const gd = (id) => {return document.getElementById(id)}
+
+function bringItBack(entries, observer) {
+    for (const entry of entries) {
+        if (entry.isIntersecting) {
+            cc("myself-photo")[0].classList.add("bring-it-back");
+            runAfter(() => {
+                gd("myself-title").classList.add("bring-it-back")
+            }, 200);
+            let time = 200;
+            for (const item of cc("myself-item")) {
+                runAfter(() => {
+                    item.classList.add("bring-it-back")
+                }, time);
+                time += 150
+            }
+        }
+        else {
+            if (userScrollingUp) {
+                cc("myself-photo")[0].classList.remove("bring-it-back");
+                gd("myself-title").classList.remove("bring-it-back")
+                for (const item of cc("myself-item")) {
+                    item.classList.remove("bring-it-back")
+                }
+            };
+        }
+    }
+}
+
+let myselfObserver = new IntersectionObserver(bringItBack, { root: null, rootMargin: '0px', threshold: 0.5 })
+myselfObserver.observe(cc("myself-div")[0])
+
+function skillsScrollEffect(entries, observer, subjects) {
+    for (const entry of entries) {
+        if (entry.isIntersecting) {
+            let time = 0;
+            for (const subject of subjects) {
+                runAfter(() => {
+                    subject.classList.add("bring-it-back");
+                }, time);
+                time += 150;
+            }
+        }
+        else {
+            if (userScrollingUp) {
+                // for (const subject of subjects) {
+                //     subject.classList.remove("bring-it-back");
+                // }
+            }
+        }
+    }
+}
+
+let skillObserver = new IntersectionObserver((e, o) => {skillsScrollEffect(e, o, cc("main-skill-card"))}, { root: null, rootMargin: '0px', threshold: 0.4 })
+skillObserver.observe(cc("main-skills")[0])
+
+let moreSkillsObserver = new IntersectionObserver((e, o) => {skillsScrollEffect(e, o, document.querySelectorAll(".touch-skills-div .skill-card-container"))}, {root: null, rootMargin: '0px', threshold: 0.4 })
+moreSkillsObserver.observe(cc("touch-skills-div")[0])
+
+let moreSkillsObserver2 = new IntersectionObserver((e, o) => {skillsScrollEffect(e, o, document.querySelectorAll(".know-skills-inner .skill-card-container"))}, {root: null, rootMargin: '0px', threshold: 0.4 })
+moreSkillsObserver2.observe(cc("know-skills-div")[0])
+
 // about me div
 aboutMeContent = [
     [
