@@ -338,9 +338,11 @@ h1.glowing {
     font-family: "Poppins", "Calibri";
     padding: 1rem;
     cursor: pointer;
-    transition: color 300ms;
+    transition: 600ms;
 }
-
+.nav-button.glowing {
+    color: rgb(var(--sig-yellow));
+}
 .nav-button:hover {
     color: rgb(var(--sig-yellow));
 }
@@ -379,7 +381,18 @@ h1.glowing {
     color: rgb(var(--sig-yellow));
     display: block;
     letter-spacing: -2px;
-    text-shadow: 0px 0px 8px rgba(var(--sig-yellow), 0.6);
+    text-shadow: 0px 0px 24px rgba(var(--sig-yellow), 0.6);
+    animation: glow-effect 4s forwards linear infinite;
+}
+
+@keyframes glow-effect {
+    60% {
+        text-shadow: 0px 0px 24px rgba(var(--sig-yellow), 0.2);
+    }
+
+    100% {
+        text-shadow: 0px 0px 24px rgba(var(--sig-yellow), 0.6);
+    }
 }
 
 .content-desc {

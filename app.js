@@ -128,6 +128,7 @@ const handleOnMouseMove = e => {
 
 let prevYScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
 let userScrollingUp = false;
+
 document.addEventListener("scroll", (ev) => {
     const currentYScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
 
@@ -1076,3 +1077,53 @@ let projectsObserver = new IntersectionObserver(controlProjects, { ...options, t
 for (const proj of document.getElementsByClassName("project")) {
     projectsObserver.observe(proj)
 }
+
+// Navbar highlighting
+function highlightActive(entries, observer, id) {
+    for (const entry of entries) {
+        if (entry.isIntersecting) {
+            for (const ele of cc("nav-button")) {
+                ele.classList.remove("glowing")
+            }
+            document.getElementById(id).classList.add("glowing")
+        }
+        else {
+            // document.getElementById(id).classList.remove("glowing")
+        }
+    }
+}
+
+
+const divsAndLinks = [
+    ["cover-div", "home-link"],
+    ["projects-div", "projects-link"],
+    ["myself-div", "about-link"]
+];
+
+const navLinks = document.getElementsByClassName("nav-button");
+
+function highlightNavLink() {
+    let chosen = divsAndLinks[0][1];
+
+    for (const [divClass, linkId] of divsAndLinks) {
+        const div = document.getElementsByClassName(divClass)[0];
+        if (div.offsetTop > window.scrollY + 200) {
+            break;
+        }
+        chosen = linkId;
+    }
+
+    for (const link of navLinks) {
+        link.classList.remove("glowing");
+    }
+
+    document.getElementById(chosen).classList.add("glowing");
+}
+
+function handleScroll() {
+    requestAnimationFrame(highlightNavLink);
+}
+
+document.addEventListener("scroll", handleScroll);
+
+highlightNavLink();
