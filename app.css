@@ -68,6 +68,7 @@
     --largest-font-size: 8rem;
     --larger-font-size: 6rem;
     --large-font-size: 4rem;
+    --mediumer-font-size: 3rem;
     --medium-font-size: 2.4rem;
     --small-font-size: 2.1rem;
     --smaller-font-size: 1.8rem;
@@ -924,8 +925,8 @@ h1.glowing {
 .skills-divisions {
     display: flex;
     justify-content: center;
-    gap: 4rem;
-    padding: 2rem;
+    gap: 6rem;
+    padding: 4rem 0rem;
     font-size: var(--smallest-font-size);
     width: 100%;
 }
@@ -934,6 +935,7 @@ h1.glowing {
     text-align: center;
     letter-spacing: -1px;
     font-weight: normal;
+    font-size: var(--mediumer-font-size);
 }
 
 .main-skills {
@@ -1603,6 +1605,28 @@ h1.glowing {
 }
 .profile-link {
     color: rgba(var(--sig-yellow))
+}
+
+#copy-email {
+    border-radius: 12px;
+    background-color: transparent;
+    border: none;
+    color: rgba(var(--text-color), 0.4);
+    font-size: var(--smaller-font-size);
+    padding: 8px 12px;
+    /* transform: translateY(-16px); */
+    margin-bottom: 16px;
+    transition: 300ms;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 1px;
+    width: 100%;
+    word-break: break-all;
+}
+#copy-email:hover {
+    color: rgba(var(--sig-yellow))
+}
+#copy-email:active {
+    color: rgba(var(--sig-yellow), 0.5);
 }
 
 .social-button {
