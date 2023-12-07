@@ -852,6 +852,7 @@ h1.glowing {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    overflow: hidden;
     align-items: center;
     padding: 4rem 2rem;
     padding-top: 6rem;
