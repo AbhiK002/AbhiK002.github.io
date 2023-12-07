@@ -278,7 +278,7 @@ h1.glowing {
 }
 
 #logotext {
-    font-size: 30px;
+    font-size: var(--medium-font-size);
     transform: translateX(0);
     transform-origin: left;
     color: rgb(var(--text-color));
@@ -292,9 +292,9 @@ h1.glowing {
     display: flex;
     justify-content: center;
     align-items:center;
-    width: 40px;
-    height: 40px;
-    padding: 24px 24px 28px 24px;
+    height: 60px;
+    box-sizing: border-box;
+    padding: 4px;
     border: 2px solid rgba(var(--tile-bd-col), 0.7);
     border-radius: 12px;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
@@ -308,7 +308,7 @@ h1.glowing {
 }
 
 .theme-switch-div #theme-switch-button {
-    position: absolute;
+    height: 100%;
 }
 
 .lamp-string {
@@ -430,7 +430,14 @@ h1.glowing {
         }
     }
 }
-
+@media (max-width: 600px) {
+    #logoimg {
+        height: 40px;
+    }
+    .theme-switch-div {
+        height: 50px;
+    }
+}
 @media (max-width: 400px) {
     #logotext {
         display: none;

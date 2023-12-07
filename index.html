@@ -25,6 +25,13 @@
             <a class="nav-button" id="projects-link" href="#projects">Projects</a>
             <a class="nav-button" id="about-link" href="#about">About</a>
             <a class="nav-button" id="contact-link" href="#contact">Contact</a>
+            <script>
+                for (const navlink of document.getElementsByClassName("nav-button")) {
+                    navlink.addEventListener("click", () => {
+                        document.getElementsByClassName("top-bar-buttons")[0].classList.remove("visible")
+                    })
+                }
+            </script>
         </nav>
         <div class="top-bar-actions">
             <button class="theme-switch-div" aria-label="Change Theme Button">
