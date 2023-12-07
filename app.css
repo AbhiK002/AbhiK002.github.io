@@ -752,8 +752,8 @@ h1.glowing {
     perspective: 300px;
     gap: 8px
 }
-.project.alt .project-details .project-buttons {
-    right: none;
+.project.alt .project-buttons {
+    right: unset;
     left: 24px;
 }
 
@@ -764,7 +764,7 @@ h1.glowing {
     padding: 8px;
     padding-right: 16px;
     gap: 16px;
-    font-size: 18px;
+    font-size: var(--smallest-font-size);
     text-decoration: none;
     background-color: #4a4a4a;
     color: white;
@@ -816,6 +816,8 @@ h1.glowing {
 }
 
 .project-button img {
+    width: 36px;
+    height: auto;
     border-radius: 12px;
 }
 .project-button.right img {
@@ -839,6 +841,17 @@ h1.glowing {
 
     .project.viewed .project-media img, .project.alt.viewed .project-media img {
         transform: translateX(0);
+    }
+
+    .project .project-buttons, .project.alt .project-buttons {
+        right: unset;
+        left: unset;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+
+    .project-button img {
+        width: 28px
     }
 }
 
