@@ -1168,12 +1168,12 @@ h1.glowing {
     opacity: 1;
     transform: translate(-50%, 4px);
 }
-.ks-lang:hover .kl-img {
-    /* translate: -150% */
+/* .ks-lang:hover .kl-img {
+    translate: -150%
 }
 .ks-lang:hover .perc-label {
-    /* transform: translate(0, 0); */
-}
+    transform: translate(0, 0);
+} */
 
 .kl-img {
     width: 42px;
@@ -1243,9 +1243,9 @@ h1.glowing {
     opacity: 1;
     transform: rotateX(0deg) translate(0, 0);
 }
-.skill-card:hover {
-    /* scale: 1.1 */
-}
+/* .skill-card:hover {
+    scale: 1.1
+} */
 .skill-card.ks:hover {
     border: 2px solid rgba(var(--sig-yellow), 0.9);
 }
