@@ -274,13 +274,14 @@ h1.glowing {
 
 #logoimg {
     height: 50px;
-    z-index: 20;
+    z-index: 4;
 }
 
 #logotext {
     font-size: 30px;
     transform: translateX(0);
     transform-origin: left;
+    color: rgb(var(--text-color));
     z-index: -10;
     transition: transform 600ms, opacity 300ms;
     padding: 0px 4px;
@@ -339,7 +340,7 @@ h1.glowing {
     font-family: "Poppins", "Calibri";
     padding: 1rem;
     cursor: pointer;
-    transition: 600ms;
+    transition: all 600ms, font-size 0ms;
 }
 .nav-button.glowing {
     color: rgb(var(--sig-yellow));
@@ -350,6 +351,90 @@ h1.glowing {
 }
 .nav-button:active {
     color: rgba(var(--sig-yellow), 0.4);
+}
+
+.top-bar-actions {
+    display: flex;
+    gap: 12px;
+}
+
+#nav-toggle {
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    border: none;
+    cursor: pointer;
+    padding: 0px 8px;
+    z-index: 6;
+    display: none;
+    transition: 600ms;
+}
+
+.nav-toggle-line {
+    height: 6px;
+    width: 36px;
+    border-radius: 24px;
+    background-color: rgb(var(--text-color));
+    transition: 600ms;
+}
+
+@media (max-width: 900px) {
+    .top-bar-buttons {
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100vh;
+        padding: 8rem 10vw;
+        z-index: 5;
+        background-color: rgb(var(--minor-bg));
+        transition: 600ms;
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    .top-bar-buttons.visible {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    .nav-button {
+        font-size: var(--mediumer-font-size);
+    }
+
+    #nav-toggle {
+        display: flex;
+    }
+
+    .top-bar-buttons.visible ~ .top-bar-actions {
+        #nav-toggle {
+            background-color: rgb(var(--major-bg));
+            border-radius: 16px;
+        }
+
+        .nav-toggle-line {
+            background-color: rgba(var(--sig-red));
+        }
+
+        #l1 {
+            transform: translateY(200%) rotate(45deg);
+        }
+        #l2 {
+            opacity: 0;
+        }
+        #l3 {
+            transform: translateY(-200%) rotate(-45deg);
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    #logotext {
+        display: none;
+    }
 }
 
 /* COVER DIV CONTENT */
@@ -1597,7 +1682,7 @@ h1.glowing {
 }
 .clink:hover {
     border: 2px solid rgba(var(--sig-yellow), 1);
-    box-shadow: 0px 0px 16px rgba(var(--sig-yellow), 0.3);
+    box-shadow: 0px 8px 16px rgba(0,0,0, 0.2), 0px 0px 16px rgba(var(--sig-yellow), 0.3);
     background-color: rgba(var(--sig-yellow), 0.05);
 }
 .clink:active {
