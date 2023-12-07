@@ -1655,6 +1655,14 @@ h1.glowing {
     .trifecta-visual {
         right: unset;
     }
+
+    .shape {
+        opacity: 0.5;
+    }
+
+    .trifecta-item {
+        font-size: var(--large-font-size);
+    }
 }
 /* #shape1 {background-color: cyan;} #shape2 {background-color: red;} #shape3 {background-color: orange;} #shape4 {background-color: green;} #shape5 {background-color: yellow;} #shape6 {background-color: blue;} #shape7 {background-color: coral;} */
 
