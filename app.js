@@ -1,4 +1,11 @@
-lightTheme = false;
+let lightTheme;
+const lightThemePreference = localStorage.getItem("ak-theme");
+if (lightThemePreference == 'true') {
+    lightTheme = true;
+}
+else {
+    lightTheme = false;
+}
 
 function debugText(text) {
     document.getElementById("js-tester").innerText = text;
@@ -25,7 +32,7 @@ function runAfter(func, duration) {
 
 function styleAfter(element, attr, value, duration) {
     if (element == null || element.nodeType != 1) {
-        console.log(`${element} doesn't exist`)
+        console.error(`${element} doesn't exist`)
         return;
     }
     const init = performance.now();
@@ -156,6 +163,8 @@ if (docElement.classList.contains("light-mode")) {
 function toggleTheme() {
     lampString.classList.toggle('string-pulled-down');
     runAfter(() => { docElement.classList.toggle('light-mode'); }, 300);
+    lightTheme = !lightTheme;
+    localStorage.setItem("ak-theme", lightTheme)
 }
 but = document.getElementsByClassName("theme-switch-div")[0];
 but.onclick = toggleTheme;
