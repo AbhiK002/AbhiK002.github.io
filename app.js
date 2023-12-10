@@ -1043,12 +1043,12 @@ function addProjects(list) {
                         node("span", { cl: "gold", innerText: project.techstack.join(", ") })
                     ], { "font-family": "var(--second-font)"}),
                     node("div", { cl: "project-buttons" }, [
-                        node("a", { type: "button", cl: "project-button left", href: project.github, target: "_blank" }, [
-                            node("img", { src: "./resources/github-logo.svg", width: 36, alt: ">"}),
+                        node("a", { cl: "project-button left", href: project.github, target: "_blank" }, [
+                            node("img", { src: "./resources/github-logo.svg", width: 36, alt: "Github logo"}),
                             node("span", { innerText: "Source Code"} )
                         ]),
-                        node((project.specialDisabled ? "span" : "a"), { type: "button", cl: `project-button right ${project.disabled ? "unavailable" : ""} ${project.specialDisabled ? "special-disabled" : ""}`, href: project.link, target: "_blank" }, [
-                            node("img", { src: "./resources/web.png", width: 36, alt: ">"}),
+                        node((project.specialDisabled ? "span" : "a"), { cl: `project-button right ${project.disabled ? "unavailable" : ""} ${project.specialDisabled ? "special-disabled" : ""}`, href: project.link, target: "_blank" }, [
+                            node("img", { src: "./resources/web.png", width: 36, alt: "Web logo"}),
                             node("span", { innerText: (project.specialDisabled ? "You're here!" : "Visit") } )
                         ])
                     ])
