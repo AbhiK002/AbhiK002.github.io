@@ -1675,13 +1675,28 @@ h1.glowing {
 
 /* CONTACT DIV */
 .contact-div {
-    min-height: 100vh;
-    min-height: 100svh;
+    min-height: 600px;
     padding: 6rem 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: rgba(var(--minor-bg), 0.5);
+}
+
+.contact-div h2 {
+    font-family: var(--second-font);
+}
+
+.contact-types {
+    display: flex;
+    width: 100%;
+    gap: 4rem;
+}
+
+@media (max-width: 1050px) {
+    .contact-types {
+        flex-direction: column;
+    }
 }
 
 .contact-links, .profile-links {
@@ -1692,10 +1707,17 @@ h1.glowing {
     gap: 2rem;
     width: 100%;
 }
+
 .profiles {
-    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
     text-align: center;
+}
+
+.contact-links h2 {
+    margin-bottom: 4px;
 }
 
 .clink {
