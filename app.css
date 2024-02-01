@@ -1678,6 +1678,7 @@ h1.glowing {
     min-height: 600px;
     padding: 6rem 2rem;
     display: flex;
+    gap: 3rem;
     flex-direction: column;
     align-items: center;
     background-color: rgba(var(--minor-bg), 0.5);
@@ -1685,6 +1686,7 @@ h1.glowing {
 
 .contact-div h2 {
     font-family: var(--second-font);
+    margin-bottom: 2rem;
 }
 
 .contact-types {
@@ -1699,7 +1701,7 @@ h1.glowing {
     }
 }
 
-.contact-links, .profile-links {
+.contact-links, .profile-links, .professional-links {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1714,10 +1716,6 @@ h1.glowing {
     align-items: center;
     width: 100%;
     text-align: center;
-}
-
-.contact-links h2 {
-    margin-bottom: 4px;
 }
 
 .clink {
