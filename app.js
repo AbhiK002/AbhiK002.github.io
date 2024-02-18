@@ -356,7 +356,7 @@ const myselfDetails = [
     'A <span class="gold">Full-Stack Web Developer</span> based in India',
     'Skilled in developing websites using technologies like <span class="gold">MERN</span>',
     'Hobbyist Desktop App Developer with <span class="gold">Python and Java</span>',
-    'Fascinated with the <span class="gold">.NET</span> ecosystem with its cross platform techs'
+    'Currently working on my <span class="gold">Java Springboot</span> skills'
 ]
 
 myselfDiv.appendChild(
@@ -410,9 +410,9 @@ const skillsInfo = {
         title: "My Comfort Zone",
         langs: [
             { icon: "./resources/skills/py.png", name: "Python", perc: 80, url: "https://python.org/" },
-            { icon: "./resources/skills/js.png", name: "JavaScript", perc: 75, url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
-            { icon: "./resources/skills/cs.png", name: "C#", perc: 65, url: "https://learn.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/" },
-            { icon: "./resources/skills/java.png", name: "Java", perc: 50, url: "https://www.java.com/en/download/help/whatis_java.html" }
+            { icon: "./resources/skills/java.png", name: "Java", perc: 70, url: "https://www.java.com/en/download/help/whatis_java.html" },
+            { icon: "./resources/skills/js.png", name: "JavaScript", perc: 65, url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
+            { icon: "./resources/skills/cs.png", name: "C#", perc: 50, url: "https://learn.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/" }
         ],
         skills: [
             [
