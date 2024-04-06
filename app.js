@@ -377,7 +377,7 @@ const touchSkillsDiv = document.getElementsByClassName("touch-skills")[0];
 
 const skillsInfo = {
     main: {
-        title: "What I do best",
+        title: "What I do well",
         skills: [
             {
                 icon: "./resources/skills/mern.png",
@@ -395,9 +395,9 @@ const skillsInfo = {
             //     description: "I develop feature-rich and efficient Windows desktop applications using the powerful technology WPF (Windows Presentation Foundation) and cross-platform apps using Microsoft's Avalonia."
             // },
             {
-                icon: "./resources/skills/pyqt5.png",
-                name: "Qt Desktop App Development",
-                description: "I have a good command of 'Qt,' a cross-platform desktop GUI technology, and utilize its Python variant, PyQt5, to develop desktop applications that have native-like features on any OS."
+                icon: "./resources/skills/java-spring.png",
+                name: "Java Spring Boot Development",
+                description: "I have a good command of Spring Boot, a Java Spring framework for backend development, combined with PostgreSQL to develop backend applications with a wide range of utilities."
             },
             {
                 icon: "./resources/skills/figma.png",
@@ -420,9 +420,10 @@ const skillsInfo = {
                 { icon: "./resources/skills/html.png", name: "HTML", url: "https://developer.mozilla.org/en-US/docs/Web/HTML" },
                 { icon: "./resources/skills/css.png", name: "CSS", url: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
                 { icon: "./resources/skills/nodejs.png", name: "NodeJS", url: "https://nodejs.org/en/about" },
-                { icon:"./resources/skills/angular.png" ,name:"Angular" ,url:"https://angular.io/"},
                 { icon: "./resources/skills/mongodb.png", name: "MongoDB", url: "https://www.mongodb.com/" },
-                { icon: "./resources/skills/sql.png", name: "SQL", url: "https://en.wikipedia.org/wiki/SQL" },
+                { icon: "./resources/skills/springboot.png", name: "Spring Boot", url: "https://spring.io/projects/spring-boot" },
+                // { icon: "./resources/skills/sql.png", name: "SQL", url: "https://en.wikipedia.org/wiki/SQL" },
+                { icon: "./resources/skills/postgresql.png", name: "PostgreSQL", url: "https://www.postgresql.org/"}
                 // { icon: "./resources/skills/cloud.png", name: "Google Cloud/AWS" }
             ],
             [
@@ -433,7 +434,7 @@ const skillsInfo = {
                 { icon: "./resources/skills/git.png", name: "Git", url: "https://git-scm.com/" },
                 { icon: "./resources/skills/figma.png", name: "Figma", url: "https://www.figma.com/" },
                 { icon: "./resources/skills/inkscape.png", name: "Inkscape", url:"https://inkscape.org/" },
-                { icon: "./resources/skills/vscode.png", name:"Visual Studio Code" ,url:"https://code.visualstudio.com/"},
+                { icon: "./resources/skills/vscode.png", name:"Visual Studio Code", url:"https://code.visualstudio.com/"},
                 // { icon:"./resources/skills/mspaint.png" ,name:"MS Paint"}
             ]
         ]        
@@ -441,12 +442,16 @@ const skillsInfo = {
     touch: {
         title: "Can work if needed",
         skills: [
+            { icon:"./resources/skills/angular.png" ,name:"Angular" ,url:"https://angular.io/"},
             // { icon: "./resources/skills/electron.png", name: "ElectronJS", url: "https://www.electronjs.org/" },
-                { icon: "./resources/skills/ts.png", name: "TypeScript" },
-            { icon: "./resources/skills/nextjs.png", name: "NextJS", url: "https://nextjs.org/" },
+            { icon: "./resources/skills/ts.png", name: "TypeScript", url: "https://www.typescriptlang.org/" },
+            // { icon: "./resources/skills/nextjs.png", name: "NextJS", url: "https://nextjs.org/" },
+            { icon: "./resources/skills/mysql.png", name: "MySQL", url: "https://www.mysql.com/" },
+            { icon: "./resources/skills/kafka.png", name:"Kafka", url:"https://kafka.apache.org/"},
+            { icon: "./resources/skills/redis.png", name:"Redis", url:"https://redis.io/"},
             { icon: "./resources/skills/vite.png", name: "Vite", url: "https://vitejs.dev/" },
             { icon: "./resources/skills/chatgpt.png", name: "ChatGPT", url:"https://openai.com/blog/better-language-models/"},
-            { icon: "./resources/skills/wordpress.png", name:"WordPress" ,url:"https://wordpress.org/"},
+            // { icon: "./resources/skills/wordpress.png", name:"WordPress" ,url:"https://wordpress.org/"},
             { icon:"./resources/skills/bootstrap.png" ,name:"Bootstrap" ,url:"https://getbootstrap.com/"},
             { icon: "./resources/skills/javafx.png", name: "JavaFX", url: "https://openjfx.io/" },
             { icon: "./resources/skills/bash.png", name: "Bash", url: "https://www.gnu.org/software/bash/" },
