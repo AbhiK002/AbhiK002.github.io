@@ -353,10 +353,10 @@ designWord.onmouseenter = switchBorderRadius
 // myself-div
 const myselfDiv = document.getElementsByClassName("myself-div")[0];
 const myselfDetails = [
-    'A <span class="gold">Full-Stack Web Developer</span> based in India',
-    'Skilled in developing websites using technologies like <span class="gold">MERN</span>',
-    'Hobbyist Desktop App Developer with <span class="gold">Python and Java</span>',
-    'Currently working on my <span class="gold">Java Springboot</span> skills'
+    'A <span class="gold">Full Stack Developer</span> based in India',
+    'Skilled in developing websites using technologies like <span class="gold">MERN</span> and <span class="gold">Spring Boot</span>',
+    'Hobbyist Desktop App Developer with <span class="gold">Python and Java</span>, soon with .NET too',
+    'Currently working as a <span class="gold">backend development intern</span> at <a id="mis-link" href="https://moveinsync.com/">MoveInSync</a>'
 ]
 
 myselfDiv.appendChild(

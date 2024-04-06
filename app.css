@@ -53,6 +53,8 @@
     --tile-bg: 255, 255, 255;
     --lamp-shade-opacity: 0;
 
+    --mis-link-color: 39, 201, 39;
+
     /* Light Mode Colors */
     --text-color-light: 0, 0, 0;
     --major-bg-light: 255, 255, 255;
@@ -64,6 +66,7 @@
     --tile-bd-light: 2px;
     --tile-bg-light: 180, 180, 180;
     --lamp-shade-opacity-light: 1;
+    --mis-link-color-light: 20, 160, 20;
 
     --largest-font-size: 8rem;
     --larger-font-size: 6rem;
@@ -96,6 +99,7 @@
     --tile-bd: var(--tile-bd-light);
     --tile-bg: var(--tile-bg-light);
     --lamp-shade-opacity: var(--lamp-shade-opacity-light);
+    --mis-link-color: var(--mis-link-color-light);
 }  
 
 /* DEBUGGING */
@@ -939,6 +943,15 @@ h1.glowing {
     transform: translate(50%, 0px);
     transition: 600ms;
     transition-delay: 200ms;
+}
+
+.myself-details #mis-link {
+    font-weight: bold;
+    color: rgba(var(--mis-link-color), 1);
+    transition: 300ms;
+}
+.myself-details #mis-link:hover {
+    color: rgba(var(--mis-link-color), 0.7);
 }
 .myself-div .bring-it-back {
     opacity: 1;
