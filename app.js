@@ -353,8 +353,8 @@ designWord.onmouseenter = switchBorderRadius
 // myself-div
 const myselfDiv = document.getElementsByClassName("myself-div")[0];
 const myselfDetails = [
-    'A <span class="gold">Full Stack Developer</span> based in India',
-    'Skilled in developing websites using technologies like <span class="gold">MERN</span> and <span class="gold">Spring Boot</span>',
+    'A <span class="gold">Backend Web Developer</span> based in India',
+    'Skilled in developing websites using technologies like <span class="gold">MERN</span> and <span class="gold">Spring Boot</span> (Present)',
     'Hobbyist Desktop App Developer with <span class="gold">Python and Java</span>, soon with .NET too',
     'Currently working as a <span class="gold">backend development intern</span> at <a id="mis-link" href="https://moveinsync.com/">MoveInSync</a>'
 ]
@@ -380,13 +380,18 @@ const skillsInfo = {
         title: "What I do well",
         skills: [
             {
+                icon: "./resources/skills/java-spring.png",
+                name: "Java Spring Boot Development (2024-)",
+                description: "I have a good command of Spring Boot, a Java Spring framework for backend development, combined with PostgreSQL to develop backend applications with a wide range of utilities."
+            },
+            {
                 icon: "./resources/skills/mern.png",
-                name: "MERN Stack Web Development",
+                name: "MERN Stack Web Development (2022-23)",
                 description: "I utilize the MERN stack efficiently to produce stable, optimised and beautiful dynamic websites that are able to satisfy the users' needs, in addition to the client's requirements."
             },
             {
                 icon: "./resources/skills/vanilla.png",
-                name: "Vanilla Web Development",
+                name: "Vanilla Web Development (2021-)",
                 description: "I am adept at creating interactive and modern static websites using only pure HTML, CSS, and vanilla JavaScript. In fact, I've built this portfolio with foundational web technologies."
             },
             // {
@@ -395,13 +400,8 @@ const skillsInfo = {
             //     description: "I develop feature-rich and efficient Windows desktop applications using the powerful technology WPF (Windows Presentation Foundation) and cross-platform apps using Microsoft's Avalonia."
             // },
             {
-                icon: "./resources/skills/java-spring.png",
-                name: "Java Spring Boot Development",
-                description: "I have a good command of Spring Boot, a Java Spring framework for backend development, combined with PostgreSQL to develop backend applications with a wide range of utilities."
-            },
-            {
                 icon: "./resources/skills/figma.png",
-                name: "UI/UX and Web Designing",
+                name: "UI/UX and Web Designing (2021-)",
                 description: "I design applications and websites in a beautiful and well thought out manner, following all the design principles and the latest UI/UX trends. I craft icons and cliparts with ease."
             }
         ]
