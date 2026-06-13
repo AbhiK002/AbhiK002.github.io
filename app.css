@@ -967,7 +967,7 @@ h1.glowing {
 
 @media (hover: hover) and (min-width: 601px) {
     .desktop-apps-grid:has(.desktop-app-card:hover) .desktop-app-card:not(:hover) {
-        opacity: 0.05;
+        opacity: 0;
     }
 }
 
