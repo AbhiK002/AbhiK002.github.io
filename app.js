@@ -534,7 +534,7 @@ const gd = (id) => {return document.getElementById(id)}
 
 document.addEventListener("scroll", () => {
     let div = cc("myself-div")[0];
-    if (div.offsetTop < window.scrollY + 250) {
+    if (div.offsetTop < window.scrollY + window.innerHeight * 0.85) {
         if (gd("myself-title").classList.contains("bring-it-back")) return;
 
         cc("myself-photo")[0].classList.add("bring-it-back");
@@ -547,14 +547,6 @@ document.addEventListener("scroll", () => {
                 item.classList.add("bring-it-back")
             }, time);
             time += 150
-        }
-    }
-    else {
-        if (!gd("myself-title").classList.contains("bring-it-back")) return;
-        cc("myself-photo")[0].classList.remove("bring-it-back");
-        gd("myself-title").classList.remove("bring-it-back")
-        for (const item of cc("myself-item")) {
-            item.classList.remove("bring-it-back")
         }
     }
 })
@@ -1065,13 +1057,75 @@ function addProjects(list) {
 
 addProjects(projects)
 
+// Desktop Apps subsection
+const SS = "./resources/desktop-apps/screenshots/"
+const desktopApps = [
+    { name: "Tasky",            desc: "Deadline tracker that shows time remaining for each task",    icon: "./resources/desktop-apps/tasky.png",           screenshots: [`${SS}tasky.png`, `${SS}tasky-2.png`, `${SS}tasky-3.png`],                       github: "https://github.com/AbhiK002/Tasky" },
+    { name: "Shard Editor",     desc: "Terminal-styled minimal text editor for Windows",             icon: "./resources/desktop-apps/shard.png",            screenshots: [`${SS}shard.png`, `${SS}shard-2.png`],                                          github: "https://github.com/AbhiK002/shard-editor" },
+    { name: "Blappy Fird",      desc: "A Flappy Bird clone built for fun without any game library", icon: "./resources/desktop-apps/blappy-fird.png",      screenshots: [`${SS}blappy-fird.png`, `${SS}blappy-fird-2.png`],                              github: "https://github.com/AbhiK002/blappy-fird" },
+    { name: "Virtual Keyboard", desc: "On-screen keyboard with pinning and opacity controls",        icon: "./resources/desktop-apps/virtual-keyboard.png", screenshots: [`${SS}virtual-keyboard.png`, `${SS}virtual-keyboard-2.png`],                    github: "https://github.com/AbhiK002/virtual-keyboard" },
+    { name: "SciCalc",          desc: "Scientific calculator with a GUI, a college assignment",      icon: "./resources/desktop-apps/sci-calc.png",         screenshots: [`${SS}sci-calc.png`],                                                          github: "https://github.com/AbhiK002/sci-calc" },
+    { name: "Tic Tac Toe",      desc: "2-player and 3 bot modes, playable via mouse or keyboard",   icon: "./resources/desktop-apps/tic-tac-toe.png",      screenshots: [`${SS}tic-tac-toe.png`, `${SS}tic-tac-toe-2.png`],                             github: "https://github.com/AbhiK002/tic-tac-toe" }
+]
+
+const DA_FADE = 500
+const DA_SLIDE_INTERVAL = 2000
+const daBgPreview = node("div", { cl: "da-bg-preview" })
+let daSlideTimer = null
+
+function daStartSlideshow(screenshots) {
+    let idx = 0
+    daBgPreview.style.backgroundImage = `url('${screenshots[0]}')`
+    daBgPreview.classList.add("da-bg-visible")
+    if (daSlideTimer) clearInterval(daSlideTimer)
+    if (screenshots.length < 2) return
+    daSlideTimer = setInterval(() => {
+        daBgPreview.classList.remove("da-bg-visible")
+        runAfter(() => {
+            idx = (idx + 1) % screenshots.length
+            daBgPreview.style.backgroundImage = `url('${screenshots[idx]}')`
+            daBgPreview.classList.add("da-bg-visible")
+        }, DA_FADE)
+    }, DA_SLIDE_INTERVAL)
+}
+
+function daStopSlideshow() {
+    if (daSlideTimer) { clearInterval(daSlideTimer); daSlideTimer = null }
+    daBgPreview.classList.remove("da-bg-visible")
+}
+
+const desktopSection = node("div", { cl: "desktop-apps-section" }, [
+    daBgPreview,
+    node("div", { cl: "da-header" }, [
+        node("h2", { cl: "skills-title", innerText: "My Desktop Apps" }),
+        node("p", { cl: "da-tagline", innerText: "before vibe coding was a thing" }),
+    ]),
+    node("div", { cl: "desktop-apps-grid" }, desktopApps.map(app => {
+        const card = node("a", { cl: "desktop-app-card", href: app.github, target: "_blank" }, [
+            node("img", { src: app.icon, alt: `${app.name} logo` }),
+            node("span", { cl: "da-name", innerText: app.name }),
+            node("span", { cl: "da-desc", innerText: app.desc })
+        ])
+        card.addEventListener("mouseenter", () => {
+            if (window.matchMedia("(hover: hover) and (min-width: 601px)").matches) daStartSlideshow(app.screenshots)
+        })
+        card.addEventListener("mouseleave", daStopSlideshow)
+        return card
+    }))
+])
+
+document.getElementsByClassName("projects-div")[0].appendChild(desktopSection)
+
+let daCardObserver = new IntersectionObserver(
+    (e, o) => { skillsScrollEffect(e, o, document.querySelectorAll(".desktop-app-card")) },
+    { root: null, rootMargin: '0px', threshold: 0.2 }
+)
+daCardObserver.observe(document.getElementsByClassName("desktop-apps-grid")[0])
+
 function controlProjects(entries, observer) {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add("viewed");
-        }
-        else {
-            if (userScrollingUp) entry.target.classList.remove("viewed");
         }
     })
 }

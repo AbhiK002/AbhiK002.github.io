@@ -866,6 +866,152 @@ h1.glowing {
     }
 }
 
+/* DESKTOP APPS SUBSECTION */
+.da-bg-preview {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 800ms ease-in-out;
+    pointer-events: none;
+    z-index: 0;
+    mask-image:
+        linear-gradient(to right,  transparent 0%, black 8%, black 92%, transparent 100%),
+        linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
+    mask-composite: intersect;
+}
+
+.da-bg-preview.da-bg-visible {
+    opacity: 0.12;
+}
+.da-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.da-header .skills-title {
+    margin: 0;
+}
+
+.da-tagline {
+    font-family: var(--second-font);
+    font-style: italic;
+    font-size: var(--smallest-font-size);
+    opacity: 0.5;
+    margin: 0;
+    text-align: center;
+}
+
+.desktop-apps-section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4rem 4rem 8rem 4rem;
+    gap: 3rem;
+    width: 100%;
+    max-width: 1300px;
+    overflow: hidden;
+}
+
+.da-header, .desktop-apps-grid {
+    position: relative;
+    z-index: 1;
+}
+
+
+.desktop-apps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.6rem;
+    width: 100%;
+    max-width: 900px;
+}
+
+@media (max-width: 600px) {
+    .desktop-apps-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 380px) {
+    .desktop-apps-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+.desktop-app-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.8rem 2rem;
+    border-radius: 16px;
+    border: var(--tile-bd) solid rgba(var(--tile-bd-col), 0.25);
+    background-color: rgba(var(--minor-bg), 0.75);
+    backdrop-filter: blur(10px);
+    text-decoration: none;
+    color: rgb(var(--text-color));
+    transition: all 300ms, opacity 600ms, transform 600ms;
+    opacity: 0;
+    transform: translateY(4rem);
+}
+
+.desktop-app-card.bring-it-back {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (hover: hover) and (min-width: 601px) {
+    .desktop-apps-grid:has(.desktop-app-card:hover) .desktop-app-card:not(:hover) {
+        opacity: 0.05;
+    }
+}
+
+@media (hover: hover) {
+    .desktop-app-card:hover {
+        border-color: rgba(var(--sig-yellow), 0.7);
+        background-color: rgba(var(--sig-yellow), 0.1);
+        transform: translateY(-5px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 0 14px rgba(var(--sig-yellow), 0.7);
+    }
+
+    .desktop-app-card:active {
+        transform: scale(0.95);
+    }
+}
+
+.desktop-app-card img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+.da-name {
+    font-size: var(--smallest-font-size);
+    text-align: center;
+    line-height: 1.2;
+    color: rgb(var(--sig-yellow));
+    font-weight: 600;
+}
+
+.da-desc {
+    font-size: var(--tiny-font-size);
+    text-align: center;
+    line-height: 1.4;
+    opacity: 0.6;
+}
+
+@media (max-width: 688px) {
+    .desktop-apps-section {
+        padding: 0 1rem 6rem 1rem;
+    }
+}
+
 /* myself div */
 .myself-div {
     min-height: 600px;
