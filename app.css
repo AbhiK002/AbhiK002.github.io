@@ -1833,121 +1833,443 @@ h1.glowing {
 /* #shape1 {background-color: cyan;} #shape2 {background-color: red;} #shape3 {background-color: orange;} #shape4 {background-color: green;} #shape5 {background-color: yellow;} #shape6 {background-color: blue;} #shape7 {background-color: coral;} */
 
 /* CONTACT DIV */
+/* ============================================================
+   CONTACT — flagship section
+   Glass surfaces · ambient accent glow · layered depth
+   Theme-aware via existing --sig-* / --*-bg tokens
+   ============================================================ */
+
 .contact-div {
+    /* Local design tokens (alias the global theme vars) */
+    --c-accent:   var(--sig-yellow);
+    --c-accent-2: var(--sig-orange);
+    --c-accent-3: var(--sig-red);
+    --c-accent-grad: linear-gradient(
+        135deg,
+        rgb(var(--c-accent))   0%,
+        rgb(var(--c-accent-2)) 55%,
+        rgb(var(--c-accent-3)) 100%
+    );
+    --c-card-radius: 18px;
+    --c-panel-radius: 28px;
+    --c-content-max: 1080px;
+
+    position: relative;
+    isolation: isolate;          /* keep ambient orbs scoped behind content */
+    overflow: hidden;            /* clip the drifting glow */
     min-height: 600px;
-    padding: 6rem 2rem;
+    scroll-margin-top: 90px;     /* offset the fixed header on #contact jumps */
+    padding:
+        clamp(6rem, 10vh, 9rem)
+        clamp(1.25rem, 5vw, 4rem)
+        clamp(6rem, 12vh, 10rem);
     display: flex;
-    gap: 3rem;
     flex-direction: column;
     align-items: center;
-    background-color: rgba(var(--minor-bg), 0.5);
+    gap: clamp(3rem, 6vw, 5rem);
+    background:
+        radial-gradient(120% 90% at 50% -10%, rgba(var(--c-accent), 0.07), transparent 60%),
+        linear-gradient(180deg, rgba(var(--minor-bg), 0.55) 0%, rgba(var(--major-bg), 0.65) 100%);
 }
 
-.contact-div h2 {
-    font-family: var(--second-font);
-    margin-bottom: 2rem;
+/* Ambient drifting glow orbs — pre-blurred layers animated on transform only */
+.contact-div::before,
+.contact-div::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    filter: blur(70px);
+    pointer-events: none;
+}
+.contact-div::before {
+    width: min(42vw, 620px);
+    top: -8%;
+    left: -6%;
+    background: radial-gradient(circle, rgba(var(--c-accent), 0.45), transparent 70%);
+    opacity: 0.55;
+    animation: contact-orb-a 22s ease-in-out infinite alternate;
+}
+.contact-div::after {
+    width: min(38vw, 560px);
+    right: -8%;
+    bottom: -12%;
+    background: radial-gradient(circle, rgba(var(--c-accent-3), 0.38), transparent 70%);
+    opacity: 0.5;
+    animation: contact-orb-b 26s ease-in-out infinite alternate;
+}
+@keyframes contact-orb-a {
+    to { transform: translate3d(12%, 10%, 0) scale(1.15); }
+}
+@keyframes contact-orb-b {
+    to { transform: translate3d(-10%, -8%, 0) scale(1.1); }
 }
 
-.contact-types {
-    display: flex;
+/* Section title — refined treatment over the global .glowing rule */
+.contact-div > h1.glowing {
+    position: relative;
+    margin: 0;
+    text-align: center;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+}
+.contact-div > h1.glowing::after {
+    content: "";
+    display: block;
+    width: clamp(64px, 12vw, 120px);
+    height: 4px;
+    margin: 1.4rem auto 0;
+    border-radius: 999px;
+    background: var(--c-accent-grad);
+    box-shadow: 0 0 18px rgba(var(--c-accent-2), 0.7);
+}
+
+/* ---------- Hero channels: Email · LinkedIn · GitHub ---------- */
+.contact-links {
     width: 100%;
-    gap: 4rem;
+    max-width: var(--c-content-max);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+    gap: 1.25rem;
 }
 
+/* ---------- Secondary panels: Professional · Profiles ---------- */
+.contact-types {
+    width: 100%;
+    max-width: var(--c-content-max);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+}
 @media (max-width: 1050px) {
     .contact-types {
-        flex-direction: column;
+        grid-template-columns: 1fr;
     }
 }
 
-.contact-links, .profile-links, .professional-links {
+.professional-links,
+.profile-links {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 2rem;
-    width: 100%;
+    gap: 1.1rem;
+    padding: clamp(1.75rem, 3vw, 2.5rem);
+    border-radius: var(--c-panel-radius);
+    border: 1px solid rgba(var(--text-color), 0.09);
+    background: linear-gradient(
+        165deg,
+        rgba(var(--minor-bg), 0.5) 0%,
+        rgba(var(--major-bg), 0.28) 100%
+    );
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    box-shadow:
+        0 30px 60px -25px rgba(0, 0, 0, 0.65),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    transition: border-color 400ms, box-shadow 400ms;
+}
+@media (hover: hover) {
+    .professional-links:hover,
+    .profile-links:hover {
+        border-color: rgba(var(--c-accent), 0.28);
+        box-shadow:
+            0 36px 70px -25px rgba(0, 0, 0, 0.7),
+            inset 0 1px 0 rgba(255, 255, 255, 0.08),
+            0 0 0 1px rgba(var(--c-accent), 0.08);
+    }
 }
 
-.profiles {
+/* Panel headings */
+.contact-div h2 {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    width: 100%;
-    text-align: center;
+    gap: 0.75rem;
+    margin: 0 0 0.6rem;
+    font-family: var(--second-font);
+    font-weight: 600;
+    font-size: var(--medium-font-size);
+    line-height: 1.1;
+    color: rgb(var(--text-color));
+}
+.contact-div h2::before {
+    content: "";
+    flex: none;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--c-accent-grad);
+    box-shadow: 0 0 12px rgba(var(--c-accent-2), 0.85);
 }
 
+/* ---------- The link card (.clink) — shared premium surface ---------- */
 .clink {
+    position: relative;
+    overflow: hidden;            /* contain the accent bar + sheen within the radius */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+    padding: 1.1rem 1.4rem;
+    border-radius: var(--c-card-radius);
     color: rgb(var(--text-color));
     text-decoration: none;
-    border: 2px solid rgba(var(--minor-bg-light), 0.7);
-    padding: 1rem 3rem;
-    border-radius: 12px;
-    background-color: rgba(var(--major-bg), 0.3);
-    transition: 500ms;
-    width: 100%;
-    box-shadow: 0px 8px 16px rgba(0,0,0, 0.4);
-    max-width: 400px;
-}
-.clink:hover {
-    border: 2px solid rgba(var(--sig-yellow), 1);
-    box-shadow: 0px 8px 16px rgba(0,0,0, 0.2), 0px 0px 16px rgba(var(--sig-yellow), 0.3);
-    background-color: rgba(var(--sig-yellow), 0.05);
-}
-.clink:active {
-    background-color: rgba(var(--sig-yellow), 0.1);
-}
-.profile-link {
-    color: rgba(var(--sig-yellow))
+    font-size: var(--smaller-font-size);
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+    border: 1px solid rgba(var(--text-color), 0.10);
+    /* glass base + a diagonal sheen layer parked off-screen, swept in on hover */
+    background-color: rgba(var(--major-bg), 0.35);
+    background-image: linear-gradient(
+        115deg,
+        transparent 38%,
+        rgba(255, 255, 255, 0.10) 48%,
+        transparent 58%
+    );
+    background-repeat: no-repeat;
+    background-size: 250% 100%;
+    background-position: 180% 0;
+    box-shadow:
+        0 10px 24px -12px rgba(0, 0, 0, 0.7),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    transition:
+        transform 300ms cubic-bezier(.2, .7, .2, 1),
+        border-color 300ms,
+        background-color 300ms,
+        box-shadow 300ms,
+        background-position 800ms cubic-bezier(.2, .7, .2, 1);
 }
 
+/* Left accent bar — reveals on hover/focus */
+.clink::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 3px;
+    height: 64%;
+    border-radius: 999px;
+    background: var(--c-accent-grad);
+    box-shadow: 0 0 14px rgba(var(--c-accent-2), 0.8);
+    transform: translateY(-50%) scaleY(0);
+    transform-origin: center;
+    transition: transform 320ms cubic-bezier(.2, .7, .2, 1);
+}
+
+/* Trailing "opens elsewhere" affordance */
+.clink::after {
+    content: "\2197";
+    flex: none;
+    font-size: 1.1em;
+    line-height: 1;
+    color: rgba(var(--text-color), 0.35);
+    transition:
+        transform 300ms cubic-bezier(.2, .7, .2, 1),
+        color 300ms;
+}
+
+@media (hover: hover) {
+    .clink:hover {
+        transform: translateY(-4px);
+        border-color: rgba(var(--c-accent), 0.55);
+        background-color: rgba(var(--c-accent), 0.06);
+        background-position: -80% 0;
+        box-shadow:
+            0 18px 40px -14px rgba(0, 0, 0, 0.75),
+            0 0 22px -2px rgba(var(--c-accent), 0.35),
+            inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+    .clink:hover::before {
+        transform: translateY(-50%) scaleY(1);
+    }
+    .clink:hover::after {
+        color: rgb(var(--c-accent));
+        transform: translate(3px, -3px);
+    }
+
+    /* Focus the hovered card by gently receding its siblings */
+    .contact-links:hover .clink:not(:hover),
+    .professional-links:hover .clink:not(:hover),
+    .profile-links:hover .clink:not(:hover) {
+        opacity: 0.62;
+    }
+}
+
+.clink:active {
+    transform: translateY(-1px) scale(0.99);
+    background-color: rgba(var(--c-accent), 0.1);
+}
+
+/* Keyboard accessibility — visible, on-brand focus ring */
+.clink:focus-visible {
+    outline: none;
+    border-color: rgba(var(--c-accent), 0.7);
+    box-shadow:
+        0 0 0 3px rgba(var(--c-accent), 0.35),
+        0 14px 34px -14px rgba(0, 0, 0, 0.7);
+}
+.clink:focus-visible::before {
+    transform: translateY(-50%) scaleY(1);
+}
+
+/* Hero channels read larger/bolder and frost the page behind them */
+.contact-links .clink {
+    padding: 1.4rem 1.6rem;
+    font-size: var(--small-font-size);
+    font-weight: 600;
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+}
+
+/* Panel links sit on an already-frosted surface — keep them lighter */
+.contact-types .clink {
+    padding: 0.95rem 1.2rem;
+    background-color: rgba(var(--major-bg), 0.3);
+}
+
+/* Coding profiles keep their gold identity */
+.profile-link {
+    color: rgb(var(--c-accent));
+    font-weight: 600;
+}
+.profile-link::after {
+    color: rgba(var(--c-accent), 0.55);
+}
+
+/* ---------- Light mode surface corrections ---------- */
+.light-mode .contact-div {
+    background:
+        radial-gradient(120% 90% at 50% -10%, rgba(var(--c-accent), 0.1), transparent 60%),
+        linear-gradient(180deg, rgba(var(--minor-bg), 0.6) 0%, rgba(var(--major-bg), 0.85) 100%);
+}
+.light-mode .contact-div::before { opacity: 0.32; }
+.light-mode .contact-div::after  { opacity: 0.28; }
+
+.light-mode .professional-links,
+.light-mode .profile-links {
+    background: linear-gradient(
+        165deg,
+        rgba(var(--major-bg), 0.85) 0%,
+        rgba(var(--minor-bg), 0.55) 100%
+    );
+    border-color: rgba(var(--text-color), 0.12);
+    box-shadow:
+        0 24px 50px -25px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+.light-mode .clink {
+    background-color: rgba(var(--major-bg), 0.7);
+    border-color: rgba(var(--text-color), 0.14);
+    box-shadow:
+        0 10px 24px -14px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+.light-mode .contact-types .clink {
+    background-color: rgba(var(--major-bg), 0.55);
+}
+
+/* ---------- Optional copy-to-clipboard email pill (markup-ready) ---------- */
 #copy-email {
-    border-radius: 12px;
-    background-color: transparent;
-    border: none;
-    color: rgba(var(--text-color), 0.4);
-    font-size: var(--smaller-font-size);
-    padding: 8px 12px;
-    /* transform: translateY(-16px); */
-    margin-bottom: 16px;
-    transition: 300ms;
-    font-family: Arial, Helvetica, sans-serif;
-    letter-spacing: 1px;
     width: 100%;
+    margin: 0;
+    padding: 0.8rem 1rem;
+    border: 1px dashed rgba(var(--text-color), 0.2);
+    border-radius: var(--c-card-radius);
+    background-color: transparent;
+    color: rgba(var(--text-color), 0.55);
+    font-family: var(--main-font);
+    font-size: var(--smaller-font-size);
+    letter-spacing: 0.5px;
     word-break: break-all;
+    cursor: pointer;
+    transition: color 250ms, border-color 250ms, background-color 250ms;
 }
 #copy-email:hover {
-    color: rgba(var(--sig-yellow))
+    color: rgb(var(--c-accent));
+    border-color: rgba(var(--c-accent), 0.45);
+    background-color: rgba(var(--c-accent), 0.05);
 }
 #copy-email:active {
-    color: rgba(var(--sig-yellow), 0.5);
+    color: rgba(var(--c-accent), 0.6);
 }
 
+/* ---------- Optional icon social buttons (markup-ready) ---------- */
 .social-button {
-    display: flex;
-    border: none;
-    background-color: rgba(var(--text-color), 0);
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 8px;
+    padding: 0.7rem;
+    border: 1px solid rgba(var(--text-color), 0.1);
+    border-radius: 14px;
+    background-color: rgba(var(--major-bg), 0.35);
     cursor: pointer;
-    border-radius: 20%;
+    transition:
+        transform 250ms cubic-bezier(.2, .7, .2, 1),
+        border-color 250ms,
+        background-color 250ms,
+        box-shadow 250ms;
 }
-
 .social-button svg {
-    width: 32px;
-    transition: transform 200ms;
+    width: 28px;
+    height: 28px;
+    transition: transform 250ms;
 }
 .social-button svg * {
     fill: rgb(var(--text-color));
+    transition: fill 250ms;
+}
+@media (hover: hover) {
+    .social-button:hover {
+        transform: translateY(-3px);
+        border-color: rgba(var(--c-accent), 0.5);
+        background-color: rgba(var(--c-accent), 0.08);
+        box-shadow:
+            0 12px 26px -12px rgba(0, 0, 0, 0.6),
+            0 0 18px -4px rgba(var(--c-accent), 0.4);
+    }
+    .social-button:hover svg { transform: translateY(-1px); }
+    .social-button:hover svg * { fill: rgb(var(--c-accent)); }
+}
+.social-button:active { transform: translateY(0) scale(0.96); }
+.social-button:focus-visible {
+    outline: none;
+    border-color: rgba(var(--c-accent), 0.7);
+    box-shadow: 0 0 0 3px rgba(var(--c-accent), 0.35);
 }
 
-.social-button:hover {
-    background-color: rgba(var(--text-color), 0.21);
+/* ---------- Respect reduced-motion: keep affordances, drop movement ---------- */
+@media (prefers-reduced-motion: reduce) {
+    .contact-div::before,
+    .contact-div::after {
+        animation: none;
+    }
+    .clink,
+    .clink::before,
+    .clink::after,
+    .professional-links,
+    .profile-links,
+    .social-button,
+    .social-button svg {
+        transition-duration: 1ms;
+    }
+    .clink {
+        background-image: none;   /* disable the sheen sweep */
+    }
+    .clink:hover,
+    .clink:active {
+        transform: none;
+    }
+    .clink:hover::after {
+        transform: none;
+    }
+    .social-button:hover,
+    .social-button:active {
+        transform: none;
+    }
 }
-.social-button:hover > svg {
-    transform: translateY(-2px);
-}
-.social-button:active > svg {
-    transform: scale(0.96);
+
+/* ---------- Fine-tuning for small screens ---------- */
+@media (max-width: 600px) {
+    .contact-div::before { width: 70vw; }
+    .contact-div::after  { width: 72vw; }
 }
