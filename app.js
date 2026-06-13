@@ -1229,13 +1229,23 @@ const contactLinks = [
     }
 ]
 
-// for (const item of contactLinks.map(contactLink => {
-//     return node("a", { cl: "contact-link", href: contactLink.link, innerText: contactLink.name })
-// })) {
-//     cc("contact-links")[0].append(item);
-// }
-// for (const item of profileLinks.map(profileLink => {
-//     return node("a", { cl: "profile-link", href: profileLink.link, innerText: profileLink.name })
-// })) {
-//     cc("profile-links")[0].append(item);
-// }
+// Contact section scroll animations
+const contactSection = cc("contact-div")[0];
+const contactTitle = gd("contact-title");
+const contactTagline = cc("contact-tagline")[0];
+
+let contactObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            contactTitle.classList.add("bring-it-back");
+            if (contactTagline) contactTagline.classList.add("bring-it-back");
+            let delay = 200;
+            for (const card of cc("contact-card")) {
+                runAfter(() => { card.classList.add("bring-it-back"); }, delay);
+                delay += 150;
+            }
+        }
+    });
+}, { root: null, rootMargin: '0px', threshold: 0.2 });
+
+contactObserver.observe(contactSection);
