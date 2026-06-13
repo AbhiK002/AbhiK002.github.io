@@ -1072,16 +1072,20 @@ const DA_FADE = 500
 const DA_SLIDE_INTERVAL = 2000
 const daBgPreview = node("div", { cl: "da-bg-preview" })
 let daSlideTimer = null
+let daGen = 0
 
 function daStartSlideshow(screenshots) {
+    const gen = ++daGen
     let idx = 0
     daBgPreview.style.backgroundImage = `url('${screenshots[0]}')`
     daBgPreview.classList.add("da-bg-visible")
     if (daSlideTimer) clearInterval(daSlideTimer)
     if (screenshots.length < 2) return
     daSlideTimer = setInterval(() => {
+        if (daGen !== gen) return
         daBgPreview.classList.remove("da-bg-visible")
         runAfter(() => {
+            if (daGen !== gen) return
             idx = (idx + 1) % screenshots.length
             daBgPreview.style.backgroundImage = `url('${screenshots[idx]}')`
             daBgPreview.classList.add("da-bg-visible")
@@ -1090,6 +1094,7 @@ function daStartSlideshow(screenshots) {
 }
 
 function daStopSlideshow() {
+    daGen++
     if (daSlideTimer) { clearInterval(daSlideTimer); daSlideTimer = null }
     daBgPreview.classList.remove("da-bg-visible")
 }
