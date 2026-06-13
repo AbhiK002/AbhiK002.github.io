@@ -1103,7 +1103,7 @@ const desktopSection = node("div", { cl: "desktop-apps-section" }, [
     daBgPreview,
     node("div", { cl: "da-header" }, [
         node("h2", { cl: "skills-title", innerText: "My Desktop Apps" }),
-        node("p", { cl: "da-tagline", innerText: "before vibe coding was a thing" }),
+        node("p", { cl: "da-tagline", innerText: "built before vibe coding was a thing" }),
     ]),
     node("div", { cl: "desktop-apps-grid" }, desktopApps.map(app => {
         const card = node("a", { cl: "desktop-app-card", href: app.github, target: "_blank" }, [
