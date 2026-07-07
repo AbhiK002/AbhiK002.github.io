@@ -1939,19 +1939,17 @@ h1.glowing {
     width: 100%;
     max-width: var(--c-content-max);
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    place-items: center;
+    grid-template-columns: 1fr;
     gap: clamp(1.5rem, 3vw, 2.5rem);
-}
-@media (max-width: 1050px) {
-    .contact-types {
-        grid-template-columns: 1fr;
-    }
 }
 
 .professional-links,
 .profile-links {
     display: flex;
     flex-direction: column;
+    max-width: 500px;
+    width: 100%;
     gap: 1.1rem;
     padding: clamp(1.75rem, 3vw, 2.5rem);
     border-radius: var(--c-panel-radius);
