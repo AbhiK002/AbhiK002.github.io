@@ -1226,7 +1226,7 @@ h1.glowing {
     border-radius: 16px;
     padding: 1rem;
     gap: 2rem;
-    max-width: 400px;
+    max-width: 420px;
     transition: all 300ms, opacity 800ms, transform 800ms;
     opacity: 0;
     transform: translate(0, 100%);
@@ -1365,6 +1365,7 @@ h1.glowing {
 .know-skills-container {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 2rem;
 }
 
