@@ -986,12 +986,12 @@ const projectPreview = document.getElementsByClassName("project-preview")[0];
 
 const projects = [
     {
-        title: "Gismos - Tech Shopping",
-        descr: "A full stack e-commerce website that allows users to browse tech gadgets like laptops, smartphones, headsets, and a lot more. It's complete with secure user authentication, a shopping cart, product filters and sorting functionalities.",
-        image: "./resources/projects/gismos.jpg",
-        link: "https://abhik002.github.io/gismos",
-        github: "https://github.com/AbhiK002/gismos",
-        techstack: ["MongoDB", "Express", "React", "Node"],
+        title: "CheeniKum - AI-Powered Kitchen Inventory",
+        descr: "An AI-powered kitchen inventory system using Google Gemini 2.5 Flash: an NLP-driven deduction engine parses natural-language dish descriptions into ingredient deductions, and a recommendation engine surfaces cookable dishes from live inventory state. Built with a normalized schema for real-time stock tracking and configurable low-stock alerts.",
+        image: "./resources/projects/cheenikum.jpg",
+        link: "https://cheenikum.abhineetkelley.com",
+        github: "https://github.com/AbhiK002/cheeni-kum-backend",
+        techstack: ["Angular", "Java", "Spring Boot", "PostgreSQL", "Gemini API"],
         disabled: false
     },
     {
@@ -1004,12 +1004,12 @@ const projects = [
         disabled: false
     },
     {
-        title: "CallThem - Contacts Storage",
-        descr: "A CRUD application that lets you store your contacts in a secure database after securely registering with your email and password. It boasts a beautiful, neon lighting themed and interactive user interface along with a secure token based authorization.",
-        image: "./resources/projects/callthem.jpg",
-        link: "https://abhik002.github.io/call-them",
-        github: "https://github.com/AbhiK002/call-them",
-        techstack: ["MongoDB", "Express", "React", "Node"],
+        title: "Techmart - E-Commerce UI (Frontend Only)",
+        descr: "A client-side e-commerce UI built in Angular, covering product browsing, cart/checkout, and order history, with Angular Forms validation for login/register and RxJS-driven async data fetching with error-state handling.",
+        image: "./resources/projects/techmart.jpg",
+        link: "https://abhik002.github.io/int219-project",
+        github: "https://github.com/AbhiK002/int219-project",
+        techstack: ["Angular", "TypeScript", "RxJS"],
         disabled: false
     },
     {
