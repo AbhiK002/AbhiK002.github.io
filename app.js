@@ -356,7 +356,7 @@ const myselfDetails = [
     'A <span class="gold">Backend Software Developer</span> based in India',
     'Worked with technologies like <span class="gold">MERN</span> and <span class="gold">Java Spring Boot</span> (Present)',
     'Hobbyist Desktop App Developer with <span class="gold">Python and Java</span>, soon with .NET too',
-    'Currently working as a <span class="gold">backend SDE-1</span> at <a id="mis-link" href="https://powerup.money/">PowerUp Money</a>'
+    'Currently working as a <span class="gold">SDE-1</span> at <a id="mis-link" href="https://powerup.money/">PowerUp Money</a>'
 ]
 
 myselfDiv.appendChild(
